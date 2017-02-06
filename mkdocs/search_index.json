@@ -1,0 +1,189 @@
+{
+    "docs": [
+        {
+            "location": "/index.html", 
+            "text": "WordHat is an integration layer between \nBehat\n, \nMink\n, and \nWordPress\n. It provides WordPress-specific functionality for common testing scenarios specific to WordPress sites.\n\n\nIf you are new to the project or Behat, we recommend that you first read through our documentation. If you just want to get started, download WordHat on \nComposer\n or \nGithub\n.\n\n\nIf you encounter a bug, have a suggestion, or would like to help the project grow, please get in contact via Github. Thank you!", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/about/index.html", 
+            "text": "Welcome! WordHat is an integration layer between \nBehat\n, \nMink\n, and \nWordPress\n. It provides WordPress-specific functionality for common testing scenarios specific to WordPress sites.\n\n\nWhat does Behat and Mink do?\n\n\nBehat and Mink allow you to describe the behavior of a website in plain, but stylised, language, and then turn that description into an automated test that will visit the site and perform each step you describe.\n\n\nSuch functional tests can help site builders ensure that the added value they have created while building a WordPress site continues to behave as expected, after any sort of site change \n WordPress updates, new plugins, new features, and so on.\n\n\nWhat does WordHat do?\n\n\nThe extension provides \nstep definitions\n that help you implement tests for common WordPress tasks:\n\n\n\n\nManage themes and plugins.\n\n\nManipulate site content.\n\n\nAnd more!\n\n\n\n\nContributions are welcomed!\n\n\nIf you encounter a bug, have a suggestion, or would like to help the project grow, please get in contact via \nGithub\n.", 
+            "title": "Introduction"
+        }, 
+        {
+            "location": "/about/index.html#what-does-behat-and-mink-do", 
+            "text": "Behat and Mink allow you to describe the behavior of a website in plain, but stylised, language, and then turn that description into an automated test that will visit the site and perform each step you describe.  Such functional tests can help site builders ensure that the added value they have created while building a WordPress site continues to behave as expected, after any sort of site change   WordPress updates, new plugins, new features, and so on.", 
+            "title": "What does Behat and Mink do?"
+        }, 
+        {
+            "location": "/about/index.html#what-does-wordhat-do", 
+            "text": "The extension provides  step definitions  that help you implement tests for common WordPress tasks:   Manage themes and plugins.  Manipulate site content.  And more!", 
+            "title": "What does WordHat do?"
+        }, 
+        {
+            "location": "/about/index.html#contributions-are-welcomed", 
+            "text": "If you encounter a bug, have a suggestion, or would like to help the project grow, please get in contact via  Github .", 
+            "title": "Contributions are welcomed!"
+        }, 
+        {
+            "location": "/credits/index.html", 
+            "text": "Credits \n Acknowledgements\n\n\nPaul Gibbs\n (project lead) and the rest of the contributors wish to thank the following projects and their contributors, who provided inspiration and were fantasically useful learning resources:\n\n\n\n\nStephen Harris\n: \nstephenharris/WordPressBehatExtension\n\n\nJohn Blackbourn\n: \njohnbillion/WordPressBehatExtension\n\n\nTom Forrer\n: \ntmf/WordPressExtension\n\n\nWalter Dal Mut\n: \nwdalmut/WordPressExtension\n\n\nLaracasts\n: \nlaracasts/Behat-Laravel-Extension\n\n\n\n\nExtra special thanks is extended to \nJonathan Hedstrom\n and his \nBehat Drupal Extension\n project. Much of the structure of this project is based on Jonathan\ns work, and this project is forever in its debt, having taken direct inspiration from its amazing technical architecture and innovative features.\n\n\nFor making it straightforward to publish this documentation, the project would like to thank \nCouscous\n. Couscous generates HTML from Markdown, and does it wonderfully.\n\n\nIf you have never seen a GitHub issue and pull request template generator featuring Cthulhu and Lewis Carroll, then you should \ncheck this one out\n.\n\n\nFinally, thank \nyou\n for considering WordHat. It is a tool for developers by developers, and we hope it helps you achieve wonderful things. Thank you for making it part of your world.", 
+            "title": "Credits"
+        }, 
+        {
+            "location": "/credits/index.html#credits-acknowledgements", 
+            "text": "Paul Gibbs  (project lead) and the rest of the contributors wish to thank the following projects and their contributors, who provided inspiration and were fantasically useful learning resources:   Stephen Harris :  stephenharris/WordPressBehatExtension  John Blackbourn :  johnbillion/WordPressBehatExtension  Tom Forrer :  tmf/WordPressExtension  Walter Dal Mut :  wdalmut/WordPressExtension  Laracasts :  laracasts/Behat-Laravel-Extension   Extra special thanks is extended to  Jonathan Hedstrom  and his  Behat Drupal Extension  project. Much of the structure of this project is based on Jonathan s work, and this project is forever in its debt, having taken direct inspiration from its amazing technical architecture and innovative features.  For making it straightforward to publish this documentation, the project would like to thank  Couscous . Couscous generates HTML from Markdown, and does it wonderfully.  If you have never seen a GitHub issue and pull request template generator featuring Cthulhu and Lewis Carroll, then you should  check this one out .  Finally, thank  you  for considering WordHat. It is a tool for developers by developers, and we hope it helps you achieve wonderful things. Thank you for making it part of your world.", 
+            "title": "Credits &amp; Acknowledgements"
+        }, 
+        {
+            "location": "/license/index.html", 
+            "text": "License\n\n\nCopyright (C) 2016-present, Paul Gibbs.\n\n\nThis program is free software: you can redistribute it and/or modify\nit under the terms of the GNU General Public License as published by\nthe Free Software Foundation, either version 3 of the License, or\n(at your option) any later version.\n\n\nThis program is distributed in the hope that it will be useful,\nbut WITHOUT ANY WARRANTY; without even the implied warranty of\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. \nSee the\nGNU General Public License for more details\n.\n\n\nYou should have received a copy of the GNU General Public License\nalong with this program. If not, see http://www.gnu.org/licenses/.", 
+            "title": "License"
+        }, 
+        {
+            "location": "/license/index.html#license", 
+            "text": "Copyright (C) 2016-present, Paul Gibbs.  This program is free software: you can redistribute it and/or modify\nit under the terms of the GNU General Public License as published by\nthe Free Software Foundation, either version 3 of the License, or\n(at your option) any later version.  This program is distributed in the hope that it will be useful,\nbut WITHOUT ANY WARRANTY; without even the implied warranty of\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\nGNU General Public License for more details .  You should have received a copy of the GNU General Public License\nalong with this program. If not, see http://www.gnu.org/licenses/.", 
+            "title": "License"
+        }, 
+        {
+            "location": "/requirements/index.html", 
+            "text": "Requirements\n\n\n\n\n\n\n\n\nPackage\n\n\nMinimum required version\n\n\n\n\n\n\n\n\n\n\nComposer\n\n\n*\n\n\n\n\n\n\nPHP\n\n\n= 5.6\n\n\n\n\n\n\nWordPress\n\n\n= 4.7\n\n\n\n\n\n\n\n\nSuggested extras\n\n\n\n\n\n\n\n\nPackage\n\n\nMinimum required version\n\n\n\n\n\n\n\n\n\n\nSelenium standalone\n1\n\n\n= 3.0.1\n\n\n\n\n\n\nWP-CLI\n2\n\n\n= 0.24.0\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRecommended for testing \nwebsites that require Javascript\n. Requires the \nMink Selenium2 driver\n in your project.\n\n\n\n\n\n\nThe WP-CLI executable \nmust\n be named \nwp\n and be within your system\ns \n$PATH\n.", 
+            "title": "Requirements"
+        }, 
+        {
+            "location": "/requirements/index.html#requirements", 
+            "text": "Package  Minimum required version      Composer  *    PHP  = 5.6    WordPress  = 4.7", 
+            "title": "Requirements"
+        }, 
+        {
+            "location": "/requirements/index.html#suggested-extras", 
+            "text": "Package  Minimum required version      Selenium standalone 1  = 3.0.1    WP-CLI 2  = 0.24.0         Recommended for testing  websites that require Javascript . Requires the  Mink Selenium2 driver  in your project.    The WP-CLI executable  must  be named  wp  and be within your system s  $PATH .", 
+            "title": "Suggested extras"
+        }, 
+        {
+            "location": "/installation/index.html", 
+            "text": "WordHat\n\n\n\n\nSummary\n\n\nDo you know how to use Composer? tl;dr?\n\n\nRequire \npaulgibbs/behat-wordpress-extension\n, copy its \nbehat.yml.dist\n into your project (minus \n.dist\n), install \nWP-CLI\n globally, and run \nvendor/bin/behat --init\n.\n\n\n\n\n\n\nWarning\n\n\nCheck that all of the \nrequirements\n are met.\n\n\n\n\nInstallation\n\n\n1) Create a folder for your tests:\n\n\nmkdir projectfolder\n\ncd\n projectfolder\n\n\n\n\n\nAll the commands that follow are written to install from the root of your project folder.\n\n\n2) Tell \nComposer\n to install WordHat. To do this conveniently, run:\n\n\nphp composer.phar require paulgibbs/behat-wordpress-extension\n=\ndev-master\n\n\n\n\n\n\nThis will create a \ncomposer.json\n file for you, and download the extension.\n\n\n3) WordHat comes with a sample configuration file to help you set up the test environment. Copy it into your project folder and name it \nbehat.yml\n:\n\n\ncp vendor/paulgibbs/behat-wordpress-extension/behat.yml.dist behat.yml\n\n\n\n\n\nEdit that file and change the \nbase_url\n setting to point at the website that you intend to test.\n\n\n4) Initialise \nBehat\n:\n\n\nvendor/bin/behat --init\n\n\n\n\n\nThis will generate a \nfeatures/\n folder for your \nfeatures\n, and a new \ncontext\n in \nfeatures/bootstrap/\n. The latter is aware of both the WordPress and \nMink\n extensions, so you will be able to take advantage of them as you build your own custom \nstep definitions or hooks\n.\n\n\nUsage\n\n\nTo confirm that everything is set up correctly, run:\n\n\nvendor/bin/behat -dl\n\n\n\n\n\nIf everything worked, you will see a list of steps like the following (but much longer):\n\n\nGiven \nI am an anonymous user\n\n\nGiven \nI am not logged in\n\n\nGiven \nI am logged in as a user with the :role role(s)\n\n\nGiven \nI am logged in as :name\n\n\n\n\n\n\nNow you are ready to start writing your tests! If you are new to Behat, you might want to review its \nquick start\n documentation. Good luck, and happy testing!", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/installation/index.html#wordhat", 
+            "text": "Summary  Do you know how to use Composer? tl;dr?  Require  paulgibbs/behat-wordpress-extension , copy its  behat.yml.dist  into your project (minus  .dist ), install  WP-CLI  globally, and run  vendor/bin/behat --init .    Warning  Check that all of the  requirements  are met.", 
+            "title": "WordHat"
+        }, 
+        {
+            "location": "/installation/index.html#installation", 
+            "text": "1) Create a folder for your tests:  mkdir projectfolder cd  projectfolder  All the commands that follow are written to install from the root of your project folder.  2) Tell  Composer  to install WordHat. To do this conveniently, run:  php composer.phar require paulgibbs/behat-wordpress-extension = dev-master   This will create a  composer.json  file for you, and download the extension.  3) WordHat comes with a sample configuration file to help you set up the test environment. Copy it into your project folder and name it  behat.yml :  cp vendor/paulgibbs/behat-wordpress-extension/behat.yml.dist behat.yml  Edit that file and change the  base_url  setting to point at the website that you intend to test.  4) Initialise  Behat :  vendor/bin/behat --init  This will generate a  features/  folder for your  features , and a new  context  in  features/bootstrap/ . The latter is aware of both the WordPress and  Mink  extensions, so you will be able to take advantage of them as you build your own custom  step definitions or hooks .", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/installation/index.html#usage", 
+            "text": "To confirm that everything is set up correctly, run:  vendor/bin/behat -dl  If everything worked, you will see a list of steps like the following (but much longer):  Given  I am an anonymous user  Given  I am not logged in  Given  I am logged in as a user with the :role role(s)  Given  I am logged in as :name   Now you are ready to start writing your tests! If you are new to Behat, you might want to review its  quick start  documentation. Good luck, and happy testing!", 
+            "title": "Usage"
+        }, 
+        {
+            "location": "/settings/index.html", 
+            "text": "Settings\n\n\nBehat uses \nYAML\n for its configuration file.\n\n\nPaulGibbs\\WordpressBehatExtension\n\n\nExtension \nPaulGibbs\\WordpressBehatExtension\n integrates WordPress into Behat. These are its configuration options:\n\n\nPaulGibbs\\WordpressBehatExtension\n:\n\n  \ndefault_driver\n:\n \nwpcli\n\n  \npath\n:\n \n~\n\n\n  \n# User settings.\n\n  \nusers\n:\n\n    \nadmin\n:\n\n      \nusername\n:\n \nadmin\n\n      \npassword\n:\n \nadmin\n\n    \neditor\n:\n\n      \nusername\n:\n \neditor\n\n      \npassword\n:\n \neditor\n\n    \nauthor\n:\n\n      \nusername\n:\n \nauthor\n\n      \npassword\n:\n \nauthor\n\n    \ncontributor\n:\n\n      \nusername\n:\n \ncontributor\n\n      \npassword\n:\n \ncontributor\n\n    \nsubscriber\n:\n\n      \nusername\n:\n \nsubscriber\n\n      \npassword\n:\n \nsubscriber\n\n\n  \n# WordPress settings.\n\n  \nsiteurl\n:\n \n~\n\n  \npermalinks\n:\n\n    \nauthor_archive\n:\n \nauthor/%s/\n\n\n  \n# Driver settings.\n\n  \nwpcli\n:\n\n    \nalias\n:\n \ndev\n\n\n\n\n\n\n\n\n\n\n\n\nOption\n\n\nDefault value\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ndefault_driver\n\n\nwpcli\n\n\nOptional\n.\nThe \ndriver\n to use (\nwpcli\n, \nwpapi\n, \nblackbox\n).\n\n\n\n\n\n\npath\n\n\nnull\n\n\nRequired\n.\nPath to WordPress files.\n\n\n\n\n\n\nusers.*\n\n\nsee example\n\n\nOptional\n.\nKeys must match names of WordPress roles.\n\n\n\n\n\n\npermalinks.*\n\n\nsee example\n\n\nOptional\n.\nPermalink pattern for the specific kind of link.\n%s\n is replaced with an ID/object name, as appropriate.\n\n\n\n\n\n\nsite_url\n\n\nnull\n\n\nOptional\n.\nIf your site\ns \nhome_url()\n and \nsite_url()\n values \nmismatch\n,\nset this to the \nsite_url()\n value.\n\n\n\n\n\n\nwpcli.alias\n\n\nnull\n\n\nOptional\n.\nWP-CLI alias\n (preferred over \nwpcli.path\n).\n\n\n\n\n\n\n\n\nBehat\\MinkExtension\n\n\nBehat\\MinkExtension\n:\n\n  \n# Recommended settings.\n\n  \nbase_url\n:\n \n~\n\n\n\n\n\n\n\n\n\n\n\n\nOption\n\n\nDefault value\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nbase_url\n\n\nnull\n\n\nIf you use relative paths in your tests, define a URL to use as the basename.\n\n\n\n\n\n\n\n\nThe \nBehat\\MinkExtension\n extension integrates Mink into Behat. \nVisit its website\n for more information.", 
+            "title": "Settings"
+        }, 
+        {
+            "location": "/settings/index.html#settings", 
+            "text": "Behat uses  YAML  for its configuration file.", 
+            "title": "Settings"
+        }, 
+        {
+            "location": "/settings/index.html#paulgibbswordpressbehatextension", 
+            "text": "Extension  PaulGibbs\\WordpressBehatExtension  integrates WordPress into Behat. These are its configuration options:  PaulGibbs\\WordpressBehatExtension : \n   default_driver :   wpcli \n   path :   ~ \n\n   # User settings. \n   users : \n     admin : \n       username :   admin \n       password :   admin \n     editor : \n       username :   editor \n       password :   editor \n     author : \n       username :   author \n       password :   author \n     contributor : \n       username :   contributor \n       password :   contributor \n     subscriber : \n       username :   subscriber \n       password :   subscriber \n\n   # WordPress settings. \n   siteurl :   ~ \n   permalinks : \n     author_archive :   author/%s/ \n\n   # Driver settings. \n   wpcli : \n     alias :   dev      Option  Default value  Description      default_driver  wpcli  Optional . The  driver  to use ( wpcli ,  wpapi ,  blackbox ).    path  null  Required . Path to WordPress files.    users.*  see example  Optional . Keys must match names of WordPress roles.    permalinks.*  see example  Optional . Permalink pattern for the specific kind of link. %s  is replaced with an ID/object name, as appropriate.    site_url  null  Optional . If your site s  home_url()  and  site_url()  values  mismatch , set this to the  site_url()  value.    wpcli.alias  null  Optional . WP-CLI alias  (preferred over  wpcli.path ).", 
+            "title": "PaulGibbs\\WordpressBehatExtension"
+        }, 
+        {
+            "location": "/settings/index.html#behatminkextension", 
+            "text": "Behat\\MinkExtension : \n   # Recommended settings. \n   base_url :   ~      Option  Default value  Description      base_url  null  If you use relative paths in your tests, define a URL to use as the basename.     The  Behat\\MinkExtension  extension integrates Mink into Behat.  Visit its website  for more information.", 
+            "title": "Behat\\MinkExtension"
+        }, 
+        {
+            "location": "/environment-settings/index.html", 
+            "text": "Environment Settings\n\n\nSome of the settings in \nbehat.yml\n are environment specific. For example, the \nbase_url\n may be \nhttp://test.example.dev\n on your local development environment, while on a test server it might be \nhttp://test.example.com\n.\n\n\nIf you intend to run your tests on different environments, these sorts of settings should not be added to your \nbehat.yml\n. Instead, they should be exported in an environment variable.\n\n\nBefore running tests, Behat will check the \nBEHAT_PARAMS\n environment variable and add these settings to the ones that are present in \nbehat.yml\n (settings from this file takes precedence). This variable should contain a JSON object with your settings.\n\n\nExample JSON object:\n\n\n{\n\n  \nextensions\n:\n \n{\n\n    \nBehat\\\\MinkExtension\n:\n \n{\n\n      \nbase_url\n:\n \nhttp://development.dev\n\n    \n}\n\n  \n}\n\n\n}\n\n\n\n\n\n\nTo export this into the \nBEHAT_PARAMS\n environment variable, squash the JSON object into a single line and surround with single quotes:\n\n\nexport\n \nBEHAT_PARAMS\n=\n{\nextensions\n:{\nBehat\\\\MinkExtension\n:{\nbase_url\n:\nhttp://development.dev\n}}}", 
+            "title": "Environment"
+        }, 
+        {
+            "location": "/environment-settings/index.html#environment-settings", 
+            "text": "Some of the settings in  behat.yml  are environment specific. For example, the  base_url  may be  http://test.example.dev  on your local development environment, while on a test server it might be  http://test.example.com .  If you intend to run your tests on different environments, these sorts of settings should not be added to your  behat.yml . Instead, they should be exported in an environment variable.  Before running tests, Behat will check the  BEHAT_PARAMS  environment variable and add these settings to the ones that are present in  behat.yml  (settings from this file takes precedence). This variable should contain a JSON object with your settings.  Example JSON object:  { \n   extensions :   { \n     Behat\\\\MinkExtension :   { \n       base_url :   http://development.dev \n     } \n   }  }   To export this into the  BEHAT_PARAMS  environment variable, squash the JSON object into a single line and surround with single quotes:  export   BEHAT_PARAMS = { extensions :{ Behat\\\\MinkExtension :{ base_url : http://development.dev }}}", 
+            "title": "Environment Settings"
+        }, 
+        {
+            "location": "/drivers/index.html", 
+            "text": "Drivers\n\n\nWordHat provides a range of drivers for interacting with the WordPress site you are testing. A driver represents and manages the connection between the Behat and WordPress environments. Different drivers support different features.\n\n\n\n\nThe \nWP-CLI\n driver \n the default \n uses \nWP-CLI\n to communicate with WordPress.\n\n\nThe \nWordPress API\n driver loads WordPress in the same PHP context as Behat.\n\n\nThe \nBlackbox\n driver interacts with WordPress through a web browser, in an unpriviledged context.\n\n\n\n\nTo specify which driver to use for your tests, set \ndefault_driver\n in your \nbehat.yml\n file.\n\n\n\n\n\n\n\n\nFeature\n\n\nWP-CLI\n\n\nWordPress API\n\n\nBlackbox\n\n\n\n\n\n\n\n\n\n\nPublish posts and comments.\n\n\nYes\n\n\nYes\n\n\nNo\n\n\n\n\n\n\nCreate terms for taxonomy.\n\n\nYes\n\n\nYes\n\n\nNo\n\n\n\n\n\n\nCreate users.\n\n\nYes\n\n\nYes\n\n\nNo\n\n\n\n\n\n\nManage plugins.\n\n\nYes\n\n\nYes\n\n\nNo\n\n\n\n\n\n\nSwitch theme.\n\n\nYes\n\n\nYes\n\n\nNo\n\n\n\n\n\n\nClear cache.\n\n\nYes\n\n\nYes\n\n\nNo\n\n\n\n\n\n\nDatabase import/export.\n\n\nYes\n\n\nNo\n\n\nNo\n\n\n\n\n\n\nRun tests and site on different servers.\n\n\nYes\n1\n\n\nNo\n\n\nYes\n\n\n\n\n\n\nDatabase transactions.\n\n\nNo\n\n\nYes\n\n\nNo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWP-CLI \nsupports SSH connections\n to remote WordPress sites.", 
+            "title": "Drivers"
+        }, 
+        {
+            "location": "/drivers/index.html#drivers", 
+            "text": "WordHat provides a range of drivers for interacting with the WordPress site you are testing. A driver represents and manages the connection between the Behat and WordPress environments. Different drivers support different features.   The  WP-CLI  driver   the default   uses  WP-CLI  to communicate with WordPress.  The  WordPress API  driver loads WordPress in the same PHP context as Behat.  The  Blackbox  driver interacts with WordPress through a web browser, in an unpriviledged context.   To specify which driver to use for your tests, set  default_driver  in your  behat.yml  file.     Feature  WP-CLI  WordPress API  Blackbox      Publish posts and comments.  Yes  Yes  No    Create terms for taxonomy.  Yes  Yes  No    Create users.  Yes  Yes  No    Manage plugins.  Yes  Yes  No    Switch theme.  Yes  Yes  No    Clear cache.  Yes  Yes  No    Database import/export.  Yes  No  No    Run tests and site on different servers.  Yes 1  No  Yes    Database transactions.  No  Yes  No         WP-CLI  supports SSH connections  to remote WordPress sites.", 
+            "title": "Drivers"
+        }, 
+        {
+            "location": "/contexts/index.html", 
+            "text": "Contexts\n\n\nWith Behat, it is possible to flexibly structure your code by using multiple \ncontexts\n in a single test suite. WordHat provides the following contexts:\n\n\nRawWordpressContext\n\n\nThis is a context that provides no step definitions, but all of the necessary functionality for interacting with WordPress and the browser.\n\n\nContentContext\n\n\nProvides step definitions for creating content: post types, comments, and terms.\n\n\nDashboardContext\n\n\nProvides step definitions that are specific to the WordPress dashboard (wp-admin).\n\n\nSiteContext\n\n\nProvides step definitions for managing plugins, themes, and cache.\n\n\nUserContext\n\n\nProvides step definitions for all things relating to users.\n\n\nWordpressContext\n\n\nProvides step definitions for a range of common tasks. Recommended for all test suites.", 
+            "title": "Contexts"
+        }, 
+        {
+            "location": "/contexts/index.html#contexts", 
+            "text": "With Behat, it is possible to flexibly structure your code by using multiple  contexts  in a single test suite. WordHat provides the following contexts:", 
+            "title": "Contexts"
+        }, 
+        {
+            "location": "/contexts/index.html#rawwordpresscontext", 
+            "text": "This is a context that provides no step definitions, but all of the necessary functionality for interacting with WordPress and the browser.", 
+            "title": "RawWordpressContext"
+        }, 
+        {
+            "location": "/contexts/index.html#contentcontext", 
+            "text": "Provides step definitions for creating content: post types, comments, and terms.", 
+            "title": "ContentContext"
+        }, 
+        {
+            "location": "/contexts/index.html#dashboardcontext", 
+            "text": "Provides step definitions that are specific to the WordPress dashboard (wp-admin).", 
+            "title": "DashboardContext"
+        }, 
+        {
+            "location": "/contexts/index.html#sitecontext", 
+            "text": "Provides step definitions for managing plugins, themes, and cache.", 
+            "title": "SiteContext"
+        }, 
+        {
+            "location": "/contexts/index.html#usercontext", 
+            "text": "Provides step definitions for all things relating to users.", 
+            "title": "UserContext"
+        }, 
+        {
+            "location": "/contexts/index.html#wordpresscontext", 
+            "text": "Provides step definitions for a range of common tasks. Recommended for all test suites.", 
+            "title": "WordpressContext"
+        }, 
+        {
+            "location": "/faq/index.html", 
+            "text": "FAQs\n\n\nComposer\n\n\n\n\nWordHat does not support a custom \nvendor-bin\n for Composer if you are using the \nWP-CLI driver\n. \n#16\n\n\n\n\nJavascript\n\n\n\n\nIf you are using \nSelenium\n to run Javascript tests, and you access your WordPress site over HTTPS, \nand\n it has a self-signed certificate, you will need to manually configure the web browser to accept that certificate.\n\n\n\n\nWP-CLI\n\n\n\n\nIf your WordPress site causes PHP notices or errors during WP-CLI execution, or prints to \nerror_log\n, Behat will interpret this as an error (\nUnexpectedValueException\n). The solution is to fix the code in the plugin or theme.\n\n\nIf you are using the WP-CLI driver to \nconnect to a remote WordPress site over SSH\n, WordHat assumes the remote server is Linux-like, with a shell that provides \nGNU Coreutils\n.", 
+            "title": "FAQs"
+        }, 
+        {
+            "location": "/faq/index.html#faqs", 
+            "text": "", 
+            "title": "FAQs"
+        }, 
+        {
+            "location": "/faq/index.html#composer", 
+            "text": "WordHat does not support a custom  vendor-bin  for Composer if you are using the  WP-CLI driver .  #16", 
+            "title": "Composer"
+        }, 
+        {
+            "location": "/faq/index.html#javascript", 
+            "text": "If you are using  Selenium  to run Javascript tests, and you access your WordPress site over HTTPS,  and  it has a self-signed certificate, you will need to manually configure the web browser to accept that certificate.", 
+            "title": "Javascript"
+        }, 
+        {
+            "location": "/faq/index.html#wp-cli", 
+            "text": "If your WordPress site causes PHP notices or errors during WP-CLI execution, or prints to  error_log , Behat will interpret this as an error ( UnexpectedValueException ). The solution is to fix the code in the plugin or theme.  If you are using the WP-CLI driver to  connect to a remote WordPress site over SSH , WordHat assumes the remote server is Linux-like, with a shell that provides  GNU Coreutils .", 
+            "title": "WP-CLI"
+        }
+    ]
+}
