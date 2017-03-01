@@ -27,12 +27,12 @@
         }, 
         {
             "location": "/credits/index.html", 
-            "text": "Credits \n Acknowledgements\n\n\nPaul Gibbs\n (project lead) and the rest of the contributors wish to thank the following projects and their contributors, who provided inspiration and were fantasically useful learning resources:\n\n\n\n\nStephen Harris\n: \nstephenharris/WordPressBehatExtension\n\n\nJohn Blackbourn\n: \njohnbillion/WordPressBehatExtension\n\n\nTom Forrer\n: \ntmf/WordPressExtension\n\n\nWalter Dal Mut\n: \nwdalmut/WordPressExtension\n\n\nLaracasts\n: \nlaracasts/Behat-Laravel-Extension\n\n\nAriel Gold\n: \nari-gold/WordPress-Behat-Quickstart\n\n\n\n\nExtra special thanks is extended to \nJonathan Hedstrom\n and his \nBehat Drupal Extension\n project. Much of the structure of this project is based on Jonathan\ns work, and this project is forever in its debt, having taken direct inspiration from its amazing technical architecture and innovative features.\n\n\nFor making it straightforward to publish this documentation, the project would like to thank \nCouscous\n. Couscous generates HTML from Markdown, and does it wonderfully.\n\n\nIf you have never seen a GitHub issue and pull request template generator featuring Cthulhu and Lewis Carroll, then you should \ncheck this one out\n.\n\n\nFinally, thank \nyou\n for considering WordHat. It is a tool for developers by developers, and we hope it helps you achieve wonderful things. Thank you for making it part of your world.", 
+            "text": "Credits \n Acknowledgements\n\n\nPaul Gibbs\n (project lead) and the rest of the contributors wish to thank the following projects and their contributors, who provided inspiration and were fantasically useful learning resources:\n\n\n\n\nStephen Harris\n: \nstephenharris/WordPressBehatExtension\n\n\nJohn Blackbourn\n: \njohnbillion/WordPressBehatExtension\n\n\nTom Forrer\n: \ntmf/WordPressExtension\n\n\nWalter Dal Mut\n: \nwdalmut/WordPressExtension\n\n\nLaracasts\n: \nlaracasts/Behat-Laravel-Extension\n\n\nAriel Gold\n: \nari-gold/WordPress-Behat-Quickstart\n\n\n\n\nExtra special thanks is extended to \nJonathan Hedstrom\n and his \nBehat Drupal Extension\n project. Much of the structure of this project is based on Jonathan\ns work, and this project is forever in its debt, having taken direct inspiration from its amazing technical architecture and innovative features.\n\n\nFor making it straightforward to publish this documentation, the project would like to thank \nMkDocs\n and the \nMaterial for MkDocs\n theme. MkDocs generates HTML from Markdown, and does it wonderfully.\n\n\nIf you have never seen a GitHub issue and pull request template generator featuring Cthulhu and Lewis Carroll, then you should \ncheck this one out\n.\n\n\nFinally, thank \nyou\n for considering WordHat. It is a tool for developers by developers, and we hope it helps you achieve wonderful things. Thank you for making it part of your world.", 
             "title": "Credits"
         }, 
         {
             "location": "/credits/index.html#credits-acknowledgements", 
-            "text": "Paul Gibbs  (project lead) and the rest of the contributors wish to thank the following projects and their contributors, who provided inspiration and were fantasically useful learning resources:   Stephen Harris :  stephenharris/WordPressBehatExtension  John Blackbourn :  johnbillion/WordPressBehatExtension  Tom Forrer :  tmf/WordPressExtension  Walter Dal Mut :  wdalmut/WordPressExtension  Laracasts :  laracasts/Behat-Laravel-Extension  Ariel Gold :  ari-gold/WordPress-Behat-Quickstart   Extra special thanks is extended to  Jonathan Hedstrom  and his  Behat Drupal Extension  project. Much of the structure of this project is based on Jonathan s work, and this project is forever in its debt, having taken direct inspiration from its amazing technical architecture and innovative features.  For making it straightforward to publish this documentation, the project would like to thank  Couscous . Couscous generates HTML from Markdown, and does it wonderfully.  If you have never seen a GitHub issue and pull request template generator featuring Cthulhu and Lewis Carroll, then you should  check this one out .  Finally, thank  you  for considering WordHat. It is a tool for developers by developers, and we hope it helps you achieve wonderful things. Thank you for making it part of your world.", 
+            "text": "Paul Gibbs  (project lead) and the rest of the contributors wish to thank the following projects and their contributors, who provided inspiration and were fantasically useful learning resources:   Stephen Harris :  stephenharris/WordPressBehatExtension  John Blackbourn :  johnbillion/WordPressBehatExtension  Tom Forrer :  tmf/WordPressExtension  Walter Dal Mut :  wdalmut/WordPressExtension  Laracasts :  laracasts/Behat-Laravel-Extension  Ariel Gold :  ari-gold/WordPress-Behat-Quickstart   Extra special thanks is extended to  Jonathan Hedstrom  and his  Behat Drupal Extension  project. Much of the structure of this project is based on Jonathan s work, and this project is forever in its debt, having taken direct inspiration from its amazing technical architecture and innovative features.  For making it straightforward to publish this documentation, the project would like to thank  MkDocs  and the  Material for MkDocs  theme. MkDocs generates HTML from Markdown, and does it wonderfully.  If you have never seen a GitHub issue and pull request template generator featuring Cthulhu and Lewis Carroll, then you should  check this one out .  Finally, thank  you  for considering WordHat. It is a tool for developers by developers, and we hope it helps you achieve wonderful things. Thank you for making it part of your world.", 
             "title": "Credits &amp; Acknowledgements"
         }, 
         {
@@ -82,7 +82,7 @@
         }, 
         {
             "location": "/settings/index.html", 
-            "text": "Settings\n\n\nBehat uses \nYAML\n for its configuration file.\n\n\nPaulGibbs\\WordpressBehatExtension\n\n\nExtension \nPaulGibbs\\WordpressBehatExtension\n integrates WordPress into Behat. These are its configuration options:\n\n\nPaulGibbs\\WordpressBehatExtension\n:\n\n  \ndefault_driver\n:\n \nwpcli\n\n  \npath\n:\n \n~\n\n\n  \n# User settings.\n\n  \nusers\n:\n\n    \nadmin\n:\n\n      \nusername\n:\n \nadmin\n\n      \npassword\n:\n \nadmin\n\n    \neditor\n:\n\n      \nusername\n:\n \neditor\n\n      \npassword\n:\n \neditor\n\n    \nauthor\n:\n\n      \nusername\n:\n \nauthor\n\n      \npassword\n:\n \nauthor\n\n    \ncontributor\n:\n\n      \nusername\n:\n \ncontributor\n\n      \npassword\n:\n \ncontributor\n\n    \nsubscriber\n:\n\n      \nusername\n:\n \nsubscriber\n\n      \npassword\n:\n \nsubscriber\n\n\n  \n# WordPress settings.\n\n  \nsite_url\n:\n \n~\n\n  \npermalinks\n:\n\n    \nauthor_archive\n:\n \nauthor/%s/\n\n\n  \n# Driver settings.\n\n  \nwpcli\n:\n\n    \nalias\n:\n \ndev\n\n\n\n\n\n\n\n\n\n\n\n\nOption\n\n\nDefault value\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ndefault_driver\n\n\nwpcli\n\n\nOptional\n.\nThe \ndriver\n to use (\nwpcli\n, \nwpapi\n, \nblackbox\n).\n\n\n\n\n\n\npath\n\n\nnull\n\n\nRequired\n.\nPath to WordPress files.\n\n\n\n\n\n\nusers.*\n\n\nsee example\n\n\nOptional\n.\nKeys must match names of WordPress roles.\n\n\n\n\n\n\npermalinks.*\n\n\nsee example\n\n\nOptional\n.\nPermalink pattern for the specific kind of link.\n%s\n is replaced with an ID/object name, as appropriate.\n\n\n\n\n\n\nsite_url\n\n\nnull\n\n\nOptional\n.\nIf your site\ns \nhome_url()\n and \nsite_url()\n values \nmismatch\n,\nset this to the \nsite_url()\n value. Defaults to \nmink.base_url\n\n\n\n\n\n\nwpcli.alias\n\n\nnull\n\n\nOptional\n.\nWP-CLI alias\n (preferred over \nwpcli.path\n).\n\n\n\n\n\n\n\n\nBehat\\MinkExtension\n\n\nBehat\\MinkExtension\n:\n\n  \n# Recommended settings.\n\n  \nbase_url\n:\n \n~\n\n\n\n\n\n\n\n\n\n\n\n\nOption\n\n\nDefault value\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nbase_url\n\n\nnull\n\n\nIf you use relative paths in your tests, define a URL to use as the basename.\n\n\n\n\n\n\n\n\nThe \nBehat\\MinkExtension\n extension integrates Mink into Behat. \nVisit its website\n for more information.", 
+            "text": "Settings\n\n\nBehat uses \nYAML\n for its configuration file.\n\n\nPaulGibbs\\WordpressBehatExtension\n\n\nExtension \nPaulGibbs\\WordpressBehatExtension\n integrates WordPress into Behat. These are its configuration options:\n\n\nPaulGibbs\\WordpressBehatExtension\n:\n\n  \ndefault_driver\n:\n \nwpcli\n\n  \npath\n:\n \n~\n\n\n  \n# User settings.\n\n  \nusers\n:\n\n    \nadmin\n:\n\n      \nusername\n:\n \nadmin\n\n      \npassword\n:\n \nadmin\n\n    \neditor\n:\n\n      \nusername\n:\n \neditor\n\n      \npassword\n:\n \neditor\n\n    \nauthor\n:\n\n      \nusername\n:\n \nauthor\n\n      \npassword\n:\n \nauthor\n\n    \ncontributor\n:\n\n      \nusername\n:\n \ncontributor\n\n      \npassword\n:\n \ncontributor\n\n    \nsubscriber\n:\n\n      \nusername\n:\n \nsubscriber\n\n      \npassword\n:\n \nsubscriber\n\n\n  \n# WordPress settings.\n\n  \nsite_url\n:\n \n~\n\n  \npermalinks\n:\n\n    \nauthor_archive\n:\n \nauthor/%s/\n\n\n  \n# Driver settings.\n\n  \nwpcli\n:\n\n    \nalias\n:\n \ndev\n\n    \nbinary\n:\n \nwp\n\n\n\n\n\n\n\n\n\n\n\n\nOption\n\n\nDefault value\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ndefault_driver\n\n\nwpcli\n\n\nOptional\n.\nThe \ndriver\n to use (\nwpcli\n, \nwpapi\n, \nblackbox\n).\n\n\n\n\n\n\npath\n\n\nnull\n\n\nRequired\n.\nPath to WordPress files.\n\n\n\n\n\n\nusers.*\n\n\nsee example\n\n\nOptional\n.\nKeys must match names of WordPress roles.\n\n\n\n\n\n\npermalinks.*\n\n\nsee example\n\n\nOptional\n.\nPermalink pattern for the specific kind of link.\n%s\n is replaced with an ID/object name, as appropriate.\n\n\n\n\n\n\nsite_url\n\n\nnull\n\n\nOptional\n.\nIf your site\ns \nhome_url()\n and \nsite_url()\n values \nmismatch\n,\nset this to the \nsite_url()\n value. Defaults to \nmink.base_url\n\n\n\n\n\n\nwpcli.alias\n\n\nnull\n\n\nOptional\n.\nWP-CLI alias\n (preferred over \nwpcli.path\n).\n\n\n\n\n\n\nwpcli.binary\n\n\nwp\n\n\nOptional\n.\nPath and name of WP-CLI binary.\n\n\n\n\n\n\n\n\nBehat\\MinkExtension\n\n\nBehat\\MinkExtension\n:\n\n  \n# Recommended settings.\n\n  \nbase_url\n:\n \n~\n\n\n\n\n\n\n\n\n\n\n\n\nOption\n\n\nDefault value\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nbase_url\n\n\nnull\n\n\nIf you use relative paths in your tests, define a URL to use as the basename.\n\n\n\n\n\n\n\n\nThe \nBehat\\MinkExtension\n extension integrates Mink into Behat. \nVisit its website\n for more information.", 
             "title": "Settings"
         }, 
         {
@@ -92,7 +92,7 @@
         }, 
         {
             "location": "/settings/index.html#paulgibbswordpressbehatextension", 
-            "text": "Extension  PaulGibbs\\WordpressBehatExtension  integrates WordPress into Behat. These are its configuration options:  PaulGibbs\\WordpressBehatExtension : \n   default_driver :   wpcli \n   path :   ~ \n\n   # User settings. \n   users : \n     admin : \n       username :   admin \n       password :   admin \n     editor : \n       username :   editor \n       password :   editor \n     author : \n       username :   author \n       password :   author \n     contributor : \n       username :   contributor \n       password :   contributor \n     subscriber : \n       username :   subscriber \n       password :   subscriber \n\n   # WordPress settings. \n   site_url :   ~ \n   permalinks : \n     author_archive :   author/%s/ \n\n   # Driver settings. \n   wpcli : \n     alias :   dev      Option  Default value  Description      default_driver  wpcli  Optional . The  driver  to use ( wpcli ,  wpapi ,  blackbox ).    path  null  Required . Path to WordPress files.    users.*  see example  Optional . Keys must match names of WordPress roles.    permalinks.*  see example  Optional . Permalink pattern for the specific kind of link. %s  is replaced with an ID/object name, as appropriate.    site_url  null  Optional . If your site s  home_url()  and  site_url()  values  mismatch , set this to the  site_url()  value. Defaults to  mink.base_url    wpcli.alias  null  Optional . WP-CLI alias  (preferred over  wpcli.path ).", 
+            "text": "Extension  PaulGibbs\\WordpressBehatExtension  integrates WordPress into Behat. These are its configuration options:  PaulGibbs\\WordpressBehatExtension : \n   default_driver :   wpcli \n   path :   ~ \n\n   # User settings. \n   users : \n     admin : \n       username :   admin \n       password :   admin \n     editor : \n       username :   editor \n       password :   editor \n     author : \n       username :   author \n       password :   author \n     contributor : \n       username :   contributor \n       password :   contributor \n     subscriber : \n       username :   subscriber \n       password :   subscriber \n\n   # WordPress settings. \n   site_url :   ~ \n   permalinks : \n     author_archive :   author/%s/ \n\n   # Driver settings. \n   wpcli : \n     alias :   dev \n     binary :   wp      Option  Default value  Description      default_driver  wpcli  Optional . The  driver  to use ( wpcli ,  wpapi ,  blackbox ).    path  null  Required . Path to WordPress files.    users.*  see example  Optional . Keys must match names of WordPress roles.    permalinks.*  see example  Optional . Permalink pattern for the specific kind of link. %s  is replaced with an ID/object name, as appropriate.    site_url  null  Optional . If your site s  home_url()  and  site_url()  values  mismatch , set this to the  site_url()  value. Defaults to  mink.base_url    wpcli.alias  null  Optional . WP-CLI alias  (preferred over  wpcli.path ).    wpcli.binary  wp  Optional . Path and name of WP-CLI binary.", 
             "title": "PaulGibbs\\WordpressBehatExtension"
         }, 
         {
@@ -162,7 +162,7 @@
         }, 
         {
             "location": "/faq/index.html", 
-            "text": "FAQs\n\n\nComposer\n\n\n\n\nWordHat does not support a custom \nvendor-bin\n for Composer if you are using the \nWP-CLI driver\n. \n#16\n\n\n\n\nJavascript\n\n\n\n\nIf you are using \nSelenium\n to run Javascript tests, and you access your WordPress site over HTTPS, \nand\n it has a self-signed certificate, you will need to manually configure the web browser to accept that certificate.\n\n\n\n\nWP-CLI\n\n\n\n\nIf your WordPress site causes PHP notices or errors during WP-CLI execution, or prints to \nerror_log\n, Behat will interpret this as an error (\nUnexpectedValueException\n). The solution is to fix the code in the plugin or theme.\n\n\nIf you are using the WP-CLI driver to \nconnect to a remote WordPress site over SSH\n, WordHat assumes the remote server is Linux-like, with a shell that provides \nGNU Coreutils\n.", 
+            "text": "FAQs\n\n\nJavascript\n\n\n\n\nIf you are using \nSelenium\n to run Javascript tests, and you access your WordPress site over HTTPS, \nand\n it has a self-signed certificate, you will need to manually configure the web browser to accept that certificate.\n\n\n\n\nWP-CLI\n\n\n\n\nIf you are using the WP-CLI driver to \nconnect to a remote WordPress site over SSH\n, WordHat assumes the remote server is Linux-like, with a shell that provides \nGNU Coreutils\n.", 
             "title": "FAQs"
         }, 
         {
@@ -171,19 +171,109 @@
             "title": "FAQs"
         }, 
         {
-            "location": "/faq/index.html#composer", 
-            "text": "WordHat does not support a custom  vendor-bin  for Composer if you are using the  WP-CLI driver .  #16", 
-            "title": "Composer"
-        }, 
-        {
             "location": "/faq/index.html#javascript", 
             "text": "If you are using  Selenium  to run Javascript tests, and you access your WordPress site over HTTPS,  and  it has a self-signed certificate, you will need to manually configure the web browser to accept that certificate.", 
             "title": "Javascript"
         }, 
         {
             "location": "/faq/index.html#wp-cli", 
-            "text": "If your WordPress site causes PHP notices or errors during WP-CLI execution, or prints to  error_log , Behat will interpret this as an error ( UnexpectedValueException ). The solution is to fix the code in the plugin or theme.  If you are using the WP-CLI driver to  connect to a remote WordPress site over SSH , WordHat assumes the remote server is Linux-like, with a shell that provides  GNU Coreutils .", 
+            "text": "If you are using the WP-CLI driver to  connect to a remote WordPress site over SSH , WordHat assumes the remote server is Linux-like, with a shell that provides  GNU Coreutils .", 
             "title": "WP-CLI"
+        }, 
+        {
+            "location": "/changelog/index.html", 
+            "text": "Change Log\n\n\nAll notable changes to this project will be documented in this file.\n\n\nThe format is based on \nKeep a Changelog\n and this project adheres to \nsemantic versioning\n.\n\n\n0.5.0\n - 2017-02-08\n\n\nAdded\n\n\n\n\nPHPCS rules.\n\n\nScrutinizer-CI integration.\n\n\n\n\nChanged\n\n\n\n\nWebsite; switched from Couscous to MkDocs.\n\n\nDocumentation.\n\n\nTravis-CI tweaks.\n\n\n\n\nFixed\n\n\n\n\nMiscellanous driver fixes, especially WP-CLI over SSH. Again.\n\n\n\n\n0.4.0\n - 2017-01-30\n\n\nAdded\n\n\n\n\nIntroduce sensiolabs/behat-page-object-extension for future development.\n\n\n\n\nFixed\n\n\n\n\nMiscellanous driver fixes, especially WP-CLI over SSH.\n\n\n\n\nChanged\n\n\n\n\nDocumentation.\n\n\nWebsite design and performance improvements.\n\n\nTravis-CI improvements.\n\n\n\n\n0.3.0\n - 2017-01-07\n\n\nAdded\n\n\n\n\nMiscellanous driver fixes.\n\n\nFirst pass at Contexts.\n\n\n\n\nChanged\n\n\n\n\nDocumentation.\n\n\n\n\n0.2.0\n - 2016-11-26\n\n\nAdded\n\n\n\n\nWP-API and blackbox drivers.\n\n\nWebsite/documentation.\n\n\nDatabase import/export methods to drivers.\n\n\n\n\nChanged\n\n\n\n\nAdjusted exceptions thrown by DriverManager and Drivers.\n\n\nDesign adjustments to website.\n\n\n\n\nFixed\n\n\n\n\nMiscellanous WP-CLI driver fixes.\n\n\n\n\n0.1.0\n - 2016-09-22\n\n\nAdded\n\n\n\n\nFirst working version of basic architecture.", 
+            "title": "Change Log"
+        }, 
+        {
+            "location": "/changelog/index.html#change-log", 
+            "text": "All notable changes to this project will be documented in this file.  The format is based on  Keep a Changelog  and this project adheres to  semantic versioning .", 
+            "title": "Change Log"
+        }, 
+        {
+            "location": "/changelog/index.html#050-2017-02-08", 
+            "text": "", 
+            "title": "0.5.0 - 2017-02-08"
+        }, 
+        {
+            "location": "/changelog/index.html#added", 
+            "text": "PHPCS rules.  Scrutinizer-CI integration.", 
+            "title": "Added"
+        }, 
+        {
+            "location": "/changelog/index.html#changed", 
+            "text": "Website; switched from Couscous to MkDocs.  Documentation.  Travis-CI tweaks.", 
+            "title": "Changed"
+        }, 
+        {
+            "location": "/changelog/index.html#fixed", 
+            "text": "Miscellanous driver fixes, especially WP-CLI over SSH. Again.", 
+            "title": "Fixed"
+        }, 
+        {
+            "location": "/changelog/index.html#040-2017-01-30", 
+            "text": "", 
+            "title": "0.4.0 - 2017-01-30"
+        }, 
+        {
+            "location": "/changelog/index.html#added_1", 
+            "text": "Introduce sensiolabs/behat-page-object-extension for future development.", 
+            "title": "Added"
+        }, 
+        {
+            "location": "/changelog/index.html#fixed_1", 
+            "text": "Miscellanous driver fixes, especially WP-CLI over SSH.", 
+            "title": "Fixed"
+        }, 
+        {
+            "location": "/changelog/index.html#changed_1", 
+            "text": "Documentation.  Website design and performance improvements.  Travis-CI improvements.", 
+            "title": "Changed"
+        }, 
+        {
+            "location": "/changelog/index.html#030-2017-01-07", 
+            "text": "", 
+            "title": "0.3.0 - 2017-01-07"
+        }, 
+        {
+            "location": "/changelog/index.html#added_2", 
+            "text": "Miscellanous driver fixes.  First pass at Contexts.", 
+            "title": "Added"
+        }, 
+        {
+            "location": "/changelog/index.html#changed_2", 
+            "text": "Documentation.", 
+            "title": "Changed"
+        }, 
+        {
+            "location": "/changelog/index.html#020-2016-11-26", 
+            "text": "", 
+            "title": "0.2.0 - 2016-11-26"
+        }, 
+        {
+            "location": "/changelog/index.html#added_3", 
+            "text": "WP-API and blackbox drivers.  Website/documentation.  Database import/export methods to drivers.", 
+            "title": "Added"
+        }, 
+        {
+            "location": "/changelog/index.html#changed_3", 
+            "text": "Adjusted exceptions thrown by DriverManager and Drivers.  Design adjustments to website.", 
+            "title": "Changed"
+        }, 
+        {
+            "location": "/changelog/index.html#fixed_2", 
+            "text": "Miscellanous WP-CLI driver fixes.", 
+            "title": "Fixed"
+        }, 
+        {
+            "location": "/changelog/index.html#010-2016-09-22", 
+            "text": "", 
+            "title": "0.1.0 - 2016-09-22"
+        }, 
+        {
+            "location": "/changelog/index.html#added_4", 
+            "text": "First working version of basic architecture.", 
+            "title": "Added"
         }
     ]
 }

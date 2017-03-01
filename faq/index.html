@@ -17,7 +17,7 @@
       
         <link rel="shortcut icon" href="../img/favicon.png">
       
-      <meta name="generator" content="mkdocs-0.16.1, mkdocs-material-1.0.3">
+      <meta name="generator" content="mkdocs+mkdocs-material#1.0.3">
     
     
       
@@ -25,13 +25,7 @@
       
     
     
-      <script src="../assets/javascripts/modernizr-5b0c41c2b5.js"></script>
-    
-    
-      <link rel="stylesheet" href="../assets/stylesheets/application-166740f5bb.css">
-      
-        <link rel="stylesheet" href="../assets/stylesheets/application-02ce7adcc2.palette.css">
-      
+      <script src="../assets/javascripts/modernizr-facb31f4a3.js"></script>
     
     
   <style>
@@ -45,7 +39,13 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     
-      <link rel="stylesheet" href="../stylesheets/style.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application-f3ab63f78a.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-02ce7adcc2.palette.css">
+      
+      
+        <link rel="stylesheet" href="../stylesheets/style.css">
+      
     
     
   </head>
@@ -403,13 +403,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#composer" title="Composer" class="md-nav__link">
-    Composer
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#javascript" title="Javascript" class="md-nav__link">
     Javascript
   </a>
@@ -426,6 +419,17 @@
     </ul>
   
 </nav>
+    
+  </li>
+
+    
+      
+      
+  <li class="md-nav__item">
+    
+      <a href="../changelog/index.html" title="Change Log" class="md-nav__link">
+        Change Log
+      </a>
     
   </li>
 
@@ -449,13 +453,6 @@
   
     <label class="md-nav__title" for="toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#composer" title="Composer" class="md-nav__link">
-    Composer
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#javascript" title="Javascript" class="md-nav__link">
@@ -485,17 +482,12 @@
               
   
   <h1 id="faqs">FAQs<a class="headerlink" href="#faqs" title="Permanent link">&para;</a></h1>
-<h2 id="composer">Composer<a class="headerlink" href="#composer" title="Permanent link">&para;</a></h2>
-<ul>
-<li>WordHat does not support a custom <code>vendor-bin</code> for Composer if you are using the <a href="../drivers/index.html">WP-CLI driver</a>. <a href="https://github.com/paulgibbs/behat-wordpress-extension/issues/16">#16</a></li>
-</ul>
 <h2 id="javascript">Javascript<a class="headerlink" href="#javascript" title="Permanent link">&para;</a></h2>
 <ul>
 <li>If you are using <a href="http://docs.seleniumhq.org/download/">Selenium</a> to run Javascript tests, and you access your WordPress site over HTTPS, <em>and</em> it has a self-signed certificate, you will need to manually configure the web browser to accept that certificate.</li>
 </ul>
 <h2 id="wp-cli">WP-CLI<a class="headerlink" href="#wp-cli" title="Permanent link">&para;</a></h2>
 <ul>
-<li>If your WordPress site causes PHP notices or errors during WP-CLI execution, or prints to <code>error_log</code>, Behat will interpret this as an error (<code>UnexpectedValueException</code>). The solution is to fix the code in the plugin or theme.</li>
 <li>If you are using the WP-CLI driver to <a href="https://wp-cli.org/blog/version-0.24.0.html#but-wait-whats-the-ssh-in-there">connect to a remote WordPress site over SSH</a>, WordHat assumes the remote server is Linux-like, with a shell that provides <a href="https://www.gnu.org/software/coreutils/coreutils.html">GNU Coreutils</a>.</li>
 </ul>
 
@@ -524,6 +516,20 @@
             </div>
           </a>
         
+        
+          <a href="../changelog/index.html" title="Change Log" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Change Log
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
         
       </nav>
     </div>
@@ -561,8 +567,8 @@
       
     </div>
     
-      <script src="../assets/javascripts/application-39a173f6f5.js"></script>
-      <script>app.initialize({url:{base:".."}})</script>
+      <script src="../assets/javascripts/application-2afe21e0b2.js"></script>
+      <script>var config={url:{base:".."}},app=new Application(config);app.initialize()</script>
       
     
     
