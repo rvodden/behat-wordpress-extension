@@ -122,7 +122,7 @@
         }, 
         {
             "location": "/contexts/index.html", 
-            "text": "Contexts\n\n\nWith Behat, it is possible to flexibly structure your code by using multiple \ncontexts\n in a single test suite. WordHat provides the following contexts:\n\n\nRawWordpressContext\n\n\nThis is a context that provides no step definitions, but all of the necessary functionality for interacting with WordPress and the browser.\n\n\nContentContext\n\n\nProvides step definitions for creating content: post types, comments, and terms.\n\n\nDashboardContext\n\n\nProvides step definitions that are specific to the WordPress dashboard (wp-admin).\n\n\nSiteContext\n\n\nProvides step definitions for managing plugins, themes, and cache.\n\n\nUserContext\n\n\nProvides step definitions for all things relating to users.\n\n\nWordpressContext\n\n\nProvides step definitions for a range of common tasks. Recommended for all test suites.", 
+            "text": "Contexts\n\n\nWith Behat, it is possible to flexibly structure your code by using multiple \ncontexts\n in a single test suite. WordHat provides the following contexts:\n\n\nRawWordpressContext\n\n\nThis is a context that provides no step definitions, but all of the necessary functionality for interacting with WordPress and the browser.\n\n\nContentContext\n\n\nProvides step definitions for creating content: post types, comments, and terms.\n\n\nDashboardContext\n\n\nProvides step definitions that are specific to the WordPress dashboard (wp-admin).\n\n\nSiteContext\n\n\nProvides step definitions for managing plugins, themes, and cache.\n\n\nUserContext\n\n\nProvides step definitions for all things relating to users.\n\n\nWordpressContext\n\n\nProvides step definitions for a range of common tasks. Recommended for all test suites.\n\n\nDebugContext\n\n\nProvides step definitions for debugging step definitions. Not recommended for use in production.", 
             "title": "Contexts"
         }, 
         {
@@ -159,6 +159,11 @@
             "location": "/contexts/index.html#wordpresscontext", 
             "text": "Provides step definitions for a range of common tasks. Recommended for all test suites.", 
             "title": "WordpressContext"
+        }, 
+        {
+            "location": "/contexts/index.html#debugcontext", 
+            "text": "Provides step definitions for debugging step definitions. Not recommended for use in production.", 
+            "title": "DebugContext"
         }, 
         {
             "location": "/faq/index.html", 
