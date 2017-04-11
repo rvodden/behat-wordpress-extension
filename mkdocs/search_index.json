@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/index.html", 
-            "text": "WordHat is an integration layer between \nBehat\n, \nMink\n, and \nWordPress\n. It provides WordPress-specific functionality for common testing scenarios specific to WordPress sites.\n\n\nIf you are new to the project or Behat, we recommend that you first read through our documentation. If you just want to get started, download WordHat on \nComposer\n or \nGithub\n.\n\n\nIf you encounter a bug, have a suggestion, or would like to help the project grow, please get in contact via Github. Thank you!", 
+            "text": "WordHat is an integration layer between \nBehat\n, \nMink\n, and \nWordPress\n. It provides WordPress-specific functionality for common testing scenarios specific to WordPress sites.\n\n\nIf you are new to the project or Behat, we recommend that you first read through our documentation. If you just want to get started, download WordHat on \nComposer\n or \nGithub\n.\n\n\nIf you encounter a bug, have a suggestion, or would like to help the project grow, please get in contact via Github or our \nSlack\n. Thank you!", 
             "title": "Home"
         }, 
         {
@@ -167,12 +167,12 @@
         }, 
         {
             "location": "/faq/index.html", 
-            "text": "FAQs\n\n\nJavascript\n\n\n\n\nIf you are using \nSelenium\n to run Javascript tests, and you access your WordPress site over HTTPS, \nand\n it has a self-signed certificate, you will need to manually configure the web browser to accept that certificate.\n\n\n\n\nWP-CLI\n\n\n\n\nIf you are using the WP-CLI driver to \nconnect to a remote WordPress site over SSH\n, WordHat assumes the remote server is Linux-like, with a shell that provides \nGNU Coreutils\n.", 
+            "text": "FAQs\n\n\nIf you are new to the project or Behat, we recommend that you first \nread through our documentation\n. For any questions, feedback, or to contribute, you can get in contact with us via Github or our \nSlack\n.\n\n\nJavascript\n\n\n\n\nIf you are using \nSelenium\n to run Javascript tests, and you access your WordPress site over HTTPS, \nand\n it has a self-signed certificate, you will need to manually configure the web browser to accept that certificate.\n\n\n\n\nWP-CLI\n\n\n\n\nIf you are using the WP-CLI driver to \nconnect to a remote WordPress site over SSH\n, WordHat assumes the remote server is Linux-like, with a shell that provides \nGNU Coreutils\n.", 
             "title": "FAQs"
         }, 
         {
             "location": "/faq/index.html#faqs", 
-            "text": "", 
+            "text": "If you are new to the project or Behat, we recommend that you first  read through our documentation . For any questions, feedback, or to contribute, you can get in contact with us via Github or our  Slack .", 
             "title": "FAQs"
         }, 
         {
@@ -187,7 +187,7 @@
         }, 
         {
             "location": "/changelog/index.html", 
-            "text": "Change Log\n\n\nAll notable changes to this project will be documented in this file.\n\n\nThe format is based on \nKeep a Changelog\n and this project adheres to \nsemantic versioning\n.\n\n\n[Unreleased]\n\n\n\n\nDriver interface re-organisation. See \n#21\n.\n\n\n\n\n0.6.0\n - 2017-04-05\n\n\nAdded\n\n\n\n\nInitial support for \nsensiolabs/behat-page-object-extension\n with support for parts of wp-admin, and the Toolbar.\n\n\n\n\nChanged\n\n\n\n\nDocumentation corrections; website and PHPDoc.\n\n\nWP-CLI driver no longer fails if the command returns text through stdout.\n\n\nTravis-CI reports job status to our Slack; join us at http://wordhat.herokuapp.com \ud83d\ude00\n\n\nComposer requirements loosened for better compatibility with other projects.\n\n\n\n\nFixed\n\n\n\n\nTravis-CI tasks now succesfully run on Github forks of the project.\n\n\nAttempts made to improve intermittent failures with the log-in action when run with Selenium. Work-in-progress.\n\n\nRegex correction for \ngiven\n block for \nContentContext-\nthereArePosts()\n.\n\n\n\n\nDeprecated\n\n\n\n\nis_wordpress_error()\n moved into \nUtil\n namespace\n\n\n\n\n0.5.0\n - 2017-02-08\n\n\nAdded\n\n\n\n\nPHPCS rules.\n\n\nScrutinizer-CI integration.\n\n\n\n\nChanged\n\n\n\n\nWebsite; switched from Couscous to MkDocs.\n\n\nDocumentation.\n\n\nTravis-CI tweaks.\n\n\n\n\nFixed\n\n\n\n\nMiscellanous driver fixes, especially WP-CLI over SSH. Again.\n\n\n\n\n0.4.0\n - 2017-01-30\n\n\nAdded\n\n\n\n\nIntroduce \nsensiolabs/behat-page-object-extension\n for future development.\n\n\n\n\nFixed\n\n\n\n\nMiscellanous driver fixes, especially WP-CLI over SSH.\n\n\n\n\nChanged\n\n\n\n\nDocumentation.\n\n\nWebsite design and performance improvements.\n\n\nTravis-CI improvements.\n\n\n\n\n0.3.0\n - 2017-01-07\n\n\nAdded\n\n\n\n\nMiscellanous driver fixes.\n\n\nFirst pass at Contexts.\n\n\n\n\nChanged\n\n\n\n\nDocumentation.\n\n\n\n\n0.2.0\n - 2016-11-26\n\n\nAdded\n\n\n\n\nWP-API and blackbox drivers.\n\n\nWebsite/documentation.\n\n\nDatabase import/export methods to drivers.\n\n\n\n\nChanged\n\n\n\n\nAdjusted exceptions thrown by DriverManager and Drivers.\n\n\nDesign adjustments to website.\n\n\n\n\nFixed\n\n\n\n\nMiscellanous WP-CLI driver fixes.\n\n\n\n\n0.1.0\n - 2016-09-22\n\n\nAdded\n\n\n\n\nFirst working version of basic architecture.", 
+            "text": "Change Log\n\n\nAll notable changes to this project will be documented in this file.\n\n\nThe format is based on \nKeep a Changelog\n and this project adheres to \nsemantic versioning\n.\n\n\n[Unreleased]\n\n\n\n\nDriver interface re-organisation. See \n#21\n.\n\n\n\n\n0.6.0\n - 2017-04-05\n\n\nAdded\n\n\n\n\nInitial support for \nsensiolabs/behat-page-object-extension\n with support for parts of wp-admin, and the Toolbar.\n\n\n\n\nChanged\n\n\n\n\nDocumentation corrections; website and PHPDoc.\n\n\nWP-CLI driver no longer fails if the command returns text through stdout.\n\n\nTravis-CI reports job status to our Slack; join us at https://wordhat.herokuapp.com \ud83d\ude00\n\n\nComposer requirements loosened for better compatibility with other projects.\n\n\n\n\nFixed\n\n\n\n\nTravis-CI tasks now succesfully run on Github forks of the project.\n\n\nAttempts made to improve intermittent failures with the log-in action when run with Selenium. Work-in-progress.\n\n\nRegex correction for \ngiven\n block for \nContentContext-\nthereArePosts()\n.\n\n\n\n\nDeprecated\n\n\n\n\nis_wordpress_error()\n moved into \nUtil\n namespace.\n\n\n\n\n0.5.0\n - 2017-02-08\n\n\nAdded\n\n\n\n\nPHPCS rules.\n\n\nScrutinizer-CI integration.\n\n\n\n\nChanged\n\n\n\n\nWebsite; switched from Couscous to MkDocs.\n\n\nDocumentation.\n\n\nTravis-CI tweaks.\n\n\n\n\nFixed\n\n\n\n\nMiscellanous driver fixes, especially WP-CLI over SSH. Again.\n\n\n\n\n0.4.0\n - 2017-01-30\n\n\nAdded\n\n\n\n\nIntroduce \nsensiolabs/behat-page-object-extension\n for future development.\n\n\n\n\nFixed\n\n\n\n\nMiscellanous driver fixes, especially WP-CLI over SSH.\n\n\n\n\nChanged\n\n\n\n\nDocumentation.\n\n\nWebsite design and performance improvements.\n\n\nTravis-CI improvements.\n\n\n\n\n0.3.0\n - 2017-01-07\n\n\nAdded\n\n\n\n\nMiscellanous driver fixes.\n\n\nFirst pass at Contexts.\n\n\n\n\nChanged\n\n\n\n\nDocumentation.\n\n\n\n\n0.2.0\n - 2016-11-26\n\n\nAdded\n\n\n\n\nWP-API and blackbox drivers.\n\n\nWebsite/documentation.\n\n\nDatabase import/export methods to drivers.\n\n\n\n\nChanged\n\n\n\n\nAdjusted exceptions thrown by DriverManager and Drivers.\n\n\nDesign adjustments to website.\n\n\n\n\nFixed\n\n\n\n\nMiscellanous WP-CLI driver fixes.\n\n\n\n\n0.1.0\n - 2016-09-22\n\n\nAdded\n\n\n\n\nFirst working version of basic architecture.", 
             "title": "Change Log"
         }, 
         {
@@ -212,7 +212,7 @@
         }, 
         {
             "location": "/changelog/index.html#changed", 
-            "text": "Documentation corrections; website and PHPDoc.  WP-CLI driver no longer fails if the command returns text through stdout.  Travis-CI reports job status to our Slack; join us at http://wordhat.herokuapp.com \ud83d\ude00  Composer requirements loosened for better compatibility with other projects.", 
+            "text": "Documentation corrections; website and PHPDoc.  WP-CLI driver no longer fails if the command returns text through stdout.  Travis-CI reports job status to our Slack; join us at https://wordhat.herokuapp.com \ud83d\ude00  Composer requirements loosened for better compatibility with other projects.", 
             "title": "Changed"
         }, 
         {
@@ -222,7 +222,7 @@
         }, 
         {
             "location": "/changelog/index.html#deprecated", 
-            "text": "is_wordpress_error()  moved into  Util  namespace", 
+            "text": "is_wordpress_error()  moved into  Util  namespace.", 
             "title": "Deprecated"
         }, 
         {

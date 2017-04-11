@@ -17,7 +17,7 @@
       
         <link rel="shortcut icon" href="../img/favicon.png">
       
-      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.5.2">
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.5.4">
     
     
       
@@ -28,9 +28,9 @@
       <script src="../assets/javascripts/modernizr-56ade86843.js"></script>
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application-e71521a2a2.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application-b1a1975878.css">
       
-        <link rel="stylesheet" href="../assets/stylesheets/application-66fa0d9bba.palette.css">
+        <link rel="stylesheet" href="../assets/stylesheets/application-f78e5cb881.palette.css">
       
     
     
@@ -68,62 +68,75 @@
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
       <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        
-          <a href="https://wordhat.info/" title="WordHat" class="md-logo md-header-nav__button">
-            <img src="../img/mark.svg" width="24" height="24">
-          </a>
-        
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <span class="md-flex__ellipsis md-header-nav__title">
+
+    <!-- Top-level navigation -->
+    <nav class="md-header-nav md-grid">
+        <div class="md-flex">
+
+            <!-- Link to home -->
+            <div class="md-flex__cell md-flex__cell--shrink">
+                
+                <a href="https://wordhat.info/" title="WordHat" class="md-logo md-header-nav__button">
+                    <img src="../img/mark.svg" width="24" height="24" alt="" />
+                </a>
+                
+            </div>
+
+            <!-- Button to toggle drawer -->
+            <div class="md-flex__cell md-flex__cell--shrink">
+                <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+            </div>
+
+            <!-- Header title -->
+            <div class="md-flex__cell md-flex__cell--stretch">
+                <span class="md-flex__ellipsis md-header-nav__title">
           
             
               
                 <span class="md-header-nav__parent">
                   About
+                </span>   License 
                 </span>
-              
-            
-            License
-          
-        </span>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        
-          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
-          
+            </div>
+
+            <!-- Button to open search dialogue -->
+            <div class="md-flex__cell md-flex__cell--shrink">
+                
+                <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+
+                <!-- Search interface -->
+                
+
+<!-- Search interface -->
 <div class="md-search" data-md-component="search">
-  <div class="md-search__overlay"></div>
-  <div class="md-search__inner">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" required placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
-      <label class="md-icon md-search__icon" for="search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
-          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
-            Type to start searching
-          </div>
-          <ol class="md-search-result__list"></ol>
+    <div class="md-search__overlay"></div>
+    <div class="md-search__inner">
+        <form class="md-search__form" name="search">
+            <input type="text" class="md-search__input" name="query" required placeholder="Search"
+                autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query"
+                aria-label="Search" />
+            <label class="md-icon md-search__icon" for="search" title="Search"></label>
+            <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
+        </form>
+        <div class="md-search__output">
+            <div class="md-search__scrollwrap" data-md-scrollfix>
+                <div class="md-search-result" data-md-component="result">
+                    <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document"
+                        data-md-lang-result-other="# matching documents">
+                        Type to start searching
+                    </div>
+                    <ol class="md-search-result__list"></ol>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-</div>
-        
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <div class="md-header-nav__source">
-          
-            
+</div> 
+            </div>
+
+            <!-- Repository containing source -->
+            <div class="md-flex__cell md-flex__cell--shrink">
+                <div class="md-header-nav__source">
+                     
 
 
   
@@ -141,12 +154,11 @@
       WordHat
     </div>
   </a>
-
-          
+ 
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </nav>
+    </nav>
 </header>
     
     <div class="md-container">
@@ -546,15 +558,16 @@ along with this program. If not, see http://www.gnu.org/licenses/.</p>
       </div>
       
         
-  <div class="md-footer-social">
+<div class="md-footer-social">
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <a href="https://github.com/paulgibbs/behat-wordpress-extension" aria-label="github" class="md-footer-social__link
+            fa fa-github"></a>
     
-      <a href="https://github.com/paulgibbs/behat-wordpress-extension" class="md-footer-social__link fa fa-github"></a>
+    <a href="https://twitter.com/pgibbs" aria-label="twitter" class="md-footer-social__link
+            fa fa-twitter"></a>
     
-      <a href="https://twitter.com/pgibbs" class="md-footer-social__link fa fa-twitter"></a>
-    
-  </div>
+</div>
 
       
     </div>
@@ -563,7 +576,7 @@ along with this program. If not, see http://www.gnu.org/licenses/.</p>
       
     </div>
     
-      <script src="../assets/javascripts/application-c6f9af8d0c.js"></script>
+      <script src="../assets/javascripts/application-0b7df094bf.js"></script>
       <script>app.initialize({url:{base:".."}})</script>
       
     
