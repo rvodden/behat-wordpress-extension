@@ -487,7 +487,7 @@
 <p>WordHat provides a range of drivers for interacting with the WordPress site you are testing. A driver represents and manages the connection between the Behat and WordPress environments. Different drivers support different features.</p>
 <ul>
 <li>The <strong>WP-CLI</strong> driver &ndash; the default &ndash; uses <a href="http://wp-cli.org/">WP-CLI</a> to communicate with WordPress.</li>
-<li>The <strong>WordPress API</strong> driver loads WordPress in the same PHP context as Behat.</li>
+<li>The <strong>WordPress PHP</strong> driver loads WordPress in the same PHP context as Behat.</li>
 <li>The <strong>Blackbox</strong> driver interacts with WordPress through a web browser, in an unpriviledged context.</li>
 </ul>
 <p>To specify which driver to use for your tests, set <a href="../settings/index.html"><code>default_driver</code></a> in your <code>behat.yml</code> file.</p>
@@ -496,7 +496,7 @@
 <tr>
 <th>Feature</th>
 <th>WP-CLI</th>
-<th>WordPress API</th>
+<th>WordPress PHP</th>
 <th>Blackbox</th>
 </tr>
 </thead>
