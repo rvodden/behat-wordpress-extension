@@ -192,7 +192,7 @@
         }, 
         {
             "location": "/changelog/index.html", 
-            "text": "Change Log\n\n\nAll notable changes to this project will be documented in this file.\n\n\nThe format is based on \nKeep a Changelog\n and this project adheres to \nsemantic versioning\n.\n\n\n[Unreleased]\n\n\n\n\nDriver interface re-organisation. See \n#21\n.\n\n\n\n\n0.6.0\n - 2017-04-05\n\n\nAdded\n\n\n\n\nInitial support for \nsensiolabs/behat-page-object-extension\n with support for parts of wp-admin, and the Toolbar.\n\n\n\n\nChanged\n\n\n\n\nDocumentation corrections; website and PHPDoc.\n\n\nWP-CLI driver no longer fails if the command returns text through stdout.\n\n\nTravis-CI reports job status to our Slack; join us at https://wordhat.herokuapp.com \ud83d\ude00\n\n\nComposer requirements loosened for better compatibility with other projects.\n\n\n\n\nFixed\n\n\n\n\nTravis-CI tasks now succesfully run on Github forks of the project.\n\n\nAttempts made to improve intermittent failures with the log-in action when run with Selenium. Work-in-progress.\n\n\nRegex correction for \ngiven\n block for \nContentContext-\nthereArePosts()\n.\n\n\n\n\nDeprecated\n\n\n\n\nisWordpressError()\n moved into \nUtil\n namespace.\n\n\n\n\n0.5.0\n - 2017-02-08\n\n\nAdded\n\n\n\n\nPHPCS rules.\n\n\nScrutinizer-CI integration.\n\n\n\n\nChanged\n\n\n\n\nWebsite; switched from Couscous to MkDocs.\n\n\nDocumentation.\n\n\nTravis-CI tweaks.\n\n\n\n\nFixed\n\n\n\n\nMiscellanous driver fixes, especially WP-CLI over SSH. Again.\n\n\n\n\n0.4.0\n - 2017-01-30\n\n\nAdded\n\n\n\n\nIntroduce \nsensiolabs/behat-page-object-extension\n for future development.\n\n\n\n\nFixed\n\n\n\n\nMiscellanous driver fixes, especially WP-CLI over SSH.\n\n\n\n\nChanged\n\n\n\n\nDocumentation.\n\n\nWebsite design and performance improvements.\n\n\nTravis-CI improvements.\n\n\n\n\n0.3.0\n - 2017-01-07\n\n\nAdded\n\n\n\n\nMiscellanous driver fixes.\n\n\nFirst pass at Contexts.\n\n\n\n\nChanged\n\n\n\n\nDocumentation.\n\n\n\n\n0.2.0\n - 2016-11-26\n\n\nAdded\n\n\n\n\nWP-API and blackbox drivers.\n\n\nWebsite/documentation.\n\n\nDatabase import/export methods to drivers.\n\n\n\n\nChanged\n\n\n\n\nAdjusted exceptions thrown by DriverManager and Drivers.\n\n\nDesign adjustments to website.\n\n\n\n\nFixed\n\n\n\n\nMiscellanous WP-CLI driver fixes.\n\n\n\n\n0.1.0\n - 2016-09-22\n\n\nAdded\n\n\n\n\nFirst working version of basic architecture.", 
+            "text": "Change Log\n\n\nAll notable changes to this project will be documented in this file.\n\n\nThe format is based on \nKeep a Changelog\n and this project adheres to \nsemantic versioning\n.\n\n\n[Unreleased]\n\n\n[0.7.0] - 2017-06-30\n\n\nAdded\n\n\n\n\nContentEditor\n and \nPostContentEditor\n page (element) objects for interacting with the TinyMCE\n\n\nEditPostContext\n\n\nWidgetContext\n\n\nAdd optional \nredirect_to\n param to \nlogIn()\n.\n\n\n\n\nChanged\n\n\n\n\nDriver interface re-organisation. See \n#21\n.\n\n\n\n\nFixed\n\n\n\n\nIf a browser window is not open when the BeforeStep event is run then our call to Selenium2Driver::executeScript() will throw an \nunknown\n exception.\n\n\nCompatibility with WordPress 4.8\n\n\nToolbar PageObject: fix calls to \nevaluateScript\n.\n\n\nStrict version requirement for WP-Cli\n\n\nLinks and Buttons behind the wp-admin bar cannot be \nclicked\n or \npressed\n\n\n\n\nDeprecated\n\n\n\n\nRename \nis_wordpress_error()\n to \nisWordPressError()\n\n\n\n\n0.6.0\n - 2017-04-05\n\n\nAdded\n\n\n\n\nInitial support for \nsensiolabs/behat-page-object-extension\n with support for parts of wp-admin, and the Toolbar.\n\n\n\n\nChanged\n\n\n\n\nDocumentation corrections; website and PHPDoc.\n\n\nWP-CLI driver no longer fails if the command returns text through stdout.\n\n\nTravis-CI reports job status to our Slack; join us at https://wordhat.herokuapp.com \ud83d\ude00\n\n\nComposer requirements loosened for better compatibility with other projects.\n\n\n\n\nFixed\n\n\n\n\nTravis-CI tasks now succesfully run on Github forks of the project.\n\n\nAttempts made to improve intermittent failures with the log-in action when run with Selenium. Work-in-progress.\n\n\nRegex correction for \ngiven\n block for \nContentContext-\nthereArePosts()\n.\n\n\n\n\nDeprecated\n\n\n\n\nisWordpressError()\n moved into \nUtil\n namespace.\n\n\n\n\n0.5.0\n - 2017-02-08\n\n\nAdded\n\n\n\n\nPHPCS rules.\n\n\nScrutinizer-CI integration.\n\n\n\n\nChanged\n\n\n\n\nWebsite; switched from Couscous to MkDocs.\n\n\nDocumentation.\n\n\nTravis-CI tweaks.\n\n\n\n\nFixed\n\n\n\n\nMiscellanous driver fixes, especially WP-CLI over SSH. Again.\n\n\n\n\n0.4.0\n - 2017-01-30\n\n\nAdded\n\n\n\n\nIntroduce \nsensiolabs/behat-page-object-extension\n for future development.\n\n\n\n\nFixed\n\n\n\n\nMiscellanous driver fixes, especially WP-CLI over SSH.\n\n\n\n\nChanged\n\n\n\n\nDocumentation.\n\n\nWebsite design and performance improvements.\n\n\nTravis-CI improvements.\n\n\n\n\n0.3.0\n - 2017-01-07\n\n\nAdded\n\n\n\n\nMiscellanous driver fixes.\n\n\nFirst pass at Contexts.\n\n\n\n\nChanged\n\n\n\n\nDocumentation.\n\n\n\n\n0.2.0\n - 2016-11-26\n\n\nAdded\n\n\n\n\nWP-API and blackbox drivers.\n\n\nWebsite/documentation.\n\n\nDatabase import/export methods to drivers.\n\n\n\n\nChanged\n\n\n\n\nAdjusted exceptions thrown by DriverManager and Drivers.\n\n\nDesign adjustments to website.\n\n\n\n\nFixed\n\n\n\n\nMiscellanous WP-CLI driver fixes.\n\n\n\n\n0.1.0\n - 2016-09-22\n\n\nAdded\n\n\n\n\nFirst working version of basic architecture.", 
             "title": "Change Log"
         }, 
         {
@@ -202,8 +202,33 @@
         }, 
         {
             "location": "/changelog/index.html#unreleased", 
-            "text": "Driver interface re-organisation. See  #21 .", 
+            "text": "", 
             "title": "[Unreleased]"
+        }, 
+        {
+            "location": "/changelog/index.html#070-2017-06-30", 
+            "text": "", 
+            "title": "[0.7.0] - 2017-06-30"
+        }, 
+        {
+            "location": "/changelog/index.html#added", 
+            "text": "ContentEditor  and  PostContentEditor  page (element) objects for interacting with the TinyMCE  EditPostContext  WidgetContext  Add optional  redirect_to  param to  logIn() .", 
+            "title": "Added"
+        }, 
+        {
+            "location": "/changelog/index.html#changed", 
+            "text": "Driver interface re-organisation. See  #21 .", 
+            "title": "Changed"
+        }, 
+        {
+            "location": "/changelog/index.html#fixed", 
+            "text": "If a browser window is not open when the BeforeStep event is run then our call to Selenium2Driver::executeScript() will throw an  unknown  exception.  Compatibility with WordPress 4.8  Toolbar PageObject: fix calls to  evaluateScript .  Strict version requirement for WP-Cli  Links and Buttons behind the wp-admin bar cannot be  clicked  or  pressed", 
+            "title": "Fixed"
+        }, 
+        {
+            "location": "/changelog/index.html#deprecated", 
+            "text": "Rename  is_wordpress_error()  to  isWordPressError()", 
+            "title": "Deprecated"
         }, 
         {
             "location": "/changelog/index.html#060-2017-04-05", 
@@ -211,22 +236,22 @@
             "title": "0.6.0 - 2017-04-05"
         }, 
         {
-            "location": "/changelog/index.html#added", 
+            "location": "/changelog/index.html#added_1", 
             "text": "Initial support for  sensiolabs/behat-page-object-extension  with support for parts of wp-admin, and the Toolbar.", 
             "title": "Added"
         }, 
         {
-            "location": "/changelog/index.html#changed", 
+            "location": "/changelog/index.html#changed_1", 
             "text": "Documentation corrections; website and PHPDoc.  WP-CLI driver no longer fails if the command returns text through stdout.  Travis-CI reports job status to our Slack; join us at https://wordhat.herokuapp.com \ud83d\ude00  Composer requirements loosened for better compatibility with other projects.", 
             "title": "Changed"
         }, 
         {
-            "location": "/changelog/index.html#fixed", 
+            "location": "/changelog/index.html#fixed_1", 
             "text": "Travis-CI tasks now succesfully run on Github forks of the project.  Attempts made to improve intermittent failures with the log-in action when run with Selenium. Work-in-progress.  Regex correction for  given  block for  ContentContext- thereArePosts() .", 
             "title": "Fixed"
         }, 
         {
-            "location": "/changelog/index.html#deprecated", 
+            "location": "/changelog/index.html#deprecated_1", 
             "text": "isWordpressError()  moved into  Util  namespace.", 
             "title": "Deprecated"
         }, 
@@ -236,17 +261,17 @@
             "title": "0.5.0 - 2017-02-08"
         }, 
         {
-            "location": "/changelog/index.html#added_1", 
+            "location": "/changelog/index.html#added_2", 
             "text": "PHPCS rules.  Scrutinizer-CI integration.", 
             "title": "Added"
         }, 
         {
-            "location": "/changelog/index.html#changed_1", 
+            "location": "/changelog/index.html#changed_2", 
             "text": "Website; switched from Couscous to MkDocs.  Documentation.  Travis-CI tweaks.", 
             "title": "Changed"
         }, 
         {
-            "location": "/changelog/index.html#fixed_1", 
+            "location": "/changelog/index.html#fixed_2", 
             "text": "Miscellanous driver fixes, especially WP-CLI over SSH. Again.", 
             "title": "Fixed"
         }, 
@@ -256,17 +281,17 @@
             "title": "0.4.0 - 2017-01-30"
         }, 
         {
-            "location": "/changelog/index.html#added_2", 
+            "location": "/changelog/index.html#added_3", 
             "text": "Introduce  sensiolabs/behat-page-object-extension  for future development.", 
             "title": "Added"
         }, 
         {
-            "location": "/changelog/index.html#fixed_2", 
+            "location": "/changelog/index.html#fixed_3", 
             "text": "Miscellanous driver fixes, especially WP-CLI over SSH.", 
             "title": "Fixed"
         }, 
         {
-            "location": "/changelog/index.html#changed_2", 
+            "location": "/changelog/index.html#changed_3", 
             "text": "Documentation.  Website design and performance improvements.  Travis-CI improvements.", 
             "title": "Changed"
         }, 
@@ -276,12 +301,12 @@
             "title": "0.3.0 - 2017-01-07"
         }, 
         {
-            "location": "/changelog/index.html#added_3", 
+            "location": "/changelog/index.html#added_4", 
             "text": "Miscellanous driver fixes.  First pass at Contexts.", 
             "title": "Added"
         }, 
         {
-            "location": "/changelog/index.html#changed_3", 
+            "location": "/changelog/index.html#changed_4", 
             "text": "Documentation.", 
             "title": "Changed"
         }, 
@@ -291,17 +316,17 @@
             "title": "0.2.0 - 2016-11-26"
         }, 
         {
-            "location": "/changelog/index.html#added_4", 
+            "location": "/changelog/index.html#added_5", 
             "text": "WP-API and blackbox drivers.  Website/documentation.  Database import/export methods to drivers.", 
             "title": "Added"
         }, 
         {
-            "location": "/changelog/index.html#changed_4", 
+            "location": "/changelog/index.html#changed_5", 
             "text": "Adjusted exceptions thrown by DriverManager and Drivers.  Design adjustments to website.", 
             "title": "Changed"
         }, 
         {
-            "location": "/changelog/index.html#fixed_3", 
+            "location": "/changelog/index.html#fixed_4", 
             "text": "Miscellanous WP-CLI driver fixes.", 
             "title": "Fixed"
         }, 
@@ -311,7 +336,7 @@
             "title": "0.1.0 - 2016-09-22"
         }, 
         {
-            "location": "/changelog/index.html#added_5", 
+            "location": "/changelog/index.html#added_6", 
             "text": "First working version of basic architecture.", 
             "title": "Added"
         }
