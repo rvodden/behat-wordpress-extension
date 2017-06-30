@@ -5,7 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [semantic versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [0.7.0] - 2017-06-30
+### Added
+- `ContentEditor` and `PostContentEditor` page (element) objects for interacting with the TinyMCE
+- `EditPostContext`
+- `WidgetContext`
+- Add optional `redirect_to` param to `logIn()`.
+
+### Changed
 - Driver interface re-organisation. See [#21](https://github.com/paulgibbs/behat-wordpress-extension/issues/21).
+
+
+### Fixed
+- If a browser window is not open when the BeforeStep event is run then our call to Selenium2Driver::executeScript() will throw an 'unknown' exception.
+- Compatibility with WordPress 4.8
+- Toolbar PageObject: fix calls to `evaluateScript`.
+- Strict version requirement for WP-Cli
+- Links and Buttons behind the wp-admin bar cannot be 'clicked' or 'pressed'
+
+### Deprecated
+- Rename `is_wordpress_error()` to `isWordPressError()`
 
 ## [0.6.0] - 2017-04-05
 ### Added
