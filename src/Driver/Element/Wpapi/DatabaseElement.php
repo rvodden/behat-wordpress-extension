@@ -14,7 +14,7 @@ class DatabaseElement extends BaseElement
      * @see get()
      *
      * @param int   $id   Not used.
-     * @param array $args Not used.
+     * @param array $args
      *
      * @return string Path to the export file.
      */
@@ -28,8 +28,8 @@ class DatabaseElement extends BaseElement
      *
      * @see update()
      *
-     * @param string $id   Relative or absolute path and filename of SQL file to import.
-     * @param array  $args Not used.
+     * @param int   $id   Not used.
+     * @param array $args
      */
     public function import($id, $args = [])
     {

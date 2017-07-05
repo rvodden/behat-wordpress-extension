@@ -1,6 +1,7 @@
 <?php
 namespace PaulGibbs\WordpressBehatExtension\Driver\Element\Wpcli;
 
+use RuntimeException;
 use PaulGibbs\WordpressBehatExtension\Exception\UnsupportedDriverActionException;
 use PaulGibbs\WordpressBehatExtension\Driver\Element\BaseElement;
 
@@ -13,23 +14,28 @@ class DatabaseElement extends BaseElement
      * Export site database.
      *
      * @param int   $id   Not used.
-     * @param array $args Not used.
+     * @param array $args
      *
-     * @return string Path to the export file.
+     * @return string Path to the database dump.
      */
     public function get($id, $args = [])
     {
-        while (true) {
-            $filename = uniqid('database-', true) . '.sql';
-            if (! file_exists(getcwd() . "/{$filename}")) {
-                break;
+        $wpcli_args = ['--porcelain', '--add-drop-table'];
+
+        if (! empty($args['path'])) {
+            $file = tempnam($args['path'], 'wordhat');
+            if ($file) {
+                array_unshift($wpcli_args, $file);
             }
-        }
+        };
 
         // Protect against WP-CLI changing the filename.
-        $filename = $this->drivers->getDriver()->wpcli('db', 'export', [$filename, '--porcelain'])['stdout'];
+        $path = $this->drivers->getDriver()->wpcli('db', 'export', $wpcli_args)['stdout'];
+        if (! $path) {
+            throw new RuntimeException('Could not export database.');
+        }
 
-        return getcwd() . "/{$filename}";
+        return $path;
     }
 
     /**
@@ -38,16 +44,12 @@ class DatabaseElement extends BaseElement
      * If $id begins with a directory separator or ~ it is treated as an absolute path.
      * Otherwise, it is treated as relative to the current working directory.
      *
-     * @param string $id   Relative or absolute path and filename of SQL file to import.
-     * @param array  $args Not used.
+     * @param int   $id   Not used.
+     * @param array $args
      */
     public function update($id, $args = [])
     {
-        if (! in_array($id[0], [DIRECTORY_SEPARATOR, '~'], true)) {
-            $id = getcwd() . "/{$id}";
-        }
-
-        $this->drivers->getDriver()->wpcli('db', 'import', [$id]);
+        $this->drivers->getDriver()->wpcli('db', 'import', [$args['path']]);
     }
 
     /**
@@ -77,7 +79,7 @@ class DatabaseElement extends BaseElement
      * @see get()
      *
      * @param int   $id   Not used.
-     * @param array $args Not used.
+     * @param array $args
      *
      * @return string Path to the export file.
      */
@@ -91,8 +93,8 @@ class DatabaseElement extends BaseElement
      *
      * @see update()
      *
-     * @param string $id   Relative or absolute path and filename of SQL file to import.
-     * @param array  $args Not used.
+     * @param int   $id   Not used.
+     * @param array $args
      */
     public function import($id, $args = [])
     {

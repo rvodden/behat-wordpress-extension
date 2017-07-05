@@ -8,7 +8,7 @@ use PaulGibbs\WordpressBehatExtension\WordpressDriverManager;
 use PaulGibbs\WordpressBehatExtension\Context\WordpressAwareInterface;
 
 /**
- * Behat context initialiser.
+ * Behat Context initialiser.
  */
 class WordpressAwareInitialiser implements ContextInitializer
 {

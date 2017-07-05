@@ -171,6 +171,18 @@ class WordpressBehatExtension implements ExtensionInterface
                     ->end()
                 ->end()
 
+                // Database management.
+                ->arrayNode('database')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->booleanNode('restore_after_test')
+                            ->defaultFalse()
+                        ->end()
+                        ->scalarNode('backup_path')
+                        ->end()
+                    ->end()
+                ->end()
+
                 // Permalink patterns.
                 ->arrayNode('permalinks')
                     ->addDefaultsIfNotSet()
@@ -181,6 +193,10 @@ class WordpressBehatExtension implements ExtensionInterface
                     ->end()
                 ->end()
 
+                // Internal use only. Don't use it. Or else.
+                ->arrayNode('internal')
+                    ->addDefaultsIfNotSet()
+                ->end()
             ->end()
         ->end();
     }
