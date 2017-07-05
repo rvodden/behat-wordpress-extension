@@ -2,7 +2,6 @@
 namespace PaulGibbs\WordpressBehatExtension\Driver\Element\Wpcli;
 
 use RuntimeException;
-use PaulGibbs\WordpressBehatExtension\Exception\UnsupportedDriverActionException;
 use PaulGibbs\WordpressBehatExtension\Driver\Element\BaseElement;
 
 /**
@@ -41,31 +40,12 @@ class DatabaseElement extends BaseElement
     /**
      * Import site database.
      *
-     * If $id begins with a directory separator or ~ it is treated as an absolute path.
-     * Otherwise, it is treated as relative to the current working directory.
-     *
      * @param int   $id   Not used.
      * @param array $args
      */
     public function update($id, $args = [])
     {
         $this->drivers->getDriver()->wpcli('db', 'import', [$args['path']]);
-    }
-
-    /**
-     * Start a database transaction.
-     */
-    public function startTransaction()
-    {
-        throw new UnsupportedDriverActionException(sprintf('use the %s element create method', static::class));
-    }
-
-    /**
-     * End (rollback) a database transaction.
-     */
-    public function endTransaction()
-    {
-        throw new UnsupportedDriverActionException(sprintf('use the %s element create method', static::class));
     }
 
 
