@@ -1,6 +1,9 @@
 <?php
 namespace PaulGibbs\WordpressBehatExtension\Util;
 
+use Exception;
+use DOMDocument;
+
 /**
  * Wrap a closure in a spin check.
  *
@@ -24,7 +27,7 @@ function spins(callable $closure, $wait = 60, $step = 250000)
         try {
             call_user_func($closure);
             return;
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $error = $e;
         }
 
@@ -50,7 +53,7 @@ function stripTagsAndContent($html)
         return $html;
     }
 
-    $doc = new \DOMDocument();
+    $doc = new DOMDocument();
     $doc->loadHTML("<div>{$html}</div>");
 
     $container = $doc->getElementsByTagName('div')->item(0);

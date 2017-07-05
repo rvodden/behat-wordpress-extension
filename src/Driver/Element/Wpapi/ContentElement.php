@@ -1,8 +1,9 @@
 <?php
 namespace PaulGibbs\WordpressBehatExtension\Driver\Element\Wpapi;
 
-use PaulGibbs\WordpressBehatExtension\Driver\Element\BaseElement;
+use WP_Query;
 use UnexpectedValueException;
+use PaulGibbs\WordpressBehatExtension\Driver\Element\BaseElement;
 
 /**
  * WP-API driver element for content (i.e. blog posts).
@@ -43,7 +44,7 @@ class ContentElement extends BaseElement
         if (is_numeric($id) || is_object($id) && $id instanceof \WP_Post) {
             $post = get_post($id);
         } else {
-            $query = new \WP_Query();
+            $query = new WP_Query();
             $query = $query->query(array(
                 "{$args['by']}"          => $id,
                 'no_found_rows'          => true,

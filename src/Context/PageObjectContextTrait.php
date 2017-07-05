@@ -2,6 +2,7 @@
 
 namespace PaulGibbs\WordpressBehatExtension\Context;
 
+use RuntimeException;
 use Behat\Behat\Context\Context;
 use SensioLabs\Behat\PageObjectExtension\PageObject\Factory as PageObjectFactory;
 use SensioLabs\Behat\PageObjectExtension\PageObject\Page;
@@ -24,7 +25,7 @@ trait PageObjectContextTrait
     public function getPage($name)
     {
         if (null === $this->page_object_factory) {
-            throw new \RuntimeException('To create pages you need to pass a factory with setPageObjectFactory()');
+            throw new RuntimeException('To create pages you need to pass a factory with setPageObjectFactory()');
         }
 
         return $this->page_object_factory->createPage($name);
@@ -40,7 +41,7 @@ trait PageObjectContextTrait
     public function getElement($name)
     {
         if (null === $this->page_object_factory) {
-            throw new \RuntimeException('To create elements you need to pass a factory with setPageObjectFactory()');
+            throw new RuntimeException('To create elements you need to pass a factory with setPageObjectFactory()');
         }
 
         return $this->page_object_factory->createElement($name);
@@ -64,8 +65,8 @@ trait PageObjectContextTrait
     public function getPageObjectFactory()
     {
         if (null === $this->page_object_factory) {
-            throw new \RuntimeException(
-                'To access the page factory you need to pass it first with setPageObjectFactory()'#
+            throw new RuntimeException(
+                'To access the page factory you need to pass it first with setPageObjectFactory()'
             );
         }
 

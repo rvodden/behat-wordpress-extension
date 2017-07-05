@@ -1,6 +1,7 @@
 <?php
 namespace PaulGibbs\WordpressBehatExtension\Context;
 
+use UnexpectedValueException;
 use Behat\Gherkin\Node\TableNode;
 
 /**
@@ -43,7 +44,7 @@ class ContentContext extends RawWordpressContext
         if ($post_data_or_title instanceof TableNode) {
             $post_data_hash = $post_data_or_title->getHash();
             if (count($post_data_hash) > 1) {
-                throw new \UnexpectedValueException('"Given I am viewing a post:" step must only contain one post');
+                throw new UnexpectedValueException('"Given I am viewing a post:" step must only contain one post');
             }
             $post = $this->createContent($this->parseArgs($post_data_hash[0]));
         } else {

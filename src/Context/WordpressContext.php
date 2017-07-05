@@ -57,6 +57,10 @@ class WordpressContext extends RawWordpressContext implements PageObjectAware
                 };'
             );
         } catch (\Exception $e) {
+            /*
+             * If a browser is not open, then Selenium2Driver::executeScript() will throw an exception.
+             * In this case, our toolbar workaround obviously isn't required, so fail quietly.
+             */
         }
     }
 

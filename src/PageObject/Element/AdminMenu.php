@@ -1,6 +1,7 @@
 <?php
 namespace PaulGibbs\WordpressBehatExtension\PageObject\Element;
 
+use RuntimeException;
 use SensioLabs\Behat\PageObjectExtension\PageObject\Element;
 use Behat\Mink\Exception\UnsupportedDriverActionException;
 use PaulGibbs\WordpressBehatExtension\Util;
@@ -42,7 +43,8 @@ class AdminMenu extends Element
      * delimited by a right angle bracket. E.g. Posts > Add New.
      *
      * @param string $item The menu item to click.
-     * @throws \Exception If the menu item does not exist
+     *
+     * @throws \RuntimeException If the menu item does not exist
      */
     public function clickMenuItem($item)
     {
@@ -83,7 +85,7 @@ class AdminMenu extends Element
         }
 
         if (false === $click_node) {
-            throw new \Exception('Menu item could not be found');
+            throw new RuntimeException('Menu item could not be found');
         }
 
         $click_node->click();
