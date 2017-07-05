@@ -1,11 +1,12 @@
 <?php
 namespace PaulGibbs\WordpressBehatExtension\Context;
 
-use InvalidArgumentException;
 use Behat\Gherkin\Node\TableNode;
-use function PaulGibbs\WordpressBehatExtension\Util\isWordpressError;
-use SensioLabs\Behat\PageObjectExtension\Context\PageObjectAware;
+use Behat\Mink\Driver\Selenium2Driver;
 use Behat\Mink\Exception\ElementTextException;
+use InvalidArgumentException;
+use SensioLabs\Behat\PageObjectExtension\Context\PageObjectAware;
+use function PaulGibbs\WordpressBehatExtension\Util\isWordpressError;
 
 /**
  * Provides step definitions for a range of common tasks. Recommended for all test suites.
@@ -43,7 +44,7 @@ class WordpressContext extends RawWordpressContext implements PageObjectAware
     public function fixToolbar()
     {
         $driver = $this->getSession()->getDriver();
-        if (! $driver instanceof \Behat\Mink\Driver\Selenium2Driver || ! $driver->getWebDriverSession()) {
+        if (! $driver instanceof Selenium2Driver || ! $driver->getWebDriverSession()) {
             return;
         }
 
