@@ -113,8 +113,8 @@ class WordpressContext extends RawWordpressContext implements PageObjectAware
      *
      * @param AfterScenarioScope $scope
      */
-     public function maybeRestoreDatabase(AfterScenarioScope $scope)
-     {
+    public function maybeRestoreDatabase(AfterScenarioScope $scope)
+    {
         $db = $this->getWordpressParameter('database');
         if (! $db['restore_after_test']) {
             return;
@@ -126,7 +126,7 @@ class WordpressContext extends RawWordpressContext implements PageObjectAware
         }
 
         $this->importDatabase(['path' => $file]);
-     }
+    }
 
     /*
      * Step definitions lurk beyond.
