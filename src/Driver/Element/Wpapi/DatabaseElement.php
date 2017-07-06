@@ -1,7 +1,7 @@
 <?php
 namespace PaulGibbs\WordpressBehatExtension\Driver\Element\Wpapi;
 
-use UnexpectedValueException;
+use RuntimeException;
 use PaulGibbs\WordpressBehatExtension\Driver\Element\BaseElement;
 
 /**
@@ -25,7 +25,7 @@ class DatabaseElement extends BaseElement
 
         $path         = tempnam($args['path'], 'wordhat');
         $command_args = sprintf(
-            '--no-defaults %1$s --add-drop-table --result-file=%2$s --host=%3$s --user=%4$s --pass=%5$s',
+            '--no-defaults %1$s --add-drop-table --result-file=%2$s --host=%3$s --user=%4$s --password=%5$s',
             DB_NAME,
             escapeshellarg($path),
             escapeshellarg(DB_HOST),
@@ -49,7 +49,7 @@ class DatabaseElement extends BaseElement
         $exit_code = proc_close($proc);
 
         if ($exit_code || $stderr) {
-            throw new UnexpectedValueException(
+            throw new RuntimeException(
                 sprintf(
                     "WP-PHP driver failure in database export for method %1\$s(): \n\t%2\$s\n(%3\$s)",
                     debug_backtrace()[1]['function'],
@@ -70,6 +70,43 @@ class DatabaseElement extends BaseElement
      */
     public function update($id, $args = [])
     {
+        $command_args = sprintf(
+            '--no-defaults --no-auto-rehash --host=%1$s --user=%2$s --password=%3$s --database=%4$s --execute=%5$s',
+            escapeshellarg(DB_HOST),
+            escapeshellarg(DB_USER),
+            escapeshellarg(DB_PASSWORD),
+            escapeshellarg(DB_NAME),
+            escapeshellarg(sprintf(
+                'SET autocommit = 0; SET unique_checks = 0; SET foreign_key_checks = 0; SOURCE %1$s; COMMIT;',
+                $args['path']
+            ))
+        );
+
+        $proc = proc_open(
+            "/usr/bin/env mysql {$command_args}",
+            array(
+                1 => ['pipe', 'w'],
+                2 => ['pipe', 'w'],
+            ),
+            $pipes
+        );
+
+        $stdout = trim(stream_get_contents($pipes[1]));
+        $stderr = trim(stream_get_contents($pipes[2]));
+        fclose($pipes[1]);
+        fclose($pipes[2]);
+        $exit_code = proc_close($proc);
+
+        if ($exit_code || $stderr) {
+            throw new RuntimeException(
+                sprintf(
+                    "WP-PHP driver failure in database eximportport for method %1\$s(): \n\t%2\$s\n(%3\$s)",
+                    debug_backtrace()[1]['function'],
+                    $stderr ?: $stdout,
+                    $exit_code
+                )
+            );
+        }
     }
 
 
