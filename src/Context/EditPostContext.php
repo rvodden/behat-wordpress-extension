@@ -219,7 +219,11 @@ class EditPostContext extends RawWordpressContext
         }
 
         throw new ExpectationException(
-            sprintf('Metabox "%s" was found on the page, but it should not be there.', $title), $this->getSession()
+            sprintf(
+                'Metabox "%s" was found on the page, but it should not be there.',
+                $title
+            ),
+            $this->getSession()
         );
     }
 }
