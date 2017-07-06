@@ -43,7 +43,12 @@ class AdminPage extends Page
         $actual = $this->getHeaderText();
         if ($expected !== $actual) {
             throw new ExpectationException(
-                sprintf('Expected page header "%s", found "%s".', $expected, $actual), $this->getDriver()
+                sprintf(
+                    'Expected page header "%s", found "%s".',
+                    $expected,
+                    $actual
+                ),
+                $this->getDriver()
             );
         }
     }

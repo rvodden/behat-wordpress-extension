@@ -55,7 +55,11 @@ class EditPostPage extends AdminPage
             }
         }
         throw new ExpectationException(
-            sprintf('Metabox "%s" not found on the page.', $title), $this->getDriver()
+            sprintf(
+                'Metabox "%s" not found on the page.',
+                $title
+            ),
+            $this->getDriver()
         );
     }
 }

@@ -33,7 +33,8 @@ class DriverPass implements CompilerPassInterface
         }
 
         $wordpress->addMethodCall(
-            'setDefaultDriverName', [$container->getParameter('wordpress.wordpress.default_driver')]
+            'setDefaultDriverName',
+            [$container->getParameter('wordpress.wordpress.default_driver')]
         );
     }
 }
