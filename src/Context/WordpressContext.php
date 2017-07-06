@@ -3,10 +3,10 @@ namespace PaulGibbs\WordpressBehatExtension\Context;
 
 use InvalidArgumentException;
 use Behat\Gherkin\Node\TableNode;
+use Behat\Mink\Driver\Selenium2Driver;
 use Behat\Mink\Exception\ElementTextException;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use Behat\Behat\Hook\Scope\AfterScenarioScope;
-
 use SensioLabs\Behat\PageObjectExtension\Context\PageObjectAware;
 use function PaulGibbs\WordpressBehatExtension\Util\isWordpressError;
 
@@ -63,7 +63,7 @@ class WordpressContext extends RawWordpressContext implements PageObjectAware
     public function fixToolbar()
     {
         $driver = $this->getSession()->getDriver();
-        if (! $driver instanceof \Behat\Mink\Driver\Selenium2Driver || ! $driver->getWebDriverSession()) {
+        if (! $driver instanceof Selenium2Driver || ! $driver->getWebDriverSession()) {
             return;
         }
 
