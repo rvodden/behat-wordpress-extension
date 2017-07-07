@@ -24,6 +24,7 @@ class Toolbar extends Element
      * delimited by a right angle bracket. E.g. New > Post.
      *
      * @param string $link The toolbar item to click.
+     *
      * @throws ExpectationException If the menu item does not exist
      */
     public function clickToolbarLink($link)
@@ -59,11 +60,12 @@ class Toolbar extends Element
      * Determines whether the link name refers to the given NodeElement.
      *
      * Some toolbar links do not have any visible text, so we handle those
-     * seperately. Otherwise we compoare the link text to the text of the
+     * separately. Otherwise we compare the link text to the text of the
      * element.
      *
      * @param \Behat\Mink\Element\NodeElement $element The element to check
      * @param string $link_text The link (text) to check for
+     *
      * @return bool True if $link_text refers to $element. False otherwise.
      */
     protected function elementIsTargetLink($element, $link_text)
@@ -88,11 +90,12 @@ class Toolbar extends Element
     }
 
     /**
-     * Retruns a second-level toolbar NodeElement corresponding to the link text
+     * Returns a second-level toolbar NodeElement corresponding to the link text
      * under the given first-level toolbar NodeElement.
      *
      * @param \Behat\Mink\Element\NodeElement $first_level_item The element to check under
      * @param string $link_text The link (text) to check for
+     *
      * @return \Behat\Mink\Element\NodeElement|null
      */
     protected function getSubmenuLinkNode($first_level_item, $link_text)
@@ -122,6 +125,8 @@ class Toolbar extends Element
      * Searches for the given text using the toolbar search field.
      *
      * @param string $text Text to enter into the search field
+     *
+     * @throws \Behat\Mink\Exception\ExpectationException
      */
     public function search($text)
     {
@@ -152,8 +157,11 @@ class Toolbar extends Element
      */
     public function logOut()
     {
-        // Using NodeElement::mouseOver() won't work because WordPress is using hoverIndent. Instead we just
-        // manually add the hover class. See https://github.com/paulgibbs/behat-wordpress-extension/issues/65
+        /*
+         * Using NodeElement::mouseOver() won't work because WordPress is using hoverIndent.
+         * Instead we just manually add the hover class.
+         * See https://github.com/paulgibbs/behat-wordpress-extension/issues/65
+         */
         try {
             $this->getSession()->evaluateScript(
                 'jQuery("#wp-admin-bar-my-account").addClass("hover");'

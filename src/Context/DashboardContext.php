@@ -42,6 +42,8 @@ class DashboardContext extends RawWordpressContext
      * Example: When I click on the "Add New" link in the header
      *
      * @When I click on the :link link in the header
+     *
+     * @param string $link
      */
     public function iClickOnHeaderLink($link)
     {
@@ -54,6 +56,8 @@ class DashboardContext extends RawWordpressContext
      * Example: Then I should be on the "Posts" page
      *
      * @Then I should be on the :admin_page page
+     *
+     * @param string $admin_page
      */
     public function iShouldBeOnThePage($admin_page)
     {
@@ -77,9 +81,11 @@ class DashboardContext extends RawWordpressContext
      *
      * Example: Given I go to menu item "Posts > Add New"
      * Example: Given I go to the menu item "Users"
-     * Example: Given I go to the menu "Settubgs > Reading"
+     * Example: Given I go to the menu "Settings > Reading"
      *
      * @Given I go to (the )menu (item ):item
+     *
+     * @param string $item
      */
     public function iGoToMenuItem($item)
     {
@@ -96,6 +102,8 @@ class DashboardContext extends RawWordpressContext
      *
      * @param string $type    Message type. Either "error" or "status".
      * @param string $message Text to search for.
+     *
+     * @throws \Behat\Mink\Exception\ElementTextException
      */
     public function iShouldSeeMessageThatSays($type, $message)
     {

@@ -25,7 +25,7 @@ function spins(callable $closure, $wait = 60, $step = 250000)
 
     while (time() < $stop_time) {
         try {
-            call_user_func($closure);
+            $closure();
             return;
         } catch (Exception $e) {
             $error = $e;
@@ -77,7 +77,7 @@ function stripTagsAndContent($html)
 /**
  * Is the specified item's class a WordPress error object?
  *
- * @param object $item
+ * @param \stdClass $item
  * @return bool
  */
 function isWordpressError($item)

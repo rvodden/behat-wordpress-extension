@@ -39,6 +39,8 @@ class CommentElement extends BaseElement
      * @param int|string $id   Object ID.
      * @param array      $args Optional data used to fetch an object.
      *
+     * @throws \UnexpectedValueException
+     *
      * @return mixed The item.
      */
     public function get($id, $args = [])

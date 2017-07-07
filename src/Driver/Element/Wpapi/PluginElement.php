@@ -1,6 +1,7 @@
 <?php
 namespace PaulGibbs\WordpressBehatExtension\Driver\Element\Wpapi;
 
+use UnexpectedValueException;
 use PaulGibbs\WordpressBehatExtension\Driver\Element\BaseElement;
 
 /**
@@ -35,6 +36,8 @@ class PluginElement extends BaseElement
      *
      * @param string $id   Plugin name to activate.
      * @param array  $args Optional. Not used.
+     *
+     * @throws \UnexpectedValueException
      */
     public function activate($id, $args = [])
     {
@@ -54,6 +57,8 @@ class PluginElement extends BaseElement
      *
      * @param string $id   Plugin name to deactivate.
      * @param array  $args Optional. Not used.
+    *
+     * @throws \UnexpectedValueException
      */
     public function deactivate($id, $args = [])
     {

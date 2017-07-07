@@ -2,7 +2,6 @@
 namespace PaulGibbs\WordpressBehatExtension\Context;
 
 use Behat\Gherkin\Node\TableNode;
-use function PaulGibbs\WordpressBehatExtension\Util\isWordpressError;
 use RuntimeException;
 
 /**
@@ -96,6 +95,8 @@ class UserContext extends RawWordpressContext
      * @Given /^(?:I am|they are) logged in as (?:a|an) (.+)$/
      *
      * @param string $role
+     *
+     * @throws \RuntimeException
      */
     public function iAmLoggedInAs($role)
     {

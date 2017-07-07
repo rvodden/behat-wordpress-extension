@@ -12,8 +12,10 @@ class ThemeElement extends BaseElement
     /**
      * Switch active theme.
      *
-     * @param string $id   Theme name to switch to.
-     * @param array  $args Not used.
+     * @param string $id Theme name to switch to.
+     * @param array $args Not used.
+     *
+     * @throws \UnexpectedValueException
      */
     public function update($id, $args = [])
     {

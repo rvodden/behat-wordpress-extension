@@ -17,7 +17,7 @@ class AdminMenu extends Element
     protected $selector = '#adminmenu';
 
     /**
-     * Obtains a list of the top-leve menu items.
+     * Obtains a list of the top-level menu items.
      *
      * The list contains the 'human readable' strings. e.g. 'Dashboard'.
      *
@@ -48,7 +48,7 @@ class AdminMenu extends Element
      */
     public function clickMenuItem($item)
     {
-        $item = array_map('trim', preg_split('/(?<!\\\\)>/', $item));
+        $items = array_map('trim', preg_split('/(?<!\\\\)>/', $item));
         $click_node = false;
 
         $first_level_items = $this->findAll('css', 'li.menu-top');
@@ -59,13 +59,13 @@ class AdminMenu extends Element
             // @link https://github.com/stephenharris/WordPressBehatExtension/issues/2
             $item_name = Util\stripTagsAndContent($first_level_item->find('css', '.wp-menu-name')->getHtml());
 
-            if (strtolower($item[0]) === strtolower($item_name)) {
-                if (isset($item[1])) {
+            if (strtolower($items[0]) === strtolower($item_name)) {
+                if (isset($items[1])) {
                     $second_level_items = $first_level_item->findAll('css', 'ul li a');
 
                     foreach ($second_level_items as $second_level_item) {
                         $item_name = Util\stripTagsAndContent($second_level_item->getHtml());
-                        if (strtolower($item[1]) === strtolower($item_name)) {
+                        if (strtolower($items[1]) === strtolower($item_name)) {
                             try {
                                 // Focus on the menu link so the submenu appears
                                 $first_level_item->find('css', 'a.menu-top')->focus();

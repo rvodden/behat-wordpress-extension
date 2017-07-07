@@ -2,8 +2,6 @@
 namespace PaulGibbs\WordpressBehatExtension\Driver;
 
 use RuntimeException;
-use UnexpectedValueException;
-use function PaulGibbs\WordpressBehatExtension\Util\isWordpressError;
 
 /**
  * Connect Behat to WordPress by loading WordPress directly into the global scope.
@@ -22,7 +20,7 @@ class WpapiDriver extends BaseDriver
      *
      * @var \wpdb
      */
-    protected $wpdb = null;
+    protected $wpdb;
 
     /**
      * Constructor.
@@ -38,6 +36,8 @@ class WpapiDriver extends BaseDriver
      * Set up anything required for the driver.
      *
      * Called when the driver is used for the first time.
+     *
+     * @throws \RuntimeException
      */
     public function bootstrap()
     {
@@ -150,6 +150,7 @@ class WpapiDriver extends BaseDriver
      * @param string $term
      * @param string $taxonomy
      * @param array  $args     Optional. Set the values of the new term.
+     *
      * @return array {
      *     @type int    $id   Term ID.
      *     @type string $slug Term slug.
@@ -187,6 +188,7 @@ class WpapiDriver extends BaseDriver
      * This method will be removed in release 1.0.0.
      *
      * @param array $args Set the values of the new content item.
+     *
      * @return array {
      *     @type int    $id   Content ID.
      *     @type string $slug Content slug.
@@ -224,12 +226,14 @@ class WpapiDriver extends BaseDriver
      *
      * @param string $title     The title of the content to get.
      * @param string $post_type Post type(s) to consider when searching for the content.
+     *
+     * @throws \UnexpectedValueException
+     *
      * @return array {
      *     @type int    $id   Content ID.
      *     @type string $slug Content slug.
      *     @type string $url Content url.
      * }
-     * @throws \UnexpectedValueException If post does not exist
      */
     public function getContentFromTitle($title, $post_type = '')
     {
@@ -248,6 +252,7 @@ class WpapiDriver extends BaseDriver
      * This method will be removed in release 1.0.0.
      *
      * @param array $args Set the values of the new comment.
+     *
      * @return array {
      *     @type int $id Content ID.
      * }
@@ -282,6 +287,7 @@ class WpapiDriver extends BaseDriver
      * @param string $user_login User login name.
      * @param string $user_email User email address.
      * @param array  $args       Optional. Extra parameters to pass to WordPress.
+     *
      * @return array {
      *     @type int    $id   User ID.
      *     @type string $slug User slug (nicename).
@@ -318,14 +324,15 @@ class WpapiDriver extends BaseDriver
      *
      * This method will be removed in release 1.0.0.
      *
-     * @param string $username The username of the user to get the ID of
-     * @return int ID of the user.
+     * @param string $username The username of the user to get the ID of.
+     *
      * @throws \UnexpectedValueException If provided data is invalid
+     *
+     * @return int ID of the user.
      */
     public function getUserIdFromLogin($username)
     {
-        $user = $this->user->get($username, ['by' => 'login']);
-        return $user->ID;
+        return $this->user->get($username, ['by' => 'login'])->ID;
     }
 
     /**

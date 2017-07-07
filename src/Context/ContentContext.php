@@ -19,6 +19,7 @@ class ContentContext extends RawWordpressContext
      * @Given /^(?:there are|there is a) posts?:/
      *
      * @param TableNode $posts
+     * @throws \UnexpectedValueException
      */
     public function thereArePosts(TableNode $posts)
     {
@@ -37,6 +38,7 @@ class ContentContext extends RawWordpressContext
      * @Given /^(?:I am|they are) viewing a(?: blog)? post(?: "([^"]+)"|:)/
      *
      * @param TableNode|string $post_data_or_title
+     * @throws \UnexpectedValueException
      */
     public function iAmViewingBlogPost($post_data_or_title)
     {

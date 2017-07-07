@@ -9,14 +9,14 @@ use PaulGibbs\WordpressBehatExtension\Driver\Element\ElementInterface;
  *
  * A driver represents and manages the connection between the Behat environment and a WordPress site.
  *
- * @property \ElementInterface $cache
- * @property \ElementInterface $comment
- * @property \ElementInterface $content
- * @property \ElementInterface $database
- * @property \ElementInterface $plugin
- * @property \ElementInterface $term
- * @property \ElementInterface $theme
- * @property \ElementInterface $user
+ * @property \PaulGibbs\WordpressBehatExtension\Driver\ElementInterface $cache
+ * @property \PaulGibbs\WordpressBehatExtension\Driver\ElementInterface $comment
+ * @property \PaulGibbs\WordpressBehatExtension\Driver\ElementInterface $content
+ * @property \PaulGibbs\WordpressBehatExtension\Driver\ElementInterface $database
+ * @property \PaulGibbs\WordpressBehatExtension\Driver\ElementInterface $plugin
+ * @property \PaulGibbs\WordpressBehatExtension\Driver\ElementInterface $term
+ * @property \PaulGibbs\WordpressBehatExtension\Driver\ElementInterface $theme
+ * @property \PaulGibbs\WordpressBehatExtension\Driver\ElementInterface $user
  */
 abstract class BaseDriver implements DriverInterface
 {
@@ -30,7 +30,7 @@ abstract class BaseDriver implements DriverInterface
     /**
      * Registered driver elements.
      *
-     * @var ElementInterface[]
+     * @var \\PaulGibbs\WordpressBehatExtension\Driver\ElementInterface[]
      */
     protected $elements = [];
 
@@ -38,7 +38,10 @@ abstract class BaseDriver implements DriverInterface
      * Expose $elements as public properties.
      *
      * @param string $name Element name.
-     * @return ElementInterface|null Return element object.
+     *
+     * @throws UnsupportedDriverActionException
+     *
+     * @return null|\\PaulGibbs\WordpressBehatExtension\Driver\ElementInterface Return element object.
      */
     public function __get($name)
     {

@@ -205,7 +205,8 @@ class WordpressBehatExtension implements ExtensionInterface
      * Load extension services into ServiceContainer.
      *
      * @param ContainerBuilder $container
-     * @param array            $config
+     * @param array $config
+     * @throws \Exception
      */
     public function load(ContainerBuilder $container, array $config)
     {
@@ -224,9 +225,12 @@ class WordpressBehatExtension implements ExtensionInterface
     /**
      * Load settings for the WP-CLI driver.
      *
-     * @param FileLoader       $loader
+     * @param FileLoader $loader
      * @param ContainerBuilder $container
-     * @param array            $config
+     * @param array $config
+     *
+     * @throws \RuntimeException
+     * @throws \Exception
      */
     protected function setupWpcliDriver(FileLoader $loader, ContainerBuilder $container, $config)
     {
@@ -236,7 +240,7 @@ class WordpressBehatExtension implements ExtensionInterface
 
         $loader->load('drivers/wpcli.yml');
 
-        if (empty($config['wpcli']['alias']) && empty($config['path'])) {
+        if (empty($config['path']) && empty($config['wpcli']['alias'])) {
             throw new RuntimeException('WP-CLI driver requires an `alias` or root `path` set.');
         }
 
@@ -253,9 +257,12 @@ class WordpressBehatExtension implements ExtensionInterface
     /**
      * Load settings for the WordPress PHP driver.
      *
-     * @param FileLoader       $loader
+     * @param FileLoader $loader
      * @param ContainerBuilder $container
-     * @param array            $config
+     * @param array $config
+     *
+     * @throws \RuntimeException
+     * @throws \Exception
      */
     protected function setupWpapiDriver(FileLoader $loader, ContainerBuilder $container, $config)
     {
@@ -276,9 +283,11 @@ class WordpressBehatExtension implements ExtensionInterface
     /**
      * Load settings for the blackbox driver.
      *
-     * @param FileLoader       $loader
+     * @param FileLoader $loader
      * @param ContainerBuilder $container
-     * @param array            $config
+     * @param array $config
+     *
+     * @throws \Exception
      */
     protected function setupBlackboxDriver(FileLoader $loader, ContainerBuilder $container, $config)
     {
@@ -329,6 +338,8 @@ class WordpressBehatExtension implements ExtensionInterface
      * Set up custom Context class.
      *
      * `behat --init` creates an inital Context class. Here, we switch the template used for that.
+     *
+     * @param ContainerBuilder $container
      */
     protected function processClassGenerator(ContainerBuilder $container)
     {
@@ -337,9 +348,11 @@ class WordpressBehatExtension implements ExtensionInterface
     }
 
     /**
-     * Tell Page Object Extension the namepsace of our page objects
+     * Tell Page Object Extension the namespace of our page objects
      *
      * @param ContainerBuilder $container
+     *
+     * @throws \Symfony\Component\DependencyInjection\Exception\InvalidArgumentException
      */
     protected function setPageObjectNamespaces(ContainerBuilder $container)
     {
@@ -355,7 +368,9 @@ class WordpressBehatExtension implements ExtensionInterface
     }
 
     /**
-     * Adds the WordPress site url as a page parameter into page objects
+     * Adds the WordPress site url as a page parameter into page objects.
+    *
+     * @param ContainerBuilder $container
      */
     protected function injectSiteUrlIntoPageObjects(ContainerBuilder $container)
     {

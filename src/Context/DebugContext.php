@@ -9,7 +9,7 @@ class DebugContext extends RawWordpressContext
     /**
      * Pause the scenario until the user presses a key.
      *
-     * Example: Then I add a breakpint
+     * Example: Then I add a breakpoint
      *
      * @Then I add a breakpoint
      */

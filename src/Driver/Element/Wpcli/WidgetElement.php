@@ -15,8 +15,9 @@ class WidgetElement extends BaseElement
      * Adds a widget to the sidebar with the specified arguments
      *
      * @param string $widget_name The ID base of the widget (e.g. 'meta', 'calendar'). Case insensitive.
-     * @param string $sidebar_id The ID of the sidebar to the add the widget to
-     * @param array $args Associative array of widget settings for this widget
+     * @param string $sidebar_id  The ID of the sidebar to the add the widget to
+     * @param array  $args        Associative array of widget settings for this widget
+     *
      * @throws UnexpectedValueException If the widget or sidebar does not exist.
      */
     public function addToSidebar($widget_name, $sidebar_id, $args)
@@ -35,8 +36,10 @@ class WidgetElement extends BaseElement
      * Gets a sidebar ID from its human-readable name
      *
      * @param string $sidebar_name The name of the sidebar (e.g. 'Footer', 'Widget Area', 'Right Sidebar')
-     * @return string The sidebar ID
+     *
      * @throws UnexpectedValueException If the sidebar is not registered
+     *
+     * @return string The sidebar ID
      */
     public function getSidebar($sidebar_name)
     {
@@ -45,16 +48,18 @@ class WidgetElement extends BaseElement
         ])['stdout']);
 
         $sidebar_id = null;
+
         foreach ($registered_sidebars as $sidebar) {
-            if ($sidebar_name == $sidebar->name) {
+            if ($sidebar_name === $sidebar->name) {
                 $sidebar_id = $sidebar->id;
                 break;
             }
         }
 
-        if (is_null($sidebar_id)) {
+        if ($sidebar_id === null) {
             throw new UnexpectedValueException(sprintf('Sidebar "%s" does not exist', $sidebar_name));
         }
+
         return $sidebar_id;
     }
 }

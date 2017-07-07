@@ -14,6 +14,8 @@ class UserElement extends BaseElement
      *
      * @param array $args Data used to create an object.
      *
+     * @throws \UnexpectedValueException
+     *
      * @return \WP_User The new item.
      */
     public function create($args)
@@ -31,8 +33,10 @@ class UserElement extends BaseElement
     /**
      * Retrieve an item for this element.
      *
-     * @param int|string $id   Object ID.
-     * @param array      $args Optional data used to fetch an object.
+     * @param int|string $id Object ID.
+     * @param array $args Optional data used to fetch an object.
+     *
+     * @throws \UnexpectedValueException
      *
      * @return \WP_User The item.
      */
@@ -56,8 +60,10 @@ class UserElement extends BaseElement
     /**
      * Delete an item for this element.
      *
-     * @param int   $id   Object ID.
+     * @param int $id Object ID.
      * @param array $args Optional data used to delete an object.
+     *
+     * @throws \UnexpectedValueException
      */
     public function delete($id, $args = [])
     {

@@ -14,6 +14,8 @@ class TermElement extends BaseElement
      *
      * @param array $args Data used to create an object.
      *
+     * @throws \UnexpectedValueException
+     *
      * @return \WP_Term The new item.
      */
     public function create($args)
@@ -31,8 +33,10 @@ class TermElement extends BaseElement
     /**
      * Retrieve an item for this element.
      *
-     * @param int   $id   Object ID.
+     * @param int $id Object ID.
      * @param array $args Optional data used to fetch an object.
+     *
+     * @throws \UnexpectedValueException
      *
      * @return \WP_Term The item.
      */
@@ -54,8 +58,10 @@ class TermElement extends BaseElement
     /**
      * Delete an item for this element.
      *
-     * @param int   $id   Object ID.
+     * @param int $id Object ID.
      * @param array $args Optional data used to delete an object.
+     *
+     * @throws \UnexpectedValueException
      */
     public function delete($id, $args = [])
     {

@@ -34,6 +34,8 @@ abstract class BaseElement implements ElementInterface
      * @param array $args Data used to create an object.
      *
      * @return mixed The new item.
+     *
+     * @throws PaulGibbs\WordpressBehatExtension\Exception\UnsupportedDriverActionException
      */
     public function create($args)
     {
@@ -43,8 +45,10 @@ abstract class BaseElement implements ElementInterface
     /**
      * Retrieve an item for this element.
      *
-     * @param int|string $id   Object ID.
-     * @param array      $args Optional data used to fetch an object.
+     * @param int|string $id Object ID.
+     * @param array $args Optional data used to fetch an object.
+     *
+     * @throws PaulGibbs\WordpressBehatExtension\Exception\UnsupportedDriverActionException
      *
      * @return mixed The item.
      */
@@ -56,8 +60,10 @@ abstract class BaseElement implements ElementInterface
     /**
      * Update an item for this element.
      *
-     * @param int|string $id   Object ID.
-     * @param array      $args Optional data used to update an object.
+     * @param int|string $id Object ID.
+     * @param array $args Optional data used to update an object.
+     *
+     * @throws PaulGibbs\WordpressBehatExtension\Exception\UnsupportedDriverActionException
      */
     public function update($id, $args = [])
     {
@@ -67,8 +73,10 @@ abstract class BaseElement implements ElementInterface
     /**
      * Delete an item for this element.
      *
-     * @param int|string $id   Object ID.
-     * @param array      $args Optional data used to delete an object.
+     * @param int|string $id Object ID.
+     * @param array $args Optional data used to delete an object.
+     *
+     * @throws PaulGibbs\WordpressBehatExtension\Exception\UnsupportedDriverActionException
      */
     public function delete($id, $args = [])
     {

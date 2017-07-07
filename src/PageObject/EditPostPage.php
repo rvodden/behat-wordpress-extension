@@ -12,7 +12,9 @@ class EditPostPage extends AdminPage
 
     /**
      * Enter the title into the title field.
+     *
      * @param string $title
+     *
      * @throws \Behat\Mink\Exception\ElementNotFoundException
      */
     public function setContentTitle($title)
@@ -22,7 +24,8 @@ class EditPostPage extends AdminPage
 
     /**
      * Get the content editor node element.
-     * @return \PaulGibbs\WordpressBehatExtension\PageObject\Element\PostContentEditor
+     *
+     * @return \SensioLabs\Behat\PageObjectExtension\PageObject\Element
      */
     public function getContentEditor()
     {
@@ -31,6 +34,7 @@ class EditPostPage extends AdminPage
 
     /**
      * Press the update/publish button.
+     *
      * @throws \Behat\Mink\Exception\ElementNotFoundException
      */
     public function pressUpdate()
@@ -41,12 +45,15 @@ class EditPostPage extends AdminPage
 
     /**
      * Get the node element for the specified metabox.
+     *
      * @param string The title of the metabox to get
+     *
      * @throws \Behat\Mink\Exception\ExpectationException If the metabox cannot be found
      */
     public function getMetaBox($title)
     {
         $metaboxes = $this->findAll('css', '.postbox');
+
         if (! empty($metaboxes)) {
             foreach ($metaboxes as $metabox) {
                 if ($metabox->find('css', 'h2')->getText() === $title) {
@@ -54,6 +61,7 @@ class EditPostPage extends AdminPage
                 }
             }
         }
+
         throw new ExpectationException(
             sprintf(
                 'Metabox "%s" not found on the page.',

@@ -1,19 +1,15 @@
 <?php
 namespace PaulGibbs\WordpressBehatExtension\Context;
 
-use InvalidArgumentException;
-use Behat\Gherkin\Node\TableNode;
 use Behat\Mink\Driver\Selenium2Driver;
 use Behat\Mink\Exception\ElementTextException;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use Behat\Behat\Hook\Scope\AfterScenarioScope;
-use SensioLabs\Behat\PageObjectExtension\Context\PageObjectAware;
-use function PaulGibbs\WordpressBehatExtension\Util\isWordpressError;
 
 /**
  * Provides step definitions for a range of common tasks. Recommended for all test suites.
  */
-class WordpressContext extends RawWordpressContext implements PageObjectAware
+class WordpressContext extends RawWordpressContext
 {
     use PageObjectContextTrait;
 
@@ -156,6 +152,8 @@ class WordpressContext extends RawWordpressContext implements PageObjectAware
      * Example: When I search for "Hello World" in the toolbar
      *
      * @When I search for :search in the toolbar
+     *
+     * @param $search
      */
     public function iSearchUsingTheToolbar($search)
     {
@@ -168,6 +166,10 @@ class WordpressContext extends RawWordpressContext implements PageObjectAware
      * Example: Then I should see "Howdy, admin" in the toolbar
      *
      * @Then I should see :text in the toolbar
+     *
+     * @param string $text
+     *
+     * @throws ElementTextException
      */
     public function iShouldSeeTextInToolbar($text)
     {
@@ -189,6 +191,8 @@ class WordpressContext extends RawWordpressContext implements PageObjectAware
      * Example: When I follow the toolbar link "Howdy, admin > Edit My Profile"
      *
      * @When I follow the toolbar link :link
+     *
+     * @param string $link
      */
     public function iFollowTheToolbarLink($link)
     {
