@@ -108,7 +108,7 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      */
     public function getWordpressParameter($name)
     {
-        return $this->wordpress_parameters[$name] ?? null;
+        return ! empty($this->wordpress_parameters[$name]) ? $this->wordpress_parameters[$name] : null;
     }
 
     /**

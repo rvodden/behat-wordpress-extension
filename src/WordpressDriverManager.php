@@ -133,7 +133,7 @@ class WordpressDriverManager
      */
     public function getSetting($name)
     {
-        return $this->settings[$name] ?? null;
+        return ! empty($this->settings[$name]) ? $this->settings[$name] : null;
     }
 
     /**
