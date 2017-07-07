@@ -10,6 +10,8 @@ interface DriverInterface
 {
     /**
      * Has the driver has been bootstrapped?
+     *
+     * @return bool
      */
     public function isBootstrapped();
 

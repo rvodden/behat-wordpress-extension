@@ -369,7 +369,7 @@ class WordpressBehatExtension implements ExtensionInterface
 
     /**
      * Adds the WordPress site url as a page parameter into page objects.
-    *
+     *
      * @param ContainerBuilder $container
      */
     protected function injectSiteUrlIntoPageObjects(ContainerBuilder $container)

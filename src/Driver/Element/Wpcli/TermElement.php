@@ -29,7 +29,7 @@ class TermElement extends BaseElement
         );
 
         array_unshift($wpcli_args, $args['taxonomy'], $args['term'], '--porcelain');
-        $term_id    = (int) $this->drivers->getDriver()->wpcli('term', 'create', $wpcli_args)['stdout'];
+        $term_id = (int) $this->drivers->getDriver()->wpcli('term', 'create', $wpcli_args)['stdout'];
 
         return $this->get($term_id);
     }

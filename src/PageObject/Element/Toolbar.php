@@ -25,7 +25,7 @@ class Toolbar extends Element
      *
      * @param string $link The toolbar item to click.
      *
-     * @throws ExpectationException If the menu item does not exist
+     * @throws \Behat\Mink\Exception\ExpectationException If the menu item does not exist
      */
     public function clickToolbarLink($link)
     {
@@ -72,7 +72,7 @@ class Toolbar extends Element
     {
         $current_item_name = strtolower($element->find('css', '.ab-item')->getText());
 
-        switch (strtolower($link_text)) :
+        switch (strtolower($link_text)) {
             case 'wordpress':
                 $is_link = $element->getAttribute('id') === 'wp-admin-bar-wp-logo';
                 break;
@@ -84,7 +84,7 @@ class Toolbar extends Element
                 break;
             default:
                 $is_link = strtolower($link_text) === $current_item_name;
-        endswitch;
+        }
 
         return $is_link;
     }
@@ -93,8 +93,8 @@ class Toolbar extends Element
      * Returns a second-level toolbar NodeElement corresponding to the link text
      * under the given first-level toolbar NodeElement.
      *
-     * @param \Behat\Mink\Element\NodeElement $first_level_item The element to check under
-     * @param string $link_text The link (text) to check for
+     * @param \Behat\Mink\Element\NodeElement $first_level_item The element to check under.
+     * @param string                          $link_text        The link (text) to check for.
      *
      * @return \Behat\Mink\Element\NodeElement|null
      */
@@ -102,22 +102,26 @@ class Toolbar extends Element
     {
         $second_level_items = $first_level_item->findAll('css', 'ul li a');
         $submenu_link_node = null;
+
         foreach ($second_level_items as $second_level_item) {
             $current_item_name = Util\stripTagsAndContent($second_level_item->getHtml());
+
             if (strtolower($link_text) === strtolower($current_item_name)) {
                 try {
-                    // "Focus" (add hover class) on the toolbar link so the submenu appears
+                    // "Focus" (add hover class) on the toolbar link so the submenu appears.
                     $id = $first_level_item->getAttribute('id');
                     $this->getSession()->evaluateScript(
                         'jQuery("#' . $id . '").addClass("hover");'
                     );
                 } catch (UnsupportedDriverActionException $e) {
-                    // This will fail for GoutteDriver but neither is it necessary
+                    // This will fail for GoutteDriver but neither is it necessary.
                 }
+
                 $submenu_link_node = $second_level_item;
                 break;
             }
         }
+
         return $submenu_link_node;
     }
 
@@ -169,6 +173,7 @@ class Toolbar extends Element
         } catch (UnsupportedDriverActionException $e) {
             // This will fail for GoutteDriver but neither is it necessary
         }
+
         $this->find('css', '#wp-admin-bar-logout a')->click();
     }
 }

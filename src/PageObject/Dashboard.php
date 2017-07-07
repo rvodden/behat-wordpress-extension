@@ -13,6 +13,7 @@ class Dashboard extends AdminPage
 
     /**
      * Asserts the page header tag reads 'Dashboard'
+     *
      * @throws \Exception
      */
     protected function verifyPage()
