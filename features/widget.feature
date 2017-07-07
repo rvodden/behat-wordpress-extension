@@ -1,8 +1,8 @@
 Feature: Widgets
-  
+
   Scenario: Viewing a widget
-    Given I have the "RSS" widget in "Blog Sidebar"
-      | Title   | Url                              | Items   |
-      | My feed | https://wordpress.org/news/feed/ | 3       |
+    Given I have the "meta" widget in "Blog Sidebar"
+      | Title     |
+      | My widget |
     And I am on the homepage
-    Then I should see "My feed"
+    Then I should see "My widget"
