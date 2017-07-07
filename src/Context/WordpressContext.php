@@ -42,7 +42,7 @@ class WordpressContext extends RawWordpressContext implements PageObjectAware
             return;
         }
 
-        $file = $db['backup_path'] ?? '';
+        $file = ! empty($db['backup_path']) ? $db['backup_path'] : '';
 
         // If the specified file exists, use it as our backup.
         if (! $file || ! is_file($file) || ! is_readable($file)) {
