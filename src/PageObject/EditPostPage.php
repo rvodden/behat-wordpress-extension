@@ -46,7 +46,7 @@ class EditPostPage extends AdminPage
     /**
      * Get the node element for the specified metabox.
      *
-     * @param string The title of the metabox to get
+     * @param string $title The title of the metabox to get
      *
      * @return \Behat\Mink\Element\NodeElement
      *
