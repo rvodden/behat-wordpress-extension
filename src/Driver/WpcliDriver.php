@@ -32,8 +32,11 @@ class WpcliDriver extends BaseDriver
     protected $url = '';
 
     /**
-     * Binary for WP-CLi
-     * Defaults to wp, or wp.bat for Windows installs
+     * Binary for WP-CLI.
+     *
+     * Defaults to wp, or wp.bat for Windows installs.
+     *
+     * @var string
      */
     protected $binary = 'wp';
 
@@ -64,6 +67,8 @@ class WpcliDriver extends BaseDriver
      *
      * Called when the driver is used for the first time.
      * Checks `core is-installed`, and the version number.
+     *
+     * @throws \RuntimeException
      */
     public function bootstrap()
     {
@@ -94,11 +99,14 @@ class WpcliDriver extends BaseDriver
      * @param string $command       Command name.
      * @param string $subcommand    Subcommand name.
      * @param array  $raw_arguments Optional. Associative array of arguments for the command.
+     *
+     * @throws \UnexpectedValueException
+     *
      * @return array {
      *     WP-CLI command results.
      *
-     *     @type string $stdout    Response text from WP-CLI.
-     *     @type int    $exit_code Returned status code of the executed command.
+     *     @type string $stdout Response text from WP-CLI.
+     *     @type int $exit_code Returned status code of the executed command.
      * }
      */
     public function wpcli($command, $subcommand, $raw_arguments = [])
@@ -200,6 +208,7 @@ class WpcliDriver extends BaseDriver
      * @param string $term
      * @param string $taxonomy
      * @param array  $args     Optional. Set the values of the new term.
+     *
      * @return array {
      *     @type int    $id   Term ID.
      *     @type string $slug Term slug.
@@ -237,6 +246,7 @@ class WpcliDriver extends BaseDriver
      * This method will be removed in release 1.0.0.
      *
      * @param array $args Set the values of the new content item.
+     *
      * @return array {
      *     @type int    $id   Content ID.
      *     @type string $slug Content slug.
@@ -276,12 +286,14 @@ class WpcliDriver extends BaseDriver
      *
      * @param string $title     The title of the content to get.
      * @param string $post_type Post type(s) to consider when searching for the content.
+     *
+     * @throws \UnexpectedValueException If post does not exist
+     *
      * @return array {
      *     @type int    $id   Content ID.
      *     @type string $slug Content slug.
      *     @type string $url Content url.
      * }
-     * @throws \UnexpectedValueException If post does not exist
      */
     public function getContentFromTitle($title, $post_type = '')
     {
@@ -302,6 +314,7 @@ class WpcliDriver extends BaseDriver
      * This method will be removed in release 1.0.0.
      *
      * @param array $args Set the values of the new comment.
+     *
      * @return array {
      *     @type int $id Content ID.
      * }
@@ -336,6 +349,7 @@ class WpcliDriver extends BaseDriver
      * @param string $user_login User login name.
      * @param string $user_email User email address.
      * @param array  $args       Optional. Extra parameters to pass to WordPress.
+     *
      * @return array {
      *     @type int    $id   User ID.
      *     @type string $slug User slug (nicename).
@@ -372,20 +386,23 @@ class WpcliDriver extends BaseDriver
      *
      * This method will be removed in release 1.0.0.
      *
-     * @param string $username The username of the user to get the ID of
-     * @return int ID of the user.
+     * @param string $username The username of the user to get the ID of.
+     *
      * @throws \UnexpectedValueException If provided data is invalid
+     *
+     * @return int ID of the user.
      */
     public function getUserIdFromLogin($username)
     {
-        $user = $this->user->get($username, ['by' => 'login']);
-        return $user->ID;
+        return $this->user->get($username, ['by' => 'login'])->ID;
     }
 
     /**
      * Start a database transaction.
      *
      * This method will be removed in release 1.0.0.
+     *
+     * @throws \PaulGibbs\WordpressBehatExtension\Exception\UnsupportedDriverActionException
      */
     public function startTransaction()
     {
@@ -396,6 +413,8 @@ class WpcliDriver extends BaseDriver
      * End (rollback) a database transaction.
      *
      * This method will be removed in release 1.0.0.
+     *
+     * @throws \PaulGibbs\WordpressBehatExtension\Exception\UnsupportedDriverActionException
      */
     public function endTransaction()
     {

@@ -67,7 +67,10 @@ class WordpressDriverManager
      * Return a registered driver by name (defaults to the default driver).
      *
      * @param string $name Optional. The name of the driver to return. If omitted, the default driver is returned.
+     *
      * @return DriverInterface The requested driver.
+     *
+     * @throws \InvalidArgumentException
      */
     public function getDriver($name = '')
     {
@@ -101,6 +104,8 @@ class WordpressDriverManager
      * Set the default driver name.
      *
      * @param string $name Default driver name to set.
+     *
+     * @throws \InvalidArgumentException
      */
     public function setDefaultDriverName($name)
     {

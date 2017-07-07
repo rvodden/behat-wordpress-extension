@@ -1,8 +1,9 @@
 <?php
 namespace PaulGibbs\WordpressBehatExtension\Driver\Element\Wpcli;
 
-use PaulGibbs\WordpressBehatExtension\Driver\Element\BaseElement;
 use UnexpectedValueException;
+use PaulGibbs\WordpressBehatExtension\Driver\Element\BaseElement;
+use function PaulGibbs\WordpressBehatExtension\Util\buildCLIArgs;
 
 /**
  * WP-CLI driver element for taxonomy terms.
@@ -38,6 +39,8 @@ class TermElement extends BaseElement
      *
      * @param int|string $id   Object ID.
      * @param array      $args Optional data used to fetch an object.
+     *
+     * @throws \UnexpectedValueException
      *
      * @return mixed The item.
      */

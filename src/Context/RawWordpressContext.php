@@ -51,7 +51,7 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      */
     public function locatePath($path)
     {
-        if (strtolower(substr($path, 0, '4')) === 'http') {
+        if (stripos($path, 'http') === 0) {
             return $path;
         }
 
@@ -152,6 +152,8 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      * @param string $password
      * @param string $redirect_to Optional. Default = "/".
      *                            After succesful log in, redirect browser to this path.
+     *
+     * @throws ExpectationException
      */
     public function logIn($username, $password, $redirect_to = '/')
     {
@@ -189,6 +191,8 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
 
     /**
      * Log the current user out.
+     *
+     * @throws \RuntimeException
      */
     public function logOut()
     {
@@ -359,11 +363,11 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
     /**
      * Export WordPress database.
      *
-     * @return string Absolute path to database SQL file.
+     * @return string Path to the export file.
      */
     public function exportDatabase()
     {
-        $this->getDriver()->database->export(0);
+        return $this->getDriver()->database->export(0);
     }
 
     /**

@@ -64,18 +64,18 @@ class WidgetElement extends BaseElement
         global $wp_registered_sidebars;
 
         $sidebar_id = null;
-        $sidebars = [];
+
         foreach ($wp_registered_sidebars as $registered_sidebar_id => $registered_sidebar) {
-            $sidebars[] = $registered_sidebar['name'];
-            if ($sidebar_name == $registered_sidebar['name']) {
+            if ($sidebar_name === $registered_sidebar['name']) {
                 $sidebar_id = $registered_sidebar_id;
                 break;
             }
         }
 
-        if (is_null($sidebar_id)) {
+        if ($sidebar_id === null) {
             throw new UnexpectedValueException(sprintf('Sidebar "%s" does not exist', $sidebar_name));
         }
+
         return $sidebar_id;
     }
 }

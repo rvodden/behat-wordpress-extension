@@ -11,15 +11,20 @@ class EditPostContext extends RawWordpressContext
 
     /**
      * Edit post/page/post-type page (/wp-admin/post.php?post=<id>&action=edit) object.
+     *
      * @param EditPostPage
      */
     private $edit_post_page;
 
     /**
+     * Constructor.
+     *
      * @param EditPostPage $edit_post_page The page object representing the edit post page.
      */
     public function __construct(EditPostPage $edit_post_page)
     {
+        parent::__construct();
+
         $this->edit_post_page = $edit_post_page;
     }
 
@@ -72,6 +77,8 @@ class EditPostContext extends RawWordpressContext
      * @When /^I change the title to "(?P<title>[^"]*)"$/
      *
      * @param string $title The title to enter in the title field on the edit post page.
+     *
+     * @throws \Behat\Mink\Exception\ElementNotFoundException
      */
     public function iChangeTitleTo($title)
     {
@@ -101,6 +108,7 @@ class EditPostContext extends RawWordpressContext
      *   """
      *   Welcome to WordPress. This is your first post. Edit or delete it, then start writing!
      *   """
+     *
      * @When I enter the following content into the post content editor:
      *
      * @param PyStringNode $content The content to enter into the editor.
@@ -120,13 +128,15 @@ class EditPostContext extends RawWordpressContext
      * @Then /^the post content editor is in (visual|text) mode$/i
      *
      * @param string $mode Assert that the editor is the specified mode (visual or text).
+     *
+     * @throws ExpectationException
      */
     public function postContentEditorIsInMode($mode)
     {
         $content_editor = $this->edit_post_page->getContentEditor();
         if (strtoupper($mode) !== $content_editor->getMode()) {
             throw new ExpectationException(
-                sprintf('Content editor is in "" mode. Expected "".', $content_editor->getMode(), $mode),
+                sprintf('Content editor is in "%1$s" mode. Expected "%2$s".', $content_editor->getMode(), $mode),
                 $this->getSession()
             );
         }
@@ -139,6 +149,8 @@ class EditPostContext extends RawWordpressContext
      * Example: WhenI press the update button
      *
      * @When /^I press the (publish|update) button$/
+     *
+     * @throws \Behat\Mink\Exception\ElementNotFoundException
      */
     public function iPressThePublishButton()
     {
@@ -154,7 +166,7 @@ class EditPostContext extends RawWordpressContext
      * @Then /^I should be on the edit "([a-zA-z_-]+)" screen for "([^"]*)"$/
      *
      * @param string $post_type The post type of the referenced 'post' being edited.
-     * @param string $title The name of the 'post' being edited.
+     * @param string $title     The name of the 'post' being edited.
      */
     public function iAmOnEditScreenForPostType($post_type, $title)
     {
@@ -192,6 +204,8 @@ class EditPostContext extends RawWordpressContext
      * @Then I should see the :title metabox
      *
      * @param string $title The title of the metabox being checked
+     *
+     * @throws \Behat\Mink\Exception\ExpectationException
      */
     public function iShouldSeeTheMetabox($title)
     {
@@ -208,6 +222,8 @@ class EditPostContext extends RawWordpressContext
      * @Then I should not see the :title metabox
      *
      * @param string $title The title of the metabox being checked
+     *
+     * @throws ExpectationException
      */
     public function iShouldNotSeeTheMetabox($title)
     {

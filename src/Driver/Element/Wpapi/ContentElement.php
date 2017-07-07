@@ -15,6 +15,8 @@ class ContentElement extends BaseElement
      *
      * @param array $args Data used to create an object.
      *
+     * @throws \UnexpectedValueException
+     *
      * @return \WP_Post The new item.
      */
     public function create($args)
@@ -32,8 +34,10 @@ class ContentElement extends BaseElement
     /**
      * Retrieve an item for this element.
      *
-     * @param \WP_Post|string|int $id   Object ID.
-     * @param array               $args Optional data used to fetch an object.
+     * @param \WP_Post|string|int $id Object ID.
+     * @param array $args Optional data used to fetch an object.
+     *
+     * @throws \UnexpectedValueException
      *
      * @return \WP_Post The item.
      */
@@ -41,7 +45,7 @@ class ContentElement extends BaseElement
     {
         $post = false;
 
-        if (is_numeric($id) || is_object($id) && $id instanceof \WP_Post) {
+        if (is_numeric($id) || (is_object($id) && $id instanceof \WP_Post)) {
             $post = get_post($id);
         } else {
             $query = new WP_Query();
@@ -72,8 +76,10 @@ class ContentElement extends BaseElement
     /**
      * Delete an item for this element.
      *
-     * @param int   $id   Object ID.
+     * @param int $id Object ID.
      * @param array $args Optional data used to delete an object.
+     *
+     * @throws \UnexpectedValueException
      */
     public function delete($id, $args = [])
     {

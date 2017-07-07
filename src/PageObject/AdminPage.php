@@ -17,6 +17,8 @@ class AdminPage extends Page
      *
      * The first h1 element is used, or first h2 element if it is not present.
      *
+     * @throws \Behat\Mink\Exception\ExpectationException
+     *
      * @return string The text in the header tag.
      */
     public function getHeaderText()
@@ -25,7 +27,7 @@ class AdminPage extends Page
         $header_text = $header->getText();
         $header_link = $header->find('css', 'a');
 
-        // The page headers can often incude an 'add new link'. Strip that out of the header text.
+        // The page headers can often include an 'add new link'. Strip that out of the header text.
         if ($header_link) {
             $header_text = trim(str_replace($header_link->getText(), '', $header_text));
         }
@@ -36,7 +38,9 @@ class AdminPage extends Page
     /**
      * Asserts the text in the header tag matches the given text.
      *
-     * @throws ExpectationException
+     * @param string $expected
+     *
+     * @throws \Behat\Mink\Exception\ExpectationException
      */
     public function assertHasHeader($expected)
     {
@@ -58,7 +62,7 @@ class AdminPage extends Page
      *
      * The first h1 element is used, or first h2 element if it is not present.
      *
-     * @throws ExpectationException
+     * @throws \Behat\Mink\Exception\ExpectationException
      */
     protected function getHeaderElement()
     {
@@ -80,24 +84,25 @@ class AdminPage extends Page
      * Click a link within the page header tag.
      *
      * @param string $link Link text.
+     *
+     * @throws \Behat\Mink\Exception\ElementNotFoundException
+     * @throws \Behat\Mink\Exception\ExpectationException
      */
     public function clickLinkInHeader($link)
     {
         $header_link = $this->find('css', '.page-title-action');
 
         if ($header_link->getText() === $link) {
-            return $header_link->click();
+            $header_link->click();
+        } else {
+            $this->getHeaderElement()->clickLink($link);
         }
-
-        $header = $this->getHeaderElement();
-
-        $header->clickLink($link);
     }
 
     /**
      * Returns the AdminMenu element.
      *
-     * @return AdminMenu
+     * @return \SensioLabs\Behat\PageObjectExtension\PageObject\Element
      */
     public function getMenu()
     {
@@ -106,11 +111,15 @@ class AdminPage extends Page
 
     /**
      * Modified Page::isOpen() function which throws an exception on failure
+     *
      * @see https://github.com/sensiolabs/BehatPageObjectExtension/issues/57
+     *
      * @param array $url_parameters
-     * @return boolean
+     *
      * @throws SensioLabs\Behat\PageObjectExtension\PageObject\Exception\UnexpectedPageException
      *         If the current page does not match this one.
+     *
+     * @return boolean
      */
     public function isOpen(array $url_parameters = array())
     {
@@ -124,6 +133,7 @@ class AdminPage extends Page
      * We override this method as we need to modify the private method Page::makeSurePathIsAbsolute()
      *
      * @param array $url_parameters
+     *
      * @return string Absolute URL of this page
      */
     protected function getUrl(array $url_parameters = array())
@@ -136,6 +146,7 @@ class AdminPage extends Page
      * to get the correct URL to wp-admin, wp-login.php etc.
      *
      * @param string $path Relative path of this page
+     *
      * @return string Absolute URL
      */
     protected function makeSurePathIsAbsolute($path)
@@ -148,6 +159,9 @@ class AdminPage extends Page
      * Insert values for placeholders in the page's path
      *
      * @param array $url_parameters
+     *
+     * @throws \SensioLabs\Behat\PageObjectExtension\PageObject\Exception\PathNotProvidedException
+     *
      * @return string
      */
     protected function unmaskUrl(array $url_parameters)

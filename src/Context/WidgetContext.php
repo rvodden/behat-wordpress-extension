@@ -19,6 +19,10 @@ class WidgetContext extends RawWordpressContext
      *            | My feed | https://wordpress.org/news/feed/ | 3       |
      *
      * @Given I have the :widget_name widget in :sidebar_name
+     *
+     * @param string    $widget_name
+     * @param string    $sidebar_name
+     * @param TableNode $widget_settings
      */
     public function iHaveTheMetaWidgetIn($widget_name, $sidebar_name, TableNode $widget_settings)
     {

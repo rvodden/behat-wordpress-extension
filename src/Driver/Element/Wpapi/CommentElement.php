@@ -14,6 +14,8 @@ class CommentElement extends BaseElement
      *
      * @param array $args Data used to create an object.
      *
+     * @throws \UnexpectedValueException
+     *
      * @return \WP_Comment The new item.
      */
     public function create($args)
@@ -24,7 +26,7 @@ class CommentElement extends BaseElement
             throw new UnexpectedValueException('Failed creating a new comment');
         } elseif (is_wp_error($comment_id)) {
             throw new UnexpectedValueException(
-                sprintf('Failed creating a new comment: %s', $user->get_error_message())
+                sprintf('Failed creating a new comment: %s', $comment_id->get_error_message())
             );
         }
 
@@ -34,8 +36,10 @@ class CommentElement extends BaseElement
     /**
      * Retrieve an item for this element.
      *
-     * @param int|string $id   Object ID.
-     * @param array      $args Not used.
+     * @param int|string  $id Object ID.
+     * @param array $args Not used.
+     *
+     * @throws \UnexpectedValueException
      *
      * @return \WP_Comment The item.
      */
@@ -55,6 +59,8 @@ class CommentElement extends BaseElement
      *
      * @param int|string $id   Object ID.
      * @param array      $args Optional data used to delete an object.
+     *
+     * @throws \UnexpectedValueException
      */
     public function delete($id, $args = [])
     {

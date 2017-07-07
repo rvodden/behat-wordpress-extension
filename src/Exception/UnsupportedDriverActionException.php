@@ -1,7 +1,6 @@
 <?php
 namespace PaulGibbs\WordpressBehatExtension\Exception;
 
-use PaulGibbs\WordpressBehatExtension\Driver\DriverInterface;
 use Exception;
 
 /**
@@ -12,9 +11,9 @@ class UnsupportedDriverActionException extends Exception
     /**
      * Constructor.
      *
-     * @param string  $message  Exception message.
-     * @param int     $code     User-defined exception code.
-     * @param unknown $previous If this was a nested exception, the previous exception.
+     * @param string     $message  Exception message.
+     * @param int        $code     User-defined exception code.
+     * @param \Exception $previous If this was a nested exception, the previous exception.
      */
     public function __construct($message = null, $code = 0, $previous = null)
     {

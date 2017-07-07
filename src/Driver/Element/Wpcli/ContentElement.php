@@ -38,8 +38,10 @@ class ContentElement extends BaseElement
     /**
      * Retrieve an item for this element.
      *
-     * @param int|string $id   Object ID.
-     * @param array      $args Optional data used to fetch an object.
+     * @param int|string $id Object ID.
+     * @param array $args Optional data used to fetch an object.
+     *
+     * @throws \UnexpectedValueException
      *
      * @return mixed The item.
      */
@@ -47,7 +49,7 @@ class ContentElement extends BaseElement
     {
         $url = '';
 
-        // Support fetching via arbitary field.
+        // Support fetching via arbitrary field.
         if (! is_numeric($id)) {
             $wpcli_args = ['--fields=ID,url', "--{$args['by']}=" . escapeshellarg($id), '--post_type=any', '--format=json'];
             $result     = json_decode($this->drivers->getDriver()->wpcli('post', 'list', $wpcli_args)['stdout']);

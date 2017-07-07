@@ -3,7 +3,6 @@
 namespace PaulGibbs\WordpressBehatExtension\Context;
 
 use RuntimeException;
-use Behat\Behat\Context\Context;
 use SensioLabs\Behat\PageObjectExtension\PageObject\Factory as PageObjectFactory;
 use SensioLabs\Behat\PageObjectExtension\PageObject\Page;
 use SensioLabs\Behat\PageObjectExtension\PageObject\Element;
@@ -13,7 +12,7 @@ trait PageObjectContextTrait
     /**
      * @var PageObjectFactory
      */
-    private $page_object_factory = null;
+    private $page_object_factory;
 
     /**
      * Creates a page object from its name.
@@ -61,6 +60,8 @@ trait PageObjectContextTrait
      * Returns the factory used for creating page and element objects.
      *
      * @return PageObjectFactory
+     *
+     * @throws \RuntimeException
      */
     public function getPageObjectFactory()
     {
