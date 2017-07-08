@@ -28,11 +28,13 @@ class WidgetElement extends BaseElement
         if (! $widget) {
             throw new UnexpectedValueException(sprintf('Widget "%s" does not exist', $widget_name));
         }
-        $widget = array_pop($widget);
 
+        $widget = array_pop($widget);
         $widget_options = get_option('widget_' . $widget_name, array());
+
         $option_keys = array_keys($widget_options);
         unset($option_keys['_multiwidget']);
+
         if (! isset($widget_options['_multiwidget'])) {
             $widget_options['_multiwidget'] = 1;
         }
@@ -40,10 +42,9 @@ class WidgetElement extends BaseElement
         // Get the widgets 'counter'
         $last_key = array_pop($option_keys);
         if (! is_numeric($last_key)) {
-            print_r($last_key);
-            print_r($option_keys);
-            print_r($widget_options);
-            print_r($widget_name);
+            print_r($widget_options); // [2] => ['title' = ''],['_multiwidget' = 1]
+            print_r($option_keys);  // [0 => 2,]
+            print_r($last_key);  // _multiwidget
         }
         $counter = $last_key + 1;
 
