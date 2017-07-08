@@ -386,6 +386,7 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      * @param string $user_login User login name.
      * @param string $user_email User email address.
      * @param array  $args       Optional. Extra parameters to pass to WordPress.
+     *
      * @return array {
      *     @type int    $id   User ID.
      *     @type string $slug User slug (nicename).
