@@ -14,7 +14,7 @@ class WordpressContext extends RawWordpressContext
     use PageObjectContextTrait;
 
     /**
-     * If database.restore_after_test is set, and scenario is tagged "db", create a database backup.
+     * If database.restore_after_test is set, and a scenario is tagged "db", create a database backup.
      *
      * The database will be restored from this backup via maybeRestoreDatabase().
      *
@@ -38,15 +38,15 @@ class WordpressContext extends RawWordpressContext
             return;
         }
 
+        // Get the file to use as a backup.
         $file = ! empty($db['backup_path']) ? $db['backup_path'] : '';
 
-        // If the specified file exists, use it as our backup.
+        // If the path specified is not a file, use it as the preferred folder to store a new backup.
         if (! $file || ! is_file($file) || ! is_readable($file)) {
-            // Otherwise, treat it as the (optional) preferred folder to store the backup.
             $file = $this->exportDatabase(['path' => $file]);
         }
 
-        // Note: $file may be either an absolute path, or relative.
+        // Note: $file may be either an absolute OR relative file path.
         $this->getWordpress()->setSetting('database_backup_file', $file);
     }
 
