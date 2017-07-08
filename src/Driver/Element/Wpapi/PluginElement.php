@@ -57,7 +57,7 @@ class PluginElement extends BaseElement
      *
      * @param string $id   Plugin name to deactivate.
      * @param array  $args Optional. Not used.
-    *
+     *
      * @throws \UnexpectedValueException
      */
     public function deactivate($id, $args = [])

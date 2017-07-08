@@ -1,6 +1,7 @@
 <?php
 namespace PaulGibbs\WordpressBehatExtension\Driver\Element\Wpapi;
 
+use RuntimeException;
 use PaulGibbs\WordpressBehatExtension\Driver\Element\BaseElement;
 
 /**
@@ -9,12 +10,117 @@ use PaulGibbs\WordpressBehatExtension\Driver\Element\BaseElement;
 class DatabaseElement extends BaseElement
 {
     /**
+     * Export site database.
+     *
+     * @param int   $id   Not used.
+     * @param array $args
+     *
+     * @return string Path to the database dump.
+     */
+    public function get($id, $args = [])
+    {
+        if (empty($args['path'])) {
+            $args['path'] = sys_get_temp_dir();
+        }
+
+        $path         = tempnam($args['path'], 'wordhat');
+        $command_args = sprintf(
+            '--no-defaults %1$s --add-drop-table --result-file=%2$s --host=%3$s --user=%4$s --password=%5$s',
+            DB_NAME,
+            escapeshellarg($path),
+            escapeshellarg(DB_HOST),
+            escapeshellarg(DB_USER),
+            escapeshellarg(DB_PASSWORD)
+        );
+
+        $proc = proc_open(
+            "/usr/bin/env mysqldump {$command_args}",
+            array(
+                1 => ['pipe', 'w'],
+                2 => ['pipe', 'w'],
+            ),
+            $pipes
+        );
+
+        $stdout = trim(stream_get_contents($pipes[1]));
+        $stderr = trim(stream_get_contents($pipes[2]));
+        fclose($pipes[1]);
+        fclose($pipes[2]);
+        $exit_code = proc_close($proc);
+
+        if ($exit_code || $stderr) {
+            throw new RuntimeException(
+                sprintf(
+                    "WP-PHP driver failure in database export for method %1\$s(): \n\t%2\$s\n(%3\$s)",
+                    debug_backtrace()[1]['function'],
+                    $stderr ?: $stdout,
+                    $exit_code
+                )
+            );
+        }
+
+        return $output;
+    }
+
+    /**
+     * Import site database.
+     *
+     * @param int   $id   Not used.
+     * @param array $args
+     */
+    public function update($id, $args = [])
+    {
+        $command_args = sprintf(
+            '--no-defaults --no-auto-rehash --host=%1$s --user=%2$s --password=%3$s --database=%4$s --execute=%5$s',
+            escapeshellarg(DB_HOST),
+            escapeshellarg(DB_USER),
+            escapeshellarg(DB_PASSWORD),
+            escapeshellarg(DB_NAME),
+            escapeshellarg(sprintf(
+                'SET autocommit = 0; SET unique_checks = 0; SET foreign_key_checks = 0; SOURCE %1$s; COMMIT;',
+                $args['path']
+            ))
+        );
+
+        $proc = proc_open(
+            "/usr/bin/env mysql {$command_args}",
+            array(
+                1 => ['pipe', 'w'],
+                2 => ['pipe', 'w'],
+            ),
+            $pipes
+        );
+
+        $stdout = trim(stream_get_contents($pipes[1]));
+        $stderr = trim(stream_get_contents($pipes[2]));
+        fclose($pipes[1]);
+        fclose($pipes[2]);
+        $exit_code = proc_close($proc);
+
+        if ($exit_code || $stderr) {
+            throw new RuntimeException(
+                sprintf(
+                    "WP-PHP driver failure in database eximportport for method %1\$s(): \n\t%2\$s\n(%3\$s)",
+                    debug_backtrace()[1]['function'],
+                    $stderr ?: $stdout,
+                    $exit_code
+                )
+            );
+        }
+    }
+
+
+    /*
+     * Convenience methods.
+     */
+
+    /**
      * Alias of get().
      *
      * @see get()
      *
      * @param int   $id   Not used.
-     * @param array $args Not used.
+     * @param array $args
      *
      * @return string Path to the export file.
      */
@@ -28,28 +134,11 @@ class DatabaseElement extends BaseElement
      *
      * @see update()
      *
-     * @param string $id   Relative or absolute path and filename of SQL file to import.
-     * @param array  $args Not used.
+     * @param int   $id   Not used.
+     * @param array $args
      */
     public function import($id, $args = [])
     {
         $this->update($id, $args);
-    }
-
-    /**
-     * Start a database transaction.
-     */
-    public function startTransaction()
-    {
-        $this->drivers->getDriver()->wpdb->query('SET autocommit = 0;');
-        $this->drivers->getDriver()->wpdb->query('START TRANSACTION;');
-    }
-
-    /**
-     * End (rollback) a database transaction.
-     */
-    public function endTransaction()
-    {
-        $this->drivers->getDriver()->wpdb->query('ROLLBACK;');
     }
 }

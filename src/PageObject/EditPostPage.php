@@ -46,15 +46,16 @@ class EditPostPage extends AdminPage
     /**
      * Get the node element for the specified metabox.
      *
-     * @param string The title of the metabox to get
+     * @param string $title The title of the metabox to get
+     *
+     * @return \Behat\Mink\Element\NodeElement
      *
      * @throws \Behat\Mink\Exception\ExpectationException If the metabox cannot be found
      */
     public function getMetaBox($title)
     {
         $metaboxes = $this->findAll('css', '.postbox');
-
-        if (! empty($metaboxes)) {
+        if ($metaboxes) {
             foreach ($metaboxes as $metabox) {
                 if ($metabox->find('css', 'h2')->getText() === $title) {
                     return $metabox;

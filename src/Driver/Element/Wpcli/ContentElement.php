@@ -30,7 +30,7 @@ class ContentElement extends BaseElement
         );
 
         array_unshift($wpcli_args, '--porcelain');
-        $post_id    = (int) $this->drivers->getDriver()->wpcli('post', 'create', $wpcli_args)['stdout'];
+        $post_id = (int) $this->drivers->getDriver()->wpcli('post', 'create', $wpcli_args)['stdout'];
 
         return $this->get($post_id);
     }

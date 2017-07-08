@@ -27,6 +27,14 @@ class WordpressDriverManager
      */
     protected $drivers = [];
 
+    /**
+     * Persistent settings storage.
+     *
+     * Internal use only.
+     *
+     * @var array
+     */
+    protected $settings = [];
 
     /**
      * Initialise the driver manager.
@@ -116,5 +124,34 @@ class WordpressDriverManager
         }
 
         $this->default_driver = $name;
+    }
+
+    /**
+     * Return the value of an internal setting.
+     *
+     * Internal use only.
+     * This value persists across Contexts, unlike getWordpressParameter().
+     *
+     * @param string $name Setting name.
+     *
+     * @return mixed
+     */
+    public function getSetting($name)
+    {
+        return ! empty($this->settings[$name]) ? $this->settings[$name] : null;
+    }
+
+    /**
+     * Return the value of an internal setting.
+     *
+     * Internal use only.
+     * This value persists across Contexts, unlike getWordpressParameter().
+     *
+     * @param string $name  Setting name.
+     * @param mixed  $value Setting value.
+     */
+    public function setSetting($name, $value)
+    {
+        $this->settings[$name] = $value;
     }
 }

@@ -3,6 +3,8 @@ namespace PaulGibbs\WordpressBehatExtension\Context;
 
 use Behat\Mink\Driver\Selenium2Driver;
 use Behat\Mink\Exception\ElementTextException;
+use Behat\Behat\Hook\Scope\BeforeScenarioScope;
+use Behat\Behat\Hook\Scope\AfterScenarioScope;
 
 /**
  * Provides step definitions for a range of common tasks. Recommended for all test suites.
@@ -12,23 +14,40 @@ class WordpressContext extends RawWordpressContext
     use PageObjectContextTrait;
 
     /**
-     * Clear object cache.
+     * If database.restore_after_test is set, and scenario is tagged "db", create a database backup.
      *
-     * @AfterScenario
+     * The database will be restored from this backup via maybeRestoreDatabase().
+     *
+     * @BeforeScenario @db
+     *
+     * @param BeforeScenarioScope $scope
      */
-    public function clearCache()
+    public function maybeBackupDatabase(BeforeScenarioScope $scope)
     {
-        parent::clearCache();
-    }
+        $db = $this->getWordpressParameter('database');
+        if (! $db['restore_after_test']) {
+            return;
+        }
 
-    /**
-     * Clear Mink's browser environment.
-     *
-     * @AfterScenario
-     */
-    public function resetBrowser()
-    {
-        parent::resetBrowser();
+        /*
+         * We need the logic of this method to operate only once, and have access to the Context.
+         * Otherwise, we would use the (static) BeforeSuiteScope hook.
+         */
+        $backup_file = $this->getWordpress()->getSetting('database_backup_file');
+        if ($backup_file) {
+            return;
+        }
+
+        $file = ! empty($db['backup_path']) ? $db['backup_path'] : '';
+
+        // If the specified file exists, use it as our backup.
+        if (! $file || ! is_file($file) || ! is_readable($file)) {
+            // Otherwise, treat it as the (optional) preferred folder to store the backup.
+            $file = $this->exportDatabase(['path' => $file]);
+        }
+
+        // Note: $file may be either an absolute path, or relative.
+        $this->getWordpress()->setSetting('database_backup_file', $file);
     }
 
     /**
@@ -60,6 +79,54 @@ class WordpressContext extends RawWordpressContext
              */
         }
     }
+
+    /**
+     * Clear object cache.
+     *
+     * @AfterScenario
+     */
+    public function clearCache()
+    {
+        parent::clearCache();
+    }
+
+    /**
+     * Clear Mink's browser environment.
+     *
+     * @AfterScenario
+     */
+    public function resetBrowser()
+    {
+        parent::resetBrowser();
+    }
+
+    /**
+     * If database.restore_after_test is set, and scenario is tagged "db", restore the database from a backup.
+     *
+     * The database will be restored from a backup made via maybeBackupDatabase().
+     *
+     * @AfterScenario @db
+     *
+     * @param AfterScenarioScope $scope
+     */
+    public function maybeRestoreDatabase(AfterScenarioScope $scope)
+    {
+        $db = $this->getWordpressParameter('database');
+        if (! $db['restore_after_test']) {
+            return;
+        }
+
+        $file = $this->getWordpress()->getSetting('database_backup_file');
+        if (! $file) {
+            return;
+        }
+
+        $this->importDatabase(['path' => $file]);
+    }
+
+    /*
+     * Step definitions lurk beyond.
+     */
 
     /**
      * Open the dashboard.

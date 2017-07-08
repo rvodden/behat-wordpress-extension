@@ -23,7 +23,7 @@ class AdminPage extends Page
      */
     public function getHeaderText()
     {
-        $header = $this->getHeaderElement();
+        $header      = $this->getHeaderElement();
         $header_text = $header->getText();
         $header_link = $header->find('css', 'a');
 
@@ -45,20 +45,22 @@ class AdminPage extends Page
     public function assertHasHeader($expected)
     {
         $actual = $this->getHeaderText();
-        if ($expected !== $actual) {
-            throw new ExpectationException(
-                sprintf(
-                    'Expected page header "%s", found "%s".',
-                    $expected,
-                    $actual
-                ),
-                $this->getDriver()
-            );
+        if ($expected === $actual) {
+            return;
         }
+
+        throw new ExpectationException(
+            sprintf(
+                'Expected page header "%1$s", found "%2$s".',
+                $expected,
+                $actual
+            ),
+            $this->getDriver()
+        );
     }
 
     /**
-     * Get the text in the header tag/
+     * Get the text in the header tag.
      *
      * The first h1 element is used, or first h2 element if it is not present.
      *
@@ -142,7 +144,7 @@ class AdminPage extends Page
     }
 
     /**
-     * We use WordHat's site_url  property rather than Mink's base_url property
+     * We use WordHat's site_url property rather than Mink's base_url property
      * to get the correct URL to wp-admin, wp-login.php etc.
      *
      * @param string $path Relative path of this page
@@ -156,7 +158,7 @@ class AdminPage extends Page
     }
 
     /**
-     * Insert values for placeholders in the page's path
+     * Insert values for placeholders in the page's path.
      *
      * @param array $url_parameters
      *

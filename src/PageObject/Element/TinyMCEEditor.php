@@ -4,31 +4,30 @@ namespace PaulGibbs\WordpressBehatExtension\PageObject\Element;
 use SensioLabs\Behat\PageObjectExtension\PageObject\Element;
 
 /**
- * An Element representing a WYSIWYG editor
+ * An Element representing a WYSIWYG editor.
  */
 class TinyMCEEditor extends Element
 {
-
     /**
-     * The available modes for the WYSIWYG editor
+     * The available modes for the WYSIWYG editor.
      */
     const VISUAL = 'VISUAL';
     const TEXT = 'TEXT';
 
     /**
-     * @var string The element ID of the underlying iFrame
+     * @var string The element ID of the underlying iFrame.
      */
     protected static $wysiwyg_iframe_id = 'content_ifr';
 
     /**
-     * @var string The element ID of the underlying textarea
+     * @var string The element ID of the underlying textarea.
      */
     protected static $textarea_id = 'content';
 
     /**
-     * Sets the mode of the WYSIWYG editor
+     * Sets the mode of the WYSIWYG editor.
      *
-     * @param string $mode VISUAL or TEXT
+     * @param string $mode VISUAL or TEXT.
      */
     public function setMode($mode)
     {
@@ -40,9 +39,9 @@ class TinyMCEEditor extends Element
     }
 
     /**
-     * Returns the mode of the WYSIWYG editor
+     * Returns the mode of the WYSIWYG editor.
      *
-     * @return string 'VISUAL' or 'TEXT'
+     * @return string Either 'VISUAL' or 'TEXT'.
      */
     public function getMode()
     {

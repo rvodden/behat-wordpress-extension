@@ -87,6 +87,9 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
     /**
      * Set parameters provided for WordPress.
      *
+     * IMPORTANT: this only sets the variable for the current Context!
+     * Each Context exists independently.
+     *
      * @param array $parameters
      */
     public function setWordpressParameters($parameters)
@@ -97,12 +100,15 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
     /**
      * Get a specific WordPress parameter.
      *
+     * IMPORTANT: this only sets the variable for the current Context!
+     * Each Context exists independently.
+     *
      * @param string $name Parameter name.
      * @return mixed
      */
     public function getWordpressParameter($name)
     {
-        return isset($this->wordpress_parameters[$name]) ? $this->wordpress_parameters[$name] : null;
+        return ! empty($this->wordpress_parameters[$name]) ? $this->wordpress_parameters[$name] : null;
     }
 
     /**
@@ -363,21 +369,23 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
     /**
      * Export WordPress database.
      *
+     * @param array $args
+     *
      * @return string Path to the export file.
      */
-    public function exportDatabase()
+    public function exportDatabase($args)
     {
-        return $this->getDriver()->database->export(0);
+        return $this->getDriver()->database->export(0, $args);
     }
 
     /**
      * Import WordPress database.
      *
-     * @param string $import_file Relative path and filename of SQL file to import.
+     * @param array $args
      */
-    public function importDatabase($import_file)
+    public function importDatabase($args)
     {
-        $this->getDriver()->database->import($import_file);
+        $this->getDriver()->database->import(0, $args);
     }
 
     /**

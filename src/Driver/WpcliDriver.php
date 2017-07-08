@@ -96,9 +96,9 @@ class WpcliDriver extends BaseDriver
     /**
      * Execute a WP-CLI command.
      *
-     * @param string $command       Command name.
-     * @param string $subcommand    Subcommand name.
-     * @param array  $raw_arguments Optional. Associative array of arguments for the command.
+     * @param string   $command       Command name.
+     * @param string   $subcommand    Subcommand name.
+     * @param string[] $raw_arguments Optional. Associative array of arguments for the command.
      *
      * @throws \UnexpectedValueException
      *
