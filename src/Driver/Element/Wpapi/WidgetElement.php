@@ -39,6 +39,12 @@ class WidgetElement extends BaseElement
 
         // Get the widgets 'counter'
         $last_key = array_pop($option_keys);
+        if (! is_numeric($last_key)) {
+            print_r($last_key);
+            print_r($option_keys);
+            print_r($widget_options);
+            print_r($widget_name);
+        }
         $counter = $last_key + 1;
 
         // Create widget instance
