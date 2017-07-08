@@ -40,9 +40,10 @@ class WidgetElement extends BaseElement
         }
 
         // Get the widgets 'counter'
+        $backup = $option_keys;
         $last_key = array_pop($option_keys);
         if (! is_numeric($last_key)) {
-            print_r($widget_options); // [2] => ['title' = ''],['_multiwidget' = 1]
+            print_r($backup);  // [0 => 2,]
             print_r($option_keys);  // [0 => 2,]
             print_r($last_key);  // _multiwidget
         }
