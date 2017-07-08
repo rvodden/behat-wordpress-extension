@@ -569,6 +569,9 @@
   <span class="l l-Scalar l-Scalar-Plain">site_url</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">~</span>
   <span class="l l-Scalar l-Scalar-Plain">permalinks</span><span class="p p-Indicator">:</span>
     <span class="l l-Scalar l-Scalar-Plain">author_archive</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">author/%s/</span>
+  <span class="l l-Scalar l-Scalar-Plain">database</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">restore_after_test</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+    <span class="l l-Scalar l-Scalar-Plain">backup_path</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">~</span>
 
   <span class="c1"># Driver settings.</span>
   <span class="l l-Scalar l-Scalar-Plain">wpcli</span><span class="p p-Indicator">:</span>
@@ -609,7 +612,7 @@
 <tr>
 <td><code>site_url</code></td>
 <td>null</td>
-<td><em>Optional</em>.<br>If your site&rsquo;s <code>home_url()</code> and <code>site_url()</code> values <a href="http://wordpress.stackexchange.com/a/50605">mismatch</a>,<br>set this to the <code>site_url()</code> value. Defaults to <code>mink.base_url</code></td>
+<td><em>Optional</em>.<br>If your site&rsquo;s <code>home_url()</code> and <code>site_url()</code> values <a href="https://wordpress.stackexchange.com/a/50605">mismatch</a>,<br>set this to the <code>site_url()</code> value. Defaults to <code>mink.base_url</code></td>
 </tr>
 <tr>
 <td><code>wpcli.alias</code></td>
@@ -620,6 +623,16 @@
 <td><code>wpcli.binary</code></td>
 <td><code>wp</code></td>
 <td><em>Optional</em>.<br>Path and name of WP-CLI binary.</td>
+</tr>
+<tr>
+<td><code>database.restore_after_test</code></td>
+<td>false</td>
+<td><em>Optional</em>.<br>If <code>true</code>, WordHat will restore your site&rsquo;s database to its initial state between feature tests.</td>
+</tr>
+<tr>
+<td><code>database.backup_path</code></td>
+<td><em>see example</em></td>
+<td><em>Optional</em>.<br>If <code>restore_after_test</code> is true, and the value is a file path, WordHat will use that as the backup to restore the database from. If the path is an absolute directory, then before any tests are run, WordHat will generate a database backup and temporarily store it here. If the path has not been set, WordHat will pick its own temporary folder.</td>
 </tr>
 </tbody>
 </table>
