@@ -59,7 +59,7 @@ class DatabaseElement extends BaseElement
             );
         }
 
-        return $output;
+        return $stdout;
     }
 
     /**
@@ -100,7 +100,7 @@ class DatabaseElement extends BaseElement
         if ($exit_code || $stderr) {
             throw new RuntimeException(
                 sprintf(
-                    "WP-PHP driver failure in database eximportport for method %1\$s(): \n\t%2\$s\n(%3\$s)",
+                    "WP-PHP driver failure in database import for method %1\$s(): \n\t%2\$s\n(%3\$s)",
                     debug_backtrace()[1]['function'],
                     $stderr ?: $stdout,
                     $exit_code

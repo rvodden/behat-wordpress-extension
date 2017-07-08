@@ -19,7 +19,7 @@ class Toolbar extends Element
     /**
      * Click a specific item in the toolbar.
      *
-     * Top-level items are identified by their link text (e.g. 'Comments' ).
+     * Top-level items are identified by their link text (e.g. 'Comments').
      * Second-level items are identified by their parent text and link text,
      * delimited by a right angle bracket. E.g. New > Post.
      *

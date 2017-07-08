@@ -38,7 +38,7 @@ class AdminMenu extends Element
     /**
      * Click a specific item in the admin menu.
      *
-     * Top-level items are identified by their link text (e.g. 'Comments' ).
+     * Top-level items are identified by their link text (e.g. 'Comments').
      * Second-level items are identified by their parent text and link text,
      * delimited by a right angle bracket. E.g. Posts > Add New.
      *

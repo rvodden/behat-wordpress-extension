@@ -23,7 +23,7 @@ class WidgetElement extends BaseElement
         global $wp_widget_factory;
 
         $widget_name = strtolower($widget_name);
-        $widget = wp_filter_object_list($wp_widget_factory->widgets, array( 'id_base' => $widget_name ));
+        $widget = wp_filter_object_list($wp_widget_factory->widgets, array('id_base' => $widget_name));
 
         if (! $widget) {
             throw new UnexpectedValueException(sprintf('Widget "%s" does not exist', $widget_name));
@@ -44,13 +44,13 @@ class WidgetElement extends BaseElement
         $counter = $last_key + 1;
 
         // Create widget instance
-        $widget_options[ $counter ] = $widget->update($args, array());
+        $widget_options[$counter] = $widget->update($args, array());
         update_option('widget_' . $widget_name, $widget_options);
         $widget_id = $widget_name . '-' . $counter;
 
         // Add widget to sidebar
         $active_widgets = get_option('sidebars_widgets', array());
-        array_unshift($active_widgets[ $sidebar_id ], $widget_id);
+        array_unshift($active_widgets[$sidebar_id], $widget_id);
         update_option('sidebars_widgets', $active_widgets);
     }
 
