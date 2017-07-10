@@ -8,7 +8,6 @@ php:
 
 cache:
   apt: true
-  pip: true
   directories:
     - vendor
     - $HOME/.composer/cache
