@@ -1,88 +1,56 @@
 # WordHat
 
-!!! summary
-    Do you know how to use Composer? tl;dr?
+## Requirements
 
-    Require `paulgibbs/behat-wordpress-extension`, copy its `behat.yml.dist` into your project (minus `.dist`), install <a href="https://wp-cli.org/">WP-CLI</a> globally, and run `vendor/bin/behat --init`.
+WordHat requires [PHP](https://php.net/) (version 5.6+), [Composer](https://getcomposer.org/), and a [WordPress](https://wordpress.org/) site to test (version 4.7+).
 
-!!! warning
-    Check that all of the [requirements](#requirements) are met.
+We strongly recommend use of [WP-CLI](https://wp-cli.org/)[^1] \(version 0.24+), and the standalone version of [Selenium](http://docs.seleniumhq.org/download/)[^2].
 
 
 ## Installation
 
 <ol>
 
-<li>Create a folder for your tests:
-<pre><code>mkdir projectfolder
-cd projectfolder</code></pre>
+<li>Create a folder for your tests. From a terminal:
+    <pre><code>mkdir project
+cd project</code></pre>
 </li>
 
-<li>Tell <a href="https://getcomposer.org/">Composer</a> to install WordHat. To do this conveniently, run:
-<pre><code># WordHat.
-php composer.phar require --dev paulgibbs/behat-wordpress-extension
-
-# These will help you get started.
-php composer.phar require --dev behat/mink-goutte-driver
-</code></pre>
-
-This will create a <code>composer.json</code> file in your project, and download WordHat.
+<li>Tell <a href="https://getcomposer.org/">Composer</a> to download WordHat:
+    <pre>composer require --dev paulgibbs/behat-wordpress-extension behat/mink-goutte-driver behat/mink-selenium2-driver</pre>
 </li>
 
-<li>WordHat comes with a sample configuration file to help you set up the test environment. Copy it into your project folder and name it `behat.yml`:
-<pre><code>cp vendor/paulgibbs/behat-wordpress-extension/behat.yml.dist behat.yml
-</code></pre>
-
-Edit that file and change the `base_url` setting to point at the website that you intend to test.
+<li>Copy WordHat's sample configuration file into your <code>project</code> folder and rename it:
+    <pre><code>cp vendor/paulgibbs/behat-wordpress-extension/behat.yml.dist behat.yml</code></pre>
 </li>
 
-<li>Initialise Behat with:
-<pre><code>vendor/bin/behat --init
-</code></pre>
+<li>Edit your <code>behat.yml</code> and update the <code>base_url</code> setting with the URL of the website that you intend to test.
+</li>
 
-This will generate a `features/` folder for your [features](http://docs.behat.org/en/latest/user_guide/features_scenarios.html#features), and a new [context](http://docs.behat.org/en/latest/user_guide/context.html) in `features/bootstrap/`. The latter is aware of both the WordPress and [Mink](https://github.com/Behat/MinkExtension) extensions, so you will be able to take advantage of them as you build your own custom [step definitions or hooks](http://docs.behat.org/en/latest/user_guide/writing_scenarios.html).
+<li>Initialise Behat:
+    <pre><code>vendor/bin/behat --init</code></pre>
+
+    <div class="admonition tip">
+        <p class="admonition-title">Tip</p>
+        <p>This will create a <code>features/</code> folder for your <a href="http://docs.behat.org/en/latest/user_guide/features_scenarios.html#features">features (tests)</a>, and a custom <a href="http://docs.behat.org/en/latest/user_guide/context.html">context class</a>. These will come in handy later!</p>
+    </div>
+</li>
+
+<li>To confirm that everything is set up correctly, run:
+    <pre><code>vendor/bin/behat -dl</code></pre>
+    If it worked, you will see a list of text that looks a little like the following (but much longer):
+    <pre><code>Given I am an anonymous user
+Given I am not logged in
+Given I am logged in as a user with the :role role(s)
+Given I am logged in as :name
+&hellip;</pre></code>
 </li>
 
 </ol>
 
 
-## Usage
-
-To confirm that everything is set up correctly, run:
-
-```Shell
-vendor/bin/behat -dl
-```
-
-If everything worked, you will see a list of steps like the following (but much longer):
-
-```Gherkin
-Given I am an anonymous user
-Given I am not logged in
-Given I am logged in as a user with the :role role(s)
-Given I am logged in as :name
-```
-
-Now you are ready to start writing your tests! If you are new to Behat, you might want to review its [quick start](http://behat.org/en/latest/quick_start.html#example) documentation. Good luck, and happy testing!
-
-## Requirements
-
-Package                              | Minimum required version
------------------------------------- | ------------------------
-[Composer](https://getcomposer.org/) | *
-[PHP](https://php.net/)              | >= 5.6
-[WordPress](https://wordpress.org/)  | >= 4.7
-
-
-### Suggested extras
-
-Package                              | Minimum required version
------------------------------------- | ------------------------
-[Selenium standalone](http://docs.seleniumhq.org/download/)[^1] | >= 3.0.1
-[WP-CLI](https://wp-cli.org/)[^2]                               | >= 0.24.0
-
 [^1]:
-    Recommended for testing <a href="http://mink.behat.org/en/latest/guides/drivers.html" id="SEL">websites that require Javascript</a>. Requires the [Mink Selenium2 driver](https://packagist.org/packages/behat/mink-selenium2-driver) in your project.
+    The WP-CLI executable *must* be named `wp` and be within your system's <a href="https://en.wikipedia.org/wiki/PATH_(variable)" id="WP-CLI">$PATH</a>.
 
 [^2]:
-    The WP-CLI executable *must* be named `wp` and be within your system's <a href="https://en.wikipedia.org/wiki/PATH_(variable)" id="WP-CLI">$PATH</a>.
+    Recommended for testing <a href="http://mink.behat.org/en/latest/guides/drivers.html" id="SEL">websites that require Javascript</a>. It requires the [Mink Selenium2 driver](https://packagist.org/packages/behat/mink-selenium2-driver), which we include in the installation instructions above.

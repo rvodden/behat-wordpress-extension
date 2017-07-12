@@ -11,4 +11,4 @@ If you encounter a bug, have a suggestion, or would like to help the project gro
 
 Behat allow you to describe the behavior of a website in plain --- but stylised --- language, and then turn that description into an automated test that will visit the site and perform each step you describe.
 
-Such functional tests can help site builders ensure that the added value they have created while building a WordPress site continues to behave as expected, after any sort of site change -- WordPress updates, new plugins, new features, and so on.
+Such functional tests can help site builders ensure that the added value they have created while building a WordPress site continues to behave as expected, after any sort of site change: WordPress updates, new plugins, new features, and so on.
