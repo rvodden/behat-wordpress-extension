@@ -43,15 +43,9 @@ markdown_extensions:
 theme: 'material'
 theme_dir: "docs/theme"
 pages:
-  - Home: index.md
-  - About:
-    - Introduction: about.md
-    - Credits: credits.md
-    - License: license.md
-  - Guide:
-    - Requirements: requirements.md
+  - Introduction: index.md
+  - Getting Started:
     - Installation: installation.md
-    #- Getting Started: installation.md
   - Configuration:
     - Settings: settings.md
     - Environment: environment-settings.md
@@ -60,3 +54,5 @@ pages:
     - Contexts: contexts.md
   - FAQs: faq.md
   - Change Log: changelog.md
+  - Credits: credits.md
+  - License: license.md
