@@ -1,10 +1,10 @@
-# WordHat
+# Installing WordHat
 
 ## Requirements
 
 WordHat requires [PHP](https://php.net/) (version 5.6+), [Composer](https://getcomposer.org/), and a [WordPress](https://wordpress.org/) site to test (version 4.7+).
 
-We strongly recommend use of [WP-CLI](https://wp-cli.org/)[^1] \(version 0.24+), and the standalone version of [Selenium](http://docs.seleniumhq.org/download/)[^2].
+We strongly recommend using [WP-CLI](https://wp-cli.org/)[^1] \(version 0.24+), and the standalone version of [Selenium](http://docs.seleniumhq.org/download/)[^2].
 
 
 ## Installation
@@ -27,7 +27,7 @@ cd project</code></pre>
 <li>Edit your <code>behat.yml</code> and update the <code>base_url</code> setting with the URL of the website that you intend to test.
 </li>
 
-<li>Initialise Behat:
+<li>Initialise [Behat](http://behat.org):
     <pre><code>vendor/bin/behat --init</code></pre>
 
     <div class="admonition tip">
@@ -47,6 +47,11 @@ Given I am logged in as :name
 </li>
 
 </ol>
+
+
+## Next steps
+
+Now that you have WordHat set up, we recommend reading our [introduction to Behat](behat-intro.md) to help you learn the basics before you start writing tests for your site.
 
 
 [^1]:

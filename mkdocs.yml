@@ -46,6 +46,7 @@ pages:
   - Introduction: index.md
   - Getting Started:
     - Installation: installation.md
+    - Intro to Behat: behat-intro.md
   - Configuration:
     - Settings: settings.md
     - Environment: environment-settings.md
