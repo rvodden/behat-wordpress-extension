@@ -54,6 +54,11 @@ class WpcliDriver extends BaseDriver
         $this->path  = realpath($path);
         $this->url   = rtrim(filter_var($url, FILTER_SANITIZE_URL), '/');
 
+        // Path can be relative.
+        if (! $this->path) {
+            $this->path = $path;
+        }
+
         // Support Windows.
         if ($binary === null && DIRECTORY_SEPARATOR === '\\') {
             $this->binary = 'wp.bat';
@@ -85,7 +90,7 @@ class WpcliDriver extends BaseDriver
 
         $status = $this->wpcli('core', 'is-installed')['exit_code'];
         if ($status !== 0) {
-            throw new RuntimeException('WP-CLI driver cannot find WordPress. Check "path" and/or "alias" settings.');
+            throw new RuntimeException('WordPress does not seem to be installed. Please install WordPress. If WordPress is installed, the WP-CLI driver cannot find WordPress. Please check the "path" and/or "alias" settings in behat.yml.');
         }
 
         putenv('WP_CLI_STRICT_ARGS_MODE=1');
@@ -124,23 +129,20 @@ class WpcliDriver extends BaseDriver
             "{$this->binary} {$config} --no-color {$command} {$subcommand} {$arguments}",
             array(
                 1 => ['pipe', 'w'],
-                2 => ['pipe', 'w'],
             ),
             $pipes
         );
 
         $stdout = trim(stream_get_contents($pipes[1]));
-        $stderr = trim(stream_get_contents($pipes[2]));
         fclose($pipes[1]);
-        fclose($pipes[2]);
         $exit_code = proc_close($proc);
 
-        if ($exit_code || $stderr || strpos($stdout, 'Warning: ') === 0 || strpos($stdout, 'Error: ') === 0) {
+        if ($exit_code || strpos($stdout, 'Warning: ') === 0 || strpos($stdout, 'Error: ') === 0) {
             throw new UnexpectedValueException(
                 sprintf(
                     "WP-CLI driver failure in method %1\$s(): \n\t%2\$s\n(%3\$s)",
                     debug_backtrace()[1]['function'],
-                    $stderr ?: $stdout,
+                    $stdout,
                     $exit_code
                 )
             );
