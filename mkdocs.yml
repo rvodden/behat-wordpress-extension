@@ -45,14 +45,14 @@ theme_dir: "docs/theme"
 pages:
   - Introduction: index.md
   - Getting Started:
-    - Installation: installation.md
-    - Intro to Behat: behat-intro.md
+    - Installation: getting-started/installation.md
+    - Intro to Behat: getting-started/behat-intro.md
   - Configuration:
-    - Settings: settings.md
-    - Environment: environment-settings.md
+    - Settings: configuration/settings.md
+    - Environment: configuration/environment-settings.md
   - Behat:
-    - Drivers: drivers.md
-    - Contexts: contexts.md
+    - Drivers: behat/drivers.md
+    - Contexts: behat/contexts.md
   - FAQs: faq.md
   - Change Log: changelog.md
   - Credits: credits.md

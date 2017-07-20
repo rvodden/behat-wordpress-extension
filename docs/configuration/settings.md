@@ -46,7 +46,7 @@ PaulGibbs\WordpressBehatExtension:
 
 Option           | Default value | Description
 -----------------| ------------- | -----------
-`default_driver` | "wpcli"       | _Optional_.<br>The [driver](drivers.md) to use ("wpcli", "wpapi", "blackbox").
+`default_driver` | "wpcli"       | _Optional_.<br>The [driver](/behat/drivers.md) to use ("wpcli", "wpapi", "blackbox").
 `path`           | null          | _Required_.<br>Path to WordPress files.
 `users.*`        | _see example_ | _Optional_.<br>Keys must match names of WordPress roles.
 `permalinks.*`   | _see example_ | _Optional_.<br>Permalink pattern for the specific kind of link.<br>`%s` is replaced with an ID/object name, as appropriate.
