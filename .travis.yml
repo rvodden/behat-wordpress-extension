@@ -13,7 +13,7 @@ cache:
     - $HOME/.composer/cache
 
 env:
-  - WP_VERSION=latest BEHAT_PARAMS='{"extensions":{"PaulGibbs\\WordpressBehatExtension":{"default_driver":"wpapi"}}}' WH_BUILD_DOCS=1
+  - WP_VERSION=latest BEHAT_PARAMS='{"extensions":{"PaulGibbs\\WordpressBehatExtension":{"default_driver":"wpapi"}}}'
   - WP_VERSION=latest BEHAT_PARAMS='{"extensions":{"PaulGibbs\\WordpressBehatExtension":{"default_driver":"wpcli","wpcli":{"binary":"%paths.base%/../../vendor/bin/wp"}}}}'
 #  - WP_VERSION=nightly BEHAT_PARAMS='{"extensions":{"PaulGibbs\\WordpressBehatExtension":{"default_driver":"wpapi"}}}'
 #  - WP_VERSION=nightly BEHAT_PARAMS='{"extensions":{"PaulGibbs\\WordpressBehatExtension":{"default_driver":"wpcli","wpcli":{"binary":"%paths.base%/../../vendor/bin/wp"}}}}'
@@ -38,9 +38,6 @@ notifications:
 before_install:
   # Execute all of the commands which need to be executed before installing dependencies.
 
-  # Set up deploy key for docs.
-  - if [[ "$TRAVIS_PULL_REQUEST" = "false" && "$WH_BUILD_DOCS" = "1" && "$TRAVIS_BRANCH" = "master" && "$TRAVIS_PHP_VERSION" = "7.1" ]] ; then bin/travis/deploy-key.sh; fi
-
   # Set up Behat.
   - composer self-update
   - composer validate
@@ -51,11 +48,6 @@ before_install:
 
 install:
   # Install all of the dependencies you need here.
-  - echo $TRAVIS_PULL_REQUEST;
-  - echo $WH_BUILD_DOCS;
-  - echo $TRAVIS_BRANCH;
-  - echo $TRAVIS_PHP_VERSION;
-  - if [[ "$TRAVIS_PULL_REQUEST" = "false" && "$WH_BUILD_DOCS" = "1" && "$TRAVIS_BRANCH" = "master" && "$TRAVIS_PHP_VERSION" = "7.1" ]] ; then pip install --user --upgrade pip && pip install --user --upgrade pymdown-extensions pygments mkdocs mkdocs-material; fi
   - composer install --no-interaction --prefer-dist --no-progress
   - bin/travis/wordpress.sh wordpress root '' localhost $WP_VERSION
   - bin/travis/nginx.sh
@@ -69,12 +61,6 @@ script:
   - find ./src -name "*.php" -print0 | xargs -0 -n1 -P8 php -l
   - vendor/bin/phpcs --standard=phpcs-ruleset.xml -p -s -v -n src --extensions=php
   - vendor/bin/behat --format progress --config ./bin/travis/behat.yml
-
-after_success:
-  # Update document website after succesful tests.
-  - git remote set-url origin git@github.com:$TRAVIS_REPO_SLUG.git
-  - git fetch origin -f gh-pages:gh-pages
-  - if [[ "$TRAVIS_PULL_REQUEST" = "false" && "$WH_BUILD_DOCS" = "1" && "$TRAVIS_BRANCH" = "master" && "$TRAVIS_PHP_VERSION" = "7.1" ]] ; then mkdocs gh-deploy; fi
 
 after_script:
   # Tidy up after test run.
