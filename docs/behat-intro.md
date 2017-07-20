@@ -1,6 +1,6 @@
 # Behat
 
-[Behat](http://behat.org) is a test framework for Behavior Driven Development (BDD) in PHP. <abbr title="Behavior Driven Development">BDD</abbr> is a methodology for developing software through continuous example-based communication between developers and a business.
+[Behat](http://behat.org) is a test framework for Behavior Driven Development (BDD) in [PHP](https://secure.php.net). <abbr title="Behavior Driven Development">BDD</abbr> is a methodology for developing software through continuous example-based communication between developers and a business.
 
 This communication happens in a form that both the business and developers can clearly understand: examples. The examples are structured around a "Context, Event, Outcome" pattern.
 
@@ -10,9 +10,6 @@ This communication happens in a form that both the business and developers can c
 In Behat, tests are organised into Scenarios, and multiple Scenarios are grouped into Features. Feature files start with the story of the business feature being tested (one per file), followed by at least one Scenario.
 
 Each Scenario consists of a list of Steps, which must start with one of the following keywords: `Given`, `When`, `Then`, `But`, `And`.
-
-!!! tip
-    There is no difference between the `Then`, `And`, and `But` keywords. Use them appropriately to write Scenarios that are natural and readable.
 
 A Scenario always follows the same basic format:
 
@@ -36,6 +33,9 @@ Scenario: Some description of the scenario
         And another outcome
     But another outcome
 ```
+
+!!! tip
+    There is no difference between the `Then`, `And`, and `But` keywords. Use them appropriately to write Scenarios that are natural and readable.
 
 
 ## Features
@@ -65,9 +65,14 @@ Feature: Shopping basket
     - Delivery for basket over £10 is £2
 ```
 
+!!! tip
+    Features are a simple description of a user story.
+
+    The format is always the same: the title of the feature, followed by three lines that describe the benefit, the role, and the feature itself. On subsequent lines, you can add any amount of additional description (such as the rules section, in this example).
+
 In isolation, each rule by itself is understandable, but there is ambiguous complexity when we try to describe the feature in terms of *rules*. For example, what does it mean to add tax? What happens when we have two products, one of which is less than £10, and another one that is more?
 
-To resolve this, we must have another conversation with our business stakeholders. This will often take the form of actual examples of a customer adding products to the basket. After some back-and-forth, we come up with our behaviour examples.
+To resolve this, we must have another conversation with our business stakeholders. This will often take the form of actual examples of a customer adding products to the basket. After some back-and-forth, we agree upon a list of behaviour examples.
 
 In <abbr title="Behavior Driven Development">BDD</abbr>, these are called *Scenarios*.
 
@@ -100,7 +105,7 @@ Feature: Shopping basket
             And the overall basket price should be £20
 
     Scenario: Buying two products over £10
-        Given there is a "yamok sauce", which costs £10
+        Given there is "yamok sauce", which costs £10
             And there is a "self-sealing stem bolt", which costs £5
         When I add the "yamok sauce" to the basket
             And I add the "self-sealing stem bolt" to the basket
@@ -109,11 +114,15 @@ Feature: Shopping basket
 ```
 
 !!! important
-    Scenarios in Feature files should focus on the "what", rather than the "how".
+    Scenarios in Feature files should focus on the *what*, rather than the *how*.
 
     Each Scenario should be concise and to the point, so that the reader can quickly grasp the intent of the test without having to read a lot of irrelevant steps.
 
-This represents the business' shared understanding of the project, written in a structured format. It is based on the clear and constructive conversation we had together with the business stakeholders. This, in essence, is what <abbr title="Behavior Driven Development">BDD</abbr> is.
+The totality of the above represents our business' shared understanding of our project, written in a structured format. It is based on the clear and constructive conversation we had together with our business stakeholders. This, in essence, is what <abbr title="Behavior Driven Development">BDD</abbr> is.
 
-((<abbr title="Behavior Driven Development">BDD</abbr> tools allow you to
-automate that behaviour check after this feature is implemented.))
+Behat allows us to automate behaviour checks after we implement the shopping basket feature for our e-commerce website.
+
+
+## Behat
+
+YOLO.

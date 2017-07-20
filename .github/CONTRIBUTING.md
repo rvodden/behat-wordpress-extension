@@ -25,4 +25,5 @@ You can do some things to increase the chance that your pull request is accepted
  * Delimit variable and property names by underscore.
  * Only typehint callable, classes, and objects.
  * Prefer short syntax `[ ]` for single-line arrays, and the traditional syntax for multi-line arrays.
- * Keep maximumum line lengths to around ~120 characters.
+ * For code files, keep maximumum line lengths to around ~120 characters.
+ * The website documentation is to be written in British English (en-GB).
