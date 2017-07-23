@@ -61,13 +61,12 @@ pages:
   - Getting Started:
     - Installation: getting-started/installation.md
     - Intro to Behat: getting-started/behat-intro.md
+  - Features:
+    - Drivers: behat/drivers.md
   - Configuration:
     - Settings: configuration/settings.md
-    - Environment: configuration/environment-settings.md
-  - Behat:
-    - Drivers: behat/drivers.md
-    - Contexts: behat/contexts.md
-  - FAQs: faq.md
-  - Change Log: changelog.md
+  - Recipes:
+    - FAQ: recipes/faq.md
+  - News: changelog.md
   - Credits: credits.md
   - License: license.md

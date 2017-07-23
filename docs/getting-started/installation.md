@@ -2,7 +2,7 @@
 
 ## Requirements
 
-WordHat requires [PHP](https://php.net/) (version 5.6+), [Composer](https://getcomposer.org/), and a [WordPress](https://wordpress.org/) site to test (version 4.7+).
+WordHat requires [PHP](https://php.net/) (version 5.6+), [Composer](https://getcomposer.org/), and a [WordPress](https://wordpress.org/) site to test (version 4.8+).
 
 We strongly recommend using [WP-CLI](https://wp-cli.org/)[^1] \(version 0.24+), and the standalone version of [Selenium](http://docs.seleniumhq.org/download/)[^2].
 

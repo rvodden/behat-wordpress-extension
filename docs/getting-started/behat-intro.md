@@ -174,7 +174,7 @@ An example of a Step Definition required for our e-commerce website is:
  */
 public function thereIsAWhichCosts($arg1, $arg2)
 {
-    // Check $args costs $args2.
+    // Check $arg1 costs $arg2.
     // Add $arg1 to shopping basket.
     // If something goes wrong, throw an Exception.
 }
@@ -191,7 +191,7 @@ The PHPDoc annotation for this method tells Behat that the method should be exec
 
 ## Next steps
 
-To learn more about Behat:
+This guide has introduced the basics of Behat and <abbr title="Behavior Driven Development">BDD</abbr>, and you are now ready to begin working with WordHat. To learn more, we recommend the following websites and presentations:
 
 * Jessica Mauerhan: "[Behat: Beyond the Basic](https://jmauerhan.wordpress.com/talks/behat-beyond-the-basics/)".
 * Knp University: "[BDD, Behat, Mink and other Wonderful Things](https://knpuniversity.com/screencast/behat)".
