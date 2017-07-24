@@ -46,7 +46,7 @@ PaulGibbs\WordpressBehatExtension:
 
 Option           | Default value | Description
 -----------------| ------------- | -----------
-`default_driver` | "wpcli"       | _Optional_.<br>The [driver](/behat/drivers.md) to use ("wpcli", "wpapi", "blackbox").
+`default_driver` | "wpcli"       | _Optional_.<br>The [driver](/features/drivers.md) to use ("wpcli", "wpapi", "blackbox").
 `path`           | null          | _Required_.<br>Path to WordPress files.
 `users.*`        | _see example_ | _Optional_.<br>Keys must match names of WordPress roles.
 `permalinks.*`   | _see example_ | _Optional_.<br>Permalink pattern for the specific kind of link.<br>`%s` is replaced with an ID/object name, as appropriate.
@@ -97,3 +97,13 @@ To export this into the ``BEHAT_PARAMS`` environment variable, squash the JSON o
 ```Shell
 export BEHAT_PARAMS='{"extensions":{"Behat\\MinkExtension":{"base_url":"http://development.dev"}}}'
 ```
+
+# Drivers
+
+WordHat provides a range of drivers for interacting with the WordPress site you are testing. A driver represents and manages the connection between the Behat and WordPress environments. Different drivers support different features.
+
+* The **WP-CLI** driver -- the default -- uses [WP-CLI](http://wp-cli.org/) to communicate with WordPress.
+* The **WordPress PHP** driver loads WordPress in the same PHP context as Behat.
+* The **Blackbox** driver interacts with WordPress through a web browser, in an unpriviledged context.
+
+To specify which driver to use for your tests, set [`default_driver`](/configuration/settings.md) in your `behat.yml` file.

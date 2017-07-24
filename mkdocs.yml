@@ -62,7 +62,7 @@ pages:
     - Installation: getting-started/installation.md
     - Intro to Behat: getting-started/behat-intro.md
   - Features:
-    - Drivers: behat/drivers.md
+    - Drivers: features/drivers.md
   - Configuration:
     - Settings: configuration/settings.md
   - Recipes:
