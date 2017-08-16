@@ -1,11 +1,13 @@
 <?php
-
 namespace PaulGibbs\WordpressBehatExtension\Context;
 
 use PaulGibbs\WordpressBehatExtension\PageObject\EditPostPage;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Mink\Exception\ExpectationException;
 
+/**
+ * Provides step definitions relating to editing content in wp-admin.
+ */
 class EditPostContext extends RawWordpressContext
 {
 
