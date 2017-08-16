@@ -1,0 +1,803 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="WordHat is a Behat extension, providing WordPress-specific functionality for common testing scenarios specific to WordPress sites.">
+      
+      
+        <link rel="canonical" href="https://wordhat.info/getting-started/behat-intro/index.html">
+      
+      
+        <meta name="author" content="Paul Gibbs">
+      
+      
+        <link rel="shortcut icon" href="../../img/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.8.1">
+    
+    
+      
+        <title>Intro to Behat - WordHat</title>
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr-1df76c4e58.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-bfecc7305d.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-02c2a4388f.palette.css">
+      
+    
+    
+  <style>
+  body, input {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  }
+  code, kbd, pre {
+    font-family: Consolas, Monaco, monospace;
+  }
+  </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    
+      <link rel="stylesheet" href="../../stylesheets/style.css">
+    
+    
+  </head>
+  
+  
+  
+  
+    <body data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+
+    <!-- Top-level navigation -->
+    <nav class="md-header-nav md-grid">
+        <div class="md-flex">
+
+            <!-- Link to home -->
+            <div class="md-flex__cell md-flex__cell--shrink">
+                
+                <a href="https://wordhat.info/" title="WordHat" class="md-logo md-header-nav__button">
+                    <img src="../../img/mark.svg" width="24" height="24" alt="" />
+                </a>
+                
+            </div>
+
+            <!-- Button to toggle drawer -->
+            <div class="md-flex__cell md-flex__cell--shrink">
+                <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+            </div>
+
+            <!-- Header title -->
+            <div class="md-flex__cell md-flex__cell--stretch">
+                <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+                <span class="md-header-nav__parent">
+                  Getting Started
+                </span>   Intro to Behat 
+                </span>
+            </div>
+
+            <!-- Button to open search dialogue -->
+            <div class="md-flex__cell md-flex__cell--shrink">
+                
+                <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+
+                <!-- Search interface -->
+                
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result" data-md-lang-search="" data-md-lang-tokenizer="[\s\-]+">
+          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+            </div>
+
+            <!-- Repository containing source -->
+            
+                <div class="md-flex__cell md-flex__cell--shrink">
+                    <div class="md-header-nav__source">
+                        
+
+
+  
+
+
+  <a href="https://github.com/paulgibbs/behat-wordpress-extension" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      WordHat
+    </div>
+  </a>
+
+                    </div>
+                </div>
+            
+        </div>
+    </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    
+      <i class="md-logo md-nav__button">
+        <img src="../../img/mark.svg">
+      </i>
+    
+    WordHat
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/paulgibbs/behat-wordpress-extension" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      WordHat
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../index.html" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Getting Started
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Getting Started
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../installation/index.html" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Intro to Behat
+      </label>
+    
+    <a href="index.html" title="Intro to Behat" class="md-nav__link md-nav__link--active">
+      Intro to Behat
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#context-event-outcome" title="Context, Event, Outcome" class="md-nav__link">
+    Context, Event, Outcome
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#features" title="Features" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenarios" title="Scenarios" class="md-nav__link">
+    Scenarios
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contexts" title="Contexts" class="md-nav__link">
+    Contexts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" title="Next steps" class="md-nav__link">
+    Next steps
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Features
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Features
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../features/overview/index.html" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Configuration
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Configuration
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../configuration/settings/index.html" title="Settings" class="md-nav__link">
+      Settings
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Recipes
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Recipes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../recipes/faq/index.html" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../changelog/index.html" title="News" class="md-nav__link">
+      News
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../credits/index.html" title="Credits" class="md-nav__link">
+      Credits
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../license/index.html" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#context-event-outcome" title="Context, Event, Outcome" class="md-nav__link">
+    Context, Event, Outcome
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#features" title="Features" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenarios" title="Scenarios" class="md-nav__link">
+    Scenarios
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contexts" title="Contexts" class="md-nav__link">
+    Contexts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" title="Next steps" class="md-nav__link">
+    Next steps
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+  
+  <h1 id="behat">Behat<a class="headerlink" href="#behat" title="Permanent link">&para;</a></h1>
+<p><a href="http://behat.org">Behat</a> is a test framework for Behavior Driven Development (BDD) in <a href="https://secure.php.net">PHP</a>. <abbr title="Behavior Driven Development">BDD</abbr> is a methodology for developing software through continuous example-based communication between developers and a business.</p>
+<p>This communication happens in a form that both the business and developers can clearly understand: examples. The examples are structured around a &ldquo;Context, Event, Outcome&rdquo; pattern.</p>
+<h2 id="context-event-outcome">Context, Event, Outcome<a class="headerlink" href="#context-event-outcome" title="Permanent link">&para;</a></h2>
+<p>In Behat, tests are organised into Scenarios, and multiple Scenarios are grouped into Features. Feature files start with the story of the business feature being tested (one per file), followed by at least one Scenario.</p>
+<p>Each Scenario consists of a list of Steps, which must start with one of the following keywords: <code>Given</code>, <code>When</code>, <code>Then</code>, <code>But</code>, <code>And</code>.</p>
+<p>A Scenario always follows the same basic format:</p>
+<div class="codehilite"><pre><span></span><span class="k">Scenario:</span><span class="nf"> Some description of the scenario</span>
+<span class="k">    Given </span><span class="nf">some context</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">some event</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">outcome</span>
+</pre></div>
+
+<p>Each part of the Scenario &ndash; the context, the event, and the
+outcome &ndash; can be extended by using the <code>And</code> or <code>But</code> keywords:</p>
+<div class="codehilite"><pre><span></span><span class="k">Scenario:</span><span class="nf"> Some description of the scenario</span>
+<span class="k">    Given </span><span class="nf">some context</span>
+<span class="nf">        </span><span class="k">And </span><span class="nf">more context</span>
+<span class="nf">    </span><span class="k">When </span><span class="nf">some event</span>
+<span class="nf">        </span><span class="k">And </span><span class="nf">second event occurs</span>
+<span class="nf">    </span><span class="k">Then </span><span class="nf">outcome</span>
+<span class="nf">        </span><span class="k">And </span><span class="nf">another outcome</span>
+<span class="nf">    </span><span class="k">But </span><span class="nf">another outcome</span>
+</pre></div>
+
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>There is no difference between the <code>Then</code>, <code>And</code>, and <code>But</code> keywords. Use them appropriately to write Scenarios that are natural and readable.</p>
+</div>
+<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
+<p>Imagine that we are building a new e-commerce website. One of the key features of any online shop is the ability to buy products, but before buying anything, customers need to be able to tell the shop which products they want to buy. We need a shopping basket.</p>
+<p>With this, we can create our first user story:</p>
+<div class="codehilite"><pre><span></span><span class="k">Feature:</span><span class="nf"> Shopping basket</span>
+<span class="nf">    In order to buy products</span>
+<span class="nf">    As a customer</span>
+<span class="nf">    I need to be able to put interesting products into a basket</span>
+</pre></div>
+
+<p>Before we start development, we must have a real conversation with our business stakeholders; they might say that they want customers to not only see the combined price of the products in the basket, but also the price reflecting the tax and the delivery cost (which depends on the total price of the products):</p>
+<div class="codehilite"><pre><span></span><span class="k">Feature:</span><span class="nf"> Shopping basket</span>
+<span class="nf">    In order to buy products</span>
+<span class="nf">    As a customer</span>
+<span class="nf">    I need to be able to put interesting products into a basket</span>
+
+<span class="nf">    Rules:</span>
+<span class="nf">    - Tax is 20%</span>
+<span class="nf">    - Delivery for basket under £10 is £3</span>
+<span class="nf">    - Delivery for basket over £10 is £2</span>
+</pre></div>
+
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Features are a simple description of a user story.</p>
+<p>The format is always the same: the title of the feature, followed by three lines that describe the benefit, the role, and the feature itself. On subsequent lines, we can add any amount of additional description (such as the rules section, in this example).</p>
+</div>
+<p>In isolation, each rule by itself is understandable, but there is ambiguous complexity when we try to describe the feature in terms of <em>rules</em>. For example, what does it mean to add tax? What happens when we have two products, one of which is less than £10, and another one that is more?</p>
+<p>To resolve this, we must have another conversation with our business stakeholders. This will often take the form of actual examples of a customer adding products to the basket. After some back-and-forth, we agree upon a list of behaviour examples.</p>
+<p>In <abbr title="Behavior Driven Development">BDD</abbr>, these are called <em>Scenarios</em>.</p>
+<h2 id="scenarios">Scenarios<a class="headerlink" href="#scenarios" title="Permanent link">&para;</a></h2>
+<p>After conversation with our business stakeholders, we came up with the following:</p>
+<div class="codehilite"><pre><span></span><span class="k">Feature:</span><span class="nf"> Shopping basket</span>
+<span class="nf">    In order to buy products</span>
+<span class="nf">    As a customer</span>
+<span class="nf">    I need to be able to put interesting products into a basket</span>
+
+<span class="nf">    Rules:</span>
+<span class="nf">    - Tax is 20%</span>
+<span class="nf">    - Delivery for basket under £10 is £3</span>
+<span class="nf">    - Delivery for basket over £10 is £2</span>
+
+<span class="nf">    </span><span class="k">Scenario:</span><span class="nf"> Buying a single product under £10</span>
+<span class="k">        Given </span><span class="nf">there is a &quot;</span><span class="s">self-sealing stem bolt</span><span class="nf">&quot;, which costs £</span><span class="s">5</span><span class="nf"></span>
+<span class="nf">        </span><span class="k">When </span><span class="nf">I add the &quot;</span><span class="s">self-sealing stem bolt</span><span class="nf">&quot; to the basket</span>
+<span class="nf">        </span><span class="k">Then </span><span class="nf">I should have </span><span class="s">1</span><span class="nf"> product in the basket</span>
+<span class="nf">            </span><span class="k">And </span><span class="nf">the overall basket price should be £</span><span class="s">9</span><span class="nf"></span>
+
+<span class="nf">    </span><span class="k">Scenario:</span><span class="nf"> Buying a single product over £10</span>
+<span class="k">        Given </span><span class="nf">there is &quot;</span><span class="s">yamok sauce</span><span class="nf">&quot;, which costs £</span><span class="s">15</span><span class="nf"></span>
+<span class="nf">        </span><span class="k">When </span><span class="nf">I add the &quot;</span><span class="s">yamok sauce</span><span class="nf">&quot; to the basket</span>
+<span class="nf">        </span><span class="k">Then </span><span class="nf">I should have </span><span class="s">1</span><span class="nf"> product in the basket</span>
+<span class="nf">            </span><span class="k">And </span><span class="nf">the overall basket price should be £</span><span class="s">20</span><span class="nf"></span>
+
+<span class="nf">    </span><span class="k">Scenario:</span><span class="nf"> Buying two products over £10</span>
+<span class="k">        Given </span><span class="nf">there is &quot;</span><span class="s">yamok sauce</span><span class="nf">&quot;, which costs £</span><span class="s">10</span><span class="nf"></span>
+<span class="nf">            </span><span class="k">And </span><span class="nf">there is a &quot;</span><span class="s">self-sealing stem bolt</span><span class="nf">&quot;, which costs £</span><span class="s">5</span><span class="nf"></span>
+<span class="nf">        </span><span class="k">When </span><span class="nf">I add the &quot;</span><span class="s">yamok sauce</span><span class="nf">&quot; to the basket</span>
+<span class="nf">            </span><span class="k">And </span><span class="nf">I add the &quot;</span><span class="s">self-sealing stem bolt</span><span class="nf">&quot; to the basket</span>
+<span class="nf">        </span><span class="k">Then </span><span class="nf">I should have </span><span class="s">2</span><span class="nf"> products in the basket</span>
+<span class="nf">            </span><span class="k">And </span><span class="nf">the overall basket price should be £</span><span class="s">20</span><span class="nf"></span>
+</pre></div>
+
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Scenarios in Feature files should focus on the <em>what</em>, rather than the <em>how</em>.</p>
+<p>Each Scenario should be concise and to the point, so that the reader can quickly grasp the intent of the test without having to read a lot of irrelevant steps.</p>
+</div>
+<p>The totality of the above represents our business&rsquo; shared understanding of our project, written in a structured format. It is based on the clear and constructive conversation we had together with our business stakeholders. This, in essence, is what <abbr title="Behavior Driven Development">BDD</abbr> is.</p>
+<h2 id="contexts">Contexts<a class="headerlink" href="#contexts" title="Permanent link">&para;</a></h2>
+<p>Behat allows us to automate behaviour checks by comparing the prescribed behaviour against a system&rsquo;s actual behavior. Before Behat can do this, we need to teach it how to understand our structured language &ndash; otherwise, how is it meant to understand what we mean by &ldquo;then I should have 2 products in the basket&rdquo;?</p>
+<p>Contexts are PHP objects that tell Behat how to test Features. Behat parses the <a href="https://en.wikipedia.org/wiki/PHPDoc">PHPDoc annotation</a> to map instructions in a Scenario, to methods within Context objects (known as a Step Definition).</p>
+<div class="admonition summary">
+<p class="admonition-title">Summary</p>
+<p>Feature files describe how a system should behave, and Contexts explain how to test it.</p>
+</div>
+<p>A Context always follows the same basic format:
+<code>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="k">class</span> <span class="nc">FeatureContext</span> <span class="k">implements</span> <span class="nx">\Behat\Behat\Context\Context</span>
+<span class="p">{</span>
+    <span class="sd">/** @Given some context */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">prepareContext</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// Do something.</span>
+    <span class="p">}</span>
+
+    <span class="sd">/** @When some event */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">doSomeEvent</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// Do something.</span>
+    <span class="p">}</span>
+
+    <span class="sd">/** @Then outcome */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">checkOutcome</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// Do something.</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</code></p>
+<p>The <code>@Given</code>, <code>@When</code>, and <code>@Then</code> keywords allow Behat to match a Step to a method.</p>
+<p>In the annotation, Behat can capture tokens (words starting with a colon, e.g.
+<code>:arg1</code>) and pass their value to the method as arguments. Behat also supports optionally matching part of an Step using brackets.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To facilitate more complex matching requirements, Behat supports regular expressions.</p>
+</div>
+<p>An example of a Step Definition required for our e-commerce website is:
+<code>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="sd">/**</span>
+<span class="sd"> * @Given there is a(n) :arg1, which costs £:arg2</span>
+<span class="sd"> */</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">thereIsAWhichCosts</span><span class="p">(</span><span class="nv">$arg1</span><span class="p">,</span> <span class="nv">$arg2</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Check $arg1 costs $arg2.</span>
+    <span class="c1">// Add $arg1 to shopping basket.</span>
+    <span class="c1">// If something goes wrong, throw an Exception.</span>
+<span class="p">}</span>
+</pre></div>
+</code></p>
+<p>The PHPDoc annotation for this method tells Behat that the method should be executed whenever Behat sees a Step that looks like <code>... there is a ..., which costs £...</code>. This pattern will match any of the following Steps:</p>
+<ul>
+<li><code>Given there is a &quot;self-sealing stem bolt&quot;, which costs £5</code></li>
+<li><code>Given there is a &quot;self-sealing stem bolt&quot;, which costs £10</code></li>
+<li><code>Given there is an 'automated assembler', which costs £10</code></li>
+<li><code>Given there is a bolt, which costs £2</code></li>
+</ul>
+<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<p>This guide has introduced the basics of Behat and <abbr title="Behavior Driven Development">BDD</abbr>, and you are now ready to begin working with WordHat. To learn more, we recommend the following websites and presentations:</p>
+<ul>
+<li>Jessica Mauerhan: &ldquo;<a href="https://jmauerhan.wordpress.com/talks/behat-beyond-the-basics/">Behat: Beyond the Basic</a>&rdquo;.</li>
+<li>Knp University: &ldquo;<a href="https://knpuniversity.com/screencast/behat">BDD, Behat, Mink and other Wonderful Things</a>&rdquo;.</li>
+<li>Inviqa: &ldquo;<a href="https://inviqa.com/blog/bdd-guide">The beginner&rsquo;s guide to BDD</a>&rdquo;.</li>
+<li>Andy Knight: &ldquo;<a href="https://automationpanda.com/2017/02/20/the-behavior-driven-three-amigos/">The Behavior-Driven Three Amigos</a>&rdquo;.</li>
+</ul>
+
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../installation/index.html" title="Installation" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Installation
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../features/overview/index.html" title="Overview" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Overview
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2016-present, Paul Gibbs
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+<div class="md-footer-social">
+    
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <a href="https://github.com/paulgibbs/behat-wordpress-extension" aria-label="github" class="md-footer-social__link
+            fa fa-github"></a>
+    
+    <a href="https://twitter.com/pgibbs" aria-label="twitter" class="md-footer-social__link
+            fa fa-twitter"></a>
+    
+</div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application-6940329b9f.js"></script>
+      
+      
+      <script>app.initialize({url:{base:"../.."}})</script>
+      
+    
+    
+      
+      <script>!function(e,t,a,n,o,c,i){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,c=t.createElement(a),i=t.getElementsByTagName(a)[0],c.async=1,c.src=n,i.parentNode.insertBefore(c,i)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-88402256-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var t=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",t,e.href)})});var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})</script>
+      
+    
+  </body>
+</html>

@@ -2,217 +2,217 @@
     "docs": [
         {
             "location": "/index.html", 
-            "text": "WordHat is an integration layer between \nBehat\n, \nMink\n, and \nWordPress\n. It provides WordPress-specific functionality for common testing scenarios specific to WordPress sites.\n\n\nIf you are new to the project or Behat, we recommend that you first read through our documentation. If you just want to get started, download WordHat on \nComposer\n or \nGithub\n.\n\n\nIf you encounter a bug, have a suggestion, or would like to help the project grow, please get in contact via Github or our \nSlack\n. Thank you!", 
-            "title": "Home"
-        }, 
-        {
-            "location": "/about/index.html", 
-            "text": "Welcome! WordHat is an integration layer between \nBehat\n, \nMink\n, and \nWordPress\n. It provides WordPress-specific functionality for common testing scenarios specific to WordPress sites.\n\n\nWhat does Behat and Mink do?\n\n\nBehat and Mink allow you to describe the behavior of a website in plain, but stylised, language, and then turn that description into an automated test that will visit the site and perform each step you describe.\n\n\nSuch functional tests can help site builders ensure that the added value they have created while building a WordPress site continues to behave as expected, after any sort of site change \n WordPress updates, new plugins, new features, and so on.\n\n\nWhat does WordHat do?\n\n\nThe extension provides \nstep definitions\n that help you implement tests for common WordPress tasks:\n\n\n\n\nManage themes and plugins.\n\n\nManipulate site content.\n\n\nAnd more!\n\n\n\n\nContributions are welcomed!\n\n\nIf you encounter a bug, have a suggestion, or would like to help the project grow, please get in contact via \nGithub\n.", 
+            "text": "Welcome! WordHat is an integration layer between \nBehat\n and \nWordPress\n. It provides WordPress-specific functionality for common testing scenarios specific to WordPress sites.\n\n\nIf you are new to the project or Behat, we recommend that you first read through our documentation. If you already know Behat, WordHat is available on \nComposer\n.\n\n\nIf you encounter a bug, have a suggestion, or would like to help the project grow, please get in contact via \nGithub\n.\n\n\nWhat is Behat?\n\n\nBehat allow you to describe the behavior of a website in plain \n but stylised \n language, and then turn that description into an automated test that will visit the site and perform each step you describe.\n\n\nSuch functional tests can help site builders ensure that the added value they have created while building a WordPress site continues to behave as expected, after any sort of site change: WordPress updates, new plugins, new features, and so on.\n\n\nGet started!", 
             "title": "Introduction"
         }, 
         {
-            "location": "/about/index.html#what-does-behat-and-mink-do", 
-            "text": "Behat and Mink allow you to describe the behavior of a website in plain, but stylised, language, and then turn that description into an automated test that will visit the site and perform each step you describe.  Such functional tests can help site builders ensure that the added value they have created while building a WordPress site continues to behave as expected, after any sort of site change   WordPress updates, new plugins, new features, and so on.", 
-            "title": "What does Behat and Mink do?"
+            "location": "/index.html#what-is-behat", 
+            "text": "Behat allow you to describe the behavior of a website in plain   but stylised   language, and then turn that description into an automated test that will visit the site and perform each step you describe.  Such functional tests can help site builders ensure that the added value they have created while building a WordPress site continues to behave as expected, after any sort of site change: WordPress updates, new plugins, new features, and so on.  Get started!", 
+            "title": "What is Behat?"
         }, 
         {
-            "location": "/about/index.html#what-does-wordhat-do", 
-            "text": "The extension provides  step definitions  that help you implement tests for common WordPress tasks:   Manage themes and plugins.  Manipulate site content.  And more!", 
-            "title": "What does WordHat do?"
-        }, 
-        {
-            "location": "/about/index.html#contributions-are-welcomed", 
-            "text": "If you encounter a bug, have a suggestion, or would like to help the project grow, please get in contact via  Github .", 
-            "title": "Contributions are welcomed!"
-        }, 
-        {
-            "location": "/credits/index.html", 
-            "text": "Contributors\n\n\n\n\nPaul Gibbs\n: Project Lead\n\n\nStephen Harris\n: Project Lead\n\n\nDan Westall\n: Contributor\n\n\nSteve Persch\n: Contributor\n\n\nJohn Blackbourn\n: Contributor\n\n\nJake Foster\n: Contributor\n\n\n\n\nAcknowledgements\n\n\nThe team wish to thank the following projects and their contributors, who provide inspiration and were fantasically useful learning resources:\n\n\n\n\nStephen Harris\n: \nstephenharris/WordPressBehatExtension\n\n\nJohn Blackbourn\n: \njohnbillion/WordPressBehatExtension\n\n\nTom Forrer\n: \ntmf/WordPressExtension\n\n\nWalter Dal Mut\n: \nwdalmut/WordPressExtension\n\n\nLaracasts\n: \nlaracasts/Behat-Laravel-Extension\n\n\nAriel Gold\n: \nari-gold/WordPress-Behat-Quickstart\n\n\n\n\nExtra special thanks is extended to \nJonathan Hedstrom\n and his \nBehat Drupal Extension\n project. Much of the structure of this project is based on Jonathan\ns work, and this project is forever in its debt, having taken direct inspiration from its amazing technical architecture and innovative features.\n\n\nFor making it straightforward to publish this documentation, the project would like to thank \nMkDocs\n and the \nMaterial for MkDocs\n theme. MkDocs generates HTML from Markdown, and does it wonderfully.\n\n\nIf you have never seen a GitHub issue and pull request template generator featuring Cthulhu and Lewis Carroll, then you should \ncheck this one out\n.\n\n\nFinally, thank \nyou\n for considering WordHat. It is a tool for developers by developers, and we hope it helps you achieve wonderful things. Thank you for making it part of your world.", 
-            "title": "Credits"
-        }, 
-        {
-            "location": "/credits/index.html#contributors", 
-            "text": "Paul Gibbs : Project Lead  Stephen Harris : Project Lead  Dan Westall : Contributor  Steve Persch : Contributor  John Blackbourn : Contributor  Jake Foster : Contributor", 
-            "title": "Contributors"
-        }, 
-        {
-            "location": "/credits/index.html#acknowledgements", 
-            "text": "The team wish to thank the following projects and their contributors, who provide inspiration and were fantasically useful learning resources:   Stephen Harris :  stephenharris/WordPressBehatExtension  John Blackbourn :  johnbillion/WordPressBehatExtension  Tom Forrer :  tmf/WordPressExtension  Walter Dal Mut :  wdalmut/WordPressExtension  Laracasts :  laracasts/Behat-Laravel-Extension  Ariel Gold :  ari-gold/WordPress-Behat-Quickstart   Extra special thanks is extended to  Jonathan Hedstrom  and his  Behat Drupal Extension  project. Much of the structure of this project is based on Jonathan s work, and this project is forever in its debt, having taken direct inspiration from its amazing technical architecture and innovative features.  For making it straightforward to publish this documentation, the project would like to thank  MkDocs  and the  Material for MkDocs  theme. MkDocs generates HTML from Markdown, and does it wonderfully.  If you have never seen a GitHub issue and pull request template generator featuring Cthulhu and Lewis Carroll, then you should  check this one out .  Finally, thank  you  for considering WordHat. It is a tool for developers by developers, and we hope it helps you achieve wonderful things. Thank you for making it part of your world.", 
-            "title": "Acknowledgements"
-        }, 
-        {
-            "location": "/license/index.html", 
-            "text": "License\n\n\nCopyright (C) 2016-present, Paul Gibbs.\n\n\nThis program is free software: you can redistribute it and/or modify\nit under the terms of the GNU General Public License as published by\nthe Free Software Foundation, either version 3 of the License, or\n(at your option) any later version.\n\n\nThis program is distributed in the hope that it will be useful,\nbut WITHOUT ANY WARRANTY; without even the implied warranty of\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. \nSee the\nGNU General Public License for more details\n.\n\n\nYou should have received a copy of the GNU General Public License\nalong with this program. If not, see http://www.gnu.org/licenses/.", 
-            "title": "License"
-        }, 
-        {
-            "location": "/license/index.html#license", 
-            "text": "Copyright (C) 2016-present, Paul Gibbs.  This program is free software: you can redistribute it and/or modify\nit under the terms of the GNU General Public License as published by\nthe Free Software Foundation, either version 3 of the License, or\n(at your option) any later version.  This program is distributed in the hope that it will be useful,\nbut WITHOUT ANY WARRANTY; without even the implied warranty of\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\nGNU General Public License for more details .  You should have received a copy of the GNU General Public License\nalong with this program. If not, see http://www.gnu.org/licenses/.", 
-            "title": "License"
-        }, 
-        {
-            "location": "/requirements/index.html", 
-            "text": "Requirements\n\n\n\n\n\n\n\n\nPackage\n\n\nMinimum required version\n\n\n\n\n\n\n\n\n\n\nComposer\n\n\n*\n\n\n\n\n\n\nPHP\n\n\n= 5.6\n\n\n\n\n\n\nWordPress\n\n\n= 4.7\n\n\n\n\n\n\n\n\nSuggested extras\n\n\n\n\n\n\n\n\nPackage\n\n\nMinimum required version\n\n\n\n\n\n\n\n\n\n\nSelenium standalone\n1\n\n\n= 3.0.1\n\n\n\n\n\n\nWP-CLI\n2\n\n\n= 0.24.0\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRecommended for testing \nwebsites that require Javascript\n. Requires the \nMink Selenium2 driver\n in your project.\n\n\n\n\n\n\nThe WP-CLI executable \nmust\n be named \nwp\n and be within your system\ns \n$PATH\n.", 
-            "title": "Requirements"
-        }, 
-        {
-            "location": "/requirements/index.html#requirements", 
-            "text": "Package  Minimum required version      Composer  *    PHP  = 5.6    WordPress  = 4.7", 
-            "title": "Requirements"
-        }, 
-        {
-            "location": "/requirements/index.html#suggested-extras", 
-            "text": "Package  Minimum required version      Selenium standalone 1  = 3.0.1    WP-CLI 2  = 0.24.0         Recommended for testing  websites that require Javascript . Requires the  Mink Selenium2 driver  in your project.    The WP-CLI executable  must  be named  wp  and be within your system s  $PATH .", 
-            "title": "Suggested extras"
-        }, 
-        {
-            "location": "/installation/index.html", 
-            "text": "WordHat\n\n\n\n\nSummary\n\n\nDo you know how to use Composer? tl;dr?\n\n\nRequire \npaulgibbs/behat-wordpress-extension\n, copy its \nbehat.yml.dist\n into your project (minus \n.dist\n), install \nWP-CLI\n globally, and run \nvendor/bin/behat --init\n.\n\n\n\n\n\n\nWarning\n\n\nCheck that all of the \nrequirements\n are met.\n\n\n\n\nInstallation\n\n\n1) Create a folder for your tests:\n\n\nmkdir projectfolder\n\ncd\n projectfolder\n\n\n\n\n\nAll the commands that follow are written to install from the root of your project folder.\n\n\n2) Tell \nComposer\n to install WordHat. To do this conveniently, run:\n\n\nphp composer.phar require --dev paulgibbs/behat-wordpress-extension\nphp composer.phar require --dev behat/mink-goutte-driver\n\n\n\n\n\nThis will create a \ncomposer.json\n file for you, and download the extension.\n\n\n3) WordHat comes with a sample configuration file to help you set up the test environment. Copy it into your project folder and name it \nbehat.yml\n:\n\n\ncp vendor/paulgibbs/behat-wordpress-extension/behat.yml.dist behat.yml\n\n\n\n\n\nEdit that file and change the \nbase_url\n setting to point at the website that you intend to test.\n\n\n4) Initialise \nBehat\n:\n\n\nvendor/bin/behat --init\n\n\n\n\n\nThis will generate a \nfeatures/\n folder for your \nfeatures\n, and a new \ncontext\n in \nfeatures/bootstrap/\n. The latter is aware of both the WordPress and \nMink\n extensions, so you will be able to take advantage of them as you build your own custom \nstep definitions or hooks\n.\n\n\nUsage\n\n\nTo confirm that everything is set up correctly, run:\n\n\nvendor/bin/behat -dl\n\n\n\n\n\nIf everything worked, you will see a list of steps like the following (but much longer):\n\n\nGiven \nI am an anonymous user\n\n\nGiven \nI am not logged in\n\n\nGiven \nI am logged in as a user with the :role role(s)\n\n\nGiven \nI am logged in as :name\n\n\n\n\n\n\nNow you are ready to start writing your tests! If you are new to Behat, you might want to review its \nquick start\n documentation. Good luck, and happy testing!", 
+            "location": "/getting-started/installation/index.html", 
+            "text": "Installing WordHat\n\n\nRequirements\n\n\nWordHat requires \nPHP\n (version 5.6+), \nComposer\n, and a \nWordPress\n site to test (version 4.8+).\n\n\nWe strongly recommend using \nWP-CLI\n1\n (version 1.3.0+), and the standalone version of \nSelenium\n2\n.\n\n\nInstallation\n\n\n\n\n\nCreate a folder for your tests. From a terminal:\n    \nmkdir project\ncd project\n\n\n\n\n\nTell \nComposer\n to download WordHat:\n    \ncomposer require --dev paulgibbs/behat-wordpress-extension behat/mink-goutte-driver behat/mink-selenium2-driver\n\n\n\n\n\nCopy WordHat's sample configuration file into your \nproject\n folder and rename it:\n    \ncp vendor/paulgibbs/behat-wordpress-extension/behat.yml.dist behat.yml\n\n\n\n\n\nEdit your \nbehat.yml\n and update the \nbase_url\n setting with the URL of the website that you intend to test.\n\n\n\n\nInitialise \nBehat\n:\n    \nvendor/bin/behat --init\n\n\n    \n\n        \nTip\n\n        \nThis will create a \nfeatures/\n folder for your \nFeatures (tests)\n, and a new \nContext class\n. These will come in handy later!\n\n    \n\n\n\n\n\nTo confirm that everything is set up correctly, run:\n    \nvendor/bin/behat -dl\n\n    If it worked, you will see a list of text that looks a little like the following (but much longer):\n    \nGiven I am an anonymous user\nGiven I am not logged in\nGiven I am logged in as a user with the :role role(s)\nGiven I am logged in as :name\n\n\n\n\n\n\n\n\n\nNext steps\n\n\nNow that you have WordHat set up, we recommend reading our \nintroduction to Behat\n to help you learn the basics before you start writing tests for your site.\n\n\n\n\n\n\n\n\n\n\nThe WP-CLI executable \nmust\n be named \nwp\n and be within your system\ns \n$PATH\n.\n\n\n\n\n\n\nRecommended for testing \nwebsites that require Javascript\n. It requires the \nMink Selenium2 driver\n, which we include in the installation instructions above.", 
             "title": "Installation"
         }, 
         {
-            "location": "/installation/index.html#wordhat", 
-            "text": "Summary  Do you know how to use Composer? tl;dr?  Require  paulgibbs/behat-wordpress-extension , copy its  behat.yml.dist  into your project (minus  .dist ), install  WP-CLI  globally, and run  vendor/bin/behat --init .    Warning  Check that all of the  requirements  are met.", 
-            "title": "WordHat"
+            "location": "/getting-started/installation/index.html#installing-wordhat", 
+            "text": "", 
+            "title": "Installing WordHat"
         }, 
         {
-            "location": "/installation/index.html#installation", 
-            "text": "1) Create a folder for your tests:  mkdir projectfolder cd  projectfolder  All the commands that follow are written to install from the root of your project folder.  2) Tell  Composer  to install WordHat. To do this conveniently, run:  php composer.phar require --dev paulgibbs/behat-wordpress-extension\nphp composer.phar require --dev behat/mink-goutte-driver  This will create a  composer.json  file for you, and download the extension.  3) WordHat comes with a sample configuration file to help you set up the test environment. Copy it into your project folder and name it  behat.yml :  cp vendor/paulgibbs/behat-wordpress-extension/behat.yml.dist behat.yml  Edit that file and change the  base_url  setting to point at the website that you intend to test.  4) Initialise  Behat :  vendor/bin/behat --init  This will generate a  features/  folder for your  features , and a new  context  in  features/bootstrap/ . The latter is aware of both the WordPress and  Mink  extensions, so you will be able to take advantage of them as you build your own custom  step definitions or hooks .", 
+            "location": "/getting-started/installation/index.html#requirements", 
+            "text": "WordHat requires  PHP  (version 5.6+),  Composer , and a  WordPress  site to test (version 4.8+).  We strongly recommend using  WP-CLI 1  (version 1.3.0+), and the standalone version of  Selenium 2 .", 
+            "title": "Requirements"
+        }, 
+        {
+            "location": "/getting-started/installation/index.html#installation", 
+            "text": "Create a folder for your tests. From a terminal:\n     mkdir project\ncd project   Tell  Composer  to download WordHat:\n     composer require --dev paulgibbs/behat-wordpress-extension behat/mink-goutte-driver behat/mink-selenium2-driver   Copy WordHat's sample configuration file into your  project  folder and rename it:\n     cp vendor/paulgibbs/behat-wordpress-extension/behat.yml.dist behat.yml   Edit your  behat.yml  and update the  base_url  setting with the URL of the website that you intend to test.  Initialise  Behat :\n     vendor/bin/behat --init \n\n     \n         Tip \n         This will create a  features/  folder for your  Features (tests) , and a new  Context class . These will come in handy later! \n       To confirm that everything is set up correctly, run:\n     vendor/bin/behat -dl \n    If it worked, you will see a list of text that looks a little like the following (but much longer):\n     Given I am an anonymous user\nGiven I am not logged in\nGiven I am logged in as a user with the :role role(s)\nGiven I am logged in as :name", 
             "title": "Installation"
         }, 
         {
-            "location": "/installation/index.html#usage", 
-            "text": "To confirm that everything is set up correctly, run:  vendor/bin/behat -dl  If everything worked, you will see a list of steps like the following (but much longer):  Given  I am an anonymous user  Given  I am not logged in  Given  I am logged in as a user with the :role role(s)  Given  I am logged in as :name   Now you are ready to start writing your tests! If you are new to Behat, you might want to review its  quick start  documentation. Good luck, and happy testing!", 
-            "title": "Usage"
+            "location": "/getting-started/installation/index.html#next-steps", 
+            "text": "Now that you have WordHat set up, we recommend reading our  introduction to Behat  to help you learn the basics before you start writing tests for your site.      The WP-CLI executable  must  be named  wp  and be within your system s  $PATH .    Recommended for testing  websites that require Javascript . It requires the  Mink Selenium2 driver , which we include in the installation instructions above.", 
+            "title": "Next steps"
         }, 
         {
-            "location": "/settings/index.html", 
-            "text": "Settings\n\n\nBehat uses \nYAML\n for its configuration file.\n\n\nPaulGibbs\\WordpressBehatExtension\n\n\nExtension \nPaulGibbs\\WordpressBehatExtension\n integrates WordPress into Behat. These are its configuration options:\n\n\nPaulGibbs\\WordpressBehatExtension\n:\n\n  \ndefault_driver\n:\n \nwpcli\n\n  \npath\n:\n \n~\n\n\n  \n# User settings.\n\n  \nusers\n:\n\n    \nadmin\n:\n\n      \nusername\n:\n \nadmin\n\n      \npassword\n:\n \nadmin\n\n    \neditor\n:\n\n      \nusername\n:\n \neditor\n\n      \npassword\n:\n \neditor\n\n    \nauthor\n:\n\n      \nusername\n:\n \nauthor\n\n      \npassword\n:\n \nauthor\n\n    \ncontributor\n:\n\n      \nusername\n:\n \ncontributor\n\n      \npassword\n:\n \ncontributor\n\n    \nsubscriber\n:\n\n      \nusername\n:\n \nsubscriber\n\n      \npassword\n:\n \nsubscriber\n\n\n  \n# WordPress settings.\n\n  \nsite_url\n:\n \n~\n\n  \npermalinks\n:\n\n    \nauthor_archive\n:\n \nauthor/%s/\n\n  \ndatabase\n:\n\n    \nrestore_after_test\n:\n \nfalse\n\n    \nbackup_path\n:\n \n~\n\n\n  \n# Driver settings.\n\n  \nwpcli\n:\n\n    \nalias\n:\n \ndev\n\n    \nbinary\n:\n \nwp\n\n\n\n\n\n\n\n\n\n\n\n\nOption\n\n\nDefault value\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ndefault_driver\n\n\nwpcli\n\n\nOptional\n.\nThe \ndriver\n to use (\nwpcli\n, \nwpapi\n, \nblackbox\n).\n\n\n\n\n\n\npath\n\n\nnull\n\n\nRequired\n.\nPath to WordPress files.\n\n\n\n\n\n\nusers.*\n\n\nsee example\n\n\nOptional\n.\nKeys must match names of WordPress roles.\n\n\n\n\n\n\npermalinks.*\n\n\nsee example\n\n\nOptional\n.\nPermalink pattern for the specific kind of link.\n%s\n is replaced with an ID/object name, as appropriate.\n\n\n\n\n\n\nsite_url\n\n\nnull\n\n\nOptional\n.\nIf your site\ns \nhome_url()\n and \nsite_url()\n values \nmismatch\n,\nset this to the \nsite_url()\n value. Defaults to \nmink.base_url\n\n\n\n\n\n\nwpcli.alias\n\n\nnull\n\n\nOptional\n.\nWP-CLI alias\n (preferred over \nwpcli.path\n).\n\n\n\n\n\n\nwpcli.binary\n\n\nwp\n\n\nOptional\n.\nPath and name of WP-CLI binary.\n\n\n\n\n\n\ndatabase.restore_after_test\n\n\nfalse\n\n\nOptional\n.\nIf \ntrue\n, WordHat will restore your site\ns database to its initial state between feature tests.\n\n\n\n\n\n\ndatabase.backup_path\n\n\nsee example\n\n\nOptional\n.\nIf \nrestore_after_test\n is true, and the value is a file path, WordHat will use that as the backup to restore the database from. If the path is an absolute directory, then before any tests are run, WordHat will generate a database backup and temporarily store it here. If the path has not been set, WordHat will pick its own temporary folder.\n\n\n\n\n\n\n\n\nBehat\\MinkExtension\n\n\nBehat\\MinkExtension\n:\n\n  \n# Recommended settings.\n\n  \nbase_url\n:\n \n~\n\n\n\n\n\n\n\n\n\n\n\n\nOption\n\n\nDefault value\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nbase_url\n\n\nnull\n\n\nIf you use relative paths in your tests, define a URL to use as the basename.\n\n\n\n\n\n\n\n\nThe \nBehat\\MinkExtension\n extension integrates Mink into Behat. \nVisit its website\n for more information.", 
+            "location": "/getting-started/behat-intro/index.html", 
+            "text": "Behat\n\n\nBehat\n is a test framework for Behavior Driven Development (BDD) in \nPHP\n. \nBDD\n is a methodology for developing software through continuous example-based communication between developers and a business.\n\n\nThis communication happens in a form that both the business and developers can clearly understand: examples. The examples are structured around a \nContext, Event, Outcome\n pattern.\n\n\nContext, Event, Outcome\n\n\nIn Behat, tests are organised into Scenarios, and multiple Scenarios are grouped into Features. Feature files start with the story of the business feature being tested (one per file), followed by at least one Scenario.\n\n\nEach Scenario consists of a list of Steps, which must start with one of the following keywords: \nGiven\n, \nWhen\n, \nThen\n, \nBut\n, \nAnd\n.\n\n\nA Scenario always follows the same basic format:\n\n\nScenario:\n Some description of the scenario\n\n\n    Given \nsome context\n\n\n    \nWhen \nsome event\n\n\n    \nThen \noutcome\n\n\n\n\n\nEach part of the Scenario \n the context, the event, and the\noutcome \n can be extended by using the \nAnd\n or \nBut\n keywords:\n\n\nScenario:\n Some description of the scenario\n\n\n    Given \nsome context\n\n\n        \nAnd \nmore context\n\n\n    \nWhen \nsome event\n\n\n        \nAnd \nsecond event occurs\n\n\n    \nThen \noutcome\n\n\n        \nAnd \nanother outcome\n\n\n    \nBut \nanother outcome\n\n\n\n\n\n\n\nTip\n\n\nThere is no difference between the \nThen\n, \nAnd\n, and \nBut\n keywords. Use them appropriately to write Scenarios that are natural and readable.\n\n\n\n\nFeatures\n\n\nImagine that we are building a new e-commerce website. One of the key features of any online shop is the ability to buy products, but before buying anything, customers need to be able to tell the shop which products they want to buy. We need a shopping basket.\n\n\nWith this, we can create our first user story:\n\n\nFeature:\n Shopping basket\n\n\n    In order to buy products\n\n\n    As a customer\n\n\n    I need to be able to put interesting products into a basket\n\n\n\n\n\nBefore we start development, we must have a real conversation with our business stakeholders; they might say that they want customers to not only see the combined price of the products in the basket, but also the price reflecting the tax and the delivery cost (which depends on the total price of the products):\n\n\nFeature:\n Shopping basket\n\n\n    In order to buy products\n\n\n    As a customer\n\n\n    I need to be able to put interesting products into a basket\n\n\n\n    Rules:\n\n\n    - Tax is 20%\n\n\n    - Delivery for basket under \u00a310 is \u00a33\n\n\n    - Delivery for basket over \u00a310 is \u00a32\n\n\n\n\n\n\n\nTip\n\n\nFeatures are a simple description of a user story.\n\n\nThe format is always the same: the title of the feature, followed by three lines that describe the benefit, the role, and the feature itself. On subsequent lines, we can add any amount of additional description (such as the rules section, in this example).\n\n\n\n\nIn isolation, each rule by itself is understandable, but there is ambiguous complexity when we try to describe the feature in terms of \nrules\n. For example, what does it mean to add tax? What happens when we have two products, one of which is less than \u00a310, and another one that is more?\n\n\nTo resolve this, we must have another conversation with our business stakeholders. This will often take the form of actual examples of a customer adding products to the basket. After some back-and-forth, we agree upon a list of behaviour examples.\n\n\nIn \nBDD\n, these are called \nScenarios\n.\n\n\nScenarios\n\n\nAfter conversation with our business stakeholders, we came up with the following:\n\n\nFeature:\n Shopping basket\n\n\n    In order to buy products\n\n\n    As a customer\n\n\n    I need to be able to put interesting products into a basket\n\n\n\n    Rules:\n\n\n    - Tax is 20%\n\n\n    - Delivery for basket under \u00a310 is \u00a33\n\n\n    - Delivery for basket over \u00a310 is \u00a32\n\n\n\n    \nScenario:\n Buying a single product under \u00a310\n\n\n        Given \nthere is a \nself-sealing stem bolt\n, which costs \u00a3\n5\n\n\n        \nWhen \nI add the \nself-sealing stem bolt\n to the basket\n\n\n        \nThen \nI should have \n1\n product in the basket\n\n\n            \nAnd \nthe overall basket price should be \u00a3\n9\n\n\n\n    \nScenario:\n Buying a single product over \u00a310\n\n\n        Given \nthere is \nyamok sauce\n, which costs \u00a3\n15\n\n\n        \nWhen \nI add the \nyamok sauce\n to the basket\n\n\n        \nThen \nI should have \n1\n product in the basket\n\n\n            \nAnd \nthe overall basket price should be \u00a3\n20\n\n\n\n    \nScenario:\n Buying two products over \u00a310\n\n\n        Given \nthere is \nyamok sauce\n, which costs \u00a3\n10\n\n\n            \nAnd \nthere is a \nself-sealing stem bolt\n, which costs \u00a3\n5\n\n\n        \nWhen \nI add the \nyamok sauce\n to the basket\n\n\n            \nAnd \nI add the \nself-sealing stem bolt\n to the basket\n\n\n        \nThen \nI should have \n2\n products in the basket\n\n\n            \nAnd \nthe overall basket price should be \u00a3\n20\n\n\n\n\n\n\n\nImportant\n\n\nScenarios in Feature files should focus on the \nwhat\n, rather than the \nhow\n.\n\n\nEach Scenario should be concise and to the point, so that the reader can quickly grasp the intent of the test without having to read a lot of irrelevant steps.\n\n\n\n\nThe totality of the above represents our business\n shared understanding of our project, written in a structured format. It is based on the clear and constructive conversation we had together with our business stakeholders. This, in essence, is what \nBDD\n is.\n\n\nContexts\n\n\nBehat allows us to automate behaviour checks by comparing the prescribed behaviour against a system\ns actual behavior. Before Behat can do this, we need to teach it how to understand our structured language \n otherwise, how is it meant to understand what we mean by \nthen I should have 2 products in the basket\n?\n\n\nContexts are PHP objects that tell Behat how to test Features. Behat parses the \nPHPDoc annotation\n to map instructions in a Scenario, to methods within Context objects (known as a Step Definition).\n\n\n\n\nSummary\n\n\nFeature files describe how a system should behave, and Contexts explain how to test it.\n\n\n\n\nA Context always follows the same basic format:\n\n\n\n?php\n\n\nclass\n \nFeatureContext\n \nimplements\n \n\\Behat\\Behat\\Context\\Context\n\n\n{\n\n    \n/** @Given some context */\n\n    \npublic\n \nfunction\n \nprepareContext\n()\n\n    \n{\n\n        \n// Do something.\n\n    \n}\n\n\n    \n/** @When some event */\n\n    \npublic\n \nfunction\n \ndoSomeEvent\n()\n\n    \n{\n\n        \n// Do something.\n\n    \n}\n\n\n    \n/** @Then outcome */\n\n    \npublic\n \nfunction\n \ncheckOutcome\n()\n\n    \n{\n\n        \n// Do something.\n\n    \n}\n\n\n}\n\n\n\n\n\n\nThe \n@Given\n, \n@When\n, and \n@Then\n keywords allow Behat to match a Step to a method.\n\n\nIn the annotation, Behat can capture tokens (words starting with a colon, e.g.\n\n:arg1\n) and pass their value to the method as arguments. Behat also supports optionally matching part of an Step using brackets.\n\n\n\n\nTip\n\n\nTo facilitate more complex matching requirements, Behat supports regular expressions.\n\n\n\n\nAn example of a Step Definition required for our e-commerce website is:\n\n\n\n?php\n\n\n/**\n\n\n * @Given there is a(n) :arg1, which costs \u00a3:arg2\n\n\n */\n\n\npublic\n \nfunction\n \nthereIsAWhichCosts\n(\n$arg1\n,\n \n$arg2\n)\n\n\n{\n\n    \n// Check $arg1 costs $arg2.\n\n    \n// Add $arg1 to shopping basket.\n\n    \n// If something goes wrong, throw an Exception.\n\n\n}\n\n\n\n\n\n\nThe PHPDoc annotation for this method tells Behat that the method should be executed whenever Behat sees a Step that looks like \n... there is a ..., which costs \u00a3...\n. This pattern will match any of the following Steps:\n\n\n\n\nGiven there is a \nself-sealing stem bolt\n, which costs \u00a35\n\n\nGiven there is a \nself-sealing stem bolt\n, which costs \u00a310\n\n\nGiven there is an 'automated assembler', which costs \u00a310\n\n\nGiven there is a bolt, which costs \u00a32\n\n\n\n\nNext steps\n\n\nThis guide has introduced the basics of Behat and \nBDD\n, and you are now ready to begin working with WordHat. To learn more, we recommend the following websites and presentations:\n\n\n\n\nJessica Mauerhan: \nBehat: Beyond the Basic\n.\n\n\nKnp University: \nBDD, Behat, Mink and other Wonderful Things\n.\n\n\nInviqa: \nThe beginner\ns guide to BDD\n.\n\n\nAndy Knight: \nThe Behavior-Driven Three Amigos\n.", 
+            "title": "Intro to Behat"
+        }, 
+        {
+            "location": "/getting-started/behat-intro/index.html#behat", 
+            "text": "Behat  is a test framework for Behavior Driven Development (BDD) in  PHP .  BDD  is a methodology for developing software through continuous example-based communication between developers and a business.  This communication happens in a form that both the business and developers can clearly understand: examples. The examples are structured around a  Context, Event, Outcome  pattern.", 
+            "title": "Behat"
+        }, 
+        {
+            "location": "/getting-started/behat-intro/index.html#context-event-outcome", 
+            "text": "In Behat, tests are organised into Scenarios, and multiple Scenarios are grouped into Features. Feature files start with the story of the business feature being tested (one per file), followed by at least one Scenario.  Each Scenario consists of a list of Steps, which must start with one of the following keywords:  Given ,  When ,  Then ,  But ,  And .  A Scenario always follows the same basic format:  Scenario:  Some description of the scenario      Given  some context       When  some event       Then  outcome   Each part of the Scenario   the context, the event, and the\noutcome   can be extended by using the  And  or  But  keywords:  Scenario:  Some description of the scenario      Given  some context           And  more context       When  some event           And  second event occurs       Then  outcome           And  another outcome       But  another outcome    Tip  There is no difference between the  Then ,  And , and  But  keywords. Use them appropriately to write Scenarios that are natural and readable.", 
+            "title": "Context, Event, Outcome"
+        }, 
+        {
+            "location": "/getting-started/behat-intro/index.html#features", 
+            "text": "Imagine that we are building a new e-commerce website. One of the key features of any online shop is the ability to buy products, but before buying anything, customers need to be able to tell the shop which products they want to buy. We need a shopping basket.  With this, we can create our first user story:  Feature:  Shopping basket      In order to buy products      As a customer      I need to be able to put interesting products into a basket   Before we start development, we must have a real conversation with our business stakeholders; they might say that they want customers to not only see the combined price of the products in the basket, but also the price reflecting the tax and the delivery cost (which depends on the total price of the products):  Feature:  Shopping basket      In order to buy products      As a customer      I need to be able to put interesting products into a basket      Rules:      - Tax is 20%      - Delivery for basket under \u00a310 is \u00a33      - Delivery for basket over \u00a310 is \u00a32    Tip  Features are a simple description of a user story.  The format is always the same: the title of the feature, followed by three lines that describe the benefit, the role, and the feature itself. On subsequent lines, we can add any amount of additional description (such as the rules section, in this example).   In isolation, each rule by itself is understandable, but there is ambiguous complexity when we try to describe the feature in terms of  rules . For example, what does it mean to add tax? What happens when we have two products, one of which is less than \u00a310, and another one that is more?  To resolve this, we must have another conversation with our business stakeholders. This will often take the form of actual examples of a customer adding products to the basket. After some back-and-forth, we agree upon a list of behaviour examples.  In  BDD , these are called  Scenarios .", 
+            "title": "Features"
+        }, 
+        {
+            "location": "/getting-started/behat-intro/index.html#scenarios", 
+            "text": "After conversation with our business stakeholders, we came up with the following:  Feature:  Shopping basket      In order to buy products      As a customer      I need to be able to put interesting products into a basket      Rules:      - Tax is 20%      - Delivery for basket under \u00a310 is \u00a33      - Delivery for basket over \u00a310 is \u00a32       Scenario:  Buying a single product under \u00a310          Given  there is a  self-sealing stem bolt , which costs \u00a3 5           When  I add the  self-sealing stem bolt  to the basket           Then  I should have  1  product in the basket               And  the overall basket price should be \u00a3 9       Scenario:  Buying a single product over \u00a310          Given  there is  yamok sauce , which costs \u00a3 15           When  I add the  yamok sauce  to the basket           Then  I should have  1  product in the basket               And  the overall basket price should be \u00a3 20       Scenario:  Buying two products over \u00a310          Given  there is  yamok sauce , which costs \u00a3 10               And  there is a  self-sealing stem bolt , which costs \u00a3 5           When  I add the  yamok sauce  to the basket               And  I add the  self-sealing stem bolt  to the basket           Then  I should have  2  products in the basket               And  the overall basket price should be \u00a3 20    Important  Scenarios in Feature files should focus on the  what , rather than the  how .  Each Scenario should be concise and to the point, so that the reader can quickly grasp the intent of the test without having to read a lot of irrelevant steps.   The totality of the above represents our business  shared understanding of our project, written in a structured format. It is based on the clear and constructive conversation we had together with our business stakeholders. This, in essence, is what  BDD  is.", 
+            "title": "Scenarios"
+        }, 
+        {
+            "location": "/getting-started/behat-intro/index.html#contexts", 
+            "text": "Behat allows us to automate behaviour checks by comparing the prescribed behaviour against a system s actual behavior. Before Behat can do this, we need to teach it how to understand our structured language   otherwise, how is it meant to understand what we mean by  then I should have 2 products in the basket ?  Contexts are PHP objects that tell Behat how to test Features. Behat parses the  PHPDoc annotation  to map instructions in a Scenario, to methods within Context objects (known as a Step Definition).   Summary  Feature files describe how a system should behave, and Contexts explain how to test it.   A Context always follows the same basic format:  ?php  class   FeatureContext   implements   \\Behat\\Behat\\Context\\Context  { \n     /** @Given some context */ \n     public   function   prepareContext () \n     { \n         // Do something. \n     } \n\n     /** @When some event */ \n     public   function   doSomeEvent () \n     { \n         // Do something. \n     } \n\n     /** @Then outcome */ \n     public   function   checkOutcome () \n     { \n         // Do something. \n     }  }    The  @Given ,  @When , and  @Then  keywords allow Behat to match a Step to a method.  In the annotation, Behat can capture tokens (words starting with a colon, e.g. :arg1 ) and pass their value to the method as arguments. Behat also supports optionally matching part of an Step using brackets.   Tip  To facilitate more complex matching requirements, Behat supports regular expressions.   An example of a Step Definition required for our e-commerce website is:  ?php  /**   * @Given there is a(n) :arg1, which costs \u00a3:arg2   */  public   function   thereIsAWhichCosts ( $arg1 ,   $arg2 )  { \n     // Check $arg1 costs $arg2. \n     // Add $arg1 to shopping basket. \n     // If something goes wrong, throw an Exception.  }    The PHPDoc annotation for this method tells Behat that the method should be executed whenever Behat sees a Step that looks like  ... there is a ..., which costs \u00a3... . This pattern will match any of the following Steps:   Given there is a  self-sealing stem bolt , which costs \u00a35  Given there is a  self-sealing stem bolt , which costs \u00a310  Given there is an 'automated assembler', which costs \u00a310  Given there is a bolt, which costs \u00a32", 
+            "title": "Contexts"
+        }, 
+        {
+            "location": "/getting-started/behat-intro/index.html#next-steps", 
+            "text": "This guide has introduced the basics of Behat and  BDD , and you are now ready to begin working with WordHat. To learn more, we recommend the following websites and presentations:   Jessica Mauerhan:  Behat: Beyond the Basic .  Knp University:  BDD, Behat, Mink and other Wonderful Things .  Inviqa:  The beginner s guide to BDD .  Andy Knight:  The Behavior-Driven Three Amigos .", 
+            "title": "Next steps"
+        }, 
+        {
+            "location": "/features/overview/index.html", 
+            "text": "Overview\n\n\nWordHat provides WordPress-specific functionality for common testing scenarios that are specific to WordPress sites. We do this by providing a range of \nBehat contexts\n that provide useful step definitions.\n\n\nFor convenience, our \nbehat.yml.dist\n configuration template loads all of our contexts by default, though Behat does support \nmore complex configuration\n for advanced use cases.\n\n\nTo find out which step definitions are available for your tests, consult this documentation or run \nvendor/bin/behat -dl\n in your terminal.\n\n\nDrivers\n\n\nThe \nGiven\n and \nWhen\n steps in a \nBehat Scenario\n configure a WordPress into a known state for reliable testing. WordHat abstracts this communication between WordPress and itself into a \ndrivers\n system. Two drivers are currently provided: WP-CLI (the default), and WP-PHP.\n\n\n\n\nImportant\n\n\nWordHat only uses a driver to configure a WordPress into a known state.\n\n\nYour actual tests are run in a web browser, via \nMink\n, which is bundled with WordHat.\n\n\n\n\nTo configure WordHat to use a specific driver, set \ndefault_driver\n in your \nbehat.yml\n.\n\n\nWP-CLI\n\n\nThe WP-CLI driver uses \nWP-CLI\n to connect to WordPress.\nThis is the default and recommended driver, and allows you to \nrun your tests and your WordPress site on different servers\n.\n\n\nWP-PHP\n\n\nThe WP-PHP driver loads WordPress by bootstrapping it directly. This approach was taken from WordPress\n \nPHPUnit integration test framework\n. You have to run your tests directly on your WordPress server.\n\n\nContexts\n\n\nContent\n\n\nThe \nContentContext\n context provides a range of step definitions for managing post types, taxonomy terms, and comments.\n\n\nDebug\n\n\nThe \nDebugContext\n context provides step definitions to help debug Scenarios during development.\n\n\nSite\n\n\nThe \nSiteContext\n context provides step definitions for activating/deactivating plugins, switching themes, and clearing the object cache.\n\n\nToolbar\n\n\nThe \nToolbarContext\n context provides step definitions to interact with the WordPress Toolbar.\n\n\nUser\n\n\nThe \nUserContext\n context provides a range of step definitions for managing users.\n\n\nWidget\n\n\nThe \nWidgetContext\n context provides step definitions to add/remove widgets from sidebars.\n\n\nwp-admin\n\n\nThe \nDashboard\n context provides a range of step definitions for generally interacting with, and navigating around, the WordPress administration screens (i.e. wp-admin).\n\n\nwp-admin, Edit Post\n\n\nThe \nEditPost\n context provides step definitions to manage editing and creating content within wp-admin.", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/features/overview/index.html#overview", 
+            "text": "WordHat provides WordPress-specific functionality for common testing scenarios that are specific to WordPress sites. We do this by providing a range of  Behat contexts  that provide useful step definitions.  For convenience, our  behat.yml.dist  configuration template loads all of our contexts by default, though Behat does support  more complex configuration  for advanced use cases.  To find out which step definitions are available for your tests, consult this documentation or run  vendor/bin/behat -dl  in your terminal.", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/features/overview/index.html#drivers", 
+            "text": "The  Given  and  When  steps in a  Behat Scenario  configure a WordPress into a known state for reliable testing. WordHat abstracts this communication between WordPress and itself into a  drivers  system. Two drivers are currently provided: WP-CLI (the default), and WP-PHP.   Important  WordHat only uses a driver to configure a WordPress into a known state.  Your actual tests are run in a web browser, via  Mink , which is bundled with WordHat.   To configure WordHat to use a specific driver, set  default_driver  in your  behat.yml .", 
+            "title": "Drivers"
+        }, 
+        {
+            "location": "/features/overview/index.html#wp-cli", 
+            "text": "The WP-CLI driver uses  WP-CLI  to connect to WordPress.\nThis is the default and recommended driver, and allows you to  run your tests and your WordPress site on different servers .", 
+            "title": "WP-CLI"
+        }, 
+        {
+            "location": "/features/overview/index.html#wp-php", 
+            "text": "The WP-PHP driver loads WordPress by bootstrapping it directly. This approach was taken from WordPress   PHPUnit integration test framework . You have to run your tests directly on your WordPress server.", 
+            "title": "WP-PHP"
+        }, 
+        {
+            "location": "/features/overview/index.html#contexts", 
+            "text": "", 
+            "title": "Contexts"
+        }, 
+        {
+            "location": "/features/overview/index.html#content", 
+            "text": "The  ContentContext  context provides a range of step definitions for managing post types, taxonomy terms, and comments.", 
+            "title": "Content"
+        }, 
+        {
+            "location": "/features/overview/index.html#debug", 
+            "text": "The  DebugContext  context provides step definitions to help debug Scenarios during development.", 
+            "title": "Debug"
+        }, 
+        {
+            "location": "/features/overview/index.html#site", 
+            "text": "The  SiteContext  context provides step definitions for activating/deactivating plugins, switching themes, and clearing the object cache.", 
+            "title": "Site"
+        }, 
+        {
+            "location": "/features/overview/index.html#toolbar", 
+            "text": "The  ToolbarContext  context provides step definitions to interact with the WordPress Toolbar.", 
+            "title": "Toolbar"
+        }, 
+        {
+            "location": "/features/overview/index.html#user", 
+            "text": "The  UserContext  context provides a range of step definitions for managing users.", 
+            "title": "User"
+        }, 
+        {
+            "location": "/features/overview/index.html#widget", 
+            "text": "The  WidgetContext  context provides step definitions to add/remove widgets from sidebars.", 
+            "title": "Widget"
+        }, 
+        {
+            "location": "/features/overview/index.html#wp-admin", 
+            "text": "The  Dashboard  context provides a range of step definitions for generally interacting with, and navigating around, the WordPress administration screens (i.e. wp-admin).", 
+            "title": "wp-admin"
+        }, 
+        {
+            "location": "/features/overview/index.html#wp-admin-edit-post", 
+            "text": "The  EditPost  context provides step definitions to manage editing and creating content within wp-admin.", 
+            "title": "wp-admin, Edit Post"
+        }, 
+        {
+            "location": "/configuration/settings/index.html", 
+            "text": "Settings\n\n\nBehat uses \nYAML\n for its configuration file.\n\n\nPaulGibbs\\WordpressBehatExtension\n\n\nExtension \nPaulGibbs\\WordpressBehatExtension\n integrates WordPress into Behat. These are its configuration options:\n\n\nPaulGibbs\\WordpressBehatExtension\n:\n\n  \ndefault_driver\n:\n \nwpcli\n\n  \npath\n:\n \n~\n\n\n  \n# User settings.\n\n  \nusers\n:\n\n    \nadmin\n:\n\n      \nusername\n:\n \nadmin\n\n      \npassword\n:\n \nadmin\n\n    \neditor\n:\n\n      \nusername\n:\n \neditor\n\n      \npassword\n:\n \neditor\n\n    \nauthor\n:\n\n      \nusername\n:\n \nauthor\n\n      \npassword\n:\n \nauthor\n\n    \ncontributor\n:\n\n      \nusername\n:\n \ncontributor\n\n      \npassword\n:\n \ncontributor\n\n    \nsubscriber\n:\n\n      \nusername\n:\n \nsubscriber\n\n      \npassword\n:\n \nsubscriber\n\n\n  \n# WordPress settings.\n\n  \nsite_url\n:\n \n~\n\n  \npermalinks\n:\n\n    \nauthor_archive\n:\n \nauthor/%s/\n\n  \ndatabase\n:\n\n    \nrestore_after_test\n:\n \nfalse\n\n    \nbackup_path\n:\n \n~\n\n\n  \n# Driver settings.\n\n  \nwpcli\n:\n\n    \nalias\n:\n \ndev\n\n    \nbinary\n:\n \nwp\n\n\n\n\n\n\n\n\n\n\n\nOption\n\n\nDefault value\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ndefault_driver\n\n\nwpcli\n\n\nOptional\n.\nThe driver to use (\nwpcli\n, \nwpapi\n, \nblackbox\n).\n\n\n\n\n\n\npath\n\n\nnull\n\n\nRequired\n.\nPath to WordPress files.\n\n\n\n\n\n\nusers.*\n\n\nsee example\n\n\nOptional\n.\nKeys must match names of WordPress roles.\n\n\n\n\n\n\npermalinks.*\n\n\nsee example\n\n\nOptional\n.\nPermalink pattern for the specific kind of link.\n%s\n is replaced with an ID/object name, as appropriate.\n\n\n\n\n\n\nsite_url\n\n\nnull\n\n\nOptional\n.\nIf your site\ns \nhome_url()\n and \nsite_url()\n values \nmismatch\n,\nset this to the \nsite_url()\n value. Defaults to \nmink.base_url\n\n\n\n\n\n\nwpcli.alias\n\n\nnull\n\n\nOptional\n.\nWP-CLI alias\n (preferred over \nwpcli.path\n).\n\n\n\n\n\n\nwpcli.binary\n\n\nwp\n\n\nOptional\n.\nPath and name of WP-CLI binary.\n\n\n\n\n\n\ndatabase.restore_after_test\n\n\nfalse\n\n\nOptional\n.\nIf \ntrue\n, WordHat will restore your site\ns database to its initial state between feature tests.\n\n\n\n\n\n\ndatabase.backup_path\n\n\nsee example\n\n\nOptional\n.\nIf \nrestore_after_test\n is true, and the value is a file path, WordHat will use that as the backup to restore the database from. If the path is an absolute directory, then before any tests are run, WordHat will generate a database backup and temporarily store it here. If the path has not been set, WordHat will pick its own temporary folder.\n\n\n\n\n\n\n\n\nBehat\\MinkExtension\n\n\nBehat\\MinkExtension\n:\n\n  \n# Recommended settings.\n\n  \nbase_url\n:\n \n~\n\n\n\n\n\n\n\n\n\n\n\nOption\n\n\nDefault value\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nbase_url\n\n\nnull\n\n\nIf you use relative paths in your tests, define a URL to use as the basename.\n\n\n\n\n\n\n\n\nThe \nBehat\\MinkExtension\n extension integrates Mink into Behat. \nVisit its website\n for more information.\n\n\nPer-Environment Settings\n\n\nSome of the settings in \nbehat.yml\n are environment specific. For example, the \nbase_url\n may be \nhttp://test.example.dev\n on your local development environment, while on a test server it might be \nhttp://test.example.com\n.\n\n\nIf you intend to run your tests on different environments, these sorts of settings should not be added to your \nbehat.yml\n. Instead, they should be exported in an environment variable.\n\n\nBefore running tests, Behat will check the \nBEHAT_PARAMS\n environment variable and add these settings to the ones that are present in \nbehat.yml\n (settings from this file takes precedence). This variable should contain a JSON object with your settings.\n\n\nExample JSON object:\n\n\n{\n\n  \nextensions\n:\n \n{\n\n    \nBehat\\\\MinkExtension\n:\n \n{\n\n      \nbase_url\n:\n \nhttp://development.dev\n\n    \n}\n\n  \n}\n\n\n}\n\n\n\n\n\nTo export this into the \nBEHAT_PARAMS\n environment variable, squash the JSON object into a single line and surround with single quotes:\n\n\nexport\n \nBEHAT_PARAMS\n=\n{\nextensions\n:{\nBehat\\\\MinkExtension\n:{\nbase_url\n:\nhttp://development.dev\n}}}\n\n\n\n\n\nDrivers\n\n\nWordHat provides a range of drivers for interacting with the WordPress site you are testing. A driver represents and manages the connection between the Behat and WordPress environments. Different drivers support different features.\n\n\n\n\nThe \nWP-CLI\n driver \n the default \n uses \nWP-CLI\n to communicate with WordPress.\n\n\nThe \nWordPress PHP\n driver loads WordPress in the same PHP context as Behat.\n\n\nThe \nBlackbox\n driver interacts with WordPress through a web browser, in an unpriviledged context.\n\n\n\n\nTo specify which driver to use for your tests, set \ndefault_driver\n in your \nbehat.yml\n file.", 
             "title": "Settings"
         }, 
         {
-            "location": "/settings/index.html#settings", 
+            "location": "/configuration/settings/index.html#settings", 
             "text": "Behat uses  YAML  for its configuration file.", 
             "title": "Settings"
         }, 
         {
-            "location": "/settings/index.html#paulgibbswordpressbehatextension", 
-            "text": "Extension  PaulGibbs\\WordpressBehatExtension  integrates WordPress into Behat. These are its configuration options:  PaulGibbs\\WordpressBehatExtension : \n   default_driver :   wpcli \n   path :   ~ \n\n   # User settings. \n   users : \n     admin : \n       username :   admin \n       password :   admin \n     editor : \n       username :   editor \n       password :   editor \n     author : \n       username :   author \n       password :   author \n     contributor : \n       username :   contributor \n       password :   contributor \n     subscriber : \n       username :   subscriber \n       password :   subscriber \n\n   # WordPress settings. \n   site_url :   ~ \n   permalinks : \n     author_archive :   author/%s/ \n   database : \n     restore_after_test :   false \n     backup_path :   ~ \n\n   # Driver settings. \n   wpcli : \n     alias :   dev \n     binary :   wp      Option  Default value  Description      default_driver  wpcli  Optional . The  driver  to use ( wpcli ,  wpapi ,  blackbox ).    path  null  Required . Path to WordPress files.    users.*  see example  Optional . Keys must match names of WordPress roles.    permalinks.*  see example  Optional . Permalink pattern for the specific kind of link. %s  is replaced with an ID/object name, as appropriate.    site_url  null  Optional . If your site s  home_url()  and  site_url()  values  mismatch , set this to the  site_url()  value. Defaults to  mink.base_url    wpcli.alias  null  Optional . WP-CLI alias  (preferred over  wpcli.path ).    wpcli.binary  wp  Optional . Path and name of WP-CLI binary.    database.restore_after_test  false  Optional . If  true , WordHat will restore your site s database to its initial state between feature tests.    database.backup_path  see example  Optional . If  restore_after_test  is true, and the value is a file path, WordHat will use that as the backup to restore the database from. If the path is an absolute directory, then before any tests are run, WordHat will generate a database backup and temporarily store it here. If the path has not been set, WordHat will pick its own temporary folder.", 
+            "location": "/configuration/settings/index.html#paulgibbswordpressbehatextension", 
+            "text": "Extension  PaulGibbs\\WordpressBehatExtension  integrates WordPress into Behat. These are its configuration options:  PaulGibbs\\WordpressBehatExtension : \n   default_driver :   wpcli \n   path :   ~ \n\n   # User settings. \n   users : \n     admin : \n       username :   admin \n       password :   admin \n     editor : \n       username :   editor \n       password :   editor \n     author : \n       username :   author \n       password :   author \n     contributor : \n       username :   contributor \n       password :   contributor \n     subscriber : \n       username :   subscriber \n       password :   subscriber \n\n   # WordPress settings. \n   site_url :   ~ \n   permalinks : \n     author_archive :   author/%s/ \n   database : \n     restore_after_test :   false \n     backup_path :   ~ \n\n   # Driver settings. \n   wpcli : \n     alias :   dev \n     binary :   wp      Option  Default value  Description      default_driver  wpcli  Optional . The driver to use ( wpcli ,  wpapi ,  blackbox ).    path  null  Required . Path to WordPress files.    users.*  see example  Optional . Keys must match names of WordPress roles.    permalinks.*  see example  Optional . Permalink pattern for the specific kind of link. %s  is replaced with an ID/object name, as appropriate.    site_url  null  Optional . If your site s  home_url()  and  site_url()  values  mismatch , set this to the  site_url()  value. Defaults to  mink.base_url    wpcli.alias  null  Optional . WP-CLI alias  (preferred over  wpcli.path ).    wpcli.binary  wp  Optional . Path and name of WP-CLI binary.    database.restore_after_test  false  Optional . If  true , WordHat will restore your site s database to its initial state between feature tests.    database.backup_path  see example  Optional . If  restore_after_test  is true, and the value is a file path, WordHat will use that as the backup to restore the database from. If the path is an absolute directory, then before any tests are run, WordHat will generate a database backup and temporarily store it here. If the path has not been set, WordHat will pick its own temporary folder.", 
             "title": "PaulGibbs\\WordpressBehatExtension"
         }, 
         {
-            "location": "/settings/index.html#behatminkextension", 
+            "location": "/configuration/settings/index.html#behatminkextension", 
             "text": "Behat\\MinkExtension : \n   # Recommended settings. \n   base_url :   ~      Option  Default value  Description      base_url  null  If you use relative paths in your tests, define a URL to use as the basename.     The  Behat\\MinkExtension  extension integrates Mink into Behat.  Visit its website  for more information.", 
             "title": "Behat\\MinkExtension"
         }, 
         {
-            "location": "/environment-settings/index.html", 
-            "text": "Environment Settings\n\n\nSome of the settings in \nbehat.yml\n are environment specific. For example, the \nbase_url\n may be \nhttp://test.example.dev\n on your local development environment, while on a test server it might be \nhttp://test.example.com\n.\n\n\nIf you intend to run your tests on different environments, these sorts of settings should not be added to your \nbehat.yml\n. Instead, they should be exported in an environment variable.\n\n\nBefore running tests, Behat will check the \nBEHAT_PARAMS\n environment variable and add these settings to the ones that are present in \nbehat.yml\n (settings from this file takes precedence). This variable should contain a JSON object with your settings.\n\n\nExample JSON object:\n\n\n{\n\n  \nextensions\n:\n \n{\n\n    \nBehat\\\\MinkExtension\n:\n \n{\n\n      \nbase_url\n:\n \nhttp://development.dev\n\n    \n}\n\n  \n}\n\n\n}\n\n\n\n\n\n\nTo export this into the \nBEHAT_PARAMS\n environment variable, squash the JSON object into a single line and surround with single quotes:\n\n\nexport\n \nBEHAT_PARAMS\n=\n{\nextensions\n:{\nBehat\\\\MinkExtension\n:{\nbase_url\n:\nhttp://development.dev\n}}}", 
-            "title": "Environment"
-        }, 
-        {
-            "location": "/environment-settings/index.html#environment-settings", 
+            "location": "/configuration/settings/index.html#per-environment-settings", 
             "text": "Some of the settings in  behat.yml  are environment specific. For example, the  base_url  may be  http://test.example.dev  on your local development environment, while on a test server it might be  http://test.example.com .  If you intend to run your tests on different environments, these sorts of settings should not be added to your  behat.yml . Instead, they should be exported in an environment variable.  Before running tests, Behat will check the  BEHAT_PARAMS  environment variable and add these settings to the ones that are present in  behat.yml  (settings from this file takes precedence). This variable should contain a JSON object with your settings.  Example JSON object:  { \n   extensions :   { \n     Behat\\\\MinkExtension :   { \n       base_url :   http://development.dev \n     } \n   }  }   To export this into the  BEHAT_PARAMS  environment variable, squash the JSON object into a single line and surround with single quotes:  export   BEHAT_PARAMS = { extensions :{ Behat\\\\MinkExtension :{ base_url : http://development.dev }}}", 
-            "title": "Environment Settings"
+            "title": "Per-Environment Settings"
         }, 
         {
-            "location": "/drivers/index.html", 
-            "text": "Drivers\n\n\nWordHat provides a range of drivers for interacting with the WordPress site you are testing. A driver represents and manages the connection between the Behat and WordPress environments. Different drivers support different features.\n\n\n\n\nThe \nWP-CLI\n driver \n the default \n uses \nWP-CLI\n to communicate with WordPress.\n\n\nThe \nWordPress PHP\n driver loads WordPress in the same PHP context as Behat.\n\n\nThe \nBlackbox\n driver interacts with WordPress through a web browser, in an unpriviledged context.\n\n\n\n\nTo specify which driver to use for your tests, set \ndefault_driver\n in your \nbehat.yml\n file.\n\n\n\n\n\n\n\n\nFeature\n\n\nWP-CLI\n\n\nWordPress PHP\n\n\nBlackbox\n\n\n\n\n\n\n\n\n\n\nPosts and comments.\n\n\nYes\n\n\nYes\n\n\nNo\n\n\n\n\n\n\nTerms for taxonomy.\n\n\nYes\n\n\nYes\n\n\nNo\n\n\n\n\n\n\nManage users.\n\n\nYes\n\n\nYes\n\n\nNo\n\n\n\n\n\n\nManage plugins.\n\n\nYes\n\n\nYes\n\n\nNo\n\n\n\n\n\n\nSwitch theme.\n\n\nYes\n\n\nYes\n\n\nNo\n\n\n\n\n\n\nClear cache.\n\n\nYes\n\n\nYes\n\n\nNo\n\n\n\n\n\n\nDatabase import/export.\n\n\nYes\n\n\nNo\n\n\nNo\n\n\n\n\n\n\nRun tests and site on different servers.\n\n\nYes\n1\n\n\nNo\n\n\nYes\n\n\n\n\n\n\nDatabase transactions.\n\n\nNo\n\n\nYes\n\n\nNo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWP-CLI \nsupports SSH connections\n to remote WordPress sites.", 
+            "location": "/configuration/settings/index.html#drivers", 
+            "text": "WordHat provides a range of drivers for interacting with the WordPress site you are testing. A driver represents and manages the connection between the Behat and WordPress environments. Different drivers support different features.   The  WP-CLI  driver   the default   uses  WP-CLI  to communicate with WordPress.  The  WordPress PHP  driver loads WordPress in the same PHP context as Behat.  The  Blackbox  driver interacts with WordPress through a web browser, in an unpriviledged context.   To specify which driver to use for your tests, set  default_driver  in your  behat.yml  file.", 
             "title": "Drivers"
         }, 
         {
-            "location": "/drivers/index.html#drivers", 
-            "text": "WordHat provides a range of drivers for interacting with the WordPress site you are testing. A driver represents and manages the connection between the Behat and WordPress environments. Different drivers support different features.   The  WP-CLI  driver   the default   uses  WP-CLI  to communicate with WordPress.  The  WordPress PHP  driver loads WordPress in the same PHP context as Behat.  The  Blackbox  driver interacts with WordPress through a web browser, in an unpriviledged context.   To specify which driver to use for your tests, set  default_driver  in your  behat.yml  file.     Feature  WP-CLI  WordPress PHP  Blackbox      Posts and comments.  Yes  Yes  No    Terms for taxonomy.  Yes  Yes  No    Manage users.  Yes  Yes  No    Manage plugins.  Yes  Yes  No    Switch theme.  Yes  Yes  No    Clear cache.  Yes  Yes  No    Database import/export.  Yes  No  No    Run tests and site on different servers.  Yes 1  No  Yes    Database transactions.  No  Yes  No         WP-CLI  supports SSH connections  to remote WordPress sites.", 
-            "title": "Drivers"
-        }, 
-        {
-            "location": "/contexts/index.html", 
-            "text": "Contexts\n\n\nWith Behat, it is possible to flexibly structure your code by using multiple \ncontexts\n in a single test suite. WordHat provides the following contexts:\n\n\nRawWordpressContext\n\n\nThis is a context that provides no step definitions, but all of the necessary functionality for interacting with WordPress and the browser.\n\n\nContentContext\n\n\nProvides step definitions for creating content: post types, comments, and terms.\n\n\nDashboardContext\n\n\nProvides step definitions that are specific to the WordPress dashboard (wp-admin).\n\n\nSiteContext\n\n\nProvides step definitions for managing plugins, themes, and cache.\n\n\nUserContext\n\n\nProvides step definitions for all things relating to users.\n\n\nWordpressContext\n\n\nProvides step definitions for a range of common tasks. Recommended for all test suites.\n\n\nDebugContext\n\n\nProvides step definitions for debugging step definitions. Not recommended for use in production.", 
-            "title": "Contexts"
-        }, 
-        {
-            "location": "/contexts/index.html#contexts", 
-            "text": "With Behat, it is possible to flexibly structure your code by using multiple  contexts  in a single test suite. WordHat provides the following contexts:", 
-            "title": "Contexts"
-        }, 
-        {
-            "location": "/contexts/index.html#rawwordpresscontext", 
-            "text": "This is a context that provides no step definitions, but all of the necessary functionality for interacting with WordPress and the browser.", 
-            "title": "RawWordpressContext"
-        }, 
-        {
-            "location": "/contexts/index.html#contentcontext", 
-            "text": "Provides step definitions for creating content: post types, comments, and terms.", 
-            "title": "ContentContext"
-        }, 
-        {
-            "location": "/contexts/index.html#dashboardcontext", 
-            "text": "Provides step definitions that are specific to the WordPress dashboard (wp-admin).", 
-            "title": "DashboardContext"
-        }, 
-        {
-            "location": "/contexts/index.html#sitecontext", 
-            "text": "Provides step definitions for managing plugins, themes, and cache.", 
-            "title": "SiteContext"
-        }, 
-        {
-            "location": "/contexts/index.html#usercontext", 
-            "text": "Provides step definitions for all things relating to users.", 
-            "title": "UserContext"
-        }, 
-        {
-            "location": "/contexts/index.html#wordpresscontext", 
-            "text": "Provides step definitions for a range of common tasks. Recommended for all test suites.", 
-            "title": "WordpressContext"
-        }, 
-        {
-            "location": "/contexts/index.html#debugcontext", 
-            "text": "Provides step definitions for debugging step definitions. Not recommended for use in production.", 
-            "title": "DebugContext"
-        }, 
-        {
-            "location": "/faq/index.html", 
+            "location": "/recipes/faq/index.html", 
             "text": "FAQs\n\n\nIf you are new to the project or Behat, we recommend that you first \nread through our documentation\n. For any questions, feedback, or to contribute, you can get in contact with us via Github or our \nSlack\n.\n\n\nJavascript\n\n\n\n\nIf you are using \nSelenium\n to run Javascript tests, and you access your WordPress site over HTTPS, \nand\n it has a self-signed certificate, you will need to manually configure the web browser to accept that certificate.\n\n\n\n\nWP-CLI\n\n\n\n\nIf you are using the WP-CLI driver to \nconnect to a remote WordPress site over SSH\n, WordHat assumes the remote server is Linux-like, with a shell that provides \nGNU Coreutils\n.", 
-            "title": "FAQs"
+            "title": "FAQ"
         }, 
         {
-            "location": "/faq/index.html#faqs", 
+            "location": "/recipes/faq/index.html#faqs", 
             "text": "If you are new to the project or Behat, we recommend that you first  read through our documentation . For any questions, feedback, or to contribute, you can get in contact with us via Github or our  Slack .", 
             "title": "FAQs"
         }, 
         {
-            "location": "/faq/index.html#javascript", 
+            "location": "/recipes/faq/index.html#javascript", 
             "text": "If you are using  Selenium  to run Javascript tests, and you access your WordPress site over HTTPS,  and  it has a self-signed certificate, you will need to manually configure the web browser to accept that certificate.", 
             "title": "Javascript"
         }, 
         {
-            "location": "/faq/index.html#wp-cli", 
+            "location": "/recipes/faq/index.html#wp-cli", 
             "text": "If you are using the WP-CLI driver to  connect to a remote WordPress site over SSH , WordHat assumes the remote server is Linux-like, with a shell that provides  GNU Coreutils .", 
             "title": "WP-CLI"
         }, 
         {
             "location": "/changelog/index.html", 
-            "text": "Change Log\n\n\nAll notable changes to this project will be documented in this file.\n\n\nThe format is based on \nKeep a Changelog\n and this project adheres to \nsemantic versioning\n.\n\n\n[Unreleased]\n\n\n[0.7.0] - 2017-06-30\n\n\nAdded\n\n\n\n\nContentEditor\n and \nPostContentEditor\n page (element) objects for interacting with the TinyMCE\n\n\nEditPostContext\n\n\nWidgetContext\n\n\nAdd optional \nredirect_to\n param to \nlogIn()\n.\n\n\n\n\nChanged\n\n\n\n\nDriver interface re-organisation. See \n#21\n.\n\n\n\n\nFixed\n\n\n\n\nIf a browser window is not open when the BeforeStep event is run then our call to Selenium2Driver::executeScript() will throw an \nunknown\n exception.\n\n\nCompatibility with WordPress 4.8\n\n\nToolbar PageObject: fix calls to \nevaluateScript\n.\n\n\nStrict version requirement for WP-Cli\n\n\nLinks and Buttons behind the wp-admin bar cannot be \nclicked\n or \npressed\n\n\n\n\nDeprecated\n\n\n\n\nRename \nis_wordpress_error()\n to \nisWordPressError()\n\n\n\n\n0.6.0\n - 2017-04-05\n\n\nAdded\n\n\n\n\nInitial support for \nsensiolabs/behat-page-object-extension\n with support for parts of wp-admin, and the Toolbar.\n\n\n\n\nChanged\n\n\n\n\nDocumentation corrections; website and PHPDoc.\n\n\nWP-CLI driver no longer fails if the command returns text through stdout.\n\n\nTravis-CI reports job status to our Slack; join us at https://wordhat.herokuapp.com \ud83d\ude00\n\n\nComposer requirements loosened for better compatibility with other projects.\n\n\n\n\nFixed\n\n\n\n\nTravis-CI tasks now succesfully run on Github forks of the project.\n\n\nAttempts made to improve intermittent failures with the log-in action when run with Selenium. Work-in-progress.\n\n\nRegex correction for \ngiven\n block for \nContentContext-\nthereArePosts()\n.\n\n\n\n\nDeprecated\n\n\n\n\nisWordpressError()\n moved into \nUtil\n namespace.\n\n\n\n\n0.5.0\n - 2017-02-08\n\n\nAdded\n\n\n\n\nPHPCS rules.\n\n\nScrutinizer-CI integration.\n\n\n\n\nChanged\n\n\n\n\nWebsite; switched from Couscous to MkDocs.\n\n\nDocumentation.\n\n\nTravis-CI tweaks.\n\n\n\n\nFixed\n\n\n\n\nMiscellanous driver fixes, especially WP-CLI over SSH. Again.\n\n\n\n\n0.4.0\n - 2017-01-30\n\n\nAdded\n\n\n\n\nIntroduce \nsensiolabs/behat-page-object-extension\n for future development.\n\n\n\n\nFixed\n\n\n\n\nMiscellanous driver fixes, especially WP-CLI over SSH.\n\n\n\n\nChanged\n\n\n\n\nDocumentation.\n\n\nWebsite design and performance improvements.\n\n\nTravis-CI improvements.\n\n\n\n\n0.3.0\n - 2017-01-07\n\n\nAdded\n\n\n\n\nMiscellanous driver fixes.\n\n\nFirst pass at Contexts.\n\n\n\n\nChanged\n\n\n\n\nDocumentation.\n\n\n\n\n0.2.0\n - 2016-11-26\n\n\nAdded\n\n\n\n\nWP-API and blackbox drivers.\n\n\nWebsite/documentation.\n\n\nDatabase import/export methods to drivers.\n\n\n\n\nChanged\n\n\n\n\nAdjusted exceptions thrown by DriverManager and Drivers.\n\n\nDesign adjustments to website.\n\n\n\n\nFixed\n\n\n\n\nMiscellanous WP-CLI driver fixes.\n\n\n\n\n0.1.0\n - 2016-09-22\n\n\nAdded\n\n\n\n\nFirst working version of basic architecture.", 
-            "title": "Change Log"
+            "text": "News\n\n\nUnreleased\n\n\n\n\nIn progress: documentation overhaul and database content rollback.\n\n\n\n\n0.7.0\n - 2017-06-30\n\n\nAdded\n\n\n\n\nContentEditor\n and \nPostContentEditor\n page (element) objects for interacting with TinyMCE elements.\n\n\nEditPostContext\n.\n\n\nWidgetContext\n.\n\n\nAdd optional \nredirect_to\n param to \nlogIn()\n.\n\n\n\n\nChanged\n\n\n\n\nDriver interface re-organisation. See \n#21\n.\n\n\n\n\nFixed\n\n\n\n\nIf a browser window is not open when the \nBeforeStep\n event is run, then our call to Selenium2Driver::executeScript() will throw an exception.\n\n\nCompatibility with WordPress 4.8.\n\n\nToolbar page object: fix calls to \nevaluateScript\n.\n\n\nStrict version requirement for WP-CLI.\n\n\nLinks and buttons behind the WordPress\n Toolbar cannot be interacted with.\n\n\n\n\nDeprecated\n\n\n\n\nRename \nis_wordpress_error()\n to \nisWordPressError()\n.\n\n\n\n\n0.6.0\n - 2017-04-05\n\n\nAdded\n\n\n\n\nInitial support for \nsensiolabs/behat-page-object-extension\n with support for parts of wp-admin, and the Toolbar.\n\n\n\n\nChanged\n\n\n\n\nDocumentation corrections; website and PHPDoc.\n\n\nWP-CLI driver no longer fails if the command returns text through stdout.\n\n\nTravis-CI reports job status to our Slack; join us at \nhttps://wordhat.herokuapp.com\n \ud83d\ude00\n\n\nComposer requirements loosened for better compatibility with other projects.\n\n\n\n\nFixed\n\n\n\n\nTravis-CI tasks now succesfully run on Github forks of the project.\n\n\nAttempts made to improve intermittent failures with the log-in action when run with Selenium. Work-in-progress.\n\n\nRegex correction for \ngiven\n block for \nContentContext-\nthereArePosts()\n.\n\n\n\n\nDeprecated\n\n\n\n\nisWordpressError()\n moved into \nUtil\n namespace.\n\n\n\n\n0.5.0\n - 2017-02-08\n\n\nAdded\n\n\n\n\nPHPCS rules.\n\n\nScrutinizer-CI integration.\n\n\n\n\nChanged\n\n\n\n\nWebsite; switched from Couscous to MkDocs.\n\n\nDocumentation.\n\n\nTravis-CI tweaks.\n\n\n\n\nFixed\n\n\n\n\nMiscellanous driver fixes, especially WP-CLI over SSH. Again.\n\n\n\n\n0.4.0\n - 2017-01-30\n\n\nAdded\n\n\n\n\nIntroduce \nsensiolabs/behat-page-object-extension\n for future development.\n\n\n\n\nFixed\n\n\n\n\nMiscellanous driver fixes, especially WP-CLI over SSH.\n\n\n\n\nChanged\n\n\n\n\nDocumentation.\n\n\nWebsite design and performance improvements.\n\n\nTravis-CI improvements.\n\n\n\n\n0.3.0\n - 2017-01-07\n\n\nAdded\n\n\n\n\nMiscellanous driver fixes.\n\n\nFirst pass at Contexts.\n\n\n\n\nChanged\n\n\n\n\nDocumentation.\n\n\n\n\n0.2.0\n - 2016-11-26\n\n\nAdded\n\n\n\n\nWP-API and blackbox drivers.\n\n\nWebsite/documentation.\n\n\nDatabase import/export methods to drivers.\n\n\n\n\nChanged\n\n\n\n\nAdjusted exceptions thrown by DriverManager and Drivers.\n\n\nDesign adjustments to website.\n\n\n\n\nFixed\n\n\n\n\nMiscellanous WP-CLI driver fixes.\n\n\n\n\n0.1.0\n - 2016-09-22\n\n\nAdded\n\n\n\n\nFirst working version of basic architecture.", 
+            "title": "News"
         }, 
         {
-            "location": "/changelog/index.html#change-log", 
-            "text": "All notable changes to this project will be documented in this file.  The format is based on  Keep a Changelog  and this project adheres to  semantic versioning .", 
-            "title": "Change Log"
+            "location": "/changelog/index.html#news", 
+            "text": "", 
+            "title": "News"
         }, 
         {
             "location": "/changelog/index.html#unreleased", 
-            "text": "", 
-            "title": "[Unreleased]"
+            "text": "In progress: documentation overhaul and database content rollback.", 
+            "title": "Unreleased"
         }, 
         {
             "location": "/changelog/index.html#070-2017-06-30", 
             "text": "", 
-            "title": "[0.7.0] - 2017-06-30"
+            "title": "0.7.0 - 2017-06-30"
         }, 
         {
             "location": "/changelog/index.html#added", 
-            "text": "ContentEditor  and  PostContentEditor  page (element) objects for interacting with the TinyMCE  EditPostContext  WidgetContext  Add optional  redirect_to  param to  logIn() .", 
+            "text": "ContentEditor  and  PostContentEditor  page (element) objects for interacting with TinyMCE elements.  EditPostContext .  WidgetContext .  Add optional  redirect_to  param to  logIn() .", 
             "title": "Added"
         }, 
         {
@@ -222,12 +222,12 @@
         }, 
         {
             "location": "/changelog/index.html#fixed", 
-            "text": "If a browser window is not open when the BeforeStep event is run then our call to Selenium2Driver::executeScript() will throw an  unknown  exception.  Compatibility with WordPress 4.8  Toolbar PageObject: fix calls to  evaluateScript .  Strict version requirement for WP-Cli  Links and Buttons behind the wp-admin bar cannot be  clicked  or  pressed", 
+            "text": "If a browser window is not open when the  BeforeStep  event is run, then our call to Selenium2Driver::executeScript() will throw an exception.  Compatibility with WordPress 4.8.  Toolbar page object: fix calls to  evaluateScript .  Strict version requirement for WP-CLI.  Links and buttons behind the WordPress  Toolbar cannot be interacted with.", 
             "title": "Fixed"
         }, 
         {
             "location": "/changelog/index.html#deprecated", 
-            "text": "Rename  is_wordpress_error()  to  isWordPressError()", 
+            "text": "Rename  is_wordpress_error()  to  isWordPressError() .", 
             "title": "Deprecated"
         }, 
         {
@@ -242,7 +242,7 @@
         }, 
         {
             "location": "/changelog/index.html#changed_1", 
-            "text": "Documentation corrections; website and PHPDoc.  WP-CLI driver no longer fails if the command returns text through stdout.  Travis-CI reports job status to our Slack; join us at https://wordhat.herokuapp.com \ud83d\ude00  Composer requirements loosened for better compatibility with other projects.", 
+            "text": "Documentation corrections; website and PHPDoc.  WP-CLI driver no longer fails if the command returns text through stdout.  Travis-CI reports job status to our Slack; join us at  https://wordhat.herokuapp.com  \ud83d\ude00  Composer requirements loosened for better compatibility with other projects.", 
             "title": "Changed"
         }, 
         {
@@ -339,6 +339,31 @@
             "location": "/changelog/index.html#added_6", 
             "text": "First working version of basic architecture.", 
             "title": "Added"
+        }, 
+        {
+            "location": "/credits/index.html", 
+            "text": "Team\n\n\n\n\nPaul Gibbs\n: Project Lead\n\n\nStephen Harris\n: Project Lead\n\n\n\n\nAcknowledgements\n\n\nThe team wish to thank the following projects and their contributors, who provide inspiration and were fantasically useful learning resources:\n\n\n\n\nStephen Harris\n: \nstephenharris/WordPressBehatExtension\n\n\nJohn Blackbourn\n: \njohnbillion/WordPressBehatExtension\n\n\nTom Forrer\n: \ntmf/WordPressExtension\n\n\nWalter Dal Mut\n: \nwdalmut/WordPressExtension\n\n\nLaracasts\n: \nlaracasts/Behat-Laravel-Extension\n\n\nAriel Gold\n: \nari-gold/WordPress-Behat-Quickstart\n\n\n\n\nExtra special thanks is extended to \nJonathan Hedstrom\n and his \nBehat Drupal Extension\n project. Much of the structure of this project is based on Jonathan\ns work, and this project is forever in its debt, having taken direct inspiration from its amazing technical architecture and innovative features.\n\n\nFor making it straightforward to publish this documentation, the project would like to thank \nMkDocs\n and the \nMaterial for MkDocs\n theme. MkDocs generates HTML from Markdown, and does it wonderfully.\n\n\nIf you have never seen a GitHub issue and pull request template generator featuring Cthulhu and Lewis Carroll, then you should \ncheck this one out\n.\n\n\nFinally, thank \nyou\n for considering WordHat. It is a tool for developers by developers, and we hope it helps you achieve wonderful things. Thank you for making it part of your world.", 
+            "title": "Credits"
+        }, 
+        {
+            "location": "/credits/index.html#team", 
+            "text": "Paul Gibbs : Project Lead  Stephen Harris : Project Lead", 
+            "title": "Team"
+        }, 
+        {
+            "location": "/credits/index.html#acknowledgements", 
+            "text": "The team wish to thank the following projects and their contributors, who provide inspiration and were fantasically useful learning resources:   Stephen Harris :  stephenharris/WordPressBehatExtension  John Blackbourn :  johnbillion/WordPressBehatExtension  Tom Forrer :  tmf/WordPressExtension  Walter Dal Mut :  wdalmut/WordPressExtension  Laracasts :  laracasts/Behat-Laravel-Extension  Ariel Gold :  ari-gold/WordPress-Behat-Quickstart   Extra special thanks is extended to  Jonathan Hedstrom  and his  Behat Drupal Extension  project. Much of the structure of this project is based on Jonathan s work, and this project is forever in its debt, having taken direct inspiration from its amazing technical architecture and innovative features.  For making it straightforward to publish this documentation, the project would like to thank  MkDocs  and the  Material for MkDocs  theme. MkDocs generates HTML from Markdown, and does it wonderfully.  If you have never seen a GitHub issue and pull request template generator featuring Cthulhu and Lewis Carroll, then you should  check this one out .  Finally, thank  you  for considering WordHat. It is a tool for developers by developers, and we hope it helps you achieve wonderful things. Thank you for making it part of your world.", 
+            "title": "Acknowledgements"
+        }, 
+        {
+            "location": "/license/index.html", 
+            "text": "License\n\n\nCopyright (C) 2016-present, Paul Gibbs.\n\n\nThis program is free software: you can redistribute it and/or modify\nit under the terms of the GNU General Public License as published by\nthe Free Software Foundation, either version 3 of the License, or\n(at your option) any later version.\n\n\nThis program is distributed in the hope that it will be useful,\nbut WITHOUT ANY WARRANTY; without even the implied warranty of\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. \nSee the\nGNU General Public License for more details\n.\n\n\nYou should have received a copy of the GNU General Public License\nalong with this program. If not, see \nhttp://www.gnu.org/licenses/\n.", 
+            "title": "License"
+        }, 
+        {
+            "location": "/license/index.html#license", 
+            "text": "Copyright (C) 2016-present, Paul Gibbs.  This program is free software: you can redistribute it and/or modify\nit under the terms of the GNU General Public License as published by\nthe Free Software Foundation, either version 3 of the License, or\n(at your option) any later version.  This program is distributed in the hope that it will be useful,\nbut WITHOUT ANY WARRANTY; without even the implied warranty of\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\nGNU General Public License for more details .  You should have received a copy of the GNU General Public License\nalong with this program. If not, see  http://www.gnu.org/licenses/ .", 
+            "title": "License"
         }
     ]
 }
