@@ -1,7 +1,9 @@
 # News
 
 ## Unreleased
-- In progress: documentation overhaul and database content rollback.
+- Database content rollback.
+- Website; mkdocs-material theme update to latest version (accessibility fixes).
+- Website; documentation update.
 
 ## [0.7.0] - 2017-06-30
 ### Added
@@ -12,7 +14,6 @@
 
 ### Changed
 - Driver interface re-organisation. See [#21](https://github.com/paulgibbs/behat-wordpress-extension/issues/21).
-
 
 ### Fixed
 - If a browser window is not open when the `BeforeStep` event is run, then our call to Selenium2Driver::executeScript() will throw an exception.
