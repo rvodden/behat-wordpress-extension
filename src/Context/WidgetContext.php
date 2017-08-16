@@ -4,7 +4,7 @@ namespace PaulGibbs\WordpressBehatExtension\Context;
 use Behat\Gherkin\Node\TableNode;
 
 /**
- * Provides step definitions relating to widgets
+ * Provides step definitions relating to widgets.
  */
 class WidgetContext extends RawWordpressContext
 {

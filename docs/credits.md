@@ -1,11 +1,7 @@
-## Contributors
+## Team
 
 * [Paul Gibbs](https://github.com/paulgibbs/): Project Lead
 * [Stephen Harris](https://github.com/stephenharris/): Project Lead
-* [Dan Westall](https://github.com/dan-westall): Contributor
-* [Steve Persch](https://github.com/stevector): Contributor
-* [John Blackbourn](https://github.com/johnbillion): Contributor
-* [Jake Foster](https://github.com/romancandlethoughts): Contributor
 
 
 ## Acknowledgements
@@ -24,6 +20,5 @@ __Extra special thanks is extended to [Jonathan Hedstrom](https://github.com/jhe
 For making it straightforward to publish this documentation, the project would like to thank [MkDocs](http://www.mkdocs.org) and the [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) theme. MkDocs generates HTML from Markdown, and does it wonderfully.
 
 If you have never seen a GitHub issue and pull request template generator featuring Cthulhu and Lewis Carroll, then you should [check this one out](https://www.talater.com/open-source-templates/).
-
 
 Finally, thank _you_ for considering WordHat. It is a tool for developers by developers, and we hope it helps you achieve wonderful things. Thank you for making it part of your world.

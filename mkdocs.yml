@@ -39,24 +39,34 @@ markdown_extensions:
   - toc(permalink=true)
   - codehilite(guess_lang=false)
 
+markdown_extensions:
+  - markdown.extensions.admonition
+  - markdown.extensions.footnotes
+  - markdown.extensions.meta
+  - markdown.extensions.smarty
+  - markdown.extensions.toc(permalink=true)
+  - markdown.extensions.codehilite(guess_lang=false)
+  - pymdownx.betterem(smart_enable=all)
+  - pymdownx.magiclink
+  - pymdownx.inlinehilite
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist(custom_checkbox=true)
+
 # Documentation and theme
 theme: 'material'
 theme_dir: "docs/theme"
 pages:
-  - Home: index.md
-  - About:
-    - Introduction: about.md
-    - Credits: credits.md
-    - License: license.md
-  - Guide:
-    - Requirements: requirements.md
-    - Installation: installation.md
-    #- Getting Started: installation.md
+  - Introduction: index.md
+  - Getting Started:
+    - Installation: getting-started/installation.md
+    - Intro to Behat: getting-started/behat-intro.md
+  - Features:
+    - Overview: features/overview.md
   - Configuration:
-    - Settings: settings.md
-    - Environment: environment-settings.md
-  - Behat:
-    - Drivers: drivers.md
-    - Contexts: contexts.md
-  - FAQs: faq.md
-  - Change Log: changelog.md
+    - Settings: configuration/settings.md
+  - Recipes:
+    - FAQ: recipes/faq.md
+  - News: changelog.md
+  - Credits: credits.md
+  - License: license.md
