@@ -59,16 +59,19 @@ class ContentContext extends RawWordpressContext
      * Converts data from TableNode into a format understood by Driver\DriverInterface;
      * i.e. converts public identifiers (such as slugs, log-ins) to internal identifiers
      * (such as database IDs).
-     * @param $postData array
-     * @return array
+     *
+     * @param $post_data array
+     *
      * @throws \UnexpectedValueException If provided data is invalid
+     *
+     * @return array
      */
-    private function parseArgs($postData)
+    protected function parseArgs($post_data)
     {
-        if (isset($postData['post_author'])) {
-            $userId = $this->getDriver()->getUserIdFromLogin($postData['post_author']);
-            $postData['post_author'] = (int) $userId;
+        if (isset($post_data['post_author'])) {
+            $userId = $this->getDriver()->getUserIdFromLogin($post_data['post_author']);
+            $post_data['post_author'] = (int) $userId;
         }
-        return $postData;
+        return $post_data;
     }
 }
