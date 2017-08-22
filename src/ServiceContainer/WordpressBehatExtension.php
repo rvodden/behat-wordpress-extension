@@ -74,7 +74,8 @@ class WordpressBehatExtension implements ExtensionInterface
             ->children()
                 // Common settings.
                 ->enumNode('default_driver')
-                    ->values(['wpcli', 'wpapi', 'blackbox'])
+                    // "wpapi" is for backwards compatibility; means "wpphp".
+                    ->values(['wpcli', 'wpapi', 'wpphp', 'blackbox'])
                     ->defaultValue('wpcli')
                 ->end()
                 ->scalarNode('path')->end()
@@ -158,7 +159,7 @@ class WordpressBehatExtension implements ExtensionInterface
                 ->end()
 
                 // WordPress PHP driver.
-                ->arrayNode('wpapi')
+                ->arrayNode('wpphp')
                     ->addDefaultsIfNotSet()
                     ->children()
                     ->end()
@@ -213,12 +214,17 @@ class WordpressBehatExtension implements ExtensionInterface
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/config'));
         $loader->load('services.yml');
 
+        // Backwards compatibility for pre-1.0. Will be removed in 2.0.
+        if ($config['default_driver'] === 'wpapi') {
+            $config['default_driver'] = 'wpphp';
+        }
+
         $container->setParameter('wordpress.wordpress.default_driver', $config['default_driver']);
         $container->setParameter('wordpress.path', $config['path']);
         $container->setParameter('wordpress.parameters', $config);
 
         $this->setupWpcliDriver($loader, $container, $config);
-        $this->setupWpapiDriver($loader, $container, $config);
+        $this->setupWpphpDriver($loader, $container, $config);
         $this->setupBlackboxDriver($loader, $container, $config);
     }
 
@@ -264,20 +270,20 @@ class WordpressBehatExtension implements ExtensionInterface
      * @throws \RuntimeException
      * @throws \Exception
      */
-    protected function setupWpapiDriver(FileLoader $loader, ContainerBuilder $container, $config)
+    protected function setupWpphpDriver(FileLoader $loader, ContainerBuilder $container, $config)
     {
-        if (! isset($config['wpapi'])) {
+        if (! isset($config['wpphp'])) {
             return;
         }
 
-        $loader->load('drivers/wpapi.yml');
+        $loader->load('drivers/wpphp.yml');
 
         if (empty($config['path'])) {
             throw new RuntimeException('WordPress PHP driver requires a root `path` set.');
         }
 
-        $config['wpapi']['path'] = isset($config['path']) ? $config['path'] : '';
-        $container->setParameter('wordpress.driver.wpapi.path', $config['wpapi']['path']);
+        $config['wpphp']['path'] = isset($config['path']) ? $config['path'] : '';
+        $container->setParameter('wordpress.driver.wpphp.path', $config['wpphp']['path']);
     }
 
     /**
