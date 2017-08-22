@@ -1,5 +1,5 @@
 <?php
-namespace PaulGibbs\WordpressBehatExtension\Driver\Element\Wpapi;
+namespace PaulGibbs\WordpressBehatExtension\Driver\Element\Wpphp;
 
 use WP_Query;
 use UnexpectedValueException;

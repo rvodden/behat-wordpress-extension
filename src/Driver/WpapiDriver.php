@@ -6,7 +6,7 @@ use RuntimeException;
 /**
  * Connect Behat to WordPress by loading WordPress directly into the global scope.
  */
-class WpapiDriver extends BaseDriver
+class WpphpDriver extends BaseDriver
 {
     /**
      * Path to WordPress' files.
