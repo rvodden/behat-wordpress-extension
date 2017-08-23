@@ -48,7 +48,7 @@ PaulGibbs\WordpressBehatExtension:
 
 Option           | Default value | Description
 :----------------| :------------ | :----------
-`default_driver` | "wpcli"       | _Optional_.<br>The [WordPress driver](/features/overview.md) to use ("wpcli", "wpphp", "blackbox").
+`default_driver` | "wpcli"       | _Optional_.<br>The [WordPress driver](/features/overview.md) to use ("wpcli", "wpphp").
 `path`           | null          | _Required_.<br>Path to WordPress files.
 `users.*`        | _see example_ | _Optional_.<br>Keys must match names of WordPress roles.
 `site_url`       | null          | _Optional_.<br>If your site's `home_url()` and `site_url()` values [mismatch](https://wordpress.stackexchange.com/a/50605), set this to the `site_url()` value. Defaults to [`mink.base_url`](http://behat.org/en/latest/user_guide/configuration.html#extensions).
