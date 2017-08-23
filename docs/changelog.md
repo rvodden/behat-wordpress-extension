@@ -5,6 +5,10 @@
 - Website; mkdocs-material theme update to latest version (accessibility fixes).
 - Website; documentation update.
 
+## [0.7.1] - 2017-08-21
+### Changed
+- `Path` setting can now be a relative or absolute path. Previously, only absolute paths were supported.
+
 ## [0.7.0] - 2017-06-30
 ### Added
 - `ContentEditor` and `PostContentEditor` page (element) objects for interacting with TinyMCE elements.
