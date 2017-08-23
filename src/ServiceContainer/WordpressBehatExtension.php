@@ -78,7 +78,10 @@ class WordpressBehatExtension implements ExtensionInterface
                     ->values(['wpcli', 'wpapi', 'wpphp', 'blackbox'])
                     ->defaultValue('wpcli')
                 ->end()
-                ->scalarNode('path')->end()
+                ->scalarNode('path')
+                    ->addDefaultsIfNotSet()
+                    ->defaultValue('')
+                ->end()
 
                 // WordPress' "siteurl" option.
                 ->scalarNode('site_url')->defaultValue('%mink.base_url%')->end()
