@@ -48,3 +48,8 @@ html .md-typeset table:not([class]) {
   width: 1px;
   word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
 }
+
+.md-typeset table:not([class]) th,
+.md-typeset table:not([class]) td {
+  white-space: nowrap;
+}
