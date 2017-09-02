@@ -32,7 +32,7 @@ install:
   - WebPICMD /Install /Products:"PHP70" /AcceptEULA
 
   # Install Composer and Selenium.
-  - mkdir c:\projects\wordhat-tools
+  - ps: mkdir c:\projects\wordhat-tools -Force
   - cd c:\projects\wordhat-tools
   #- ps: Invoke-WebRequest http://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar -Outfile selenium.jar
   - ps: Invoke-WebRequest https://getcomposer.org/composer.phar  -Outfile composer.phar
