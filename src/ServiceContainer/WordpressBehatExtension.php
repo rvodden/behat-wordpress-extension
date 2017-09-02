@@ -156,7 +156,9 @@ class WordpressBehatExtension implements ExtensionInterface
                     ->addDefaultsIfNotSet()
                     ->children()
                         ->scalarNode('alias')->end()
-                        ->scalarNode('binary')->end()
+                        ->scalarNode('binary')
+                            ->defaultValue('wp')
+                        ->end()
                     ->end()
                 ->end()
 
