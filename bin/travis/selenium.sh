@@ -4,26 +4,23 @@
 # http://www.peterbe.com/plog/set-ex
 set -ex
 
-WH_WORDPRESS_DIR=${WH_WORDPRESS_DIR-/tmp/wordpress}
 NAP_LENGTH=1
-SELENIUM_PORT=4444
 
 # Wait for a specific port to respond to connections.
 wait_for_port() {
-  local PORT=$1
-  while echo | telnet localhost $PORT 2>&1 | grep -qe 'Connection refused'; do
-    echo "Connection refused on port $PORT. Waiting $NAP_LENGTH seconds..."
+  while echo | telnet localhost 4444 2>&1 | grep -qe 'Connection refused'; do
+    echo "Connection refused on port 4444. Waiting $NAP_LENGTH seconds..."
     sleep $NAP_LENGTH
   done
 }
 
-rm -f /tmp/.X0-lock
+export DISPLAY=:99.0
 Xvfb > /dev/null 2>&1 &
-export DISPLAY=localhost:0.0
+sleep 1
 
-# Start Selenium
-wget -O selenium.jar https://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar
-java -jar selenium.jar -port $SELENIUM_PORT > /dev/null 2>&1 &
-wait_for_port $SELENIUM_PORT
+php -r 'require "vendor/joomla-projects/selenium-server-standalone/Selenium.php";
+$selenium = new Selenium(["browser" => "chrome", "selenium_params" => [" -Dselenium.LOGGER.level=OFF"] ]);
+$selenium->run();';
 
+wait_for_port
 sleep 5

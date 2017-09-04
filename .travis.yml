@@ -27,6 +27,7 @@ addons:
   apt:
     packages:
       - nginx
+  chrome: latest
   hosts:
     - wordpress.dev
 
