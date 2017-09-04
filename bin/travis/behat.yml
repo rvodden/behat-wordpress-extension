@@ -17,6 +17,7 @@ default:
   extensions:
     Behat\MinkExtension:
       base_url: http://wordpress.dev:8080
+      browser_name: chrome
       default_session: default
       javascript_session: selenium2
       sessions:
