@@ -34,7 +34,7 @@ install:
   # Install Composer and Selenium.
   - ps: mkdir c:\projects\wordhat-tools -Force
   - cd c:\projects\wordhat-tools
-  #- ps: Invoke-WebRequest http://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar -Outfile selenium.jar
+  #- ps: Invoke-WebRequest https://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar -Outfile selenium.jar
   - ps: Invoke-WebRequest https://getcomposer.org/composer.phar  -Outfile composer.phar
   - ps: Add-Content composer.bat "@php c:\projects\wordhat-tools\composer.phar %*"
   - RefreshEnv
