@@ -15,7 +15,7 @@ wait_for_port() {
 }
 
 export DISPLAY=:99.0
-Xvfb > /dev/null 2>&1 &
+sh -e /etc/init.d/xvfb start
 sleep 1
 
 php -r 'require "vendor/joomla-projects/selenium-server-standalone/Selenium.php";
