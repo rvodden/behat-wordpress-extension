@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6ee913ef6255abc8e8caa1c01cce1a9d",
+    "content-hash": "8d3e675efc8769ad7b286991f361e14f",
     "packages": [
         {
             "name": "behat/behat",
@@ -4493,7 +4493,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.0.0"
+        "php": "~7.0"
     },
     "platform-dev": []
 }
