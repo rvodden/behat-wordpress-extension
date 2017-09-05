@@ -132,9 +132,13 @@ class WpcliDriver extends BaseDriver
         $exit_code = proc_close($proc);
 
         if ($exit_code || strpos($stdout, 'Warning: ') === 0 || strpos($stdout, 'Error: ') === 0) {
+            if ($exit_code === 255 && ! $stdout) {
+                $stdout = 'Unable to connect to server via SSH. Is it on?';
+            }
+
             throw new UnexpectedValueException(
                 sprintf(
-                    "WP-CLI driver failure in method %1\$s(): \n\t%2\$s\n(%3\$s)",
+                    "WP-CLI driver failure in method %1\$s(): \n%2\$s\n(%3\$s)",
                     debug_backtrace()[1]['function'],
                     $stdout,
                     $exit_code
