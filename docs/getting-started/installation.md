@@ -24,7 +24,8 @@ cd project</code></pre>
     <pre><code>cp vendor/paulgibbs/behat-wordpress-extension/behat.yml.dist behat.yml</code></pre>
 </li>
 
-<li>Edit your <code>behat.yml</code> and update the <code>base_url</code> setting with the URL of the website that you intend to test.
+<li><p>Edit your <code>behat.yml</code> and update the <code>base_url</code> setting with the URL of the website that you intend to test.</>
+<p>If your WordPress is installed in a subdirectory, <a href="/recipes/faq/index.html#wordpress">consult the FAQ for information about the <code>site_url</code> setting</a>.</p>
 </li>
 
 <li>Initialise <a href="http://behat.org">Behat</a>:
