@@ -17,6 +17,7 @@
     "files": ["src/Util/functions.php"]
   },
   "require": {
+    "ocramius/proxy-manager": "2.0.4",
     "behat/behat": "~3.1",
     "php": "~7.0",
     "sensiolabs/behat-page-object-extension": "~2.1",
