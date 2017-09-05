@@ -14,7 +14,7 @@ indent_style = space
 indent_style = space
 indent_size = 2
 
-[*.php]
+[*.php,*.md]
 indent_size = 4
 
 [{*.txt,*.md,*.ps1}]
