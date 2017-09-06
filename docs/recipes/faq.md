@@ -2,8 +2,19 @@
 
 If you are new to the project or Behat, we recommend that you first [read through our documentation](https://wordhat.info/). For any questions, feedback, or to contribute, you can get in contact with us via Github or our [Slack](https://wordhat.herokuapp.com).
 
+## Content
+Your tests will probably create WordPress content during their execution, and you need to remove that content from the database after each test. It is important to distinguish between persistent and non-persistent database content:
+
+* When Behat starts, that initial state of the database is persistent through all tests.
+* Database modifications made during a test, on the other hand, are not persistent. This means that database operations performed from within a test, such as the creation of posts or users, *should* be discarded after each test.
+
+You can either take care of removing non-persistent content yourself, perhaps by using a [Behat hook](http://behat.org/en/latest/user_guide/context/hooks.html) in a custom context class, or by scripting it into a <a href="https://en.wikipedia.org/wiki/Continuous_integration"><abbr title="continuous integration">CI</abbr></a> process, or by letting WordHat do this for you.
+
+Setting [`database.restore_after_test`](/configuration/settings.md) in your `behat.yml` to `true` will have WordHat backup the database when first invoked, and then restore it from that backup after each scenario. We strongly recommend using the WP-CLI driver with this.
+
 ## Drivers
 * If you are using the WP-CLI driver to [connect to a remote WordPress site over SSH](https://make.wordpress.org/cli/handbook/running-commands-remotely/), WordHat assumes the remote server is Linux-like, with a shell that provides [GNU Coreutils](https://www.gnu.org/software/coreutils/coreutils.html).
+* To configure WordHat to use a specific driver, set [`default_driver`](/configuration/settings.md) in your `behat.yml`.
 
 ## Browsers
 * If you are using [Selenium](http://docs.seleniumhq.org/download/) to run Javascript tests, and you access your WordPress site over HTTPS, *and* it has a self-signed certificate, you will need to manually configure the web browser to accept that certificate.

@@ -31,9 +31,9 @@ cd project</code></pre>
 <li>Initialise <a href="http://behat.org">Behat</a>:
     <pre><code>vendor/bin/behat --init</code></pre>
 
-    <div class="admonition tip">
-        <p class="admonition-title">Tip</p>
-        <p>This will create a <code>features/</code> folder for your <a href="http://docs.behat.org/en/latest/user_guide/features_scenarios.html#features">Features (tests)</a>, and a new <a href="http://docs.behat.org/en/latest/user_guide/context.html">Context class</a>. These will come in handy later!</p>
+    <div class="admonition info">
+        <p class="admonition-title">What does this do?</p>
+        <p>This creates a <code>features/</code> folder for your <a href="http://docs.behat.org/en/latest/user_guide/features_scenarios.html#features">Features (tests)</a>, and a new <a href="http://docs.behat.org/en/latest/user_guide/context.html">Context class</a>. These will come in handy later!</p>
     </div>
 </li>
 

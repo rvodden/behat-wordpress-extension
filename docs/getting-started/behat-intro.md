@@ -34,8 +34,8 @@ Scenario: Some description of the scenario
     But another outcome
 ```
 
-!!! tip
-    There is no difference between the `Then`, `And`, and `But` keywords. Use them appropriately to write Scenarios that are natural and readable.
+!!! tip "Did you know?"
+    There is no difference between the `Then`, `And`, and `But` keywords. Use each appropriately to write Scenarios that are natural and readable.
 
 
 ## Features
@@ -65,7 +65,7 @@ Feature: Shopping basket
     - Delivery for basket over £10 is £2
 ```
 
-!!! tip
+!!! summary
     Features are a simple description of a user story.
 
     The format is always the same: the title of the feature, followed by three lines that describe the benefit, the role, and the feature itself. On subsequent lines, we can add any amount of additional description (such as the rules section, in this example).
@@ -113,7 +113,7 @@ Feature: Shopping basket
             And the overall basket price should be £20
 ```
 
-!!! important
+!!! tip "Did you know?"
     Scenarios in Feature files should focus on the *what*, rather than the *how*.
 
     Each Scenario should be concise and to the point, so that the reader can quickly grasp the intent of the test without having to read a lot of irrelevant steps.
@@ -162,7 +162,7 @@ The `@Given`, `@When`, and `@Then` keywords allow Behat to match a Step to a met
 In the annotation, Behat can capture tokens (words starting with a colon, e.g.
 `:arg1`) and pass their value to the method as arguments. Behat also supports optionally matching part of an Step using brackets.
 
-!!! tip
+!!! tip "Did you know?"
     To facilitate more complex matching requirements, Behat supports regular expressions.
 
 An example of a Step Definition required for our e-commerce website is:

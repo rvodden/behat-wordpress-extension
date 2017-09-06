@@ -4,17 +4,17 @@ WordHat provides WordPress-specific functionality for common testing scenarios t
 
 For convenience, our `behat.yml.dist` configuration template loads all of our contexts by default, though Behat does support [more complex configuration](http://behat.org/en/latest/user_guide/configuration/suites.html) for advanced use cases.
 
-To find out which step definitions are available for your tests, consult this documentation or run `vendor/bin/behat -dl` in your terminal.
+To find out which step definitions are available for your tests, run `vendor/bin/behat -dl` in your terminal.
 
 
 ## Drivers
 
 The `Given` and `When` steps in a [Behat Scenario](/getting-started/behat-intro.md#scenarios) configure a WordPress into a known state for reliable testing. WordHat abstracts this communication between WordPress and itself into a *drivers* system. Two drivers are currently provided: WP-CLI (the default), and WP-PHP.
 
-!!! important
+!!! info "Drivers"
     WordHat only uses a driver to configure a WordPress into a known state.
 
-    Your actual tests are run in a web browser, via [Mink](http://mink.behat.org/en/latest/), which is bundled with WordHat.
+    Your actual tests are run in a web browser, via [Mink](http://mink.behat.org/en/latest/).
 
 To configure WordHat to use a specific driver, set [`default_driver`](/configuration/settings.md) in your `behat.yml`.
 
@@ -29,6 +29,10 @@ The WP-PHP driver loads WordPress by bootstrapping it directly. This approach wa
 
 
 ## Contexts
+
+!!! warning "Under development"
+    Step definitions are not fully implemented -- yet. More are added with each release of WordHat.
+
 ### Content
 
 The `ContentContext` context provides a range of step definitions for managing post types, taxonomy terms, and comments.
@@ -40,6 +44,10 @@ The `DebugContext` context provides step definitions to help debug Scenarios dur
 ### Site
 
 The `SiteContext` context provides step definitions for activating/deactivating plugins, switching themes, and clearing the object cache.
+
+### TinyMCE
+
+The `EditPost` context provides step definitions to manage editing and creating content within wp-admin.
 
 ### Toolbar
 
@@ -56,7 +64,3 @@ The `WidgetContext` context provides step definitions to add/remove widgets from
 ### wp-admin
 
 The `Dashboard` context provides a range of step definitions for generally interacting with, and navigating around, the WordPress administration screens (i.e. wp-admin).
-
-### wp-admin, Edit Post
-
-The `EditPost` context provides step definitions to manage editing and creating content within wp-admin.
