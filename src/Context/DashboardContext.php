@@ -121,11 +121,10 @@ class DashboardContext extends RawWordpressContext
     /**
      * @Then /^the username should be (.+)$/
      */
-    public function theUsernameShouldBeTest($username)
+    public function theUsernameShouldBe($username)
     {
-    		if ( $username != $this->admin_page->getUserText() ) 
-    		{
-    			throw new Exception('Username is not ' . $username);
-    		}
+        if ($username != $this->admin_page->getUserText()) {
+            throw new Exception('Username is not ' . $username);
+        }
     }
 }

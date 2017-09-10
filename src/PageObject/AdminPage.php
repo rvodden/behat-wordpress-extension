@@ -135,7 +135,7 @@ class AdminPage extends Page
      */
     public function getUserText()
     {
-    		return $this->getUserElement()->getText();
+        return $this->getUserElement()->getText();
     }
     
     /**
@@ -144,7 +144,7 @@ class AdminPage extends Page
      */
     public function getUserElement()
     {
-    		return $this->find('css','span.display-name');
+        return $this->find('css', 'span.display-name');
     }
 
     /**
@@ -194,5 +194,4 @@ class AdminPage extends Page
 
         return $url;
     }
-    
 }
