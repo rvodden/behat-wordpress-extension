@@ -137,7 +137,7 @@ class AdminPage extends Page
     {
         return $this->getUserElement()->getText();
     }
-    
+
     /**
      *  gets the username in the header tag
      *
