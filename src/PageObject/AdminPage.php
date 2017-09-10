@@ -128,6 +128,24 @@ class AdminPage extends Page
         $this->verify($url_parameters);
         return true;
     }
+    
+    /**
+     *  gets the name of the user who is displayed top right
+     *
+     */
+    public function getUserText()
+    {
+    		return $this->getUserElement()->getText();
+    }
+    
+    /**
+     *  gets the username in the header tag
+     *
+     */
+    public function getUserElement()
+    {
+    		return $this->find('css','span.display-name');
+    }
 
     /**
      * Get the URL based on WordHat's site_url and not Mink's base_url
@@ -176,4 +194,5 @@ class AdminPage extends Page
 
         return $url;
     }
+    
 }
