@@ -128,7 +128,7 @@ class AdminPage extends Page
         $this->verify($url_parameters);
         return true;
     }
-    
+
     /**
      *  gets the name of the user who is displayed top right
      *

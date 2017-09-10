@@ -117,7 +117,7 @@ class DashboardContext extends RawWordpressContext
 
         $this->assertSession()->elementTextContains('css', $selector, $message);
     }
-    
+
     /**
      * @Then /^the username should be (.+)$/
      */
