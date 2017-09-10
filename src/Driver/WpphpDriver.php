@@ -302,7 +302,7 @@ class WpphpDriver extends BaseDriver
 
         return array(
             'id'   => $user->ID,
-            'slug' => $user->user_nicename,
+            'slug' => $user->$user_login,
         );
     }
 
