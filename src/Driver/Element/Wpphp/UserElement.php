@@ -51,6 +51,7 @@ class UserElement extends BaseElement
         $user = get_user_by($type, $id);
 
         if (! $user) {
+            print "Could not get user by login: $id\n";
             throw new UnexpectedValueException(sprintf('Could not find user with ID %d', $id));
         }
 

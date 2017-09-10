@@ -119,12 +119,18 @@ class DashboardContext extends RawWordpressContext
     }
 
     /**
-     * @Then /^the username should be (.+)$/
+     * Check the displayed username matches that specified.
+     *
+     * Example: Then the username should be "Test"
+     *
+     * @Then the username should be :username
+     *
+     * @throws \Exception
      */
     public function theUsernameShouldBe($username)
     {
         if ($username != $this->admin_page->getUserText()) {
-            throw new Exception('Username is not ' . $username);
+            throw new \Exception('Username is not ' . $username);
         }
     }
 }

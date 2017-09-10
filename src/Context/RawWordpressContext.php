@@ -397,7 +397,7 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      *
      * @return array {
      *     @type int    $id   User ID.
-     *     @type string $slug User slug (nicename).
+     *     @type string $slug login
      * }
      */
     public function createUser($user_login, $user_email, $args = [])
@@ -411,6 +411,29 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
             'id'   => $user->ID,
             'slug' => $user->user_login,
         );
+    }
+
+    /**
+     * Get a user given their login.
+     *
+     * @param string $user_login User login name.
+     *
+     * @return array {
+     *     @type int    $id   User ID.
+     *     @type string $slug login
+     * }
+     */
+    public function getUserByLogin($user_login)
+    {
+         print "Get user by login: $user_login\n";
+         $args['by'] = 'login';
+         $args['user_login'] = $user_login;
+         $user = $this->getDriver()->user->get($user_login, $args);
+         
+         return array(
+             'id'   => $user->ID,
+             'slug' => $user->user_login,
+         );
     }
 
     /**
