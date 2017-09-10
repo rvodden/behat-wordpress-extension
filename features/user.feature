@@ -7,10 +7,11 @@ Feature: Managing users
     When I click on the "Add New" link in the header
     Then I should be on the "Add New User" page
 
+  @javascript
   Scenario: I can log in as a user which has been added
     Given there are users:
       | user_login | user_pass | user_email        | role          |
       | test       | test      | test@example.com | author        |
-    And I am logged in as an author
+    And I am logged in as a test
     When I go to the dashboard
     Then the username should be test
