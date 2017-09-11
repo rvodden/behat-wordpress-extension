@@ -4,6 +4,7 @@ namespace PaulGibbs\WordpressBehatExtension\Context;
 use Behat\Mink\Driver\Selenium2Driver;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use Behat\Behat\Hook\Scope\AfterScenarioScope;
+use PaulGibbs\WordpressBehatExtension\PageObject\Dashboard;
 
 /**
  * Provides step definitions for a range of common tasks. Recommended for all test suites.
@@ -11,6 +12,24 @@ use Behat\Behat\Hook\Scope\AfterScenarioScope;
 class WordpressContext extends RawWordpressContext
 {
     use PageObjectContextTrait;
+
+    /**
+     * Dashboard (wp-admin/index.php) object.
+     * @param Dashboard
+     */
+    protected $dashboard;
+
+    /**
+     * Constructor.
+     *
+     * @param Dashboard $dashboard Dashboard object.
+     */
+    public function __construct(Dashboard $dashboard)
+    {
+        parent::__construct();
+
+        $this->dashboard = $dashboard;
+    }
 
     /**
      * If database.restore_after_test is set, and a scenario is tagged "db", create a database backup.
@@ -142,6 +161,6 @@ class WordpressContext extends RawWordpressContext
      */
     public function iAmOnDashboard()
     {
-        $this->visitPath('wp-admin/');
+        $this->dashboard->open();
     }
 }
