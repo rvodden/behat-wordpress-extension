@@ -46,6 +46,27 @@ class UserElement extends BaseElement
      */
     public function get($id, $args = [])
     {
+        // Fetch all the user properties by default, for convenience.
+        if (! isset($args['field']) & ! isset($args['fields'])) {
+            $args['fields'] = implode(
+                ',',
+                array(
+                    'ID',
+                    'user_login',
+                    'display_name',
+                    'user_email',
+                    'user_registered',
+                    'roles',
+                    'user_pass',
+                    'user_nicename',
+                    'user_url',
+                    'user_activation_key',
+                    'user_status',
+                    'url'
+                )
+            );
+        }
+
         $wpcli_args = buildCLIArgs(
             array(
                 'field',
