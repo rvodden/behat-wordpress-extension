@@ -47,7 +47,7 @@ class UserElement extends BaseElement
     public function get($id, $args = [])
     {
         // Fetch all the user properties by default, for convenience.
-        if (! isset($args['field']) & ! isset($args['fields'])) {
+        if (! isset($args['field']) && ! isset($args['fields'])) {
             $args['fields'] = implode(
                 ',',
                 array(
