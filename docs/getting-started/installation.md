@@ -4,7 +4,7 @@
 
 WordHat requires [PHP](https://php.net/) (version 7.0+), [Composer](https://getcomposer.org/), and a [WordPress](https://wordpress.org/) site to test (version 4.8+).
 
-We strongly recommend using [WP-CLI](https://wp-cli.org/)[^1] \(version 1.3.0+), and the standalone version of [Selenium](http://docs.seleniumhq.org/download/)[^2].
+We strongly recommend using [WP-CLI](https://wp-cli.org/)[^1] \(version 1.3.0+), and [Selenium](http://www.seleniumhq.org/)[^2] to help with browser automation. Selenium is fiddly to set up, so we recommend using [vvo/selenium-standalone](https://github.com/vvo/selenium-standalone#command-line-interface).
 
 
 ## Installation
@@ -17,7 +17,7 @@ cd project</code></pre>
 </li>
 
 <li>Tell <a href="https://getcomposer.org/">Composer</a> to download WordHat:
-    <pre>composer require --dev paulgibbs/behat-wordpress-extension behat/mink-goutte-driver behat/mink-selenium2-driver</pre>
+    <pre><code>composer require --dev paulgibbs/behat-wordpress-extension behat/mink-goutte-driver behat/mink-selenium2-driver</code></pre>
 </li>
 
 <li>Copy WordHat's sample configuration file into your <code>project</code> folder and rename it:
@@ -59,4 +59,4 @@ Now that you have WordHat set up, we recommend reading our [introduction to Beha
     The WP-CLI executable *must* be named `wp` and be within your system's <a href="https://en.wikipedia.org/wiki/PATH_(variable)" id="WP-CLI">$PATH</a>.
 
 [^2]:
-    Recommended for testing <a href="http://mink.behat.org/en/latest/guides/drivers.html" id="SEL">websites that require Javascript</a>. It requires the [Mink Selenium2 driver](https://packagist.org/packages/behat/mink-selenium2-driver), which we include in the installation instructions above.
+    Selenium is recommended for testing <a href="http://mink.behat.org/en/latest/guides/drivers.html" id="SEL">websites that require Javascript</a>. Behat requires the [Mink Selenium2 library](https://packagist.org/packages/behat/mink-selenium2-driver), which we include in the installation instructions above.

@@ -61,12 +61,14 @@ pages:
   - Getting Started:
     - Installation: getting-started/installation.md
     - Intro to Behat: getting-started/behat-intro.md
+    - WordHat: getting-started/wordhat-intro.md
   - Features:
     - Overview: features/overview.md
   - Configuration:
     - Settings: configuration/settings.md
   - Recipes:
     - FAQ: recipes/faq.md
+    - Database content: recipes/content.md
   - News: changelog.md
   - Credits: credits.md
   - License: license.md

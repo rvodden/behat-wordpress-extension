@@ -4,8 +4,7 @@ Welcome! WordHat is an integration layer between [Behat](http://behat.org) and [
 
 If you are new to the project or Behat, we recommend that you first read through our documentation. If you already know Behat, WordHat is available on [Composer](https://packagist.org/packages/paulgibbs/behat-wordpress-extension).
 
-If you encounter a bug, have a suggestion, or would like to help the project grow, please get in contact via [Github](https://github.com/paulgibbs/behat-wordpress-extension).
-
+If you encounter a bug, have a suggestion, or would like to help the project grow, please get in contact via [Github](https://github.com/paulgibbs/behat-wordpress-extension) or our [Slack](https://wordhat.herokuapp.com).
 
 ## What is Behat?
 
