@@ -1,5 +1,6 @@
 Feature: Widgets
 
+  @db
   Scenario: Viewing a widget
     Given I have the "meta" widget in "Blog Sidebar"
       | Title     |
