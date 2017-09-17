@@ -15,6 +15,6 @@ Feature: Viewing posts
         And I should see "About this site"
 
     Scenario: Viewing an existing post
-        Given I am viewing a post "Just my article"
+        Given I am viewing the post "Just my article"
         Then I should see "Just my article"
         And I should see "The content of my article"

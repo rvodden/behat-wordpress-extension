@@ -34,8 +34,9 @@ class ContentContext extends RawWordpressContext
      * Example: Given I am viewing a post:
      *     | post_type | post_title | post_content | post_status |
      *     | page      | Test Post   | Hello World  | publish     |
+     * Example: Given I am viewing the post: "Test Post"
      *
-     * @Given /^(?:I am|they are) viewing a(?: blog)? post(?: "([^"]+)"|:)/
+     * @Given /^(?:I am|they are) viewing (?:a|the)(?: blog)? post(?: "([^"]+)"|:)/
      *
      * @param TableNode|string $post_data_or_title
      * @throws \UnexpectedValueException
