@@ -5,6 +5,8 @@ Your tests will probably create WordPress content during their execution, and yo
 * When Behat starts, that initial state of the database is persisted through all tests.
 * Database modifications made during a test, on the other hand, are not persistent. This means that database operations performed from within a test, such as the creation of posts or users, *should* be discarded after each test.
 
+When you write tests that create, update, or delete content in the database, mark the scenario or feature with the `@db` [tag](http://behat.org/en/latest/user_guide/organizing.html#tags).
+
 
 ## Non-persistent content
 
