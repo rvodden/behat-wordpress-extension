@@ -1,5 +1,5 @@
+@db
 Feature: You can write in visual and text mode
-
 
   Background:
     Given I am logged in as an admin

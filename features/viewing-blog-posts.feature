@@ -1,3 +1,4 @@
+@db
 Feature: Viewing posts
 
     Background:
