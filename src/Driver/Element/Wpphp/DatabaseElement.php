@@ -23,6 +23,7 @@ class DatabaseElement extends BaseElement
             $args['path'] = sys_get_temp_dir();
         }
 
+        $bin          = '';
         $path         = tempnam($args['path'], 'wordhat');
         $command_args = sprintf(
             '--no-defaults %1$s --add-drop-table --result-file=%2$s --host=%3$s --user=%4$s',
@@ -35,9 +36,14 @@ class DatabaseElement extends BaseElement
         $old_pwd = getenv('MYSQL_PWD');
         putenv('MYSQL_PWD=' . DB_PASSWORD);
 
+        // Support Windows.
+        if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+            $bin = '/usr/bin/env ';
+        }
+
         // Export DB via mysqldump.
         $proc = proc_open(
-            "/usr/bin/env mysqldump {$command_args}",
+            "{$bin}mysqldump {$command_args}",
             array(
                 1 => ['pipe', 'w'],
             ),
@@ -71,6 +77,7 @@ class DatabaseElement extends BaseElement
      */
     public function update($id, $args = [])
     {
+        $bin          = '';
         $command_args = sprintf(
             '--no-defaults --no-auto-rehash --host=%1$s --user=%2$s --database=%3$s --execute=%4$s',
             DB_HOST,
@@ -85,9 +92,14 @@ class DatabaseElement extends BaseElement
         $old_pwd = getenv('MYSQL_PWD');
         putenv('MYSQL_PWD=' . DB_PASSWORD);
 
+        // Support Windows.
+        if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+            $bin = '/usr/bin/env ';
+        }
+
         // Import DB via mysql-cli.
         $proc = proc_open(
-            "/usr/bin/env mysql {$command_args}",
+            "{$bin}mysql {$command_args}",
             array(
                 1 => ['pipe', 'w'],
             ),

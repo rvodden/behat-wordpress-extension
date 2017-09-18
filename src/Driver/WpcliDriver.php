@@ -34,7 +34,7 @@ class WpcliDriver extends BaseDriver
     /**
      * Binary for WP-CLI.
      *
-     * Defaults to wp, or wp.bat for Windows installs.
+     * Defaults to "wp".
      *
      * @var string
      */
