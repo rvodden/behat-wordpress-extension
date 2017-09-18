@@ -25,41 +25,42 @@ class DatabaseElement extends BaseElement
 
         $path         = tempnam($args['path'], 'wordhat');
         $command_args = sprintf(
-            '--no-defaults %1$s --add-drop-table --result-file=%2$s --host=%3$s --user=%4$s --password=%5$s',
+            '--no-defaults %1$s --add-drop-table --result-file=%2$s --host=%3$s --user=%4$s',
             DB_NAME,
-            escapeshellarg($path),
-            escapeshellarg(DB_HOST),
-            escapeshellarg(DB_USER),
-            escapeshellarg(DB_PASSWORD)
+            $path,
+            DB_HOST,
+            DB_USER
         );
 
+        $old_pwd = getenv('MYSQL_PWD');
+        putenv('MYSQL_PWD=' . DB_PASSWORD);
+
+        // Export DB via mysqldump.
         $proc = proc_open(
             "/usr/bin/env mysqldump {$command_args}",
             array(
                 1 => ['pipe', 'w'],
-                2 => ['pipe', 'w'],
             ),
             $pipes
         );
 
         $stdout = trim(stream_get_contents($pipes[1]));
-        $stderr = trim(stream_get_contents($pipes[2]));
         fclose($pipes[1]);
-        fclose($pipes[2]);
         $exit_code = proc_close($proc);
+        putenv('MYSQL_PWD=' . $old_pwd);
 
-        if ($exit_code || $stderr) {
+        if ($exit_code || strpos($stdout, 'Warning: ') === 0 || strpos($stdout, 'Error: ') === 0) {
             throw new RuntimeException(
                 sprintf(
-                    "WP-PHP driver failure in database export for method %1\$s(): \n\t%2\$s\n(%3\$s)",
+                    "WP-PHP driver failure in database export for method %1\$s(): \n%2\$s\n(%3\$s)",
                     debug_backtrace()[1]['function'],
-                    $stderr ?: $stdout,
+                    $stdout,
                     $exit_code
                 )
             );
         }
 
-        return $stdout;
+        return $path;
     }
 
     /**
@@ -71,38 +72,39 @@ class DatabaseElement extends BaseElement
     public function update($id, $args = [])
     {
         $command_args = sprintf(
-            '--no-defaults --no-auto-rehash --host=%1$s --user=%2$s --password=%3$s --database=%4$s --execute=%5$s',
-            escapeshellarg(DB_HOST),
-            escapeshellarg(DB_USER),
-            escapeshellarg(DB_PASSWORD),
-            escapeshellarg(DB_NAME),
+            '--no-defaults --no-auto-rehash --host=%1$s --user=%2$s --database=%3$s --execute=%4$s',
+            DB_HOST,
+            DB_USER,
+            DB_NAME,
             escapeshellarg(sprintf(
                 'SET autocommit = 0; SET unique_checks = 0; SET foreign_key_checks = 0; SOURCE %1$s; COMMIT;',
                 $args['path']
             ))
         );
 
+        $old_pwd = getenv('MYSQL_PWD');
+        putenv('MYSQL_PWD=' . DB_PASSWORD);
+
+        // Import DB via mysql-cli.
         $proc = proc_open(
             "/usr/bin/env mysql {$command_args}",
             array(
                 1 => ['pipe', 'w'],
-                2 => ['pipe', 'w'],
             ),
             $pipes
         );
 
         $stdout = trim(stream_get_contents($pipes[1]));
-        $stderr = trim(stream_get_contents($pipes[2]));
         fclose($pipes[1]);
-        fclose($pipes[2]);
         $exit_code = proc_close($proc);
+        putenv('MYSQL_PWD=' . $old_pwd);
 
-        if ($exit_code || $stderr) {
+        if ($exit_code || strpos($stdout, 'Warning: ') === 0 || strpos($stdout, 'Error: ') === 0) {
             throw new RuntimeException(
                 sprintf(
-                    "WP-PHP driver failure in database import for method %1\$s(): \n\t%2\$s\n(%3\$s)",
+                    "WP-PHP driver failure in database import for method %1\$s(): \n%2\$s\n(%3\$s)",
                     debug_backtrace()[1]['function'],
-                    $stderr ?: $stdout,
+                    $stdout,
                     $exit_code
                 )
             );
