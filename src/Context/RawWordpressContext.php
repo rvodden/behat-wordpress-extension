@@ -217,9 +217,8 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
         // Look for a selector to determine if the user is logged in.
         try {
             return $page->has('css', 'body.logged-in');
-
-        // This may fail if the user has not loaded any site yet.
         } catch (DriverException $e) {
+            // This may fail if the user has not loaded any site yet.
         }
 
         return false;

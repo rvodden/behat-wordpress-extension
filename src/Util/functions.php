@@ -16,7 +16,9 @@ use DOMDocument;
  * @param callable $closure Action to execute.
  * @param int      $wait    Optional. How long to wait before giving up, in seconds.
  * @param int      $step    Optional. How long to wait between attempts, in micro seconds.
- * @throws \Exception       Rethrows the exception thrown by the $closure if the expectation has not been met after $wait seconds.
+ *
+ * @throws \Exception Rethrows the exception thrown by the $closure if the expectation
+ *                    has not been met after $wait seconds.
  */
 function spins(callable $closure, $wait = 60, $step = 250000)
 {

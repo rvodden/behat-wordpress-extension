@@ -28,7 +28,7 @@ class AdminMenu extends Element
         $menu_item_nodes = $this->findAll('css', '#adminmenu > li a .wp-menu-name');
         $menu_item_texts = array();
 
-        foreach ($menu_item_nodes as $n => $element) {
+        foreach ($menu_item_nodes as $element) {
             $menu_item_texts[] = Util\stripTagsAndContent($element->getHtml());
         }
 
