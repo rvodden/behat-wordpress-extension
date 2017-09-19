@@ -81,7 +81,7 @@ class WpphpDriver extends BaseDriver
      */
     public function getPlugin($name)
     {
-        foreach (get_plugins() as $file => $_) {
+        foreach (array_keys(get_plugins()) as $file) {
             // Logic taken from WP-CLI.
             if ($file === "{$name}.php" || ($name && $file === $name) || (dirname($file) === $name && $name !== '.')) {
                 return $file;
