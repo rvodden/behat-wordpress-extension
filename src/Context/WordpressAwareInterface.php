@@ -13,6 +13,8 @@ interface WordpressAwareInterface extends Context
      * Set WordPress driver manager instance.
      *
      * @param WordpressDriverManager $wordpress
+     *
+     * @return void
      */
     public function setWordpress(WordpressDriverManager $wordpress);
 
@@ -27,6 +29,8 @@ interface WordpressAwareInterface extends Context
      * Sets parameters provided for WordPress.
      *
      * @param array $parameters
+     *
+     * @return void
      */
     public function setWordpressParameters($parameters);
 
@@ -34,6 +38,7 @@ interface WordpressAwareInterface extends Context
      * Get a specific WordPress parameter.
      *
      * @param string $name Parameter name.
+     *
      * @return mixed
      */
     public function getWordpressParameter($name);

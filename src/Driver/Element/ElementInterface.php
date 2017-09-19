@@ -36,6 +36,8 @@ interface ElementInterface
      *
      * @param int|string $id   Object ID.
      * @param array      $args Optional data used to update an object.
+     *
+     * @return void
      */
     public function update($id, $args = []);
 
@@ -44,6 +46,8 @@ interface ElementInterface
      *
      * @param int|string $id   Object ID.
      * @param array      $args Optional data used to delete an object.
+     *
+     * @return void
      */
     public function delete($id, $args = []);
 }
