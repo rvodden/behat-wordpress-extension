@@ -1,4 +1,6 @@
 <?php
+namespace PaulGibbs\WordpressBehatExtension;
+
 use PaulGibbs\WordpressBehatExtension\Context\RawWordpressContext;
 
 use Behat\Behat\Context\SnippetAcceptingContext;
