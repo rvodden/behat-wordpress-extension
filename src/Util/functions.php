@@ -80,18 +80,6 @@ function stripTagsAndContent($html)
 }
 
 /**
- * Is the specified item's class a WordPress error object?
- *
- * @param \stdClass $item
- *
- * @return bool
- */
-function isWordpressError($item)
-{
-    return (is_object($item) && get_class($item) === 'WP_Error');
-}
-
-/**
  * Construct arguments for a CLI command.
  *
  * Supports any mixture of assocative and numeric array values.

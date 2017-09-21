@@ -1,7 +1,8 @@
 # News
 
 ## Unreleased
-- tbc.
+### Removed
+- Removed unused internal function `isWordpressError()`.
 
 ## [0.8.0] - 2017-09-18
 ### Added
