@@ -99,8 +99,6 @@ class WpphpDriver extends BaseDriver
 
     /**
      * Clear object cache.
-     *
-     * This method will be removed in release 1.0.0.
      */
     public function clearCache()
     {
@@ -109,8 +107,6 @@ class WpphpDriver extends BaseDriver
 
     /**
      * Activate a plugin.
-     *
-     * This method will be removed in release 1.0.0.
      *
      * @param string $plugin
      */
@@ -122,8 +118,6 @@ class WpphpDriver extends BaseDriver
     /**
      * Deactivate a plugin.
      *
-     * This method will be removed in release 1.0.0.
-     *
      * @param string $plugin
      */
     public function deactivatePlugin($plugin)
@@ -134,8 +128,6 @@ class WpphpDriver extends BaseDriver
     /**
      * Switch active theme.
      *
-     * This method will be removed in release 1.0.0.
-     *
      * @param string $theme
      */
     public function switchTheme($theme)
@@ -145,8 +137,6 @@ class WpphpDriver extends BaseDriver
 
     /**
      * Create a term in a taxonomy.
-     *
-     * This method will be removed in release 1.0.0.
      *
      * @param string $term
      * @param string $taxonomy
@@ -173,8 +163,6 @@ class WpphpDriver extends BaseDriver
     /**
      * Delete a term from a taxonomy.
      *
-     * This method will be removed in release 1.0.0.
-     *
      * @param int    $term_id
      * @param string $taxonomy
      */
@@ -185,8 +173,6 @@ class WpphpDriver extends BaseDriver
 
     /**
      * Create content.
-     *
-     * This method will be removed in release 1.0.0.
      *
      * @param array $args Set the values of the new content item.
      *
@@ -210,8 +196,6 @@ class WpphpDriver extends BaseDriver
     /**
      * Delete specified content.
      *
-     * This method will be removed in release 1.0.0.
-     *
      * @param int   $id   ID of content to delete.
      * @param array $args Optional. Extra parameters to pass to WordPress.
      */
@@ -222,8 +206,6 @@ class WpphpDriver extends BaseDriver
 
     /**
      * Get content from its title.
-     *
-     * This method will be removed in release 1.0.0.
      *
      * @param string $title     The title of the content to get.
      * @param string $post_type Post type(s) to consider when searching for the content.
@@ -250,8 +232,6 @@ class WpphpDriver extends BaseDriver
     /**
      * Create a comment.
      *
-     * This method will be removed in release 1.0.0.
-     *
      * @param array $args Set the values of the new comment.
      *
      * @return array {
@@ -270,8 +250,6 @@ class WpphpDriver extends BaseDriver
     /**
      * Delete specified comment.
      *
-     * This method will be removed in release 1.0.0.
-     *
      * @param int   $id   ID of comment to delete.
      * @param array $args Optional. Extra parameters to pass to WordPress.
      */
@@ -282,8 +260,6 @@ class WpphpDriver extends BaseDriver
 
     /**
      * Create a user.
-     *
-     * This method will be removed in release 1.0.0.
      *
      * @param string $user_login User login name.
      * @param string $user_email User email address.
@@ -310,8 +286,6 @@ class WpphpDriver extends BaseDriver
     /**
      * Delete a user.
      *
-     * This method will be removed in release 1.0.0.
-     *
      * @param int   $id   ID of user to delete.
      * @param array $args Optional. Extra parameters to pass to WordPress.
      */
@@ -322,8 +296,6 @@ class WpphpDriver extends BaseDriver
 
     /**
      * Get a User's ID from their username.
-     *
-     * This method will be removed in release 1.0.0.
      *
      * @param string $username The username of the user to get the ID of.
      *
@@ -338,8 +310,6 @@ class WpphpDriver extends BaseDriver
 
     /**
      * Start a database transaction.
-     *
-     * This method will be removed in release 1.0.0.
      */
     public function startTransaction()
     {
@@ -348,8 +318,6 @@ class WpphpDriver extends BaseDriver
 
     /**
      * End (rollback) a database transaction.
-     *
-     * This method will be removed in release 1.0.0.
      */
     public function endTransaction()
     {
