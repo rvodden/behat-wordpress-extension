@@ -37,8 +37,8 @@ class UserElement extends BaseElement
     /**
      * Retrieve an item for this element.
      *
-     * @param int|string $id Object ID.
-     * @param array $args Optional data used to fetch an object.
+     * @param int|string $id   Object ID.
+     * @param array      $args Optional data used to fetch an object.
      *
      * @throws \UnexpectedValueException
      *
@@ -76,8 +76,8 @@ class UserElement extends BaseElement
         );
 
         array_unshift($wpcli_args, $id, '--format=json');
-        $user       = $this->drivers->getDriver()->wpcli('user', 'get', $wpcli_args)['stdout'];
-        $user       = json_decode($user);
+        $user = $this->drivers->getDriver()->wpcli('user', 'get', $wpcli_args)['stdout'];
+        $user = json_decode($user);
 
         if (! $user) {
             throw new UnexpectedValueException(sprintf('Could not find user with ID %d', $id));

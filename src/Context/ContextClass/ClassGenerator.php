@@ -9,7 +9,6 @@ use Behat\Testwork\Suite\Suite;
  */
 class ClassGenerator implements BehatContextGenerator
 {
-
     /**
      * @var string
      */
@@ -43,6 +42,7 @@ PHP;
      *
      * @param Suite  $suite
      * @param string $context_class
+     *
      * @return bool
      */
     public function supportsSuiteAndClass(Suite $suite, $context_class)
@@ -55,6 +55,7 @@ PHP;
      *
      * @param Suite  $suite
      * @param string $context_class
+     *
      * @return string The context class source code.
      */
     public function generateClass(Suite $suite, $context_class)

@@ -15,7 +15,8 @@ class WordpressContext extends RawWordpressContext
 
     /**
      * Dashboard (wp-admin/index.php) object.
-     * @param Dashboard
+     *
+     * @var Dashboard
      */
     protected $dashboard;
 

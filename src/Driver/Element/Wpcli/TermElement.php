@@ -55,8 +55,8 @@ class TermElement extends BaseElement
         );
 
         array_unshift($wpcli_args, $args['taxonomy'], $id, '--format=json');
-        $term       = $this->drivers->getDriver()->wpcli('term', 'get', $wpcli_args)['stdout'];
-        $term       = json_decode($term);
+        $term = $this->drivers->getDriver()->wpcli('term', 'get', $wpcli_args)['stdout'];
+        $term = json_decode($term);
 
         if (! $term) {
             throw new UnexpectedValueException(sprintf('Could not find term with ID %d', $id));

@@ -10,7 +10,8 @@ class DashboardContext extends RawWordpressContext
 {
     /**
      * Non-specific admin page (wp-admin/) object.
-     * @param AdminPage
+     *
+     * @var AdminPage
      */
     protected $admin_page;
 

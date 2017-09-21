@@ -34,8 +34,8 @@ class ContentElement extends BaseElement
     /**
      * Retrieve an item for this element.
      *
-     * @param \WP_Post|string|int $id Object ID.
-     * @param array $args Optional data used to fetch an object.
+     * @param \WP_Post|string|int $id   Object ID.
+     * @param array               $args Optional data used to fetch an object.
      *
      * @throws \UnexpectedValueException
      *
@@ -76,7 +76,7 @@ class ContentElement extends BaseElement
     /**
      * Delete an item for this element.
      *
-     * @param int $id Object ID.
+     * @param int   $id   Object ID.
      * @param array $args Optional data used to delete an object.
      *
      * @throws \UnexpectedValueException

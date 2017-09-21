@@ -46,8 +46,9 @@ function spins(callable $closure, $wait = 60, $step = 250000)
  *
  * e.g. Some <span>HTML and</span>text  -->  Some text
  *
- * @param string $html Raw HTML
- * @return string Extracted text. e.g. Some <span>HTML and</span>text  -->  Some text
+ * @param string $html Raw HTML. e.g. "Some <span>HTML and</span>text".
+ *
+ * @return string Extracted text. e.g. "Some text".
  */
 function stripTagsAndContent($html)
 {
@@ -60,8 +61,10 @@ function stripTagsAndContent($html)
 
     $container = $doc->getElementsByTagName('div')->item(0);
 
-    // Remove nodes while iterating over them does not work
-    // @link http://php.net/manual/en/domnode.removechild.php#90292
+    /*
+     * Remove nodes while iterating over them does not work.
+     * See http://php.net/manual/en/domnode.removechild.php#90292
+     */
     $remove_queue = array();
     foreach ($container->childNodes as $child_node) {
         if ($child_node->nodeType !== XML_TEXT_NODE) {
@@ -80,6 +83,7 @@ function stripTagsAndContent($html)
  * Is the specified item's class a WordPress error object?
  *
  * @param \stdClass $item
+ *
  * @return bool
  */
 function isWordpressError($item)
@@ -93,7 +97,8 @@ function isWordpressError($item)
  * Supports any mixture of assocative and numeric array values.
  *
  * @param array $whitelist Accept only these arguments.
- * @param array $raw_args Raw argument/value pairs. May be user-supplied.
+ * @param array $raw_args  Raw argument/value pairs. May be user-supplied.
+ *
  * @return array
  */
 function buildCLIArgs($whitelist, $raw_args)

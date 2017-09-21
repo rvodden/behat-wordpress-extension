@@ -27,10 +27,10 @@ class WidgetContext extends RawWordpressContext
     public function iHaveTheMetaWidgetIn($widget_name, $sidebar_name, TableNode $widget_settings)
     {
         $sidebar = $this->getDriver()->widget->getSidebar($sidebar_name);
+        $keys    = array_map('strtolower', $widget_settings->getRow(0));
+        $values  = $widget_settings->getRow(1);  // We only support one widget for now.
+        $args    = array_combine($keys, $values);
 
-        $keys = array_map('strtolower', $widget_settings->getRow(0));
-        $values = $widget_settings->getRow(1); //we only support one widget for now
-        $args = array_combine($keys, $values);
         $this->getDriver()->widget->addToSidebar($widget_name, $sidebar, $args);
     }
 }

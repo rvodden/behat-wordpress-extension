@@ -77,6 +77,7 @@ class WpphpDriver extends BaseDriver
      * Get information about a plugin.
      *
      * @param string $name
+     *
      * @return string Plugin filename and path.
      */
     public function getPlugin($name)

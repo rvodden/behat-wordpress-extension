@@ -54,8 +54,8 @@ class CommentElement extends BaseElement
         );
 
         array_unshift($wpcli_args, $id, '--format=json');
-        $comment    = $this->drivers->getDriver()->wpcli('comment', 'get', $wpcli_args)['stdout'];
-        $comment    = json_decode($comment);
+        $comment = $this->drivers->getDriver()->wpcli('comment', 'get', $wpcli_args)['stdout'];
+        $comment = json_decode($comment);
 
         if (! $comment) {
             throw new UnexpectedValueException(sprintf('Could not find comment with ID %d', $id));
