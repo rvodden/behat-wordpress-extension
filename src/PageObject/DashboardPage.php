@@ -4,7 +4,7 @@ namespace PaulGibbs\WordpressBehatExtension\PageObject;
 /**
  * Page object representing the wp-admin "Dashboard" screen.
  */
-class Dashboard extends AdminPage
+class DashboardPage extends AdminPage
 {
     /**
      * @var string $path

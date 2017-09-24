@@ -1,7 +1,7 @@
 <?php
 namespace PaulGibbs\WordpressBehatExtension\Context;
 
-use PaulGibbs\WordpressBehatExtension\PageObject\EditPostPage;
+use PaulGibbs\WordpressBehatExtension\PageObject\PostsEditPage;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Mink\Exception\ExpectationException;
 
@@ -14,16 +14,16 @@ class EditPostContext extends RawWordpressContext
     /**
      * Edit post/page/post-type page (/wp-admin/post.php?post=<id>&action=edit) object.
      *
-     * @param EditPostPage
+     * @param PostsEditPage
      */
     private $edit_post_page;
 
     /**
      * Constructor.
      *
-     * @param EditPostPage $edit_post_page The page object representing the edit post page.
+     * @param PostsEditPage $edit_post_page The page object representing the edit post page.
      */
-    public function __construct(EditPostPage $edit_post_page)
+    public function __construct(PostsEditPage $edit_post_page)
     {
         parent::__construct();
 

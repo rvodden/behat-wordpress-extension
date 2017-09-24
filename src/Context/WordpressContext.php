@@ -4,7 +4,7 @@ namespace PaulGibbs\WordpressBehatExtension\Context;
 use Behat\Mink\Driver\Selenium2Driver;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use Behat\Behat\Hook\Scope\AfterScenarioScope;
-use PaulGibbs\WordpressBehatExtension\PageObject\Dashboard;
+use PaulGibbs\WordpressBehatExtension\PageObject\DashboardPage;
 
 /**
  * Provides step definitions for a range of common tasks. Recommended for all test suites.
@@ -16,16 +16,16 @@ class WordpressContext extends RawWordpressContext
     /**
      * Dashboard (wp-admin/index.php) object.
      *
-     * @var Dashboard
+     * @var DashboardPage
      */
     protected $dashboard;
 
     /**
      * Constructor.
      *
-     * @param Dashboard $dashboard Dashboard object.
+     * @param DashboardPage $dashboard Dashboard object.
      */
-    public function __construct(Dashboard $dashboard)
+    public function __construct(DashboardPage $dashboard)
     {
         parent::__construct();
 
