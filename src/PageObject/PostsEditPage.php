@@ -4,9 +4,9 @@ namespace PaulGibbs\WordpressBehatExtension\PageObject;
 use Behat\Mink\Exception\ExpectationException;
 
 /**
- * Page object representing the wp-admin "Edit Post" screen.
+ * Page object representing the wp-admin "Posts > Edit" screen.
  */
-class EditPostPage extends AdminPage
+class PostsEditPage extends AdminPage
 {
     /**
      * @var string $path

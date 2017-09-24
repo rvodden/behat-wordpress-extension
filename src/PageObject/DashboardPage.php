@@ -2,7 +2,7 @@
 namespace PaulGibbs\WordpressBehatExtension\PageObject;
 
 /**
- * Page object representing the wp-admin Dashboard screen.
+ * Page object representing the wp-admin "Dashboard" screen.
  */
 class Dashboard extends AdminPage
 {
