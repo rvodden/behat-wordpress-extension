@@ -27,7 +27,7 @@ class UserElement extends BaseElement
             throw new UnexpectedValueException(sprintf('Failed creating new user: %s', $user->get_error_message()));
         }
 
-        return $this->get($user->ID);
+        return $this->get($user);
     }
 
     /**
