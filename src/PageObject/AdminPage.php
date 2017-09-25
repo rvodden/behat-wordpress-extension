@@ -130,24 +130,6 @@ class AdminPage extends Page
     }
 
     /**
-     *  gets the name of the user who is displayed top right
-     *
-     */
-    public function getUserText()
-    {
-        return $this->getUserElement()->getText();
-    }
-
-    /**
-     *  gets the username in the header tag
-     *
-     */
-    public function getUserElement()
-    {
-        return $this->find('css', 'span.display-name');
-    }
-
-    /**
      * Get the URL based on WordHat's site_url and not Mink's base_url
      *
      * We override this method as we need to modify the private method Page::makeSurePathIsAbsolute()

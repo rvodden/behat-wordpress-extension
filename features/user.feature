@@ -14,4 +14,4 @@ Feature: Managing users
       | test       | test      | test@example.com | author        |
     And I am logged in as a test
     When I go to the dashboard
-    Then the username should be test
+    Then the toolbar should show I am authenticated as test.

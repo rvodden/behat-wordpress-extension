@@ -99,13 +99,4 @@ class DashboardContext extends RawWordpressContext
         $this->assertSession()->elementTextContains('css', $selector, $message);
     }
 
-    /**
-     * @Then /^the username should be (.+)$/
-     */
-    public function theUsernameShouldBe($username)
-    {
-        if ($username != $this->admin_page->getUserText()) {
-            throw new Exception('Username is not ' . $username);
-        }
-    }
 }

@@ -44,6 +44,26 @@ class ToolbarContext extends RawWordpressContext
             throw new ElementTextException($message, $this->getSession()->getDriver(), $toolbar);
         }
     }
+    
+    /**
+     * Checks for the authenticated user showin in the toolbar.
+     * 
+     * Example: Then the toolbar should show I am authenticated as admin
+     * 
+     * @Then /^Then the toolbar should show I am authenticated as (.+)$/
+     * 
+     * @param string $username
+     * 
+     * @throws Exception
+     */
+    public function theUsernameShouldBe($username)
+    {
+        $authenticated_user = $this->admin_page->getAuthenticatedUserText();
+        
+        if ($username != $authenticated_user) {
+            throw new ElementTextException('Toolbar shows authenticated user is ' . $authenticated_user . ' not ' . $username);
+        }
+    }
 
     /**
      * Clicks the specified link in the toolbar.
