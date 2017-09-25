@@ -1,11 +1,21 @@
 # News
 
 ## Unreleased
-- Database content rollback.
+### Removed
+- Removed unused internal function `isWordpressError()`.
+
+## [0.8.0] - 2017-09-18
+### Added
+- Finished implementing database content rollback options; consult documentation.
+
+### Changed
 - WordHat now requires PHP 7.0+.
-- Renamed "WP-API" driver to "WP-PHP" (backwards-compatible).
+- Renamed "WP-API" driver to "WP-PHP" (backwards-compatible, as long as you have not extended driver classes).
+- Website; significant documentation update, especially for on-boarding new users.
+
+### Fixed
 - Website; mkdocs-material theme update to latest version (accessibility fixes).
-- Website; documentation update.
+- Various PHPDoc improvements and corrections.
 
 ## [0.7.1] - 2017-08-21
 ### Changed
@@ -99,6 +109,7 @@
 ### Added
 - First working version of basic architecture.
 
+[0.8.0]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v0.7.0...v0.8.0
 [0.7.1]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v0.7.0...v0.7.1
 [0.7.0]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v0.6.0...v0.7.0
 [0.6.0]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v0.5.0...v0.6.0

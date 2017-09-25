@@ -38,8 +38,8 @@ class ContentElement extends BaseElement
     /**
      * Retrieve an item for this element.
      *
-     * @param int|string $id Object ID.
-     * @param array $args Optional data used to fetch an object.
+     * @param int|string $id   Object ID.
+     * @param array      $args Optional data used to fetch an object.
      *
      * @throws \UnexpectedValueException
      *

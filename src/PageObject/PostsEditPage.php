@@ -4,10 +4,13 @@ namespace PaulGibbs\WordpressBehatExtension\PageObject;
 use Behat\Mink\Exception\ExpectationException;
 
 /**
- * Page object representing the Dashboard page.
+ * Page object representing the wp-admin "Posts > Edit" screen.
  */
-class EditPostPage extends AdminPage
+class PostsEditPage extends AdminPage
 {
+    /**
+     * @var string $path
+     */
     protected $path = '/wp-admin/post.php?post={id}&action=edit';
 
     /**
@@ -35,11 +38,12 @@ class EditPostPage extends AdminPage
     /**
      * Press the update/publish button.
      *
+     * @todo wait if the button is disabled during auto-save
+     *
      * @throws \Behat\Mink\Exception\ElementNotFoundException
      */
     public function pressUpdate()
     {
-        // TODO wait if the button is disabled during auto-save
         $this->pressButton('publish');
     }
 

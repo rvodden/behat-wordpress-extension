@@ -47,6 +47,7 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      * Build URL, based on provided path.
      *
      * @param string $path Relative or absolute URL.
+     *
      * @return string
      */
     public function locatePath($path)
@@ -104,6 +105,7 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      * Each Context exists independently.
      *
      * @param string $name Parameter name.
+     *
      * @return mixed
      */
     public function getWordpressParameter($name)
@@ -125,6 +127,7 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      * Get active WordPress Driver.
      *
      * @param string $name Optional. Name of specific driver to retrieve.
+     *
      * @return \PaulGibbs\WordpressBehatExtension\Driver\DriverInterface
      */
     public function getDriver($name = '')
@@ -174,7 +177,7 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
         try {
             $node->focus();
         } catch (UnsupportedDriverActionException $e) {
-            // This will fail for GoutteDriver but neither is it necessary
+            // This will fail for GoutteDriver but neither is it necessary.
         }
         $node->setValue('');
         $node->setValue($username);
@@ -183,7 +186,7 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
         try {
             $node->focus();
         } catch (UnsupportedDriverActionException $e) {
-            // This will fail for GoutteDriver but neither is it necessary
+            // This will fail for GoutteDriver but neither is it necessary.
         }
         $node->setValue('');
         $node->setValue($password);
@@ -217,9 +220,8 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
         // Look for a selector to determine if the user is logged in.
         try {
             return $page->has('css', 'body.logged-in');
-
-        // This may fail if the user has not loaded any site yet.
         } catch (DriverException $e) {
+            // This may fail if the user has not loaded any site yet.
         }
 
         return false;
@@ -277,6 +279,7 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      * @param string $term
      * @param string $taxonomy
      * @param array  $args     Optional. Set the values of the new term.
+     *
      * @return array {
      *     @type int    $id   Term ID.
      *     @type string $slug Term slug.
@@ -310,6 +313,7 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      * Create content.
      *
      * @param array $args Set the values of the new content item.
+     *
      * @return array {
      *     @type int    $id   Content ID.
      *     @type string $slug Content slug.
@@ -342,6 +346,7 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      * Create a comment.
      *
      * @param array $args Set the values of the new comment.
+     *
      * @return array {
      *     @type int $id Content ID.
      * }

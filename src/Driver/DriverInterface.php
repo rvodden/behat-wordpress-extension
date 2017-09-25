@@ -19,6 +19,8 @@ interface DriverInterface
      * Set up anything required for the driver.
      *
      * Called when the driver is used for the first time.
+     *
+     * @return void
      */
     public function bootstrap();
 }

@@ -191,9 +191,11 @@ The PHPDoc annotation for this method tells Behat that the method should be exec
 
 ## Next steps
 
-This guide has introduced the basics of Behat and <abbr title="Behavior Driven Development">BDD</abbr>, and you are now ready to begin working with WordHat. To learn more, we recommend the following websites and presentations:
+This guide has introduced the basics of Behat and <abbr title="Behavior Driven Development">BDD</abbr>. To learn more, we recommend the following websites and presentations:
 
 * Jessica Mauerhan: "[Behat: Beyond the Basic](https://jmauerhan.wordpress.com/talks/behat-beyond-the-basics/)".
 * Knp University: "[BDD, Behat, Mink and other Wonderful Things](https://knpuniversity.com/screencast/behat)".
 * Inviqa: "[The beginner's guide to BDD](https://inviqa.com/blog/bdd-guide)".
 * Andy Knight: "[The Behavior-Driven Three Amigos](https://automationpanda.com/2017/02/20/the-behavior-driven-three-amigos/)".
+
+You are now ready to begin working with WordHat, but we recommend reviewing our [best practices for configuring WordHat](wordhat-intro.md) for your project.

@@ -28,7 +28,7 @@ class AdminMenu extends Element
         $menu_item_nodes = $this->findAll('css', '#adminmenu > li a .wp-menu-name');
         $menu_item_texts = array();
 
-        foreach ($menu_item_nodes as $n => $element) {
+        foreach ($menu_item_nodes as $element) {
             $menu_item_texts[] = Util\stripTagsAndContent($element->getHtml());
         }
 
@@ -53,9 +53,12 @@ class AdminMenu extends Element
         $items             = array_map('trim', preg_split('/(?<!\\\\)>/', $item));
 
         foreach ($first_level_items as $first_level_item) {
-            // We use getHtml and strip the tags, as `.wp-menu-name` might not be visible (i.e. when the menu is
-            // collapsed) so getText() will be empty.
-            // @link https://github.com/stephenharris/WordPressBehatExtension/issues/2
+            /*
+             * We use getHtml and strip the tags, as `.wp-menu-name` might not be visible (i.e. when the menu is
+             * collapsed) so getText() will be empty.
+             *
+             * See https://github.com/stephenharris/WordPressBehatExtension/issues/2
+             */
             $item_name = Util\stripTagsAndContent($first_level_item->find('css', '.wp-menu-name')->getHtml());
 
             if (strtolower($items[0]) !== strtolower($item_name)) {
@@ -72,17 +75,17 @@ class AdminMenu extends Element
                     }
 
                     try {
-                        // Focus on the menu link so the submenu appears
+                        // Focus on the menu link so the submenu appears.
                         $first_level_item->find('css', 'a.menu-top')->focus();
                     } catch (UnsupportedDriverActionException $e) {
-                        // This will fail for GoutteDriver but neither is it necessary
+                        // This will fail for GoutteDriver but neither is it necessary.
                     }
 
                     $click_node = $second_level_item;
                     break;
                 }
             } else {
-                // We are clicking a top-level item:
+                // We are clicking a top-level item.
                 $click_node = $first_level_item->find('css', 'a');
             }
 

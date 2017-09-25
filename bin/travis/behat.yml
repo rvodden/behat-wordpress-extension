@@ -4,12 +4,12 @@ default:
       paths:
         - %paths.base%/../../features
       contexts:
+        - PaulGibbs\WordpressBehatExtension\Context\WordpressContext
         - Behat\MinkExtension\Context\MinkContext
         - PaulGibbs\WordpressBehatExtension\Context\ContentContext
         - PaulGibbs\WordpressBehatExtension\Context\DashboardContext
         - PaulGibbs\WordpressBehatExtension\Context\SiteContext
         - PaulGibbs\WordpressBehatExtension\Context\UserContext
-        - PaulGibbs\WordpressBehatExtension\Context\WordpressContext
         - PaulGibbs\WordpressBehatExtension\Context\EditPostContext
         - PaulGibbs\WordpressBehatExtension\Context\WidgetContext
         - PaulGibbs\WordpressBehatExtension\Context\ToolbarContext
@@ -34,3 +34,5 @@ default:
         admin:
           username: admin
           password: password
+      database:
+        restore_after_test: true

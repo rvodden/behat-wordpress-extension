@@ -53,8 +53,8 @@ Option           | Default value | Description
 `users.*`        | _see example_ | _Optional_.<br>Keys must match names of WordPress roles.
 `site_url`       | null          | _Optional_.<br>If your WordPress is installed in a subdirectory, set this to the `site_url()` value. Defaults to [`mink.base_url`](http://behat.org/en/latest/user_guide/configuration.html#extensions).
 `permalinks.*`   | _see example_ | _Optional_.<br>Permalink pattern for the specific kind of link.<br>`%s` is replaced with an ID/object name, as appropriate.
-`database.restore_after_test` | false | _Optional_.<br>If <code>true</code>, WordHat will restore your site's database to its initial state between feature tests.
-`database.backup_path` | _see example_ | _Optional_.<br>If <code>restore_after_test</code> is true, and the value is a file path, WordHat will use that as the backup to restore the database from.<br>If the path is a directory, then before any tests are run, WordHat will generate a database backup and temporarily store it here.<br>If the path has not been set, WordHat will pick its own temporary folder.
+`database.restore_after_test` | false | _Optional_.<br>If <code>true</code>, [WordHat will restore your site's database to its initial state between feature tests](/recipes/content.md).
+`database.backup_path` | _see example_ | _Optional_.<br>If <code>restore_after_test</code> is true, and the value is a file path, WordHat will use that as the back up to restore the database from.<br>If the path is a directory, then before any tests are run, WordHat will generate a database back up and store it here.<br>If the path has not been set, WordHat will choose its own temporary folder.
 `wpcli.alias`    | null          | _Optional_.<br>[WP-CLI alias](https://wp-cli.org/commands/cli/alias/) (preferred over `wpcli.path`).
 `wpcli.binary`   | `wp`          | _Optional_.<br>Path and name of WP-CLI binary.
 
@@ -79,7 +79,7 @@ Example JSON object:
 }
 ```
 
-To export this to the ``BEHAT_PARAMS`` environment variable in a Linux system, squash the JSON object into a single line and surround with single quotes:
+To export this to the ``BEHAT_PARAMS`` environment variable on a Linux or MacOS system, squash the JSON object into a single line and surround with single quotes:
 
 ```Shell
 export BEHAT_PARAMS='{"extensions":{"Behat\\MinkExtension":{"base_url":"http://development.dev"}}}'

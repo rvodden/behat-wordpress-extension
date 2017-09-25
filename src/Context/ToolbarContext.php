@@ -36,8 +36,8 @@ class ToolbarContext extends RawWordpressContext
     public function iShouldSeeTextInToolbar($text)
     {
         $toolbar = $this->getElement('Toolbar');
-        $actual = $toolbar->getText();
-        $regex = '/' . preg_quote($text, '/') . '/ui';
+        $actual  = $toolbar->getText();
+        $regex   = '/' . preg_quote($text, '/') . '/ui';
 
         if (! preg_match($regex, $actual)) {
             $message = sprintf('The text "%s" was not found in the toolbar', $text);

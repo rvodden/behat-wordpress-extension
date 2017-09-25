@@ -149,7 +149,6 @@ class Toolbar extends Element
             $search->fillField('adminbar-search', $text);
             $search->find('css', '#adminbar-search')->focus();
         } catch (UnsupportedDriverActionException $e) {
-            // This will fail for GoutteDriver but neither is it necessary
             $search->fillField('adminbar-search', $text);
         }
 
@@ -164,6 +163,7 @@ class Toolbar extends Element
         /*
          * Using NodeElement::mouseOver() won't work because WordPress is using hoverIndent.
          * Instead we just manually add the hover class.
+         *
          * See https://github.com/paulgibbs/behat-wordpress-extension/issues/65
          */
         try {
@@ -171,7 +171,7 @@ class Toolbar extends Element
                 'jQuery("#wp-admin-bar-my-account").addClass("hover");'
             );
         } catch (UnsupportedDriverActionException $e) {
-            // This will fail for GoutteDriver but neither is it necessary
+            // This will fail for GoutteDriver but neither is it necessary.
         }
 
         $this->find('css', '#wp-admin-bar-logout a')->click();

@@ -18,12 +18,14 @@ trait PageObjectContextTrait
      * Creates a page object from its name.
      *
      * @param string $name The name of the page object e.g 'Admin page'
-     * @return Page
+     *
      * @throws \RuntimeException
+     *
+     * @return Page
      */
     public function getPage($name)
     {
-        if (null === $this->page_object_factory) {
+        if ($this->page_object_factory === null) {
             throw new RuntimeException('To create pages you need to pass a factory with setPageObjectFactory()');
         }
 
@@ -34,12 +36,14 @@ trait PageObjectContextTrait
      * Creates a page object element from its name.
      *
      * @param string $name The name of the page object element e.g 'Toolbar'
-     * @return Element
+     *
      * @throws \RuntimeException
+     *
+     * @return Element
      */
     public function getElement($name)
     {
-        if (null === $this->page_object_factory) {
+        if ($this->page_object_factory === null) {
             throw new RuntimeException('To create elements you need to pass a factory with setPageObjectFactory()');
         }
 
@@ -59,13 +63,13 @@ trait PageObjectContextTrait
     /**
      * Returns the factory used for creating page and element objects.
      *
-     * @return PageObjectFactory
-     *
      * @throws \RuntimeException
+     *
+     * @return PageObjectFactory
      */
     public function getPageObjectFactory()
     {
-        if (null === $this->page_object_factory) {
+        if ($this->page_object_factory === null) {
             throw new RuntimeException(
                 'To access the page factory you need to pass it first with setPageObjectFactory()'
             );

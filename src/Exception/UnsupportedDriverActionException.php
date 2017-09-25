@@ -11,11 +11,11 @@ class UnsupportedDriverActionException extends Exception
     /**
      * Constructor.
      *
-     * @param string     $message  Exception message.
-     * @param int        $code     User-defined exception code.
-     * @param \Exception $previous If this was a nested exception, the previous exception.
+     * @param string     $message       Optional. Exception message.
+     * @param int        $code          Optional. User-defined exception code.
+     * @param \Throwable|null $previous Optional. If this was a nested exception, the previous exception.
      */
-    public function __construct($message = null, $code = 0, $previous = null)
+    public function __construct($message = '', $code = 0, $previous = null)
     {
         parent::__construct(
             "No ability to {$message}. Maybe use another driver?",

@@ -26,7 +26,6 @@ class WordpressAwareInitialiser implements ContextInitializer
      */
     protected $parameters = [];
 
-
     /**
      * Constructor.
      *

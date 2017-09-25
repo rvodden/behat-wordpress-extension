@@ -2,38 +2,29 @@
 namespace PaulGibbs\WordpressBehatExtension\Context;
 
 use PaulGibbs\WordpressBehatExtension\PageObject\AdminPage;
-use PaulGibbs\WordpressBehatExtension\PageObject\Dashboard;
 
 /**
  * Provides step definitions that are specific to the WordPress dashboard (wp-admin).
  */
 class DashboardContext extends RawWordpressContext
 {
-
     /**
      * Non-specific admin page (wp-admin/) object.
-     * @param AdminPage
+     *
+     * @var AdminPage
      */
     protected $admin_page;
-
-    /**
-     * Dashboard (wp-admin/index.php) object.
-     * @param Dashboard
-     */
-    protected $dashboard;
 
     /**
      * Constructor.
      *
      * @param AdminPage $admin_page AdminPage object.
-     * @param Dashboard $dashboard  Dashboard object.
      */
-    public function __construct(AdminPage $admin_page, Dashboard $dashboard)
+    public function __construct(AdminPage $admin_page)
     {
         parent::__construct();
 
         $this->admin_page = $admin_page;
-        $this->dashboard = $dashboard;
     }
 
     /**
@@ -62,16 +53,6 @@ class DashboardContext extends RawWordpressContext
     public function iShouldBeOnThePage($admin_page)
     {
         $this->admin_page->assertHasHeader($admin_page);
-    }
-
-    /**
-     * Assert we are on the Dashboard page (wp-admin/index.php).
-     *
-     * @Given I am on the Dashboard
-     */
-    public function iAmOnDashboard()
-    {
-        $this->dashboard->open();
     }
 
     /**

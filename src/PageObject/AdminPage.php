@@ -5,7 +5,7 @@ use SensioLabs\Behat\PageObjectExtension\PageObject\Page;
 use Behat\Mink\Exception\ExpectationException;
 
 /**
- * Page object representing a generic admin page.
+ * Page object representing a generic wp-admin page.
  *
  * This class houses methods for navigating around the WordPress admin and
  * acts as a base for most page-specific admin page objects.

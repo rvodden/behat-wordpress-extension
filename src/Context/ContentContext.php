@@ -19,6 +19,7 @@ class ContentContext extends RawWordpressContext
      * @Given /^(?:there are|there is a) posts?:/
      *
      * @param TableNode $posts
+     *
      * @throws \UnexpectedValueException
      */
     public function thereArePosts(TableNode $posts)
@@ -34,15 +35,17 @@ class ContentContext extends RawWordpressContext
      * Example: Given I am viewing a post:
      *     | post_type | post_title | post_content | post_status |
      *     | page      | Test Post   | Hello World  | publish     |
+     * Example: Given I am viewing the post: "Test Post"
      *
-     * @Given /^(?:I am|they are) viewing a(?: blog)? post(?: "([^"]+)"|:)/
+     * @Given /^(?:I am|they are) viewing (?:a|the)(?: blog)? post(?: "([^"]+)"|:)/
      *
      * @param TableNode|string $post_data_or_title
+     *
      * @throws \UnexpectedValueException
      */
     public function iAmViewingBlogPost($post_data_or_title)
     {
-        // Retrieve the first row only
+        // Retrieve the first row only.
         if ($post_data_or_title instanceof TableNode) {
             $post_data_hash = $post_data_or_title->getHash();
             if (count($post_data_hash) > 1) {
@@ -72,6 +75,7 @@ class ContentContext extends RawWordpressContext
             $userId = $this->getDriver()->getUserIdFromLogin($post_data['post_author']);
             $post_data['post_author'] = (int) $userId;
         }
+
         return $post_data;
     }
 }
