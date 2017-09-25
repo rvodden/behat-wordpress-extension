@@ -44,7 +44,7 @@ class ToolbarContext extends RawWordpressContext
             throw new ElementTextException($message, $this->getSession()->getDriver(), $toolbar);
         }
     }
-    
+
     /**
      * Checks for the authenticated user showin in the toolbar.
      *
@@ -61,7 +61,7 @@ class ToolbarContext extends RawWordpressContext
         $authenticated_user = $this->admin_page->getAuthenticatedUserText();
         
         if ($username != $authenticated_user) {
-            throw new ElementTextException('Toolbar shows authenticated user is ' . $authenticated_user . ' not ' . $username);
+            throw new ElementTextException("Toolbar shows authenticated user is $authenticated_user  not $username");
         }
     }
 

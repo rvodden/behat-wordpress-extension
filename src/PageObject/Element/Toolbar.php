@@ -163,7 +163,7 @@ class Toolbar extends Element
     {
         return $this->getAuthenticatedUserElement()->getText();
     }
-    
+
     /**
      *  gets the display-name tag
      *
