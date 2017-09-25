@@ -47,13 +47,13 @@ class ToolbarContext extends RawWordpressContext
     
     /**
      * Checks for the authenticated user showin in the toolbar.
-     * 
+     *
      * Example: Then the toolbar should show I am authenticated as admin
-     * 
+     *
      * @Then /^Then the toolbar should show I am authenticated as (.+)$/
-     * 
+     *
      * @param string $username
-     * 
+     *
      * @throws Exception
      */
     public function theUsernameShouldBe($username)
