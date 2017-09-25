@@ -59,7 +59,7 @@ class ToolbarContext extends RawWordpressContext
     public function theUsernameShouldBe($username)
     {
         $authenticated_user = $this->admin_page->getAuthenticatedUserText();
-        
+
         if ($username != $authenticated_user) {
             throw new ElementTextException("Toolbar shows authenticated user is $authenticated_user  not $username");
         }
