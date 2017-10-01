@@ -46,22 +46,22 @@ class ToolbarContext extends RawWordpressContext
     }
 
     /**
-     * Checks for the authenticated user showin in the toolbar.
+     * Checks the authenticated user show in the toolbar.
      *
      * Example: Then the toolbar should show I am authenticated as admin
      *
-     * @Then /^Then the toolbar should show I am authenticated as (.+)$/
+     * @Then the toolbar should show I am authenticated as :username
      *
      * @param string $username
-     *
-     * @throws Exception
      */
     public function theUsernameShouldBe($username)
     {
-        $authenticated_user = $this->admin_page->getAuthenticatedUserText();
+        $toolbar = $this->getElement('Toolbar');
+        $actual  = $toolbar->getAuthenticatedUserText();
 
-        if ($username != $authenticated_user) {
-            throw new ElementTextException("Toolbar shows authenticated user is $authenticated_user  not $username");
+        if ($username !== $actual) {
+            $message = sprintf('Toolbar shows authenticated user is "%1$s", not "%2$s"', $actual, $username);
+            throw new ElementTextException($message, $this->getSession()->getDriver(), $toolbar);
         }
     }
 
