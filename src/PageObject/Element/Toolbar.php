@@ -156,6 +156,16 @@ class Toolbar extends Element
     }
 
     /**
+     * Get the displayed name of the authenticated user from the toolbar.
+     *
+     * @return string
+     */
+    public function getAuthenticatedUserText()
+    {
+        return $this->find('css', 'span.display-name')->getText();
+    }
+
+    /**
      * Logs-out using the toolbar log-out link.
      */
     public function logOut()

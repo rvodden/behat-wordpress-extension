@@ -46,6 +46,26 @@ class ToolbarContext extends RawWordpressContext
     }
 
     /**
+     * Checks the authenticated user show in the toolbar.
+     *
+     * Example: Then the toolbar should show I am authenticated as admin
+     *
+     * @Then the toolbar should show I am authenticated as :username
+     *
+     * @param string $username
+     */
+    public function theUsernameShouldBe($username)
+    {
+        $toolbar = $this->getElement('Toolbar');
+        $actual  = $toolbar->getAuthenticatedUserText();
+
+        if ($username !== $actual) {
+            $message = sprintf('Toolbar shows authenticated user is "%1$s", not "%2$s"', $actual, $username);
+            throw new ElementTextException($message, $this->getSession()->getDriver(), $toolbar);
+        }
+    }
+
+    /**
      * Clicks the specified link in the toolbar.
      *
      * Example: When I follow the toolbar link "New > Page"
