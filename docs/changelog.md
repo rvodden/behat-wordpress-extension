@@ -1,8 +1,21 @@
 # News
 
 ## Unreleased
+- tbc
+
+## [0.9.0] - 2017-10-09
+### Changed
+- PHPDoc updated/tweaked.
+- Rename some `PageObjects` classes for internal consistency.
+
+### Fixed
+- Fix return value when creating users.
+- Fix creating content with terms or meta, with WP-CLI driver.
+
 ### Removed
 - Removed unused internal function `isWordpressError()`.
+- Removed Composer package `roave/security-advisories`.
+- Removed unused Context class.
 
 ## [0.8.0] - 2017-09-18
 ### Added
@@ -12,6 +25,7 @@
 - WordHat now requires PHP 7.0+.
 - Renamed "WP-API" driver to "WP-PHP" (backwards-compatible, as long as you have not extended driver classes).
 - Website; significant documentation update, especially for on-boarding new users.
+- `Path` setting can now be a relative or absolute path. Previously, only absolute paths were supported.
 
 ### Fixed
 - Website; mkdocs-material theme update to latest version (accessibility fixes).
@@ -109,6 +123,7 @@
 ### Added
 - First working version of basic architecture.
 
+[0.9.0]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v0.8.0...v0.9.0
 [0.8.0]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v0.7.0...v0.8.0
 [0.7.1]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v0.7.0...v0.7.1
 [0.7.0]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v0.6.0...v0.7.0
