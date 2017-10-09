@@ -5,13 +5,14 @@ use Behat\Mink\Driver\Selenium2Driver;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use Behat\Behat\Hook\Scope\AfterScenarioScope;
 use PaulGibbs\WordpressBehatExtension\PageObject\DashboardPage;
+use PaulGibbs\WordpressBehatExtension\Context\Awareness\CacheAwareContextTrait;
 
 /**
  * Provides step definitions for a range of common tasks. Recommended for all test suites.
  */
 class WordpressContext extends RawWordpressContext
 {
-    use PageObjectContextTrait;
+    use PageObjectContextTrait, CacheAwareContextTrait;
 
     /**
      * Dashboard (wp-admin/index.php) object.
@@ -97,16 +98,6 @@ class WordpressContext extends RawWordpressContext
              * In this case, our toolbar workaround obviously isn't required, so fail quietly.
              */
         }
-    }
-
-    /**
-     * Clear object cache.
-     *
-     * @AfterScenario
-     */
-    public function clearCache()
-    {
-        parent::clearCache();
     }
 
     /**
