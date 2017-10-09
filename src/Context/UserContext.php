@@ -9,6 +9,8 @@ use RuntimeException;
  */
 class UserContext extends RawWordpressContext
 {
+    use Awareness\UserAwareContextTrait, Awareness\CacheAwareContextTrait;
+    
     /**
      * Add specified user accounts.
      *

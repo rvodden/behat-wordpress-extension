@@ -2,14 +2,8 @@
 namespace PaulGibbs\WordpressBehatExtension\Context;
 
 use Behat\Behat\Context\SnippetAcceptingContext;
-use Behat\Mink\Exception\DriverException;
-use Behat\Mink\Exception\ExpectationException;
 use Behat\MinkExtension\Context\RawMinkContext;
-use Behat\Mink\Exception\UnsupportedDriverActionException;
-
 use PaulGibbs\WordpressBehatExtension\WordpressDriverManager;
-use PaulGibbs\WordpressBehatExtension\Util;
-
 use SensioLabs\Behat\PageObjectExtension\Context\PageObjectAware;
 
 /**
@@ -19,7 +13,7 @@ use SensioLabs\Behat\PageObjectExtension\Context\PageObjectAware;
  */
 class RawWordpressContext extends RawMinkContext implements WordpressAwareInterface, SnippetAcceptingContext, PageObjectAware
 {
-    use PageObjectContextTrait;
+    use PageObjectContextTrait, Awareness\ContentAwareContextTrait;
 
     /**
      * WordPress driver manager.
@@ -35,19 +29,18 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      */
     protected $wordpress_parameters;
 
-
     /**
      * Constructor.
      */
     public function __construct()
-    {
-    }
+    {}
 
     /**
      * Build URL, based on provided path.
      *
-     * @param string $path Relative or absolute URL.
-     *
+     * @param string $path
+     *            Relative or absolute URL.
+     *            
      * @return string
      */
     public function locatePath($path)
@@ -55,13 +48,13 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
         if (stripos($path, 'http') === 0) {
             return $path;
         }
-
+        
         $url = $this->getMinkParameter('base_url');
-
+        
         if (strpos($path, 'wp-admin') !== false || strpos($path, '.php') !== false) {
             $url = $this->getWordpressParameter('site_url');
         }
-
+        
         return rtrim($url, '/') . '/' . ltrim($path, '/');
     }
 
@@ -104,8 +97,9 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      * IMPORTANT: this only sets the variable for the current Context!
      * Each Context exists independently.
      *
-     * @param string $name Parameter name.
-     *
+     * @param string $name
+     *            Parameter name.
+     *            
      * @return mixed
      */
     public function getWordpressParameter($name)
@@ -126,8 +120,9 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
     /**
      * Get active WordPress Driver.
      *
-     * @param string $name Optional. Name of specific driver to retrieve.
-     *
+     * @param string $name
+     *            Optional. Name of specific driver to retrieve.
+     *            
      * @return \PaulGibbs\WordpressBehatExtension\Driver\DriverInterface
      */
     public function getDriver($name = '')
@@ -145,94 +140,15 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      * To avoid doubt, you should only need to spin when waiting for an AJAX response, after initial page load.
      *
      * @deprecated Use PaulGibbs\WordpressBehatExtension\Util\spins
-     *
-     * @param callable $closure Action to execute.
-     * @param int      $wait    Optional. How long to wait before giving up, in seconds.
+     *            
+     * @param callable $closure
+     *            Action to execute.
+     * @param int $wait
+     *            Optional. How long to wait before giving up, in seconds.
      */
     public function spins(callable $closure, $wait = 60)
     {
         Util\spins($closure, $wait);
-    }
-
-    /**
-     * Log in the user.
-     *
-     * @param string $username
-     * @param string $password
-     * @param string $redirect_to Optional. Default = "/".
-     *                            After succesful log in, redirect browser to this path.
-     *
-     * @throws ExpectationException
-     */
-    public function logIn($username, $password, $redirect_to = '/')
-    {
-        if ($this->loggedIn()) {
-            $this->logOut();
-        }
-
-        $this->visitPath('wp-login.php?redirect_to=' . urlencode($this->locatePath($redirect_to)));
-        $page = $this->getSession()->getPage();
-
-        $node = $page->findField('user_login');
-        try {
-            $node->focus();
-        } catch (UnsupportedDriverActionException $e) {
-            // This will fail for GoutteDriver but neither is it necessary.
-        }
-        $node->setValue('');
-        $node->setValue($username);
-
-        $node = $page->findField('user_pass');
-        try {
-            $node->focus();
-        } catch (UnsupportedDriverActionException $e) {
-            // This will fail for GoutteDriver but neither is it necessary.
-        }
-        $node->setValue('');
-        $node->setValue($password);
-
-        $page->findButton('wp-submit')->click();
-
-        if (! $this->loggedIn()) {
-            throw new ExpectationException('The user could not be logged-in.', $this->getSession()->getDriver());
-        }
-    }
-
-    /**
-     * Log the current user out.
-     *
-     * @throws \RuntimeException
-     */
-    public function logOut()
-    {
-        $this->getElement('Toolbar')->logOut();
-    }
-
-    /**
-     * Determine if the current user is logged in or not.
-     *
-     * @return bool
-     */
-    public function loggedIn()
-    {
-        $page = $this->getSession()->getPage();
-
-        // Look for a selector to determine if the user is logged in.
-        try {
-            return $page->has('css', 'body.logged-in');
-        } catch (DriverException $e) {
-            // This may fail if the user has not loaded any site yet.
-        }
-
-        return false;
-    }
-
-    /**
-     * Clear object cache.
-     */
-    public function clearCache()
-    {
-        $this->getDriver()->cache->clear();
     }
 
     /**
@@ -243,205 +159,4 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
         $this->getSession()->reset();
     }
 
-    /**
-     * Activate a plugin.
-     *
-     * @param string $plugin
-     */
-    public function activatePlugin($plugin)
-    {
-        $this->getDriver()->plugin->activate($plugin);
-    }
-
-    /**
-     * Deactivate a plugin.
-     *
-     * @param string $plugin
-     */
-    public function deactivatePlugin($plugin)
-    {
-        $this->getDriver()->plugin->deactivate($plugin);
-    }
-
-    /**
-     * Switch active theme.
-     *
-     * @param string $theme
-     */
-    public function switchTheme($theme)
-    {
-        $this->getDriver()->theme->change($theme);
-    }
-
-    /**
-     * Create a term in a taxonomy.
-     *
-     * @param string $term
-     * @param string $taxonomy
-     * @param array  $args     Optional. Set the values of the new term.
-     *
-     * @return array {
-     *     @type int    $id   Term ID.
-     *     @type string $slug Term slug.
-     * }
-     */
-    public function createTerm($term, $taxonomy, $args = [])
-    {
-        $args['taxonomy'] = $taxonomy;
-        $args['term']     = $term;
-
-        $term = $this->getDriver()->term->create($args);
-
-        return array(
-            'id'   => $term->term_id,
-            'slug' => $term->slug,
-        );
-    }
-
-    /**
-     * Delete a term from a taxonomy.
-     *
-     * @param int    $term_id
-     * @param string $taxonomy
-     */
-    public function deleteTerm($term_id, $taxonomy)
-    {
-        $this->getDriver()->term->delete($term_id, compact($taxonomy));
-    }
-
-    /**
-     * Create content.
-     *
-     * @param array $args Set the values of the new content item.
-     *
-     * @return array {
-     *     @type int    $id   Content ID.
-     *     @type string $slug Content slug.
-     *     @type string $url  Content permalink.
-     * }
-     */
-    public function createContent($args)
-    {
-        $content = $this->getDriver()->content->create($args);
-
-        return array(
-            'id'   => $content->ID,
-            'slug' => $content->post_name,
-            'url'  => $content->url,
-        );
-    }
-
-    /**
-     * Delete specified content.
-     *
-     * @param int   $id   ID of content to delete.
-     * @param array $args Optional. Extra parameters to pass to WordPress.
-     */
-    public function deleteContent($id, $args = [])
-    {
-        $this->getDriver()->content->delete($id, $args);
-    }
-
-    /**
-     * Create a comment.
-     *
-     * @param array $args Set the values of the new comment.
-     *
-     * @return array {
-     *     @type int $id Content ID.
-     * }
-     */
-    public function createComment($args)
-    {
-        $comment = $this->getDriver()->comment->create($args);
-
-        return array(
-            'id' => $comment->comment_ID,
-        );
-    }
-
-    /**
-     * Delete specified comment.
-     *
-     * @param int   $id   ID of comment to delete.
-     * @param array $args Optional. Extra parameters to pass to WordPress.
-     */
-    public function deleteComment($id, $args = [])
-    {
-        $this->getDriver()->comment->delete($id, $args);
-    }
-
-    /**
-     * Export WordPress database.
-     *
-     * @param array $args
-     *
-     * @return string Path to the export file.
-     */
-    public function exportDatabase($args)
-    {
-        return $this->getDriver()->database->export(0, $args);
-    }
-
-    /**
-     * Import WordPress database.
-     *
-     * @param array $args
-     */
-    public function importDatabase($args)
-    {
-        $this->getDriver()->database->import(0, $args);
-    }
-
-    /**
-     * Create a user.
-     *
-     * @param string $user_login User login name.
-     * @param string $user_email User email address.
-     * @param array  $args       Optional. Extra parameters to pass to WordPress.
-     *
-     * @return array {
-     *     @type int    $id   User ID.
-     *     @type string $slug User slug (nicename).
-     * }
-     */
-    public function createUser($user_login, $user_email, $args = [])
-    {
-        $args['user_email'] = $user_email;
-        $args['user_login'] = $user_login;
-
-        $user = $this->getDriver()->user->create($args);
-
-        return array(
-            'id'   => $user->ID,
-            'slug' => $user->user_nicename,
-        );
-    }
-
-    /**
-     * Delete a user.
-     *
-     * @param int   $id   ID of user to delete.
-     * @param array $args Optional. Extra parameters to pass to WordPress.
-     */
-    public function deleteUser($id, $args = [])
-    {
-        $this->getDriver()->user->delete($id, $args);
-    }
-
-    /**
-     * Start a database transaction.
-     */
-    public function startTransaction()
-    {
-        $this->getDriver()->database->startTransaction();
-    }
-
-    /**
-     * End (rollback) a database transaction.
-     */
-    public function endTransaction()
-    {
-        $this->getDriver()->database->endTransaction();
-    }
 }
