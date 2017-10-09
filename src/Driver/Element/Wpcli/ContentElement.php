@@ -64,7 +64,7 @@ class ContentElement extends BaseElement
                     escapeshellarg($terms),
                 ];
 
-                $test = $this->drivers->getDriver()->wpcli('post', 'term set', $args)['stdout'];
+                $this->drivers->getDriver()->wpcli('post', 'term set', $args)['stdout'];
             }
         }
 
