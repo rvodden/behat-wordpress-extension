@@ -6,13 +6,14 @@ use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use Behat\Behat\Hook\Scope\AfterScenarioScope;
 use PaulGibbs\WordpressBehatExtension\PageObject\DashboardPage;
 use PaulGibbs\WordpressBehatExtension\Context\Awareness\CacheAwareContextTrait;
+use PaulGibbs\WordpressBehatExtension\Context\Awareness\DatabaseAwareContextTrait;
 
 /**
  * Provides step definitions for a range of common tasks. Recommended for all test suites.
  */
 class WordpressContext extends RawWordpressContext
 {
-    use PageObjectContextTrait, CacheAwareContextTrait;
+    use PageObjectContextTrait, CacheAwareContextTrait, DatabaseAwareContextTrait;
 
     /**
      * Dashboard (wp-admin/index.php) object.
