@@ -5,15 +5,17 @@ use Behat\Mink\Exception\DriverException;
 use Behat\Mink\Exception\ExpectationException;
 use PaulGibbs\WordpressBehatExtension\Exception\UnsupportedDriverActionException;
 
-trait UserAwareContextTrait {
+trait UserAwareContextTrait
+{
 
     /**
      * Log in the user.
      *
      * @param string $username
      * @param string $password
-     * @param string $redirect_to Optional. Default = "/".
-     *                            After succesful log in, redirect browser to this path.
+     * @param string $redirect_to
+     *            Optional. Default = "/".
+     *            After succesful log in, redirect browser to this path.
      *
      * @throws ExpectationException
      */
@@ -22,10 +24,10 @@ trait UserAwareContextTrait {
         if ($this->loggedIn()) {
             $this->logOut();
         }
-        
+
         $this->visitPath('wp-login.php?redirect_to=' . urlencode($this->locatePath($redirect_to)));
         $page = $this->getSession()->getPage();
-        
+
         $node = $page->findField('user_login');
         try {
             $node->focus();
@@ -34,7 +36,7 @@ trait UserAwareContextTrait {
         }
         $node->setValue('');
         $node->setValue($username);
-        
+
         $node = $page->findField('user_pass');
         try {
             $node->focus();
@@ -43,9 +45,9 @@ trait UserAwareContextTrait {
         }
         $node->setValue('');
         $node->setValue($password);
-        
+
         $page->findButton('wp-submit')->click();
-        
+
         if (! $this->loggedIn()) {
             throw new ExpectationException('The user could not be logged-in.', $this->getSession()->getDriver());
         }
@@ -69,17 +71,17 @@ trait UserAwareContextTrait {
     public function loggedIn()
     {
         $page = $this->getSession()->getPage();
-        
+
         // Look for a selector to determine if the user is logged in.
         try {
             return $page->has('css', 'body.logged-in');
         } catch (DriverException $e) {
             // This may fail if the user has not loaded any site yet.
         }
-        
+
         return false;
     }
-    
+
     /**
      * Create a user.
      *
@@ -99,15 +101,15 @@ trait UserAwareContextTrait {
     {
         $args['user_email'] = $user_email;
         $args['user_login'] = $user_login;
-        
+
         $user = $this->getDriver()->user->create($args);
-        
+
         return array(
             'id' => $user->ID,
             'slug' => $user->user_nicename
         );
     }
-    
+
     /**
      * Delete a user.
      *

@@ -25,7 +25,7 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
     /**
      * WordPress parameters.
      *
-     * @var array
+     * @var arrays
      */
     protected $wordpress_parameters;
 
@@ -33,14 +33,15 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      * Constructor.
      */
     public function __construct()
-    {}
+    {
+    }
 
     /**
      * Build URL, based on provided path.
      *
      * @param string $path
      *            Relative or absolute URL.
-     *            
+     *
      * @return string
      */
     public function locatePath($path)
@@ -48,13 +49,13 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
         if (stripos($path, 'http') === 0) {
             return $path;
         }
-        
+
         $url = $this->getMinkParameter('base_url');
-        
+
         if (strpos($path, 'wp-admin') !== false || strpos($path, '.php') !== false) {
             $url = $this->getWordpressParameter('site_url');
         }
-        
+
         return rtrim($url, '/') . '/' . ltrim($path, '/');
     }
 
@@ -99,7 +100,7 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      *
      * @param string $name
      *            Parameter name.
-     *            
+     *
      * @return mixed
      */
     public function getWordpressParameter($name)
@@ -122,7 +123,7 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      *
      * @param string $name
      *            Optional. Name of specific driver to retrieve.
-     *            
+     *
      * @return \PaulGibbs\WordpressBehatExtension\Driver\DriverInterface
      */
     public function getDriver($name = '')
@@ -140,7 +141,7 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      * To avoid doubt, you should only need to spin when waiting for an AJAX response, after initial page load.
      *
      * @deprecated Use PaulGibbs\WordpressBehatExtension\Util\spins
-     *            
+     *
      * @param callable $closure
      *            Action to execute.
      * @param int $wait
@@ -158,5 +159,4 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
     {
         $this->getSession()->reset();
     }
-
 }
