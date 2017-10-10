@@ -1,7 +1,9 @@
 <?php
 namespace PaulGibbs\WordpressBehatExtension\Context\Awareness;
 
-trait CacheAwareContextTrait {
+trait CacheAwareContextTrait
+{
+
     /**
      * Clear object cache.
      */

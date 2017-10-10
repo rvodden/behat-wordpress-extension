@@ -2,7 +2,8 @@
 
 namespace PaulGibbs\WordpressBehatExtension\Context\Awareness;
 
-trait PluginAwareContextTrait{
+trait PluginAwareContextTrait
+{
     /**
      * Activate a plugin.
      *
@@ -12,7 +13,7 @@ trait PluginAwareContextTrait{
     {
         $this->getDriver()->plugin->activate($plugin);
     }
-    
+
     /**
      * Deactivate a plugin.
      *
@@ -22,5 +23,4 @@ trait PluginAwareContextTrait{
     {
         $this->getDriver()->plugin->deactivate($plugin);
     }
-    
 }
