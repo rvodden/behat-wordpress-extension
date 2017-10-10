@@ -2,7 +2,6 @@
 
 namespace PaulGibbs\WordpressBehatExtension\Context\Awareness;
 
-
 /**
  * Delete a user.
  *
@@ -12,8 +11,9 @@ namespace PaulGibbs\WordpressBehatExtension\Context\Awareness;
  *            Optional. Extra parameters to pass to WordPress.
  */
 
-trait DatabaseAwareContextTrait {
-    
+trait DatabaseAwareContextTrait
+{
+
     /**
      * Start a database transaction.
      */
@@ -21,7 +21,7 @@ trait DatabaseAwareContextTrait {
     {
         $this->getDriver()->database->startTransaction();
     }
-    
+
     /**
      * End (rollback) a database transaction.
      */
@@ -29,7 +29,7 @@ trait DatabaseAwareContextTrait {
     {
         $this->getDriver()->database->endTransaction();
     }
-    
+
     /**
      * Export WordPress database.
      *
@@ -41,7 +41,7 @@ trait DatabaseAwareContextTrait {
     {
         return $this->getDriver()->database->export(0, $args);
     }
-    
+
     /**
      * Import WordPress database.
      *

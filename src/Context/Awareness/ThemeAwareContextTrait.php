@@ -4,9 +4,11 @@ namespace PaulGibbs\WordpressBehatExtension\Context\Awareness;
 /**
  *
  * @author voddenr
- *        
+ *
  */
-trait ThemeAwareContextTrait {
+trait ThemeAwareContextTrait
+{
+
     /**
      * Switch active theme.
      *
@@ -17,4 +19,3 @@ trait ThemeAwareContextTrait {
         $this->getDriver()->theme->change($theme);
     }
 }
-

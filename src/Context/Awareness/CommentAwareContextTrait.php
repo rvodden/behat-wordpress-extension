@@ -1,7 +1,9 @@
 <?php
 namespace PaulGibbs\WordpressBehatExtension\Context\Awareness;
 
-trait CommentAwareContextTrait {
+trait CommentAwareContextTrait
+{
+
     /**
      * Create a comment.
      *
@@ -15,12 +17,12 @@ trait CommentAwareContextTrait {
     public function createComment($args)
     {
         $comment = $this->getDriver()->comment->create($args);
-        
+
         return array(
             'id' => $comment->comment_ID
         );
     }
-    
+
     /**
      * Delete specified comment.
      *
@@ -33,5 +35,4 @@ trait CommentAwareContextTrait {
     {
         $this->getDriver()->comment->delete($id, $args);
     }
-    
 }

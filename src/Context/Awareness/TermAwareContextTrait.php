@@ -1,7 +1,8 @@
 <?php
 namespace PaulGibbs\WordpressBehatExtension\Context\Awareness;
 
-trait TermAwareContextTrait {
+trait TermAwareContextTrait
+{
     /**
      * Create a term in a taxonomy.
      *
@@ -19,15 +20,15 @@ trait TermAwareContextTrait {
     {
         $args['taxonomy'] = $taxonomy;
         $args['term'] = $term;
-        
+
         $term = $this->getDriver()->term->create($args);
-        
+
         return array(
             'id' => $term->term_id,
             'slug' => $term->slug
         );
     }
-    
+
     /**
      * Delete a term from a taxonomy.
      *
