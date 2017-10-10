@@ -13,7 +13,7 @@ use SensioLabs\Behat\PageObjectExtension\Context\PageObjectAware;
  */
 class RawWordpressContext extends RawMinkContext implements WordpressAwareInterface, SnippetAcceptingContext, PageObjectAware
 {
-    use PageObjectContextTrait, Awareness\ContentAwareContextTrait;
+    use PageObjectContextTrait;
 
     /**
      * WordPress driver manager.
