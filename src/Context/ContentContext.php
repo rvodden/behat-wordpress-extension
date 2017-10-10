@@ -9,6 +9,8 @@ use Behat\Gherkin\Node\TableNode;
  */
 class ContentContext extends RawWordpressContext
 {
+    use Awareness\ContentAwareContextTrait;
+
     /**
      * Create content of the given type.
      *
