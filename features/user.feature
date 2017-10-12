@@ -7,7 +7,7 @@ Feature: Managing users
     When I click on the "Add New" link in the header
     Then I should be on the "Add New User" page
 
-  @javascript
+  @javascript @db
   Scenario: I can log in as a user which has been added
     Given there are users:
       | user_login | user_pass | user_email        | role          |
