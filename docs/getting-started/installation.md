@@ -4,7 +4,7 @@
 
 WordHat requires [PHP](https://php.net/) (version 7.0+), [Composer](https://getcomposer.org/), and a [WordPress](https://wordpress.org/) site to test (version 4.8+).
 
-We strongly recommend using [WP-CLI](https://wp-cli.org/)[^1] \(version 1.3.0+), and [Selenium](http://www.seleniumhq.org/)[^2] to help with browser automation. Selenium is fiddly to set up, so we recommend using [vvo/selenium-standalone](https://github.com/vvo/selenium-standalone#command-line-interface).
+We strongly recommend using [WP-CLI](https://wp-cli.org/)[^1] \(version 1.3.0+), and [Selenium](http://www.seleniumhq.org/)[^2] to help with browser automation. Selenium is fiddly to set up, so we recommend using [vvo/selenium-standalone](https://github.com/vvo/selenium-standalone#command-line-interface), which requires the [Java Platform JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 
 
 ## Installation
@@ -24,8 +24,9 @@ cd project</code></pre>
     <pre><code>cp vendor/paulgibbs/behat-wordpress-extension/behat.yml.dist behat.yml</code></pre>
 </li>
 
-<li><p>Edit your <code>behat.yml</code> and update the <code>base_url</code> setting with the URL of the website that you intend to test.</>
-<p>If your WordPress is installed in a subdirectory, <a href="/recipes/faq/index.html#wordpress">consult the FAQ for information about the <code>site_url</code> setting</a>.</p>
+<li><p>Edit your <code>behat.yml</code> and: <ul style="list-style-type: lower-alpha"><li>Update the <code>base_url</code> setting with the URL of the website that you intend to test.</li>
+<li>Update the <code>path</code> setting with either the relative or absolute path to your WordPress' files.</li>
+<li>If your WordPress is installed in a subdirectory, <a href="/recipes/faq/index.html#wordpress">consult the FAQ for information about the <code>site_url</code> setting</a>.</li></ul>
 </li>
 
 <li>Initialise <a href="http://behat.org">Behat</a>:
