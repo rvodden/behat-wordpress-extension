@@ -4,6 +4,7 @@ namespace PaulGibbs\WordpressBehatExtension\Context;
 use PaulGibbs\WordpressBehatExtension\PageObject\PostsEditPage;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Mink\Exception\ExpectationException;
+use PaulGibbs\WordpressBehatExtension\Context\Awareness\ContentAwareContextTrait;
 
 /**
  * Provides step definitions relating to editing content in wp-admin.
@@ -11,12 +12,16 @@ use Behat\Mink\Exception\ExpectationException;
 class EditPostContext extends RawWordpressContext
 {
 
+    use ContentAwareContextTrait;
+
     /**
      * Edit post/page/post-type page (/wp-admin/post.php?post=<id>&action=edit) object.
      *
+     * TODO: this needs to not be public!
+     *
      * @param PostsEditPage
      */
-    private $edit_post_page;
+    public $edit_post_page;
 
     /**
      * Constructor.
@@ -45,9 +50,9 @@ class EditPostContext extends RawWordpressContext
      */
     public function iGoToEditScreenForPostType($post_type, $title)
     {
-        $post = $this->getDriver()->content->get($title, ['by' => 'title', 'post_type' => $post_type]);
+        $post = $this->getContentFromTitle($title, $post_type);
         $this->edit_post_page->open(array(
-            'id' => $post->ID,
+            'id' => $post[id],
         ));
     }
 
@@ -65,9 +70,9 @@ class EditPostContext extends RawWordpressContext
      */
     public function iGoToEditScreenFor($title)
     {
-        $post = $this->getDriver()->content->get($title, ['by' => 'title']);
+        $post = $this->getContentFromTitle($title);
         $this->edit_post_page->open(array(
-            'id' => $post->ID,
+            'id' => $post[ID],
         ));
     }
 
@@ -172,9 +177,9 @@ class EditPostContext extends RawWordpressContext
      */
     public function iAmOnEditScreenForPostType($post_type, $title)
     {
-        $post = $this->getDriver()->getContentFromTitle($title, $post_type);
+        $post = $this->getContentFromTitle($title, $post_type);
         $this->edit_post_page->isOpen(array(
-            'id' => $post->ID,
+            'id' => $post[ID],
         ));
     }
 
@@ -190,9 +195,9 @@ class EditPostContext extends RawWordpressContext
      */
     public function iAmOnEditScreenFor($title)
     {
-        $post = $this->getDriver()->getContentFromTitle($title, null);
+        $post = $this->getContentFromTitle($title, null);
         $this->edit_post_page->isOpen(array(
-            'id' => $post->ID,
+            'id' => $post[id],
         ));
     }
 

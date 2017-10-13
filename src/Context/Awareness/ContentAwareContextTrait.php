@@ -4,6 +4,7 @@ namespace PaulGibbs\WordpressBehatExtension\Context\Awareness;
 trait ContentAwareContextTrait
 {
 
+
     /**
      * Create content.
      *
@@ -27,18 +28,10 @@ trait ContentAwareContextTrait
         );
     }
 
-    /**
-     * Get content
-     *
-     * @param id $id
-     *            Object Id.
-     * @param array $args
-     *            Set the values of the new content item.
-     *
-     * @throws \UnexpectedValueException
-     *
-     * @return mixed The item.
-     */
+    public function getContentFromTitle($title, $post_type = '')
+    {
+        return $this->getDriver()->getContentFromTitle($title, $post_type);
+    }
 
     /**
      * Delete specified content.
