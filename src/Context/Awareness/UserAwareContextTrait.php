@@ -82,6 +82,8 @@ trait UserAwareContextTrait
         return false;
     }
 
+
+
     /**
      * Create a user.
      *
@@ -109,6 +111,20 @@ trait UserAwareContextTrait
             'slug' => $user->user_nicename
         );
     }
+
+
+    /**
+     * Gets the id of a user from its login.
+     *
+     * @param string $user_login User login name.
+     *
+     * @return int $id User ID.
+     */
+    public function getUserIdFromLogin($login)
+    {
+        $this->getDriver()->getUserIdFromLogin($login);
+    }
+
 
     /**
      * Delete a user.
