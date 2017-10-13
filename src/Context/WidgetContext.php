@@ -2,12 +2,14 @@
 namespace PaulGibbs\WordpressBehatExtension\Context;
 
 use Behat\Gherkin\Node\TableNode;
+use PaulGibbs\WordpressBehatExtension\Context\Awareness\WidgetAwareContextTrait;
 
 /**
  * Provides step definitions relating to widgets.
  */
 class WidgetContext extends RawWordpressContext
 {
+    use WidgetAwareContextTrait;
 
     /**
      * Adds a widget (identified by its ID base) to the sidebar (identified by it's human-readable name, e.g. 'Widget
@@ -26,11 +28,11 @@ class WidgetContext extends RawWordpressContext
      */
     public function iHaveTheMetaWidgetIn($widget_name, $sidebar_name, TableNode $widget_settings)
     {
-        $sidebar = $this->getDriver()->widget->getSidebar($sidebar_name);
+        $sidebar = $this->getWidgetSidebar($sidebar_name);
         $keys    = array_map('strtolower', $widget_settings->getRow(0));
         $values  = $widget_settings->getRow(1);  // We only support one widget for now.
         $args    = array_combine($keys, $values);
 
-        $this->getDriver()->widget->addToSidebar($widget_name, $sidebar, $args);
+        $this->addWidgetToSidebar($widget_name, $sidebar, $args);
     }
 }
