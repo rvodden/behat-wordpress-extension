@@ -1,5 +1,5 @@
 # Project information
-site_name: 'WordHat'
+site_name: 'WordHat - Behat for WordPress'
 site_description: 'WordHat is a Behat extension, providing WordPress-specific functionality for common testing scenarios specific to WordPress sites.'
 site_author: 'Paul Gibbs'
 site_url: 'https://wordhat.info/'
@@ -25,6 +25,8 @@ extra:
       link: 'https://github.com/paulgibbs/behat-wordpress-extension'
     - type: 'twitter'
       link: 'https://twitter.com/pgibbs'
+  feature:
+    tabs: true
 extra_css:
   - 'stylesheets/style.css'
 use_directory_urls: false
