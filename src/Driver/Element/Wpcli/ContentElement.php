@@ -25,6 +25,8 @@ class ContentElement extends BaseElement
         /*
          * Array of taxonomy terms keyed by their taxonomy name, which WP-CLI can't handle.
          *
+         * Values may be delimited by a comma.
+         *
          * See https://github.com/wp-cli/entity-command/issues/44#issuecomment-325957179
          */
         if (isset($args['tax_input'])) {
@@ -58,13 +60,17 @@ class ContentElement extends BaseElement
         // Apply taxonomy values.
         if ($tax_args) {
             foreach ($tax_args as $taxonomy => $terms) {
-                $args = [
-                    $post_id,
-                    $taxonomy,
-                    escapeshellarg($terms),
-                ];
+                $split_terms = str_getcsv($terms);
 
-                $this->drivers->getDriver()->wpcli('post', 'term set', $args)['stdout'];
+                foreach ($split_terms as $split_term) {
+                    $args = [
+                        $post_id,
+                        $taxonomy,
+                        escapeshellarg($split_term),
+                    ];
+
+                    $this->drivers->getDriver()->wpcli('post', 'term add', $args);
+                }
             }
         }
 
