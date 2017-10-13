@@ -25,6 +25,8 @@ extra:
       link: 'https://github.com/paulgibbs/behat-wordpress-extension'
     - type: 'twitter'
       link: 'https://twitter.com/pgibbs'
+  feature:
+    tabs: true
 extra_css:
   - 'stylesheets/style.css'
 use_directory_urls: false
