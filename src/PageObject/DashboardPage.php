@@ -1,6 +1,8 @@
 <?php
 namespace PaulGibbs\WordpressBehatExtension\PageObject;
 
+use Behat\Mink\Exception\ExpectationException;
+
 /**
  * Page object representing the wp-admin "Dashboard" screen.
  */
@@ -12,12 +14,24 @@ class DashboardPage extends AdminPage
     protected $path = '/wp-admin/index.php';
 
     /**
-     * Asserts the page header tag reads 'Dashboard'
+     * Asserts the current screen is the Dashboard.
      *
-     * @throws \Exception
+     * @throws ExpectationException
      */
     protected function verifyPage()
     {
-        $this->assertHasHeader('Dashboard');
+        $url = $this->getSession()->getCurrentUrl();
+
+        if (strrpos($url, $this->path) !== false) {
+            return;
+        }
+
+        throw new ExpectationException(
+            sprintf(
+                'Expected page is the wp-admin dashboard, instead on "%1$s".',
+                $url
+            ),
+            $this->getDriver()
+        );
     }
 }
