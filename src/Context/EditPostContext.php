@@ -52,7 +52,7 @@ class EditPostContext extends RawWordpressContext
     {
         $post = $this->getContentFromTitle($title, $post_type);
         $this->edit_post_page->open(array(
-            'id' => $post[id],
+            'id' => $post['id'],
         ));
     }
 
