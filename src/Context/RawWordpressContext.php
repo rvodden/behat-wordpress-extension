@@ -25,7 +25,7 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
     /**
      * WordPress parameters.
      *
-     * @var arrays
+     * @var array
      */
     protected $wordpress_parameters;
 
