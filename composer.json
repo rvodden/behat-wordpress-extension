@@ -20,8 +20,6 @@
     "behat/behat": "~3.1",
     "php": "~7.0",
     "sensiolabs/behat-page-object-extension": "~2.1",
-    "behat/mink-goutte-driver": "~1.2",
-    "behat/mink-selenium2-driver": "~1.3",
 
     "ocramius/proxy-manager": "2.0.4",
     "zendframework/zend-code": "3.1.0"
@@ -32,6 +30,7 @@
     "joomla-projects/selenium-server-standalone": "~3.5"
   },
   "suggest": {
+    "behat/mink-goutte-driver": "Headless Mink driver",
     "behat/mink-selenium2-driver": "JS-enabled Mink driver (requires Selenium2)"
   }
 }
