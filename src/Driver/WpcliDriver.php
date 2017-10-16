@@ -104,8 +104,8 @@ class WpcliDriver extends BaseDriver
      * @return array {
      *     WP-CLI command results.
      *
-     *     @type string $stdout Response text from WP-CLI.
-     *     @type int $exit_code Returned status code of the executed command.
+     *     @type string $stdout    Response text from WP-CLI.
+     *     @type int    $exit_code Returned status code of the executed command.
      * }
      */
     public function wpcli($command, $subcommand, $raw_arguments = [])
@@ -274,7 +274,7 @@ class WpcliDriver extends BaseDriver
      * @return array {
      *     @type int    $id   Content ID.
      *     @type string $slug Content slug.
-     *     @type string $url Content url.
+     *     @type string $url  Content url.
      * }
      */
     public function getContentFromTitle($title, $post_type = '')

@@ -48,13 +48,16 @@ class ContentContext extends RawWordpressContext
         // Retrieve the first row only.
         if ($post_data_or_title instanceof TableNode) {
             $post_data_hash = $post_data_or_title->getHash();
+
             if (count($post_data_hash) > 1) {
                 throw new UnexpectedValueException('"Given I am viewing a post:" step must only contain one post');
             }
+
             $post = $this->createContent($this->parseArgs($post_data_hash[0]));
         } else {
             $post = $this->getDriver()->getContentFromTitle($post_data_or_title);
         }
+
         $this->visitPath($post['url']);
     }
 
@@ -72,8 +75,8 @@ class ContentContext extends RawWordpressContext
     protected function parseArgs($post_data)
     {
         if (isset($post_data['post_author'])) {
-            $userId = $this->getDriver()->getUserIdFromLogin($post_data['post_author']);
-            $post_data['post_author'] = (int) $userId;
+            $user_id = $this->getDriver()->getUserIdFromLogin($post_data['post_author']);
+            $post_data['post_author'] = (int) $user_id;
         }
 
         return $post_data;

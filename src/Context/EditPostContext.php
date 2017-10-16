@@ -10,7 +10,6 @@ use Behat\Mink\Exception\ExpectationException;
  */
 class EditPostContext extends RawWordpressContext
 {
-
     /**
      * Edit post/page/post-type page (/wp-admin/post.php?post=<id>&action=edit) object.
      *

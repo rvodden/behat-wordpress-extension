@@ -35,15 +35,18 @@ class Toolbar extends Element
         $first_level_items = $this->findAll('css', '.ab-top-menu > li');
 
         foreach ($first_level_items as $first_level_item) {
-            if ($this->elementIsTargetLink($first_level_item, $link_parts[0])) {
-                if (count($link_parts) > 1) {
-                    $click_node = $this->getSubmenuLinkNode($first_level_item, $link_parts[1]);
-                } else {
-                    // We are clicking a top-level item:
-                    $click_node = $first_level_item->find('css', 'a');
-                }
-                break;
+            if (! $this->elementIsTargetLink($first_level_item, $link_parts[0])) {
+                continue;
             }
+
+            if (count($link_parts) > 1) {
+                $click_node = $this->getSubmenuLinkNode($first_level_item, $link_parts[1]);
+            } else {
+                // We are clicking a top-level item:
+                $click_node = $first_level_item->find('css', 'a');
+            }
+
+            break;
         }
 
         if (false === $click_node) {
@@ -101,25 +104,27 @@ class Toolbar extends Element
     protected function getSubmenuLinkNode($first_level_item, $link_text)
     {
         $second_level_items = $first_level_item->findAll('css', 'ul li a');
-        $submenu_link_node = null;
+        $submenu_link_node  = null;
 
         foreach ($second_level_items as $second_level_item) {
             $current_item_name = Util\stripTagsAndContent($second_level_item->getHtml());
 
-            if (strtolower($link_text) === strtolower($current_item_name)) {
-                try {
-                    // "Focus" (add hover class) on the toolbar link so the submenu appears.
-                    $id = $first_level_item->getAttribute('id');
-                    $this->getSession()->evaluateScript(
-                        'jQuery("#' . $id . '").addClass("hover");'
-                    );
-                } catch (UnsupportedDriverActionException $e) {
-                    // This will fail for GoutteDriver but neither is it necessary.
-                }
-
-                $submenu_link_node = $second_level_item;
-                break;
+            if (strtolower($link_text) !== strtolower($current_item_name)) {
+                continue;
             }
+
+            try {
+                // "Focus" (add hover class) on the toolbar link so the submenu appears.
+                $id = $first_level_item->getAttribute('id');
+                $this->getSession()->evaluateScript(
+                    'jQuery("#' . $id . '").addClass("hover");'
+                );
+            } catch (UnsupportedDriverActionException $e) {
+                // This will fail for GoutteDriver but neither is it necessary.
+            }
+
+            $submenu_link_node = $second_level_item;
+            break;
         }
 
         return $submenu_link_node;
