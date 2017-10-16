@@ -12,7 +12,7 @@ class TinyMCEEditor extends Element
      * The available modes for the WYSIWYG editor.
      */
     const VISUAL = 'VISUAL';
-    const TEXT = 'TEXT';
+    const TEXT   = 'TEXT';
 
     /**
      * @var string The element ID of the underlying iFrame.

@@ -21,7 +21,7 @@ class AdminMenu extends Element
      *
      * The list contains the 'human readable' strings. e.g. 'Dashboard'.
      *
-     * @return array List of top level menu links. E.g. [ 'Dashboard', 'Posts',...].
+     * @return string[] List of top level menu links. E.g. [ 'Dashboard', 'Posts',...].
      */
     public function getTopLevelMenuItems()
     {
