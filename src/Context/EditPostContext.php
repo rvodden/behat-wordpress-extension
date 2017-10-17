@@ -11,7 +11,6 @@ use PaulGibbs\WordpressBehatExtension\Context\Awareness\ContentAwareContextTrait
  */
 class EditPostContext extends RawWordpressContext
 {
-
     use ContentAwareContextTrait;
 
     /**

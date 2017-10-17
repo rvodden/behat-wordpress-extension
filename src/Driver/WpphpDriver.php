@@ -215,7 +215,7 @@ class WpphpDriver extends BaseDriver
      * @return array {
      *     @type int    $id   Content ID.
      *     @type string $slug Content slug.
-     *     @type string $url Content url.
+     *     @type string $url  Content url.
      * }
      */
     public function getContentFromTitle($title, $post_type = '')
