@@ -118,7 +118,7 @@ class AdminPage extends Page
      *
      * @param array $url_parameters
      *
-     * @throws SensioLabs\Behat\PageObjectExtension\PageObject\Exception\UnexpectedPageException
+     * @throws \SensioLabs\Behat\PageObjectExtension\PageObject\Exception\UnexpectedPageException
      *         If the current page does not match this one.
      *
      * @return boolean

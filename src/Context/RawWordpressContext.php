@@ -25,22 +25,14 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
     /**
      * WordPress parameters.
      *
-     * @var arrays
+     * @var array[]
      */
     protected $wordpress_parameters;
 
     /**
-     * Constructor.
-     */
-    public function __construct()
-    {
-    }
-
-    /**
      * Build URL, based on provided path.
      *
-     * @param string $path
-     *            Relative or absolute URL.
+     * @param string $path Relative or absolute URL.
      *
      * @return string
      */
@@ -98,8 +90,7 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      * IMPORTANT: this only sets the variable for the current Context!
      * Each Context exists independently.
      *
-     * @param string $name
-     *            Parameter name.
+     * @param string $name Parameter name.
      *
      * @return mixed
      */
@@ -121,8 +112,7 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
     /**
      * Get active WordPress Driver.
      *
-     * @param string $name
-     *            Optional. Name of specific driver to retrieve.
+     * @param string $name Optional. Name of specific driver to retrieve.
      *
      * @return \PaulGibbs\WordpressBehatExtension\Driver\DriverInterface
      */
@@ -142,10 +132,8 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      *
      * @deprecated Use PaulGibbs\WordpressBehatExtension\Util\spins
      *
-     * @param callable $closure
-     *            Action to execute.
-     * @param int $wait
-     *            Optional. How long to wait before giving up, in seconds.
+     * @param callable $closure Action to execute.
+     * @param int      $wait    Optional. How long to wait before giving up, in seconds.
      */
     public function spins(callable $closure, $wait = 60)
     {

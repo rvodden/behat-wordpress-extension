@@ -11,7 +11,6 @@ use PaulGibbs\WordpressBehatExtension\Context\Awareness\ContentAwareContextTrait
  */
 class EditPostContext extends RawWordpressContext
 {
-
     use ContentAwareContextTrait;
 
     /**
@@ -46,7 +45,7 @@ class EditPostContext extends RawWordpressContext
      * @Given /^I am on the edit ([a-zA-z_-]+) screen for "([^"]*)"$/
      *
      * @param string $post_type The post type of the referenced 'post' being edited.
-     * @param string $title The name of the 'post' being edited.
+     * @param string $title     The name of the 'post' being edited.
      */
     public function iGoToEditScreenForPostType($post_type, $title)
     {
@@ -179,7 +178,7 @@ class EditPostContext extends RawWordpressContext
     {
         $post = $this->getContentFromTitle($title, $post_type);
         $this->edit_post_page->isOpen(array(
-            'id' => $post[ID],
+            'id' => $post['id'],
         ));
     }
 
@@ -197,7 +196,7 @@ class EditPostContext extends RawWordpressContext
     {
         $post = $this->getContentFromTitle($title, null);
         $this->edit_post_page->isOpen(array(
-            'id' => $post[id],
+            'id' => $post['id'],
         ));
     }
 

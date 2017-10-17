@@ -1,19 +1,8 @@
 <?php
-
 namespace PaulGibbs\WordpressBehatExtension\Context\Awareness;
-
-/**
- * Delete a user.
- *
- * @param int $id
- *            ID of user to delete.
- * @param array $args
- *            Optional. Extra parameters to pass to WordPress.
- */
 
 trait DatabaseAwareContextTrait
 {
-
     /**
      * Start a database transaction.
      */

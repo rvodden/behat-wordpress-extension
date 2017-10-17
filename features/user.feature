@@ -1,4 +1,3 @@
-@db
 Feature: Managing users
 
   Scenario: I can add a new user
