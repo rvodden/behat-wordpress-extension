@@ -12,7 +12,6 @@ use PaulGibbs\WordpressBehatExtension\Context\Awareness\ContentAwareContextTrait
 class EditPostContext extends RawWordpressContext
 {
     use ContentAwareContextTrait;
-
     /**
      * Edit post/page/post-type page (/wp-admin/post.php?post=<id>&action=edit) object.
      *
@@ -71,7 +70,7 @@ class EditPostContext extends RawWordpressContext
     {
         $post = $this->getContentFromTitle($title);
         $this->edit_post_page->open(array(
-            'id' => $post[ID],
+            'id' => $post['id'],
         ));
     }
 
