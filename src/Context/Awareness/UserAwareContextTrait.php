@@ -13,9 +13,7 @@ trait UserAwareContextTrait
      *
      * @param string $username
      * @param string $password
-     * @param string $redirect_to
-     *            Optional. Default = "/".
-     *            After succesful log in, redirect browser to this path.
+     * @param string $redirect_to Optional. After succesful log in, redirect browser to this path. Default = "/".
      *
      * @throws ExpectationException
      */
@@ -107,7 +105,7 @@ trait UserAwareContextTrait
         $user = $this->getDriver()->user->create($args);
 
         return array(
-            'id' => $user->ID,
+            'id'   => $user->ID,
             'slug' => $user->user_nicename
         );
     }
@@ -129,10 +127,8 @@ trait UserAwareContextTrait
     /**
      * Delete a user.
      *
-     * @param int $id
-     *            ID of user to delete.
-     * @param array $args
-     *            Optional. Extra parameters to pass to WordPress.
+     * @param int   $id   ID of user to delete.
+     * @param array $args Optional. Extra parameters to pass to WordPress.
      */
     public function deleteUser($id, $args = [])
     {

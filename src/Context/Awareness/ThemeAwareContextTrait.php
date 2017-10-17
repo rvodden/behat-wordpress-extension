@@ -1,11 +1,6 @@
 <?php
 namespace PaulGibbs\WordpressBehatExtension\Context\Awareness;
 
-/**
- *
- * @author voddenr
- *
- */
 trait ThemeAwareContextTrait
 {
 
