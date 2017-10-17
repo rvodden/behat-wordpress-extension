@@ -30,6 +30,13 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
     protected $wordpress_parameters;
 
     /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+    }
+
+    /**
      * Build URL, based on provided path.
      *
      * @param string $path Relative or absolute URL.
