@@ -1,5 +1,4 @@
 <?php
-
 namespace PaulGibbs\WordpressBehatExtension\Context\Awareness;
 
 /**
