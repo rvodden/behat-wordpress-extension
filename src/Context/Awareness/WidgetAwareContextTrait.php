@@ -1,11 +1,6 @@
 <?php
 namespace PaulGibbs\WordpressBehatExtension\Context\Awareness;
 
-use Behat\Mink\Exception\DriverException;
-use Behat\Mink\Exception\ExpectationException;
-use Behat\Mink\Exception\UnsupportedDriverActionException;
-use UnexpectedValueException;
-
 trait WidgetAwareContextTrait
 {
     use BaseAwarenessTrait;

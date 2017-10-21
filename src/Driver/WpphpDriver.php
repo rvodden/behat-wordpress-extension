@@ -153,20 +153,4 @@ class WpphpDriver extends BaseDriver
             'url'  => get_permalink($post),
         );
     }
-
-    /**
-     * Start a database transaction.
-     */
-    public function startTransaction()
-    {
-        $this->database->startTransaction();
-    }
-
-    /**
-     * End (rollback) a database transaction.
-     */
-    public function endTransaction()
-    {
-        $this->database->endTransaction();
-    }
 }

@@ -1,7 +1,6 @@
 <?php
 namespace PaulGibbs\WordpressBehatExtension\Driver;
 
-use PaulGibbs\WordpressBehatExtension\Exception\UnsupportedDriverActionException;
 use RuntimeException;
 use UnexpectedValueException;
 
@@ -215,25 +214,5 @@ class WpcliDriver extends BaseDriver
             'slug' => $post->post_name,
             'url'  => $alt[0]->url,
         );
-    }
-
-    /**
-     * Start a database transaction.
-     *
-     * @throws \PaulGibbs\WordpressBehatExtension\Exception\UnsupportedDriverActionException
-     */
-    public function startTransaction()
-    {
-        throw new UnsupportedDriverActionException('start a database transaction in ' . static::class);
-    }
-
-    /**
-     * End (rollback) a database transaction.
-     *
-     * @throws \PaulGibbs\WordpressBehatExtension\Exception\UnsupportedDriverActionException
-     */
-    public function endTransaction()
-    {
-        throw new UnsupportedDriverActionException('rollback a database transaction in ' . static::class);
     }
 }
