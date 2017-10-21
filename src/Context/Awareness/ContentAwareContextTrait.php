@@ -30,6 +30,20 @@ trait ContentAwareContextTrait
         );
     }
 
+    /**
+     * Get content from its title.
+     *
+     * @param string $title     The title of the content to get.
+     * @param string $post_type Post type(s) to consider when searching for the content.
+     *
+     * @throws \UnexpectedValueException If post does not exist
+     *
+     * @return array {
+     *             @type int    $id   Content ID.
+     *             @type string $slug Content slug.
+     *             @type string $url  Content url.
+     *         }
+     */
     public function getContentFromTitle($title, $post_type = '')
     {
         return $this->getDriver()->getContentFromTitle($title, $post_type);
