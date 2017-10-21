@@ -5,6 +5,9 @@ use Behat\Mink\Exception\DriverException;
 use Behat\Mink\Exception\ExpectationException;
 use Behat\Mink\Exception\UnsupportedDriverActionException;
 
+/**
+ * Provides driver agnostic logic (helper methods) relating to users.
+ */
 trait UserAwareContextTrait
 {
     use BaseAwarenessTrait;

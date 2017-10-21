@@ -1,6 +1,9 @@
 <?php
 namespace PaulGibbs\WordpressBehatExtension\Context\Awareness;
 
+/**
+ * Provides driver agnostic logic (helper methods) relating to themes.
+ */
 trait ThemeAwareContextTrait
 {
     use BaseAwarenessTrait;
