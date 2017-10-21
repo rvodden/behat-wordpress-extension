@@ -98,14 +98,6 @@ class WpphpDriver extends BaseDriver
      */
 
     /**
-     * Clear object cache.
-     */
-    public function clearCache()
-    {
-        $this->cache->clear();
-    }
-
-    /**
      * Activate a plugin.
      *
      * @param string $plugin
