@@ -24,9 +24,9 @@ trait ContentAwareContextTrait
         $content = $this->getDriver()->content->create($args);
 
         return array(
-            'id' => $content->ID,
+            'id'   => $content->ID,
             'slug' => $content->post_name,
-            'url' => $content->url
+            'url'  => $content->url
         );
     }
 

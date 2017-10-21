@@ -28,7 +28,7 @@ trait TermAwareContextTrait
         $term = $this->getDriver()->term->create($args);
 
         return array(
-            'id' => $term->term_id,
+            'id'   => $term->term_id,
             'slug' => $term->slug
         );
     }
