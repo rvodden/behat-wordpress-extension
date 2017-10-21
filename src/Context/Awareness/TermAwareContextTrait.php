@@ -3,6 +3,8 @@ namespace PaulGibbs\WordpressBehatExtension\Context\Awareness;
 
 trait TermAwareContextTrait
 {
+    use BaseAwarenessTrait;
+
     /**
      * Create a term in a taxonomy.
      *

@@ -2,8 +2,13 @@
 
 namespace PaulGibbs\WordpressBehatExtension\Context\Awareness;
 
+/**
+ * Provides driver agnostic logic (helper methods) relating to plugins.
+ */
 trait PluginAwareContextTrait
 {
+    use BaseAwarenessTrait;
+
     /**
      * Activate a plugin.
      *

@@ -3,6 +3,7 @@ namespace PaulGibbs\WordpressBehatExtension\Context\Awareness;
 
 trait ThemeAwareContextTrait
 {
+    use BaseAwarenessTrait;
 
     /**
      * Switch active theme.

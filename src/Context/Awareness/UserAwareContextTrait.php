@@ -7,6 +7,7 @@ use Behat\Mink\Exception\UnsupportedDriverActionException;
 
 trait UserAwareContextTrait
 {
+    use BaseAwarenessTrait;
 
     /**
      * Log in the user.

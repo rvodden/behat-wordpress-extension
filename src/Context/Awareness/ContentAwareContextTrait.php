@@ -1,9 +1,12 @@
 <?php
 namespace PaulGibbs\WordpressBehatExtension\Context\Awareness;
 
+/**
+ * Provides driver agnostic logic (helper methods) relating to posts and content.
+ */
 trait ContentAwareContextTrait
 {
-
+    use BaseAwarenessTrait;
 
     /**
      * Create content.
