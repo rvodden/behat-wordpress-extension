@@ -155,20 +155,6 @@ class WpphpDriver extends BaseDriver
     }
 
     /**
-     * Get a User's ID from their username.
-     *
-     * @param string $username The username of the user to get the ID of.
-     *
-     * @throws \UnexpectedValueException If provided data is invalid
-     *
-     * @return int ID of the user.
-     */
-    public function getUserIdFromLogin($username)
-    {
-        return $this->user->get($username, ['by' => 'login'])->ID;
-    }
-
-    /**
      * Start a database transaction.
      */
     public function startTransaction()

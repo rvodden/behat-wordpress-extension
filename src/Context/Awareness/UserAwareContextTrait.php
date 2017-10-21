@@ -111,19 +111,19 @@ trait UserAwareContextTrait
         );
     }
 
-
     /**
-     * Gets the id of a user from its login.
+     * Get a User's ID from their username.
      *
-     * @param string $user_login User login name.
+     * @param string $username The username of the user to get the ID of.
      *
-     * @return int $id User ID.
+     * @throws \UnexpectedValueException If provided data is invalid
+     *
+     * @return int ID of the user.
      */
-    public function getUserIdFromLogin($login)
+    public function getUserIdFromLogin($username)
     {
-        $this->getDriver()->getUserIdFromLogin($login);
+        return $this->getDriver()->user->get($username, ['by' => 'login'])->ID;
     }
-
 
     /**
      * Delete a user.
