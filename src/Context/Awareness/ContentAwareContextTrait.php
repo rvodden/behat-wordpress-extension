@@ -11,8 +11,7 @@ trait ContentAwareContextTrait
     /**
      * Create content.
      *
-     * @param array $args
-     *            Set the values of the new content item.
+     * @param array $args Set the values of the new content item.
      *
      * @return array {
      *         @type int $id Content ID.
@@ -39,10 +38,8 @@ trait ContentAwareContextTrait
     /**
      * Delete specified content.
      *
-     * @param int $id
-     *            ID of content to delete.
-     * @param array $args
-     *            Optional. Extra parameters to pass to WordPress.
+     * @param int   $id    ID of content to delete.
+     * @param array $args  Optional. Extra parameters to pass to WordPress.
      */
     public function deleteContent($id, $args = [])
     {

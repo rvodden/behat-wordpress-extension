@@ -89,12 +89,9 @@ trait UserAwareContextTrait
     /**
      * Create a user.
      *
-     * @param string $user_login
-     *            User login name.
-     * @param string $user_email
-     *            User email address.
-     * @param array $args
-     *            Optional. Extra parameters to pass to WordPress.
+     * @param string $user_login  User login name.
+     * @param string $user_email  User email address.
+     * @param array  $args        Optional. Extra parameters to pass to WordPress.
      *
      * @return array {
      *         @type int $id User ID.

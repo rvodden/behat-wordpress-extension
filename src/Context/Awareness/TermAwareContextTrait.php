@@ -13,8 +13,7 @@ trait TermAwareContextTrait
      *
      * @param string $term
      * @param string $taxonomy
-     * @param array $args
-     *            Optional. Set the values of the new term.
+     * @param array  $args        Optional. Set the values of the new term.
      *
      * @return array {
      *         @type int $id Term ID.
