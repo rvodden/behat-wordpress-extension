@@ -1,5 +1,5 @@
 <?php
-namespace PaulGibbs\WordpressBehatExtension\Context\Awareness;
+namespace PaulGibbs\WordpressBehatExtension\Context\Traits;
 
 /**
  * Provides driver agnostic logic (helper methods) relating to caching.

@@ -1,7 +1,7 @@
 <?php
 namespace PaulGibbs\WordpressBehatExtension\Context;
 
-use PaulGibbs\WordpressBehatExtension\Context\Awareness\CacheAwareContextTrait;
+use PaulGibbs\WordpressBehatExtension\Context\Traits\CacheAwareContextTrait;
 
 /**
  * Provides step definitions for managing plugins and themes.

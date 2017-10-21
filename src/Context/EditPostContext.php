@@ -4,7 +4,7 @@ namespace PaulGibbs\WordpressBehatExtension\Context;
 use PaulGibbs\WordpressBehatExtension\PageObject\PostsEditPage;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Mink\Exception\ExpectationException;
-use PaulGibbs\WordpressBehatExtension\Context\Awareness\ContentAwareContextTrait;
+use PaulGibbs\WordpressBehatExtension\Context\Traits\ContentAwareContextTrait;
 
 /**
  * Provides step definitions relating to editing content in wp-admin.

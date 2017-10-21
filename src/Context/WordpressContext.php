@@ -4,8 +4,9 @@ namespace PaulGibbs\WordpressBehatExtension\Context;
 use Behat\Behat\Hook\Scope\AfterScenarioScope;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use Behat\Mink\Driver\Selenium2Driver;
-use PaulGibbs\WordpressBehatExtension\Context\Awareness\CacheAwareContextTrait;
-use PaulGibbs\WordpressBehatExtension\Context\Awareness\DatabaseAwareContextTrait;
+use PaulGibbs\WordpressBehatExtension\Context\Traits\CacheAwareContextTrait;
+use PaulGibbs\WordpressBehatExtension\Context\Traits\DatabaseAwareContextTrait;
+use PaulGibbs\WordpressBehatExtension\Context\Traits\PageObjectAwareContextTrait;
 use PaulGibbs\WordpressBehatExtension\PageObject\DashboardPage;
 
 /**
@@ -13,7 +14,7 @@ use PaulGibbs\WordpressBehatExtension\PageObject\DashboardPage;
  */
 class WordpressContext extends RawWordpressContext
 {
-    use PageObjectContextTrait, CacheAwareContextTrait, DatabaseAwareContextTrait;
+    use PageObjectAwareContextTrait, CacheAwareContextTrait, DatabaseAwareContextTrait;
 
     /**
      * Dashboard (wp-admin/index.php) object.

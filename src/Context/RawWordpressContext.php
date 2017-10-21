@@ -4,6 +4,7 @@ namespace PaulGibbs\WordpressBehatExtension\Context;
 use Behat\Behat\Context\SnippetAcceptingContext;
 use Behat\MinkExtension\Context\RawMinkContext;
 use PaulGibbs\WordpressBehatExtension\WordpressDriverManager;
+use PaulGibbs\WordpressBehatExtension\Context\Traits\PageObjectAwareContextTrait;
 use SensioLabs\Behat\PageObjectExtension\Context\PageObjectAware;
 
 /**
@@ -13,7 +14,7 @@ use SensioLabs\Behat\PageObjectExtension\Context\PageObjectAware;
  */
 class RawWordpressContext extends RawMinkContext implements WordpressAwareInterface, SnippetAcceptingContext, PageObjectAware
 {
-    use PageObjectContextTrait;
+    use PageObjectAwareContextTrait;
 
     /**
      * WordPress driver manager.

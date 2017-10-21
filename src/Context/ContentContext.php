@@ -3,8 +3,8 @@ namespace PaulGibbs\WordpressBehatExtension\Context;
 
 use UnexpectedValueException;
 use Behat\Gherkin\Node\TableNode;
-use PaulGibbs\WordpressBehatExtension\Context\Awareness\ContentAwareContextTrait;
-use PaulGibbs\WordpressBehatExtension\Context\Awareness\UserAwareContextTrait;
+use PaulGibbs\WordpressBehatExtension\Context\Traits\ContentAwareContextTrait;
+use PaulGibbs\WordpressBehatExtension\Context\Traits\UserAwareContextTrait;
 
 /**
  * Provides step definitions for creating content: post types, comments, and terms.

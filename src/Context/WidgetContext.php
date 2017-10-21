@@ -2,7 +2,7 @@
 namespace PaulGibbs\WordpressBehatExtension\Context;
 
 use Behat\Gherkin\Node\TableNode;
-use PaulGibbs\WordpressBehatExtension\Context\Awareness\WidgetAwareContextTrait;
+use PaulGibbs\WordpressBehatExtension\Context\Traits\WidgetAwareContextTrait;
 
 /**
  * Provides step definitions relating to widgets.
