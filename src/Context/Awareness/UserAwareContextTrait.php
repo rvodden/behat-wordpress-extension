@@ -21,13 +21,13 @@ trait UserAwareContextTrait
      *
      * @throws ExpectationException
      */
-    public function logIn($username, $password, $redirect_to = '/')
+    public function logIn($username, $password, $redirectTo = '/')
     {
         if ($this->loggedIn()) {
             $this->logOut();
         }
 
-        $this->visitPath('wp-login.php?redirect_to=' . urlencode($this->locatePath($redirect_to)));
+        $this->visitPath('wp-login.php?redirect_to=' . urlencode($this->locatePath($redirectTo)));
         $page = $this->getSession()->getPage();
 
         $node = $page->findField('user_login');

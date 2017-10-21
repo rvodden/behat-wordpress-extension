@@ -65,6 +65,6 @@ trait ContentAwareContextTrait
      */
     public function deleteContent($contentId, $args = [])
     {
-        $this->getDriver()->content->delete($id, $args);
+        $this->getDriver()->content->delete($contentId, $args);
     }
 }

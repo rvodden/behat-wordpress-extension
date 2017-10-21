@@ -14,9 +14,9 @@ trait WidgetAwareContextTrait
      *
      * @return string The sidebar ID
      */
-    public function getWidgetSidebar($sidebar_name)
+    public function getWidgetSidebar($sidebarName)
     {
-        return $this->getDriver()->widget->getSidebar($sidebar_name);
+        return $this->getDriver()->widget->getSidebar($sidebarName);
     }
 
     /**
@@ -28,8 +28,8 @@ trait WidgetAwareContextTrait
      *
      * @throws \UnexpectedValueException If the widget or sidebar does not exist.
      */
-    public function addWidgetToSidebar($widget_name, $sidebar, $args)
+    public function addWidgetToSidebar($widgetName, $sidebar, $args)
     {
-        $this->getDriver()->widget->addToSidebar($widget_name, $sidebar, $args);
+        $this->getDriver()->widget->addToSidebar($widgetName, $sidebar, $args);
     }
 }
