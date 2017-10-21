@@ -21,12 +21,13 @@ trait ContentAwareContextTrait
      */
     public function createContent($args)
     {
-        $content = $this->getDriver()->content->create($args);
+        $post = $this->getDriver()->content->create($args);
+        $url  = $this->getDriver()->content->getPermalink($post->ID);
 
         return array(
-            'id'   => $content->ID,
-            'slug' => $content->post_name,
-            'url'  => $content->url
+            'id'   => (int) $post->ID,
+            'slug' => $post->post_name,
+            'url'  => $url,
         );
     }
 
@@ -46,7 +47,14 @@ trait ContentAwareContextTrait
      */
     public function getContentFromTitle($title, $post_type = '')
     {
-        return $this->getDriver()->getContentFromTitle($title, $post_type);
+        $post = $this->getDriver()->content->get($title, ['by' => 'title', 'post_type' => $post_type]);
+        $url = $this->getDriver()->content->getPermalink($post->ID);
+
+        return array(
+            'id'   => (int) $post->ID,
+            'slug' => $post->post_name,
+            'url'  => $url,
+        );
     }
 
     /**
