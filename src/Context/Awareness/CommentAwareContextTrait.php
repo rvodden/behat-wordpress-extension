@@ -6,7 +6,7 @@ namespace PaulGibbs\WordpressBehatExtension\Context\Awareness;
  */
 trait CommentAwareContextTrait
 {
-    use BaseAwarenesTrait;
+    use BaseAwarenessTrait;
 
     /**
      * Create a comment.
@@ -14,7 +14,7 @@ trait CommentAwareContextTrait
      * @param array $args Set the values of the new comment.
      *
      * @return array {
-     *         @type int $id Content ID.
+     *             @type int $id Content ID.
      *         }
      */
     public function createComment($args)

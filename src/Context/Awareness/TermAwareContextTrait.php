@@ -16,8 +16,8 @@ trait TermAwareContextTrait
      * @param array  $args        Optional. Set the values of the new term.
      *
      * @return array {
-     *         @type int $id Term ID.
-     *         @type string $slug Term slug.
+     *             @type int $id Term ID.
+     *             @type string $slug Term slug.
      *         }
      */
     public function createTerm($term, $taxonomy, $args = [])
