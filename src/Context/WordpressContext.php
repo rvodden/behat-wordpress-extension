@@ -1,12 +1,12 @@
 <?php
 namespace PaulGibbs\WordpressBehatExtension\Context;
 
-use Behat\Mink\Driver\Selenium2Driver;
-use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use Behat\Behat\Hook\Scope\AfterScenarioScope;
-use PaulGibbs\WordpressBehatExtension\PageObject\DashboardPage;
+use Behat\Behat\Hook\Scope\BeforeScenarioScope;
+use Behat\Mink\Driver\Selenium2Driver;
 use PaulGibbs\WordpressBehatExtension\Context\Awareness\CacheAwareContextTrait;
 use PaulGibbs\WordpressBehatExtension\Context\Awareness\DatabaseAwareContextTrait;
+use PaulGibbs\WordpressBehatExtension\PageObject\DashboardPage;
 
 /**
  * Provides step definitions for a range of common tasks. Recommended for all test suites.

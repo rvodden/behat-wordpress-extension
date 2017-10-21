@@ -89,8 +89,8 @@ trait UserAwareContextTrait
     /**
      * Create a user.
      *
-     * @param string $user_login  User login name.
-     * @param string $user_email  User email address.
+     * @param string $userLogin  User login name.
+     * @param string $userEmail  User email address.
      * @param array  $args        Optional. Extra parameters to pass to WordPress.
      *
      * @return array {
@@ -98,10 +98,10 @@ trait UserAwareContextTrait
      *         @type string $slug User slug (nicename).
      *         }
      */
-    public function createUser($user_login, $user_email, $args = [])
+    public function createUser($userLogin, $userEmail, $args = [])
     {
-        $args['user_email'] = $user_email;
-        $args['user_login'] = $user_login;
+        $args['user_email'] = $userEmail;
+        $args['user_login'] = $userLogin;
 
         $user = $this->getDriver()->user->create($args);
 
@@ -128,11 +128,11 @@ trait UserAwareContextTrait
     /**
      * Delete a user.
      *
-     * @param int   $id   ID of user to delete.
+     * @param int   $userId   ID of user to delete.
      * @param array $args Optional. Extra parameters to pass to WordPress.
      */
-    public function deleteUser($id, $args = [])
+    public function deleteUser($userId, $args = [])
     {
-        $this->getDriver()->user->delete($id, $args);
+        $this->getDriver()->user->delete($userId, $args);
     }
 }

@@ -36,11 +36,11 @@ trait TermAwareContextTrait
     /**
      * Delete a term from a taxonomy.
      *
-     * @param int $term_id
+     * @param int $termId
      * @param string $taxonomy
      */
-    public function deleteTerm($term_id, $taxonomy)
+    public function deleteTerm($termId, $taxonomy)
     {
-        $this->getDriver()->term->delete($term_id, compact($taxonomy));
+        $this->getDriver()->term->delete($termId, compact($taxonomy));
     }
 }
