@@ -97,7 +97,7 @@ class UserElement extends BaseElement
      */
     public function validateCredentials(string $username, string $password)
     {
-        throw new UnsupportedDriverActionException();
+        throw new UnsupportedDriverActionException("No known way to check $username has password $password.");
     }
 
     /**

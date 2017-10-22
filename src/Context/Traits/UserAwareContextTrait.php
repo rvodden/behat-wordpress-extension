@@ -18,7 +18,8 @@ trait UserAwareContextTrait
      *
      * @param string $username
      * @param string $password
-     * @param string $redirect_to Optional. After succesful log in, redirect browser to this path. Default = "/".
+     * @param string $redirect_to
+     *            Optional. After succesful log in, redirect browser to this path. Default = "/".
      *
      * @throws ExpectationException
      */
@@ -85,17 +86,19 @@ trait UserAwareContextTrait
         return false;
     }
 
-
-
     /**
-     * Create a user. If the user already exists, the existing user will be
+     * Create a user.
+     * If the user already exists, the existing user will be
      * compared with the user which was asked to be created. If all matches
      * no fault with be thrown. If it does not match then UnexpectedValueException
      * will be thrown.
      *
-     * @param string $userLogin  User login name.
-     * @param string $userEmail  User email address.
-     * @param array  $args        Optional. Extra parameters to pass to WordPress.
+     * @param string $userLogin
+     *            User login name.
+     * @param string $userEmail
+     *            User email address.
+     * @param array $args
+     *            Optional. Extra parameters to pass to WordPress.
      *
      * @throws \UnexpectedValueException
      *
@@ -116,7 +119,7 @@ trait UserAwareContextTrait
         }
 
         $return_array = array(
-            'id'   => $user->ID,
+            'id' => $user->ID,
             'slug' => $user->user_nicename
         );
 
@@ -134,38 +137,23 @@ trait UserAwareContextTrait
      */
     private function getExistingMatchingUser($args)
     {
-
         $user_id = $this->getUserIdFromLogin($args['user_login']);
         $user = $this->getDriver()->user->get($user_id);
 
-        /* users can have more than one role, so treat this as a
-         * special case. If role is specified then check its in the roles
-         * array in the existing user. If an entire roles array is specified
-         * then it will need to match exactly. The latter case is handled like any other
-         * parameter.
-         */
-
-        // $user->role can either be a string with 1 role in it or an array of roles.
+        /* users can have more than one role so needs to be a special case */
         if (array_key_exists('role', $args)) {
-            if (is_string($user->roles)) {
-                if ($user->roles != $args['role']) { // if its a string check it matches the role
-                    throw new \UnexpectedValueException('User with login : ' . $user->user_login .
-                        'exists, but role : ' . $args['role'] . ' does not match the applied role : ' . $user->roles);
-                }
-            } elseif (!in_array($args['role'], $user->roles)) { // if its an array check the role is in that array
-                throw new \UnexpectedValueException('User with login : ' . $user->user_login .
-                    'exists, but role : ' . $args['role'] . ' is not in the list of applied roles : ' . $user->roles);
-            }
+            $this->checkUserHasRole($user, $args['role']);
         }
 
-        /* Loop through each of the passed arguements.
+        /*
+         * Loop through each of the passed arguements.
          * if they are arguments which apply to users
          * then check that that which exist matches that which was specified.
          */
         foreach ($args as $parameter => $value) {
             if ($parameter == 'password') {
                 try {
-                    if (!$this->getDriver()->user->validateCredentials($args['user_login'], $value)) {
+                    if (! $this->getDriver()->user->validateCredentials($args['user_login'], $value)) {
                         throw new \UnexpectedValueException('User with login : ' . $user->user_login . ' exists but password is incorrect');
                     }
                 } catch (UnsupportedDriverActionException $exception) {
@@ -173,9 +161,7 @@ trait UserAwareContextTrait
                 }
             }
             if ($this->isValidUserParameter($parameter) && $user->$parameter != $args[$parameter]) {
-                throw new \UnexpectedValueException('User with login : ' . $user->user_login .
-                    'exists, but ' . $parameter . ' is ' . $user->$parameter .
-                    ' not ' . $args[$parameter] . 'which was specified');
+                throw new \UnexpectedValueException('User with login : ' . $user->user_login . 'exists, but ' . $parameter . ' is ' . $user->$parameter . ' not ' . $args[$parameter] . 'which was specified');
             }
         }
 
@@ -183,33 +169,61 @@ trait UserAwareContextTrait
     }
 
     /**
+     * Checks to see if the user has an assigned role or not.
+     *
+     * @param \WP_User $user
+     * @param string $role
+     *
+     * @throws \UnexpectedValueException
+     *
+     * @return boolean $retval True if the role does apply to the user.
+     */
+    private function checkUserHasRole($user, $role)
+    {
+        // $user->role can either be a string with 1 role in it or an array of roles.
+        if (is_string($user->roles)) {
+            if ($user->roles != $role) { // if its a string check it matches the role
+                throw new \UnexpectedValueException('User with login : ' . $user->user_login . ' exists, but role : ' . $role . ' does not match the applied role : ' . $user->roles);
+            }
+        } elseif (! in_array($role, $user->roles)) { // if its an array check the role is in that array
+            throw new \UnexpectedValueException('User with login : ' . $user->user_login . ' exists, but role : ' . $role . ' is not in the list of applied roles : ' . $user->roles);
+        }
+
+        return true;
+    }
+
+    /**
      * Checks to see if the passed in parameter applies to a user or not.
      *
-     * @param string $user_parameter the parameter to be checked.
+     * @param string $user_parameter
+     *            the parameter to be checked.
      *
      * @return boolean $retval True if the parameter does apply to a user.
      */
     private function isValidUserParameter(string $user_parameter)
     {
-        $validUserParameters = array('id',
+        $validUserParameters = array(
+            'id',
             'user_login',
             'display_name',
             'user_email',
             'user_registered',
             'roles',
-//            'user_pass', - exclude the password for the moment - need special logic for it
+            // 'user_pass', - exclude the password for the moment - need special logic for it
             'user_nicename',
             'user_url',
             'user_activation_key',
             'user_status',
-            'url');
+            'url'
+        );
         return in_array(strtolower($user_parameter), $validUserParameters);
     }
 
     /**
      * Get a User's ID from their username.
      *
-     * @param string $username The username of the user to get the ID of.
+     * @param string $username
+     *            The username of the user to get the ID of.
      *
      * @throws \UnexpectedValueException If provided data is invalid
      *
@@ -217,14 +231,18 @@ trait UserAwareContextTrait
      */
     public function getUserIdFromLogin($username)
     {
-        return $this->getDriver()->user->get($username, ['by' => 'login'])->ID;
+        return $this->getDriver()->user->get($username, [
+            'by' => 'login'
+        ])->ID;
     }
 
     /**
      * Delete a user.
      *
-     * @param int   $userId   ID of user to delete.
-     * @param array $args Optional. Extra parameters to pass to WordPress.
+     * @param int $userId
+     *            ID of user to delete.
+     * @param array $args
+     *            Optional. Extra parameters to pass to WordPress.
      */
     public function deleteUser($userId, $args = [])
     {
