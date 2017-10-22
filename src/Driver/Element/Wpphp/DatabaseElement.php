@@ -121,6 +121,9 @@ class DatabaseElement extends BaseElement
                 )
             );
         }
+
+        // clear the cache after restoration
+        \wp_cache_flush();
     }
 
 
