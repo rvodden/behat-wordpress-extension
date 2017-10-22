@@ -2,6 +2,7 @@
 namespace PaulGibbs\WordpressBehatExtension\Driver\Element\Wpcli;
 
 use PaulGibbs\WordpressBehatExtension\Driver\Element\BaseElement;
+use PaulGibbs\WordpressBehatExtension\Exception\UnsupportedDriverActionException;
 use function PaulGibbs\WordpressBehatExtension\Util\buildCLIArgs;
 use UnexpectedValueException;
 
@@ -84,6 +85,19 @@ class UserElement extends BaseElement
         }
 
         return $user;
+    }
+
+    /**
+     * Checks that the username and password are correct.
+     *
+     * @param string $username
+     * @param string $password
+     *
+     * @return boolean True if the username and password are correct.
+     */
+    public function validateCredentials(string $username, string $password)
+    {
+        throw new UnsupportedDriverActionException();
     }
 
     /**

@@ -17,7 +17,7 @@ Feature: Managing users
     Then the toolbar should show I am authenticated as test
   
   @javascript @db
-  Scenario: I can specify a user which does not exist and the test should not fail
+  Scenario: I can specify a user which already exists and the test should not fail
     Given there are users:
        | user_login | user_pass | user_email        | role          |
        | test       | test      | test@example.com  | author        |
