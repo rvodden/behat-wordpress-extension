@@ -9,6 +9,8 @@ use RuntimeException;
  */
 class UserContext extends RawWordpressContext
 {
+    use Traits\UserAwareContextTrait, Traits\CacheAwareContextTrait;
+
     /**
      * Add specified user accounts.
      *
@@ -28,8 +30,8 @@ class UserContext extends RawWordpressContext
             $this->createUser($user['user_login'], $user['user_email'], $user);
 
             // Store new users by username, not by role (unlike what the docs say).
-            $id = strtolower($user['user_login']);
-            $params['users'][$id] = array(
+            $userId = strtolower($user['user_login']);
+            $params['users'][$userId] = array(
                 'username' => $user['user_login'],
                 'password' => $user['user_pass'],
             );
@@ -58,8 +60,8 @@ class UserContext extends RawWordpressContext
         $new_user = $this->createUser($user['user_login'], $user['user_email'], $user);
 
         // Store new users by username, not by role (unlike what the docs say).
-        $id = strtolower($user['user_login']);
-        $params['users'][$id] = array(
+        $userId = strtolower($user['user_login']);
+        $params['users'][$userId] = array(
             'username' => $user['user_login'],
             'password' => $user['user_pass'],
         );

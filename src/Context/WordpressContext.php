@@ -1,9 +1,12 @@
 <?php
 namespace PaulGibbs\WordpressBehatExtension\Context;
 
-use Behat\Mink\Driver\Selenium2Driver;
-use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use Behat\Behat\Hook\Scope\AfterScenarioScope;
+use Behat\Behat\Hook\Scope\BeforeScenarioScope;
+use Behat\Mink\Driver\Selenium2Driver;
+use PaulGibbs\WordpressBehatExtension\Context\Traits\CacheAwareContextTrait;
+use PaulGibbs\WordpressBehatExtension\Context\Traits\DatabaseAwareContextTrait;
+use PaulGibbs\WordpressBehatExtension\Context\Traits\PageObjectAwareContextTrait;
 use PaulGibbs\WordpressBehatExtension\PageObject\DashboardPage;
 
 /**
@@ -11,7 +14,7 @@ use PaulGibbs\WordpressBehatExtension\PageObject\DashboardPage;
  */
 class WordpressContext extends RawWordpressContext
 {
-    use PageObjectContextTrait;
+    use PageObjectAwareContextTrait, CacheAwareContextTrait, DatabaseAwareContextTrait;
 
     /**
      * Dashboard (wp-admin/index.php) object.
@@ -97,16 +100,6 @@ class WordpressContext extends RawWordpressContext
              * In this case, our toolbar workaround obviously isn't required, so fail quietly.
              */
         }
-    }
-
-    /**
-     * Clear object cache.
-     *
-     * @AfterScenario
-     */
-    public function clearCache()
-    {
-        parent::clearCache();
     }
 
     /**

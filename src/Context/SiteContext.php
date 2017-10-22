@@ -1,11 +1,15 @@
 <?php
 namespace PaulGibbs\WordpressBehatExtension\Context;
 
+use PaulGibbs\WordpressBehatExtension\Context\Traits\CacheAwareContextTrait;
+
 /**
  * Provides step definitions for managing plugins and themes.
  */
 class SiteContext extends RawWordpressContext
 {
+    use CacheAwareContextTrait;
+
     /**
      * Clear object cache.
      *
@@ -17,6 +21,6 @@ class SiteContext extends RawWordpressContext
      */
     public function cacheIsCleared()
     {
-        $this->getDriver()->clearCache();
+        $this->clearCache();
     }
 }

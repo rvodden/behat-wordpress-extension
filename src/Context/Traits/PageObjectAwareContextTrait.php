@@ -1,13 +1,13 @@
 <?php
 
-namespace PaulGibbs\WordpressBehatExtension\Context;
+namespace PaulGibbs\WordpressBehatExtension\Context\Traits;
 
 use RuntimeException;
 use SensioLabs\Behat\PageObjectExtension\PageObject\Factory as PageObjectFactory;
 use SensioLabs\Behat\PageObjectExtension\PageObject\Page;
 use SensioLabs\Behat\PageObjectExtension\PageObject\Element;
 
-trait PageObjectContextTrait
+trait PageObjectAwareContextTrait
 {
     /**
      * @var PageObjectFactory

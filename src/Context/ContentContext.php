@@ -3,12 +3,16 @@ namespace PaulGibbs\WordpressBehatExtension\Context;
 
 use UnexpectedValueException;
 use Behat\Gherkin\Node\TableNode;
+use PaulGibbs\WordpressBehatExtension\Context\Traits\ContentAwareContextTrait;
+use PaulGibbs\WordpressBehatExtension\Context\Traits\UserAwareContextTrait;
 
 /**
  * Provides step definitions for creating content: post types, comments, and terms.
  */
 class ContentContext extends RawWordpressContext
 {
+    use ContentAwareContextTrait, UserAwareContextTrait;
+
     /**
      * Create content of the given type.
      *
@@ -55,7 +59,7 @@ class ContentContext extends RawWordpressContext
 
             $post = $this->createContent($this->parseArgs($post_data_hash[0]));
         } else {
-            $post = $this->getDriver()->getContentFromTitle($post_data_or_title);
+            $post = $this->getContentFromTitle($post_data_or_title);
         }
 
         $this->visitPath($post['url']);
@@ -75,7 +79,7 @@ class ContentContext extends RawWordpressContext
     protected function parseArgs($post_data)
     {
         if (isset($post_data['post_author'])) {
-            $user_id = $this->getDriver()->getUserIdFromLogin($post_data['post_author']);
+            $user_id = $this->getUserIdFromLogin($post_data['post_author']);
             $post_data['post_author'] = (int) $user_id;
         }
 
