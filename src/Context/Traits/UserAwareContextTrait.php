@@ -18,8 +18,7 @@ trait UserAwareContextTrait
      *
      * @param string $username
      * @param string $password
-     * @param string $redirect_to
-     *            Optional. After succesful log in, redirect browser to this path. Default = "/".
+     * @param string $redirect_to Optional. After succesful log in, redirect browser to this path. Default = "/".
      *
      * @throws ExpectationException
      */
