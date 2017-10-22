@@ -93,18 +93,15 @@ trait UserAwareContextTrait
      * no fault with be thrown. If it does not match then UnexpectedValueException
      * will be thrown.
      *
-     * @param string $userLogin
-     *            User login name.
-     * @param string $userEmail
-     *            User email address.
-     * @param array $args
-     *            Optional. Extra parameters to pass to WordPress.
+     * @param string $userLogin User login name.
+     * @param string $userEmail User email address.
+     * @param array  $args      Optional. Extra parameters to pass to WordPress.
      *
      * @throws \UnexpectedValueException
      *
      * @return array {
-     *         @type int $id User ID.
-     *         @type string $slug User slug (nicename).
+     *             @type int $id User ID.
+     *             @type string $slug User slug (nicename).
      *         }
      */
     public function createUser($userLogin, $userEmail, $args = [])
@@ -119,7 +116,7 @@ trait UserAwareContextTrait
         }
 
         $return_array = array(
-            'id' => $user->ID,
+            'id'   => $user->ID,
             'slug' => $user->user_nicename
         );
 
@@ -222,8 +219,7 @@ trait UserAwareContextTrait
     /**
      * Get a User's ID from their username.
      *
-     * @param string $username
-     *            The username of the user to get the ID of.
+     * @param string $username The username of the user to get the ID of.
      *
      * @throws \UnexpectedValueException If provided data is invalid
      *
@@ -231,18 +227,14 @@ trait UserAwareContextTrait
      */
     public function getUserIdFromLogin($username)
     {
-        return $this->getDriver()->user->get($username, [
-            'by' => 'login'
-        ])->ID;
+        return $this->getDriver()->user->get($username, ['by' => 'login'])->ID;
     }
 
     /**
      * Delete a user.
      *
-     * @param int $userId
-     *            ID of user to delete.
-     * @param array $args
-     *            Optional. Extra parameters to pass to WordPress.
+     * @param int $userId ID of user to delete.
+     * @param array $args Optional. Extra parameters to pass to WordPress.
      */
     public function deleteUser($userId, $args = [])
     {
