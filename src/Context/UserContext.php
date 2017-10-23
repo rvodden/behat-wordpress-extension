@@ -41,37 +41,20 @@ class UserContext extends RawWordpressContext
     }
 
     /**
-     * Add user account, and go to their author archive page.
+     * Go to a user's author archive page.
      *
-     * Example: Given I am viewing an author archive:
-     *     | user_login | user_pass | user_email        | role          |
-     *     | admin      | admin     | admin@example.com | administrator |
+     * Example: Given I am viewing posts published by Admin
+     * Example: When I am viewing posts published by Admin
      *
-     * @Given /^(?:I am|they are) viewing an author archive:/
+     * @When I am viewing posts published by :user
      *
-     * @param TableNode $user_data
+     * @param string $username
      */
-    public function iAmViewingAuthorArchive(TableNode $user_data)
+    public function iAmViewingAuthorArchive($username)
     {
-        $params = $this->getWordpressParameters();
-
-        // Create user.
-        $user     = $user_data->getHash();
-        $new_user = $this->createUser($user['user_login'], $user['user_email'], $user);
-
-        // Store new users by username, not by role (unlike what the docs say).
-        $userId = strtolower($user['user_login']);
-        $params['users'][$userId] = array(
-            'username' => $user['user_login'],
-            'password' => $user['user_pass'],
-        );
-
-        $this->setWordpressParameters($params);
-
-        // Navigate to archive.
         $this->visitPath(sprintf(
-            $params['permalinks']['author_archive'],
-            $new_user['slug']
+            $this->getWordpressParameters()['permalinks']['author_archive'],
+            $this->getUserDataFromUsername('user_nicename', $username)
         ));
     }
 

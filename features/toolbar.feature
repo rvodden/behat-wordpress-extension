@@ -20,3 +20,8 @@ Feature: Toolbar
        | page      | Test Post  | Hello World  | publish     |
     When I search for "Hello World" in the toolbar
     Then I should see "Search results"
+
+  Scenario: I can search for text within the toolbar
+    Given I am logged in as an admin
+    And I am on the homepage
+    Then I should see "Howdy, admin" in the Toolbar
