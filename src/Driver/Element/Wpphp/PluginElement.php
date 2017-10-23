@@ -20,7 +20,7 @@ class PluginElement extends BaseElement
         if ($args['status'] === 'activate') {
             activate_plugin($id, '', false, true);
         } elseif ($args['status'] === 'deactivate') {
-            deactivate_plugin($id, true, false);
+            deactivate_plugins($id, true, false);
         }
     }
 
