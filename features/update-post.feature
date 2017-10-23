@@ -27,7 +27,7 @@ Feature: You can write in visual and text mode
     And I should not see "<strong>HTML</strong>"
 
   @javascript
-  Scenario: I can update a post using the text view
+  Scenario: I can update a post using the visual view
     When I change the title to "Article written in visual mode"
     And I switch to the post content editor's Visual mode
     Then the post content editor is in Visual mode
