@@ -151,9 +151,13 @@ class EditPostContext extends RawWordpressContext
      * Press the update/publish button.
      *
      * Example: When I press the publish button
-     * Example: WhenI press the update button
+     * Example: When I press the update button
+     * Example: When I publish the post
+     * Example: When I publish the change
+     * Example: When I publish the changes
      *
      * @When /^I press the (publish|update) button$/
+     * @When /^I publish the (post|changes?)$/
      *
      * @throws \Behat\Mink\Exception\ElementNotFoundException
      */

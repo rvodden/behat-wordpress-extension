@@ -22,12 +22,11 @@ trait ContentAwareContextTrait
     public function createContent($args)
     {
         $post = $this->getDriver()->content->create($args);
-        $url  = $this->getDriver()->content->getPermalink($post->ID);
 
         return array(
             'id'   => (int) $post->ID,
             'slug' => $post->post_name,
-            'url'  => $url,
+            'url'  => $post->url,
         );
     }
 
@@ -48,12 +47,11 @@ trait ContentAwareContextTrait
     public function getContentFromTitle($title, $post_type = '')
     {
         $post = $this->getDriver()->content->get($title, ['by' => 'title', 'post_type' => $post_type]);
-        $url = $this->getDriver()->content->getPermalink($post->ID);
 
         return array(
             'id'   => (int) $post->ID,
             'slug' => $post->post_name,
-            'url'  => $url,
+            'url'  => $post->url,
         );
     }
 

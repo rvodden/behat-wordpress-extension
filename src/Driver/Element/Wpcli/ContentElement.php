@@ -141,22 +141,6 @@ class ContentElement extends BaseElement
     }
 
     /**
-     * Retrieve the permalink for this post
-     *
-     * @param int $postId the ID of the Post
-     *
-     * @return string $url the permalink
-     */
-    public function getPermalink($postId)
-    {
-        $alt  = $this->drivers->getDriver()->wpcli('post', 'list', ['--post__in=' . $postId, '--fields=url', '--post_type=any', '--format=json'])['stdout'];
-        $alt  = json_decode($alt);
-        $url = $alt[0]->url;
-
-        return $url;
-    }
-
-    /**
      * Delete an item for this element.
      *
      * @param int|string $id   Object ID.

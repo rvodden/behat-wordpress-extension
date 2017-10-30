@@ -15,6 +15,6 @@ For tests requiring Javascript interactions, mark the scenario or feature with t
 
 ## Your first tests
 
-To confirm your Behat set up is working, copy any one (or all!) of WordHat's own tests from `vendor/paulgibbs/behat-wordpress-extension/*.feature` into your project's `features/` folder.
+To confirm your Behat set up is working, copy any one (or all!) of WordHat's own tests from `vendor/paulgibbs/behat-wordpress-extension/features/*.feature` into your project's `features/` folder.
 
 Run Behat with `vendor/bin/behat`, and the tests you copied should pass if everything is working.
