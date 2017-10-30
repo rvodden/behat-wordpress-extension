@@ -202,8 +202,7 @@ trait UserAwareContextTrait
     /**
      * Checks to see if the passed in parameter applies to a user or not.
      *
-     * @param string $user_parameter
-     *            the parameter to be checked.
+     * @param string $user_parameter the parameter to be checked.
      *
      * @return boolean $retval True if the parameter does apply to a user.
      */
