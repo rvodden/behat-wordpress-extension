@@ -87,6 +87,7 @@ trait UserAwareContextTrait
 
     /**
      * Create a user.
+     *
      * If the user already exists, the existing user will be
      * compared with the user which was asked to be created. If all matches
      * no fault with be thrown. If it does not match then UnexpectedValueException
@@ -123,12 +124,15 @@ trait UserAwareContextTrait
     }
 
     /**
-     * Returns a user if all the passed parameters match
-     * throws an UnexpectedValueException if not
+     * Get a user which matches all parameters.
      *
-     * if there is return a user ID
+     * Fetches a user if all the passed parameters match
+     * if none is found then UnexpectedValueException is thrown.
+     *
+     * @param array $args Keyed array of parameters.
      *
      * @throws \UnexpectedValueException
+     *
      * @return \WP_User $user
      */
     private function getExistingMatchingUser($args)
@@ -147,7 +151,7 @@ trait UserAwareContextTrait
          * then check that that which exist matches that which was specified.
          */
         foreach ($args as $parameter => $value) {
-            if ($parameter == 'password') {
+            if ($parameter === 'password') {
                 try {
                     if (! $this->getDriver()->user->validateCredentials($args['user_login'], $value)) {
                         throw new \UnexpectedValueException('User with login : ' . $user->user_login . ' exists but password is incorrect');
@@ -156,7 +160,7 @@ trait UserAwareContextTrait
                     // WPCLI can't do this yet.
                 }
             }
-            if ($this->isValidUserParameter($parameter) && $user->$parameter != $args[$parameter]) {
+            if ($this->isValidUserParameter($parameter) && $user->$parameter !== $args[$parameter]) {
                 throw new \UnexpectedValueException('User with login : ' . $user->user_login . 'exists, but ' . $parameter . ' is ' . $user->$parameter . ' not ' . $args[$parameter] . 'which was specified');
             }
         }
@@ -176,13 +180,20 @@ trait UserAwareContextTrait
      */
     private function checkUserHasRole($user, $role)
     {
-        // $user->role can either be a string with 1 role in it or an array of roles.
-        if (is_string($user->roles)) {
-            if ($user->roles != $role) { // if its a string check it matches the role
-                throw new \UnexpectedValueException('User with login : ' . $user->user_login . ' exists, but role : ' . $role . ' does not match the applied role : ' . $user->roles);
-            }
-        } elseif (! in_array($role, $user->roles)) { // if its an array check the role is in that array
-            throw new \UnexpectedValueException('User with login : ' . $user->user_login . ' exists, but role : ' . $role . ' is not in the list of applied roles : ' . $user->roles);
+        /*
+         * $user->roles can either be a string with 1 role in it or an array of roles.
+         * casting to an array means it will always be an array.
+         */
+        $roles = (array) $user->roles;
+
+        if (! in_array($role, $roles, true)) { // if its an array check the role is in that array
+            $message = sprintf(
+                'User with login : %s exists, but role %s is not in the list of applied roles: %s',
+                $user->user_login,
+                $role,
+                $roles
+            );
+            throw new \UnexpectedValueException($message);
         }
 
         return true;
@@ -212,7 +223,7 @@ trait UserAwareContextTrait
             'user_status',
             'url'
         );
-        return in_array(strtolower($user_parameter), $validUserParameters);
+        return in_array(strtolower($user_parameter), $validUserParameters, true);
     }
 
     /**

@@ -46,6 +46,15 @@ class DatabaseElement extends BaseElement
     public function update($id, $args = [])
     {
         $this->drivers->getDriver()->wpcli('db', 'import', [$args['path']]);
+
+        /*
+         * The WPPHP driver needs the WP cache flushed at this point. However
+         * WPCLI appears to function without it. This is a note to remind us
+         * so that if we see any strange behaviour with caching which is WPCLI
+         * specific we might catch it. There's a discussion about it here:
+         *
+         * https://github.com/paulgibbs/behat-wordpress-extension/pull/150
+         */
     }
 
 
