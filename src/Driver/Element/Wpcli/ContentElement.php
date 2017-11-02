@@ -108,8 +108,13 @@ class ContentElement extends BaseElement
         if (! is_numeric($id)) {
             $wpcli_args = ['--fields=ID,url', "--{$args['by']}=" . escapeshellarg($id), '--post_type=any', '--format=json'];
             $result     = json_decode($this->drivers->getDriver()->wpcli('post', 'list', $wpcli_args)['stdout']);
-            $id         = (int) $result[0]->ID;
-            $url        = $result[0]->url;
+
+            if (empty($result)) {
+                throw new UnexpectedValueException(sprintf('Could not find post with ID %d', $id));
+            }
+
+            $id  = (int) $result[0]->ID;
+            $url = $result[0]->url;
         }
 
         // Fetch by ID.

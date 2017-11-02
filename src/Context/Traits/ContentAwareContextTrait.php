@@ -60,11 +60,11 @@ trait ContentAwareContextTrait
     /**
      * Delete specified content.
      *
-     * @param int   $contentId    ID of content to delete.
-     * @param array $args  Optional. Extra parameters to pass to WordPress.
+     * @param int   $content_id ID of content to delete.
+     * @param array $args       Optional. Extra parameters to pass to WordPress.
      */
-    public function deleteContent($contentId, $args = [])
+    public function deleteContent($content_id, $args = [])
     {
-        $this->getDriver()->content->delete($contentId, $args);
+        $this->getDriver()->content->delete($content_id, $args);
     }
 }
