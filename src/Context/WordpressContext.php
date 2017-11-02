@@ -7,7 +7,6 @@ use Behat\Mink\Driver\Selenium2Driver;
 use PaulGibbs\WordpressBehatExtension\Context\Traits\CacheAwareContextTrait;
 use PaulGibbs\WordpressBehatExtension\Context\Traits\DatabaseAwareContextTrait;
 use PaulGibbs\WordpressBehatExtension\Context\Traits\PageObjectAwareContextTrait;
-use PaulGibbs\WordpressBehatExtension\PageObject\DashboardPage;
 
 /**
  * Provides step definitions for a range of common tasks. Recommended for all test suites.
@@ -17,22 +16,11 @@ class WordpressContext extends RawWordpressContext
     use PageObjectAwareContextTrait, CacheAwareContextTrait, DatabaseAwareContextTrait;
 
     /**
-     * Dashboard (wp-admin/index.php) object.
-     *
-     * @var DashboardPage
-     */
-    protected $dashboard;
-
-    /**
      * Constructor.
-     *
-     * @param DashboardPage $dashboard Dashboard object.
      */
-    public function __construct(DashboardPage $dashboard)
+    public function __construct()
     {
         parent::__construct();
-
-        $this->dashboard = $dashboard;
     }
 
     /**
@@ -134,27 +122,5 @@ class WordpressContext extends RawWordpressContext
         }
 
         $this->importDatabase(['path' => $file]);
-    }
-
-    /*
-     * Step definitions lurk beyond.
-     */
-
-    /**
-     * Open the dashboard.
-     *
-     * Example: Given I am on the dashboard
-     * Example: Given I am in wp-admin
-     * Example: When I go to the dashboard
-     * Example: When I go to wp-admin
-     *
-     * @Given /^(?:I am|they are) on the dashboard/
-     * @Given /^(?:I am|they are) in wp-admin/
-     * @When /^(?:I|they) go to the dashboard/
-     * @When /^(?:I|they) go to wp-admin/
-     */
-    public function iAmOnDashboard()
-    {
-        $this->dashboard->open();
     }
 }
