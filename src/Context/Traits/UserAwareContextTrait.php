@@ -4,6 +4,7 @@ namespace PaulGibbs\WordpressBehatExtension\Context\Traits;
 use Behat\Mink\Exception\DriverException;
 use Behat\Mink\Exception\ExpectationException;
 use Behat\Mink\Exception\UnsupportedDriverActionException;
+use UnexpectedValueException;
 
 /**
  * Provides driver agnostic logic (helper methods) relating to users.
@@ -84,17 +85,23 @@ trait UserAwareContextTrait
         return false;
     }
 
-
     /**
      * Create a user.
      *
-     * @param string $userLogin  User login name.
-     * @param string $userEmail  User email address.
-     * @param array  $args        Optional. Extra parameters to pass to WordPress.
+     * If the user already exists, the existing user will be
+     * compared with the user which was asked to be created. If all matches
+     * no fault with be thrown. If it does not match then UnexpectedValueException
+     * will be thrown.
+     *
+     * @param string $userLogin User login name.
+     * @param string $userEmail User email address.
+     * @param array  $args      Optional. Extra parameters to pass to WordPress.
+     *
+     * @throws \UnexpectedValueException
      *
      * @return array {
-     *         @type int $id User ID.
-     *         @type string $slug User slug (nicename).
+     *             @type int $id User ID.
+     *             @type string $slug User slug (nicename).
      *         }
      */
     public function createUser($userLogin, $userEmail, $args = [])
@@ -102,12 +109,120 @@ trait UserAwareContextTrait
         $args['user_email'] = $userEmail;
         $args['user_login'] = $userLogin;
 
-        $user = $this->getDriver()->user->create($args);
+        try {
+            $user = $this->getDriver()->user->create($args);
+        } catch (UnexpectedValueException $exception) {
+            $user = $this->getExistingMatchingUser($args);
+        }
 
-        return array(
+        $return_array = array(
             'id'   => $user->ID,
             'slug' => $user->user_nicename
         );
+
+        return $return_array;
+    }
+
+    /**
+     * Get a user which matches all parameters.
+     *
+     * Fetches a user if all the passed parameters match
+     * if none is found then UnexpectedValueException is thrown.
+     *
+     * @param array $args Keyed array of parameters.
+     *
+     * @throws \UnexpectedValueException
+     *
+     * @return \WP_User $user
+     */
+    private function getExistingMatchingUser($args)
+    {
+        $user_id = $this->getUserIdFromLogin($args['user_login']);
+        $user = $this->getDriver()->user->get($user_id);
+
+        /* users can have more than one role so needs to be a special case */
+        if (array_key_exists('role', $args)) {
+            $this->checkUserHasRole($user, $args['role']);
+        }
+
+        /*
+         * Loop through each of the passed arguements.
+         * if they are arguments which apply to users
+         * then check that that which exist matches that which was specified.
+         */
+        foreach ($args as $parameter => $value) {
+            if ($parameter === 'password') {
+                try {
+                    if (! $this->getDriver()->user->validateCredentials($args['user_login'], $value)) {
+                        throw new \UnexpectedValueException('User with login : ' . $user->user_login . ' exists but password is incorrect');
+                    }
+                } catch (UnsupportedDriverActionException $exception) {
+                    // WPCLI can't do this yet.
+                }
+            }
+            if ($this->isValidUserParameter($parameter) && $user->$parameter !== $args[$parameter]) {
+                throw new \UnexpectedValueException('User with login : ' . $user->user_login . 'exists, but ' . $parameter . ' is ' . $user->$parameter . ' not ' . $args[$parameter] . 'which was specified');
+            }
+        }
+
+        return $user;
+    }
+
+    /**
+     * Checks to see if the user has an assigned role or not.
+     *
+     * @param \WP_User $user
+     * @param string $role
+     *
+     * @throws \UnexpectedValueException
+     *
+     * @return boolean $retval True if the role does apply to the user.
+     */
+    private function checkUserHasRole($user, $role)
+    {
+        /*
+         * $user->roles can either be a string with 1 role in it or an array of roles.
+         * casting to an array means it will always be an array.
+         */
+        $roles = (array) $user->roles;
+
+        if (! in_array($role, $roles, true)) { // if its an array check the role is in that array
+            $message = sprintf(
+                'User with login : %s exists, but role %s is not in the list of applied roles: %s',
+                $user->user_login,
+                $role,
+                $roles
+            );
+            throw new \UnexpectedValueException($message);
+        }
+
+        return true;
+    }
+
+    /**
+     * Checks to see if the passed in parameter applies to a user or not.
+     *
+     * @param string $user_parameter the parameter to be checked.
+     *
+     * @return boolean $retval True if the parameter does apply to a user.
+     */
+    private function isValidUserParameter(string $user_parameter)
+    {
+        $validUserParameters = array(
+            'id',
+            'user_login',
+            'display_name',
+            'user_email',
+            'user_registered',
+            'roles',
+            // 'user_pass', - exclude the password for the moment - need special logic for it
+            'user_nicename',
+            'user_url',
+            'user_activation_key',
+            'user_status',
+            'url'
+        );
+        return in_array(strtolower($user_parameter), $validUserParameters, true);
     }
 
     /**
@@ -127,7 +242,7 @@ trait UserAwareContextTrait
     /**
      * Delete a user.
      *
-     * @param int   $userId   ID of user to delete.
+     * @param int $userId ID of user to delete.
      * @param array $args Optional. Extra parameters to pass to WordPress.
      */
     public function deleteUser($userId, $args = [])

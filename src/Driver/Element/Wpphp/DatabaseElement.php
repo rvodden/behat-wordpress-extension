@@ -121,6 +121,15 @@ class DatabaseElement extends BaseElement
                 )
             );
         }
+
+        /*
+         * clear the cache after restoration - this is probably only necessary
+         * because of some kind of global state issue - the WPCLI driver doensn't
+         * need it. There is some discussion about it here:
+         *
+         * https://github.com/paulgibbs/behat-wordpress-extension/pull/150
+         */
+        \wp_cache_flush();
     }
 
 

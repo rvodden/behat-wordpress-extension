@@ -68,21 +68,9 @@ class ContentElement extends BaseElement
             throw new UnexpectedValueException(sprintf('Could not find content with ID %d', $id));
         }
 
-        $post->url = $this->getPermalink($post->ID);
+        $post->url = get_permalink($post);
 
         return $post;
-    }
-
-    /**
-     * Retrieve the permalink for this post
-     *
-     * @param int $postId the ID of the Post
-     *
-     * @return string $url the permalink
-     */
-    public function getPermalink($postId)
-    {
-        return \get_permalink($postId);
     }
 
     /**

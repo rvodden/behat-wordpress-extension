@@ -1,7 +1,7 @@
 <?php
 namespace PaulGibbs\WordpressBehatExtension\Context;
 
-use PaulGibbs\WordpressBehatExtension\PageObject\AdminPage;
+use PaulGibbs\WordpressBehatExtension\PageObject\DashboardPage;
 
 /**
  * Provides step definitions that are specific to the WordPress dashboard (wp-admin).
@@ -9,22 +9,40 @@ use PaulGibbs\WordpressBehatExtension\PageObject\AdminPage;
 class DashboardContext extends RawWordpressContext
 {
     /**
-     * Non-specific admin page (wp-admin/) object.
+     * Dashboard page object.
      *
-     * @var AdminPage
+     * @var DashboardPage
      */
     protected $admin_page;
 
     /**
      * Constructor.
      *
-     * @param AdminPage $admin_page AdminPage object.
+     * @param DashboardPage $admin_page
      */
-    public function __construct(AdminPage $admin_page)
+    public function __construct(DashboardPage $admin_page)
     {
         parent::__construct();
 
         $this->admin_page = $admin_page;
+    }
+
+    /**
+     * Open the dashboard.
+     *
+     * Example: Given I am on the dashboard
+     * Example: Given I am in wp-admin
+     * Example: When I go to the dashboard
+     * Example: When I go to wp-admin
+     *
+     * @Given /^(?:I am|they are) on the dashboard/
+     * @Given /^(?:I am|they are) in wp-admin/
+     * @When /^(?:I|they) go to the dashboard/
+     * @When /^(?:I|they) go to wp-admin/
+     */
+    public function iAmOnDashboard()
+    {
+        $this->admin_page->open();
     }
 
     /**

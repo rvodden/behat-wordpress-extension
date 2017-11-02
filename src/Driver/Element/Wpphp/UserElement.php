@@ -58,6 +58,20 @@ class UserElement extends BaseElement
     }
 
     /**
+     * Checks that the username and password are correct.
+     *
+     * @param string $username
+     * @param string $password
+     *
+     * @return boolean True if the username and password are correct.
+     */
+    public function validateCredentials(string $username, string $password)
+    {
+        $check = \wp_authenticate_username_password(null, $username, $password);
+        return !\is_wp_error($check);
+    }
+
+    /**
      * Delete an item for this element.
      *
      * @param int $id Object ID.
