@@ -63,8 +63,9 @@ class DashboardContext extends RawWordpressContext
      * Assert the text in the page header tag matches the given string.
      *
      * Example: Then I should be on the "Posts" page
+     * Example: Then I should be on the "Posts" screen
      *
-     * @Then I should be on the :admin_page page
+     * @Then I should be on the :admin_page (page|screen)
      *
      * @param string $admin_page
      */

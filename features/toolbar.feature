@@ -11,7 +11,7 @@ Feature: Toolbar
 
   Scenario: I can add a new page
     When I follow the toolbar link "New > Page"
-    Then I should be on the "Add New Page" page
+    Then I should be on the "Add New Page" screen
 
   @db
   Scenario: I can search using the toolbar
