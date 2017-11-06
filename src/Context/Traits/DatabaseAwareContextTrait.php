@@ -9,22 +9,6 @@ trait DatabaseAwareContextTrait
     use BaseAwarenessTrait;
 
     /**
-     * Start a database transaction.
-     */
-    public function startTransaction()
-    {
-        $this->getDriver()->database->startTransaction();
-    }
-
-    /**
-     * End (rollback) a database transaction.
-     */
-    public function endTransaction()
-    {
-        $this->getDriver()->database->endTransaction();
-    }
-
-    /**
      * Export WordPress database.
      *
      * @param array $args
