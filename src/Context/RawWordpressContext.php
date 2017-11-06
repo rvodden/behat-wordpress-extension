@@ -130,25 +130,6 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
     }
 
     /**
-     * Wrap a closure in a spin check.
-     *
-     * This is a technique to accommodate in-progress state changes in a web page (i.e. waiting for new data to load)
-     * by retrying the action for a given number of attempts, each delayed by 1 second. The closure is expected to
-     * throw an exception should the expected state not (yet) exist.
-     *
-     * To avoid doubt, you should only need to spin when waiting for an AJAX response, after initial page load.
-     *
-     * @deprecated Use PaulGibbs\WordpressBehatExtension\Util\spins
-     *
-     * @param callable $closure Action to execute.
-     * @param int      $wait    Optional. How long to wait before giving up, in seconds.
-     */
-    public function spins(callable $closure, $wait = 60)
-    {
-        Util\spins($closure, $wait);
-    }
-
-    /**
      * Clear Mink's browser environment.
      */
     public function resetBrowser()
