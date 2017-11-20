@@ -46,7 +46,7 @@ class DashboardContext extends RawWordpressContext
     }
 
     /**
-     * Click a link within the page header tag.
+     * Click a link within the screen header tag.
      *
      * Example: When I click on the "Add New" link in the header
      *
@@ -60,30 +60,27 @@ class DashboardContext extends RawWordpressContext
     }
 
     /**
-     * Assert the text in the page header tag matches the given string.
+     * Assert the text in the screen header tag matches the given string.
      *
-     * Example: Then I should be on the "Posts" page
      * Example: Then I should be on the "Posts" screen
      *
-     * @Then I should be on the :admin_page (page|screen)
+     * @Then I should be on the :admin_screen screen
      *
-     * @param string $admin_page
+     * @param string $admin_screen
      */
-    public function iShouldBeOnThePage($admin_page)
+    public function iShouldBeOnTheScreen($admin_screen)
     {
-        $this->admin_page->assertHasHeader($admin_page);
+        $this->admin_page->assertHasHeader($admin_screen);
     }
 
     /**
-     * Go to a given page on the admin menu.
+     * Go to a given screen on the admin menu.
      *
-     * In 1.0.0, the regex will simplify to 'I go to the menu "foobar"'.
-     *
-     * Example: Given I go to menu item "Posts > Add New"
-     * Example: Given I go to the menu item "Users"
+     * Example: Given I go to the "Users" menu
      * Example: Given I go to the menu "Settings > Reading"
      *
-     * @Given I go to (the )menu (item ):item
+     * @Given I go to the menu :item
+     * @Given I go to the :item menu
      *
      * @param string $item
      */
