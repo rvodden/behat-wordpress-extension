@@ -17,7 +17,7 @@ trait PageObjectAwareContextTrait
     /**
      * Creates a page object from its name.
      *
-     * @param string $name The name of the page object e.g 'Admin page'
+     * @param string $name The name of the page object e.g 'Admin page'.
      *
      * @throws \RuntimeException
      *

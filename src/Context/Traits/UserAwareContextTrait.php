@@ -22,13 +22,13 @@ trait UserAwareContextTrait
      *
      * @throws ExpectationException
      */
-    public function logIn($username, $password, $redirectTo = '/')
+    public function logIn($username, $password, $redirect_to = '/')
     {
         if ($this->loggedIn()) {
             $this->logOut();
         }
 
-        $this->visitPath('wp-login.php?redirect_to=' . urlencode($this->locatePath($redirectTo)));
+        $this->visitPath('wp-login.php?redirect_to=' . urlencode($this->locatePath($redirect_to)));
         $page = $this->getSession()->getPage();
 
         $node = $page->findField('user_login');
@@ -93,9 +93,9 @@ trait UserAwareContextTrait
      * no fault with be thrown. If it does not match then UnexpectedValueException
      * will be thrown.
      *
-     * @param string $userLogin User login name.
-     * @param string $userEmail User email address.
-     * @param array  $args      Optional. Extra parameters to pass to WordPress.
+     * @param string $user_login User login name.
+     * @param string $user_email User email address.
+     * @param array  $args       Optional. Extra parameters to pass to WordPress.
      *
      * @throws \UnexpectedValueException
      *
@@ -104,10 +104,10 @@ trait UserAwareContextTrait
      *             @type string $slug User slug (nicename).
      *         }
      */
-    public function createUser($userLogin, $userEmail, $args = [])
+    public function createUser($user_login, $user_email, $args = [])
     {
-        $args['user_email'] = $userEmail;
-        $args['user_login'] = $userLogin;
+        $args['user_email'] = $user_email;
+        $args['user_login'] = $user_login;
 
         try {
             $user = $this->getDriver()->user->create($args);
@@ -138,7 +138,7 @@ trait UserAwareContextTrait
     private function getExistingMatchingUser($args)
     {
         $user_id = $this->getUserIdFromLogin($args['user_login']);
-        $user = $this->getDriver()->user->get($user_id);
+        $user    = $this->getDriver()->user->get($user_id);
 
         /* users can have more than one role so needs to be a special case */
         if (array_key_exists('role', $args)) {
@@ -154,14 +154,15 @@ trait UserAwareContextTrait
             if ($parameter === 'password') {
                 try {
                     if (! $this->getDriver()->user->validateCredentials($args['user_login'], $value)) {
-                        throw new \UnexpectedValueException('User with login : ' . $user->user_login . ' exists but password is incorrect');
+                        throw new UnexpectedValueException('User with login : ' . $user->user_login . ' exists but password is incorrect');
                     }
                 } catch (UnsupportedDriverActionException $exception) {
                     // WPCLI can't do this yet.
                 }
             }
+
             if ($this->isValidUserParameter($parameter) && $user->$parameter !== $args[$parameter]) {
-                throw new \UnexpectedValueException('User with login : ' . $user->user_login . 'exists, but ' . $parameter . ' is ' . $user->$parameter . ' not ' . $args[$parameter] . 'which was specified');
+                throw new UnexpectedValueException('User with login : ' . $user->user_login . 'exists, but ' . $parameter . ' is ' . $user->$parameter . ' not ' . $args[$parameter] . 'which was specified');
             }
         }
 
@@ -172,7 +173,7 @@ trait UserAwareContextTrait
      * Checks to see if the user has an assigned role or not.
      *
      * @param \WP_User $user
-     * @param string $role
+     * @param string   $role
      *
      * @throws \UnexpectedValueException
      *
@@ -242,11 +243,11 @@ trait UserAwareContextTrait
     /**
      * Delete a user.
      *
-     * @param int $userId ID of user to delete.
-     * @param array $args Optional. Extra parameters to pass to WordPress.
+     * @param int $user_id ID of user to delete.
+     * @param array $args  Optional. Extra parameters to pass to WordPress.
      */
-    public function deleteUser($userId, $args = [])
+    public function deleteUser($user_id, $args = [])
     {
-        $this->getDriver()->user->delete($userId, $args);
+        $this->getDriver()->user->delete($user_id, $args);
     }
 }
