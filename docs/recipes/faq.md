@@ -2,6 +2,9 @@
 
 If you are new to the project or Behat, we recommend that you first [read through our documentation](https://wordhat.info/). For any questions, feedback, or to contribute, you can get in contact with us via Github or our [Slack](https://wordhat.herokuapp.com).
 
+## Virtual machines (Vagrant)
+* If you are using a Vagrant-powered virtual machine to run Behat via the [WP-CLI driver](features/overview/index.html#wp-cli), you will need to `vagrant ssh` into the box once. This will set up password-less authentication; otherwise, WordHat will prompt you for the SSH password frequently.
+
 ## Drivers
 * If you are using the WP-CLI driver to [connect to a remote WordPress site over SSH](https://make.wordpress.org/cli/handbook/running-commands-remotely/), WordHat assumes the remote server is Linux-like, with a shell that provides [GNU Coreutils](https://www.gnu.org/software/coreutils/coreutils.html).
 * To configure WordHat to use a specific driver, set [`default_driver`](/configuration/settings.md) in your `behat.yml`.
