@@ -55,11 +55,13 @@ class WidgetElement extends BaseElement
     }
 
     /**
-     * Gets a sidebar ID from its human-readable name
+     * Gets a sidebar ID from its human-readable name.
      *
-     * @param string $sidebar_name The name of the sidebar (e.g. 'Footer', 'Widget Area', 'Right Sidebar')
-     * @return string The sidebar ID
-     * @throws UnexpectedValueException If the sidebar is not registered
+     * @param string $sidebar_name The name of the sidebar (e.g. 'Footer', 'Widget Area', 'Right Sidebar').
+     *
+     * @return string The sidebar ID.
+     *
+     * @throws UnexpectedValueException If the sidebar is not registered.
      */
     public function getSidebar($sidebar_name)
     {

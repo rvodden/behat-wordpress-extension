@@ -13,7 +13,7 @@ trait TermAwareContextTrait
      *
      * @param string $term
      * @param string $taxonomy
-     * @param array  $args        Optional. Set the values of the new term.
+     * @param array  $args     Optional. Set the values of the new term.
      *
      * @return array {
      *             @type int $id Term ID.
@@ -36,11 +36,11 @@ trait TermAwareContextTrait
     /**
      * Delete a term from a taxonomy.
      *
-     * @param int $termId
+     * @param int    $term_id
      * @param string $taxonomy
      */
-    public function deleteTerm($termId, $taxonomy)
+    public function deleteTerm($term_id, $taxonomy)
     {
-        $this->getDriver()->term->delete($termId, compact($taxonomy));
+        $this->getDriver()->term->delete($term_id, compact($taxonomy));
     }
 }

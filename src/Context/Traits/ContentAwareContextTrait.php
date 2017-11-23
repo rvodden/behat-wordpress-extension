@@ -14,9 +14,9 @@ trait ContentAwareContextTrait
      * @param array $args Set the values of the new content item.
      *
      * @return array {
-     *             @type int $id Content ID.
+     *             @type int    $id   Content ID.
      *             @type string $slug Content slug.
-     *             @type string $url Content permalink.
+     *             @type string $url  Content permalink.
      *         }
      */
     public function createContent($args)
