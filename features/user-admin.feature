@@ -3,9 +3,9 @@ Feature: Managing users
   Scenario: I can add a new user
     Given I am logged in as an admin
     And I am on the dashboard
-    And I go to menu item "Users"
+    And I go to the "Users" menu
     When I click on the "Add New" link in the header
-    Then I should be on the "Add New User" page
+    Then I should be on the "Add New User" screen
 
   @javascript @db
   Scenario: I can log in as a user which has been added
