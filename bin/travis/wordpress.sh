@@ -29,10 +29,10 @@ vendor/bin/wp db create --path=$WH_WORDPRESS_DIR
 vendor/bin/wp core install --path=$WH_WORDPRESS_DIR --url="wordpress.dev:8080" --title="wordpress.dev" --admin_user="admin" --admin_password="password" --admin_email="admin@example.com"
 
 # Sensible defaults.
-wp rewrite structure '/%year%/%monthnum%/%postname%/'
+vendor/bin/wp rewrite structure '/%year%/%monthnum%/%postname%/'
 
-for sidebar in $(wp sidebar list --format=ids); do
-  for widget in $(wp widget list $sidebar --format=ids); do
-    wp widget delete $widget
+for sidebar in $(vendor/bin/wp sidebar list --format=ids); do
+  for widget in $(vendor/bin/wp widget list $sidebar --format=ids); do
+    vendor/bin/wp widget delete $widget
   done;
 done;
