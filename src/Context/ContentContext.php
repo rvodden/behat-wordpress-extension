@@ -2,6 +2,7 @@
 namespace PaulGibbs\WordpressBehatExtension\Context;
 
 use UnexpectedValueException;
+use RuntimeException;
 use Behat\Gherkin\Node\TableNode;
 use PaulGibbs\WordpressBehatExtension\Context\Traits\ContentAwareContextTrait;
 use PaulGibbs\WordpressBehatExtension\Context\Traits\UserAwareContextTrait;
@@ -84,5 +85,32 @@ class ContentContext extends RawWordpressContext
         }
 
         return $post_data;
+    }
+
+    /**
+     * @Given I delete the post :post_title
+     */
+    public function iDeleteThePost($post_title)
+    {
+        $post = $this->getContentFromTitle($post_title);
+        $this->deleteContent($post['id'], ['force' => true]);
+    }
+
+    /**
+     * @Then I should not be able to view the post :post_title
+     *
+     * @throws RuntimeException
+     */
+    public function iShouldNotBeAbleToViewThePost($post_title)
+    {
+        try {
+            $this->getContentFromTitle($post_title);
+        } catch (UnexpectedValueException $e) {
+            // This is expected to fail.
+            return;
+        }
+
+        // Throw a wobbly if the content exists.
+        throw new RuntimeException(sprintf('Could not delete content: "%s"', $post_title));
     }
 }

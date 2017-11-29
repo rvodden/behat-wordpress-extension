@@ -26,4 +26,13 @@ vendor/bin/wp core config --path=$WH_WORDPRESS_DIR --dbname=$DB_NAME --dbuser=$D
 
 # Install.
 vendor/bin/wp db create --path=$WH_WORDPRESS_DIR
-vendor/bin/wp core install --path=$WH_WORDPRESS_DIR --url="wordpress.dev:8080" --title="wordpress.dev" --admin_user="admin" --admin_password="password" --admin_email="admin@wp.dev"
+vendor/bin/wp core install --path=$WH_WORDPRESS_DIR --url="wordpress.dev:8080" --title="wordpress.dev" --admin_user="admin" --admin_password="password" --admin_email="admin@example.com"
+
+# Sensible defaults.
+vendor/bin/wp rewrite structure --path=$WH_WORDPRESS_DIR '/%year%/%monthnum%/%postname%/'
+
+for sidebar in $(vendor/bin/wp sidebar list --path=$WH_WORDPRESS_DIR --format=ids); do
+  for widget in $(vendor/bin/wp widget list $sidebar --path=$WH_WORDPRESS_DIR --format=ids); do
+    vendor/bin/wp widget delete --path=$WH_WORDPRESS_DIR $widget
+  done;
+done;

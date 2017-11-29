@@ -1,4 +1,4 @@
-Feature: Logging in, Logging out
+Feature: User authentication
 
   @javascript
   Scenario: I can log-in and out with javascript

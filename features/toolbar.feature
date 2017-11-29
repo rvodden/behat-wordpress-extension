@@ -11,7 +11,7 @@ Feature: Toolbar
 
   Scenario: I can add a new page
     When I follow the toolbar link "New > Page"
-    Then I should be on the "Add New Page" page
+    Then I should be on the "Add New Page" screen
 
   @db
   Scenario: I can search using the toolbar
@@ -20,3 +20,8 @@ Feature: Toolbar
        | page      | Test Post  | Hello World  | publish     |
     When I search for "Hello World" in the toolbar
     Then I should see "Search results"
+
+  Scenario: I can search for text within the toolbar
+    Given I am logged in as an admin
+    And I am on the homepage
+    Then I should see "Howdy, admin" in the Toolbar

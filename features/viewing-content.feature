@@ -1,5 +1,5 @@
 @db
-Feature: Viewing posts
+Feature: Viewing content
 
     Background:
         Given there are posts:
@@ -18,3 +18,7 @@ Feature: Viewing posts
         Given I am viewing the post "Just my article"
         Then I should see "Just my article"
         And I should see "The content of my article"
+
+    Scenario: Deleting an existing post
+        Given I delete the post "Just my article"
+        Then I should not be able to view the post "Just my article"

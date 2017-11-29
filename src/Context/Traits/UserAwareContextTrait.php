@@ -227,7 +227,7 @@ trait UserAwareContextTrait
     }
 
     /**
-     * Get a User's ID from their username.
+     * Get a user's ID from their username.
      *
      * @param string $username The username of the user to get the ID of.
      *
@@ -249,5 +249,20 @@ trait UserAwareContextTrait
     public function deleteUser($user_id, $args = [])
     {
         $this->getDriver()->user->delete($user_id, $args);
+    }
+
+    /**
+     * Get a piece of user data from their username.
+     *
+     * @param string $data     The user data to return (the name of a column from the WP_Users table).
+     * @param string $username The username of the user to fetch a property from.
+     *
+     * @throws \UnexpectedValueException If provided data is invalid
+     *
+     * @return mixed The specified user data.
+     */
+    public function getUserDataFromUsername($data, $username)
+    {
+        return $this->getDriver()->user->get($username, ['by' => 'login'])->{$data};
     }
 }
