@@ -2,6 +2,7 @@
 namespace PaulGibbs\WordpressBehatExtension\Context;
 
 use Behat\Gherkin\Node\TableNode;
+use Behat\Mink\Exception\ExpectationException;
 use RuntimeException;
 
 /**
@@ -38,6 +39,20 @@ class UserContext extends RawWordpressContext
         }
 
         $this->setWordpressParameters($params);
+    }
+
+    /**
+     * Delete the specified user account.
+     *
+     * Example: When I delete the "test" user account
+     *
+     * @When I delete the :user_login user account
+     *
+     * @param string $user_login
+     */
+    public function iDeleteTheUserAccount($user_login)
+    {
+        $this->deleteUser($this->getUserIdFromLogin($user_login));
     }
 
     /**
@@ -93,5 +108,37 @@ class UserContext extends RawWordpressContext
         }
 
         $this->logIn($users[$role]['username'], $users[$role]['password']);
+    }
+
+    /**
+     * Try to log user in, but expect failure.
+     *
+     * Example: Then I should not be able to log in as an editor
+     *
+     * @Then /^(?:I|they) should not be able to log in as (?:a |an )?(.+)$/
+     *
+     * @param string $role
+     *
+     * @throws ExpectationException
+     */
+    public function iShouldNotBeAbleToLogInAs($role)
+    {
+        try {
+            $this->iAmLoggedInAs($role);
+        } catch (ExpectationException $e) {
+            // Expectation fulfilled.
+            return;
+        } catch (RuntimeException $e) {
+            // Expectation fulfilled.
+            return;
+        }
+
+        throw new ExpectationException(
+            sprintf(
+                'The user "%s" was logged-in succesfully. This should not have happened.',
+                $role
+            ),
+            $this->getSession()->getDriver()
+        );
     }
 }
