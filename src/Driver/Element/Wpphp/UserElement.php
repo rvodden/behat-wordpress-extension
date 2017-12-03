@@ -81,6 +81,10 @@ class UserElement extends BaseElement
      */
     public function delete($id, $args = [])
     {
+        if (! function_exists('\wp_delete_user')) {
+            require_once ABSPATH . 'wp-admin/includes/user.php';
+        }
+
         $result = wp_delete_user($id, $args);
 
         if (! $result) {
