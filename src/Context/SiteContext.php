@@ -1,14 +1,12 @@
 <?php
 namespace PaulGibbs\WordpressBehatExtension\Context;
 
-use PaulGibbs\WordpressBehatExtension\Context\Traits\CacheAwareContextTrait;
-
 /**
  * Provides step definitions for managing plugins and themes.
  */
 class SiteContext extends RawWordpressContext
 {
-    use CacheAwareContextTrait;
+    use Traits\CacheAwareContextTrait, Traits\PluginAwareContextTrait, Traits\ThemeAwareContextTrait;
 
     /**
      * Clear object cache.
@@ -22,5 +20,31 @@ class SiteContext extends RawWordpressContext
     public function cacheIsCleared()
     {
         $this->clearCache();
+    }
+
+    /**
+     * Active a plugin.
+     *
+     * Example: When I activate the "hello" plugin
+     * Example: Given the "hello" plugin is active
+     *
+     * @Given the :plugin plugin is active
+     * @When I activate the :plugin plugin
+     */
+    public function iActivateThePlugin($plugin)
+    {
+        $this->activatePlugin($plugin);
+    }
+
+    /**
+     * Deactivate a plugin.
+     *
+     * Example: When I deactivate the "hello" plugin
+     *
+     * @When I deactivate the :plugin plugin
+     */
+    public function iDeactivateThePlugin($plugin)
+    {
+        $this->deactivatePlugin($plugin);
     }
 }
