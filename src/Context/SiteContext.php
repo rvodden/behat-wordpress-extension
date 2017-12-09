@@ -28,12 +28,12 @@ class SiteContext extends RawWordpressContext
      * Example: When I activate the "hello" plugin
      * Example: Given the "hello" plugin is active
      *
-     * @Given the :plugin plugin is active
-     * @When I activate the :plugin plugin
+     * @Given the :name plugin is active
+     * @When I activate the :name plugin
      */
-    public function iActivateThePlugin($plugin)
+    public function iActivateThePlugin($name)
     {
-        $this->activatePlugin($plugin);
+        $this->activatePlugin($name);
     }
 
     /**
@@ -41,10 +41,10 @@ class SiteContext extends RawWordpressContext
      *
      * Example: When I deactivate the "hello" plugin
      *
-     * @When I deactivate the :plugin plugin
+     * @When I deactivate the :name plugin
      */
-    public function iDeactivateThePlugin($plugin)
+    public function iDeactivateThePlugin($name)
     {
-        $this->deactivatePlugin($plugin);
+        $this->deactivatePlugin($name);
     }
 }
