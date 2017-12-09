@@ -47,4 +47,12 @@ class SiteContext extends RawWordpressContext
     {
         $this->deactivatePlugin($name);
     }
+
+    /**
+     * @When I switch the theme to :name
+     */
+    public function iSwitchTheThemeTo($name)
+    {
+        $this->switchTheme($name);
+    }
 }
