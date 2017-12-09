@@ -1,5 +1,8 @@
 @db
-Feature: Plugins
+Feature: Managing plugins
+
+  Background:
+    Given I am logged in as an admin
 
   Scenario: Activate a plugin
     When I activate the "hello" plugin
