@@ -65,7 +65,8 @@ test_script:
   - vendor\bin\wp core install --path=c:\inetpub\wwwroot --url="localhost" --title="wordhat site" --admin_user="admin" --admin_password="password" --admin_email="admin@example.com"
 
   # Sensible defaults.
-  - vendor\bin\wp rewrite structure --path=c:\inetpub\wwwroot '/%year%/%monthnum%/%postname%/'
+  - vendor\bin\wp theme activate --path=c:\inetpub\wwwroot twentyseventeen
+  #- vendor\bin\wp rewrite structure --path=c:\inetpub\wwwroot '/%year%/%monthnum%/%postname%/'
   - ps: |
       $sidebars=vendor\bin\wp sidebar list --path=c:\inetpub\wwwroot --format=ids
       $sidebars=$sidebars.split(' ')
@@ -76,7 +77,7 @@ test_script:
               $widgets=$widgets.split(' ')
 
               Foreach ($widget in $widgets) {
-                  vendor\bin\wp widget delete $widget --path=c:\inetpub\wwwroot 
+                  vendor\bin\wp widget delete $widget --path=c:\inetpub\wwwroot
               }
           }
       }
