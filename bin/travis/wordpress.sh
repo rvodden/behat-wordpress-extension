@@ -29,6 +29,7 @@ vendor/bin/wp db create --path=$WH_WORDPRESS_DIR
 vendor/bin/wp core install --path=$WH_WORDPRESS_DIR --url="wordpress.dev:8080" --title="wordpress.dev" --admin_user="admin" --admin_password="password" --admin_email="admin@example.com"
 
 # Sensible defaults.
+vendor/bin/wp theme activate --path=$WH_WORDPRESS_DIR twentyseventeen
 vendor/bin/wp rewrite structure --path=$WH_WORDPRESS_DIR '/%year%/%monthnum%/%postname%/'
 
 for sidebar in $(vendor/bin/wp sidebar list --path=$WH_WORDPRESS_DIR --format=ids); do
