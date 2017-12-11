@@ -8,8 +8,7 @@ php:
 cache:
   apt: true
   directories:
-    - vendor
-    - $HOME/.composer/cache
+    - $HOME/.composer/cache/files
 
 env:
   - WP_VERSION=latest BEHAT_PARAMS='{"extensions":{"PaulGibbs\\WordpressBehatExtension":{"default_driver":"wpphp"}}}'
