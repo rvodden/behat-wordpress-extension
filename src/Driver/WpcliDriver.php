@@ -118,7 +118,6 @@ class WpcliDriver extends BaseDriver
         }
 
         $command = "{$this->binary} {$config} --no-color {$command} {$subcommand} {$arguments}";
-        echo PHP_EOL . $command . PHP_EOL;
 
         // Query WP-CLI.
         $proc = proc_open(
