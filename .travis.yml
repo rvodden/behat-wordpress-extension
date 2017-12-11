@@ -60,7 +60,7 @@ script:
   # Execute all of the commands which should make the build pass or fail.
   - find ./src -name "*.php" -print0 | xargs -0 -n1 -P8 php -l
   - vendor/bin/phpcs --standard=phpcs-ruleset.xml -p -s -v -n src --extensions=php
-  - vendor/bin/behat --format progress --config ./bin/travis/behat.yml
+  - vendor/bin/behat --tags="~@javascript" --format progress --config ./bin/travis/behat.yml
 
 after_script:
   # Tidy up after test run.
