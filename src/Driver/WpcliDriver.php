@@ -117,9 +117,12 @@ class WpcliDriver extends BaseDriver
             $config = "@{$this->alias}";
         }
 
+        $command = "{$this->binary} {$config} --no-color {$command} {$subcommand} {$arguments}";
+        echo PHP_EOL . $command . PHP_EOL;
+
         // Query WP-CLI.
         $proc = proc_open(
-            "{$this->binary} {$config} --no-color {$command} {$subcommand} {$arguments}",
+            $command,
             array(
                 1 => ['pipe', 'w'],
             ),
@@ -137,9 +140,10 @@ class WpcliDriver extends BaseDriver
 
             throw new UnexpectedValueException(
                 sprintf(
-                    "WP-CLI driver failure in method %1\$s(): \n%2\$s\n(%3\$s)",
+                    "WP-CLI driver failure in method %1\$s():\n%2\$s.\nTried to run: %3\$s\n(%4\$s)",
                     debug_backtrace()[1]['function'],
                     $stdout,
+                    $command,
                     $exit_code
                 )
             );
