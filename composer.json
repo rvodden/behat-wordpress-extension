@@ -35,5 +35,12 @@
   "suggest": {
     "behat/mink-goutte-driver": "Headless Mink driver",
     "behat/mink-selenium2-driver": "JS-enabled Mink driver (requires Selenium2)"
+  },
+  "scripts": {
+    "phpcs":  "phpcs --standard=phpcs-ruleset.xml -p -s -v -n src --extensions=php",
+    "phpcbf": "phpcbf --standard=phpcs-ruleset.xml -n src",
+    "commit": [
+      "@phpcs"
+    ]
   }
 }
