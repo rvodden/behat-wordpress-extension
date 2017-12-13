@@ -71,7 +71,7 @@ class ContentContext extends RawWordpressContext
      * i.e. converts public identifiers (such as slugs, log-ins) to internal identifiers
      * (such as database IDs).
      *
-     * @param $post_data array
+     * @param array $post_data
      *
      * @throws \UnexpectedValueException If provided data is invalid
      *
