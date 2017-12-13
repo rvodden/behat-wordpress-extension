@@ -40,7 +40,7 @@
   "scripts": {
     "phpcs":   "phpcs --standard=phpcs-ruleset.xml -p -s -v -n src --extensions=php",
     "phpcbf":  "phpcbf --standard=phpcs-ruleset.xml -n src",
-    "phpstan": "vendor/bin/phpstan analyse src --level=8",
+    "phpstan": "vendor/bin/phpstan analyse -c phpstan.neon --level=1 src",
     "commit": [
       "@phpcs",
       "@phpstan"
