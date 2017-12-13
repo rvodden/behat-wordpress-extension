@@ -11,6 +11,6 @@ services:
     class: 'PaulGibbs\WordpressBehatExtension\Context\Initialiser\WordpressAwareInitialiser'
     arguments:
       - "@wordpress.wordpress"
-      - %wordpress.parameters%
+      - "%wordpress.parameters%"
     tags:
       - { name: context.initializer }
