@@ -3,6 +3,10 @@
 ## Unreleased
 - tbc
 
+## [0.9.1] - 2017-12-14
+### Fixed
+- Fix invalid YAML in services.yml.
+
 ## [0.9.0] - 2017-10-09
 ### Changed
 - PHPDoc updated/tweaked.
