@@ -30,7 +30,7 @@ abstract class BaseDriver implements DriverInterface
     /**
      * Registered driver elements.
      *
-     * @var \\PaulGibbs\WordpressBehatExtension\Driver\ElementInterface[]
+     * @var \PaulGibbs\WordpressBehatExtension\Driver\Element\ElementInterface[]
      */
     protected $elements = [];
 
@@ -41,7 +41,7 @@ abstract class BaseDriver implements DriverInterface
      *
      * @throws UnsupportedDriverActionException
      *
-     * @return null|\\PaulGibbs\WordpressBehatExtension\Driver\ElementInterface Return element object.
+     * @return null|\PaulGibbs\WordpressBehatExtension\Driver\Element\ElementInterface Return element object.
      */
     public function __get($name)
     {
