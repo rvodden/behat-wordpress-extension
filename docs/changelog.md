@@ -127,6 +127,7 @@
 ### Added
 - First working version of basic architecture.
 
+[0.9.0]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v0.9.0...v0.9.1
 [0.9.0]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v0.8.0...v0.9.0
 [0.8.0]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v0.7.0...v0.8.0
 [0.7.1]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v0.7.0...v0.7.1
