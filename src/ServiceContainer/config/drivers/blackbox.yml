@@ -3,6 +3,6 @@ parameters:
 
 services:
   wordpress.driver.blackbox:
-    class: %wordpress.driver.blackbox.class%
+    class: "%wordpress.driver.blackbox.class%"
     tags:
       - { name: wordpress.driver, alias: blackbox }

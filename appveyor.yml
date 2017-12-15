@@ -82,7 +82,7 @@ test_script:
       }
 
   # Run WordHat.
-  - vendor\bin\behat --tags="~@javascript" --format=progress --config bin\appveyor\behat.yml
+  - vendor\bin\behat --tags="~@javascript" --format=progress --strict --config bin\appveyor\behat.yml
 
 on_finish:
   #- ps: Stop-Process -Id $wh_selenium.Id
