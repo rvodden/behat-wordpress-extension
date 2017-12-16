@@ -50,8 +50,8 @@ install:
   # Install all of the dependencies you need here.
   - composer require behat/mink-goutte-driver:~1.2 behat/mink-selenium2-driver:~1.3
   - composer install --no-interaction --prefer-dist --no-progress
-  - bin/travis/wordpress.sh wordpress root '' localhost $WP_VERSION
-  - bin/travis/nginx.sh
+  - build/travis/wordpress.sh wordpress root '' localhost $WP_VERSION
+  - build/travis/nginx.sh
 
 before_script:
   # Execute all of the commands which need to be executed before running actual tests.
@@ -61,7 +61,7 @@ script:
   # Execute all of the commands which should make the build pass or fail.
   - find ./src -name "*.php" -print0 | xargs -0 -n1 -P8 php -l
   - vendor/bin/phpcs --standard=phpcs-ruleset.xml -p -s -v -n src --extensions=php
-  - vendor/bin/behat --format progress --config ./bin/travis/behat.yml
+  - vendor/bin/behat --format progress --config ./build/travis/behat.yml
 
 after_script:
   # Tidy up after test run.
