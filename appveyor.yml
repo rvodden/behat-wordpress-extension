@@ -45,7 +45,6 @@ install:
 
   # Install WordHat dependencies.
   - cd "%APPVEYOR_BUILD_FOLDER%"
-  - composer require behat/mink-goutte-driver:~1.2 behat/mink-selenium2-driver:~1.3
   - composer install --no-interaction --prefer-dist --no-progress
 
   # Run Selenium.
@@ -65,7 +64,8 @@ test_script:
   - vendor\bin\wp core install --path=c:\inetpub\wwwroot --url="localhost" --title="wordhat site" --admin_user="admin" --admin_password="password" --admin_email="admin@example.com"
 
   # Sensible defaults.
-  - vendor\bin\wp rewrite structure --path=c:\inetpub\wwwroot '/%year%/%monthnum%/%postname%/'
+  - vendor\bin\wp theme activate --path=c:\inetpub\wwwroot twentyseventeen
+  #- vendor\bin\wp rewrite structure --path=c:\inetpub\wwwroot '/%year%/%monthnum%/%postname%/'
   - ps: |
       $sidebars=vendor\bin\wp sidebar list --path=c:\inetpub\wwwroot --format=ids
       $sidebars=$sidebars.split(' ')
@@ -76,13 +76,13 @@ test_script:
               $widgets=$widgets.split(' ')
 
               Foreach ($widget in $widgets) {
-                  vendor\bin\wp widget delete $widget --path=c:\inetpub\wwwroot 
+                  vendor\bin\wp widget delete $widget --path=c:\inetpub\wwwroot
               }
           }
       }
 
   # Run WordHat.
-  - vendor\bin\behat --tags="~@javascript" --format=progress --config build\appveyor\behat.yml
+  - vendor\bin\behat --tags="~@javascript" --format=progress --strict --config build\appveyor\behat.yml
 
 on_finish:
   #- ps: Stop-Process -Id $wh_selenium.Id

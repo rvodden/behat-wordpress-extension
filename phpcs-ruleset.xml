@@ -62,4 +62,7 @@
 
   <!-- Checks that duplicate arguments are not used in function declarations. -->
   <rule ref="Squiz.Functions.FunctionDuplicateArgument"/>
+
+  <!-- No commented-out code. -->
+  <rule ref="Squiz.PHP.CommentedOutCode" />
 </ruleset>

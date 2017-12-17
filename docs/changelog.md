@@ -3,6 +3,10 @@
 ## Unreleased
 - tbc
 
+## [0.9.1] - 2017-12-14
+### Fixed
+- Fix invalid YAML in services.yml.
+
 ## [0.9.0] - 2017-10-09
 ### Changed
 - PHPDoc updated/tweaked.
@@ -123,6 +127,7 @@
 ### Added
 - First working version of basic architecture.
 
+[0.9.0]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v0.9.0...v0.9.1
 [0.9.0]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v0.8.0...v0.9.0
 [0.8.0]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v0.7.0...v0.8.0
 [0.7.1]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v0.7.0...v0.7.1

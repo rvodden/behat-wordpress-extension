@@ -36,3 +36,5 @@ default:
         admin:
           username: admin
           password: password
+      database:
+        restore_after_test: true

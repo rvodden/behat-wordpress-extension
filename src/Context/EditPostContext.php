@@ -17,7 +17,7 @@ class EditPostContext extends RawWordpressContext
      *
      * TODO: this needs to not be public!
      *
-     * @param PostsEditPage
+     * @var PostsEditPage
      */
     public $edit_post_page;
 

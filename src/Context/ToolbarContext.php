@@ -15,7 +15,7 @@ class ToolbarContext extends RawWordpressContext
      *
      * @When I search for :search in the toolbar
      *
-     * @param $search
+     * @param string $search
      */
     public function iSearchUsingTheToolbar($search)
     {
