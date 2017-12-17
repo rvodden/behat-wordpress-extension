@@ -28,5 +28,6 @@ RUN composer install --no-interaction --prefer-dist --no-progress
 ADD ./ /wordhat
 USER root
 RUN chown -R www-data /wordhat
+RUN chmod u+x build/docker/docker-entrypoint.sh
 USER www-data
 ENTRYPOINT [ "build/docker/docker-entrypoint.sh" ]
