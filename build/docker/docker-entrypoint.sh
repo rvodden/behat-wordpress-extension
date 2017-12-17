@@ -17,4 +17,5 @@ done
 
 vendor/bin/wp config create --path='/usr/src/wordpress' --dbhost='db' --dbname='wordpress' --dbuser="${WORDPRESS_DB_USER}" --dbpass="${WORDPRESS_DB_PASSWORD}"
 vendor/bin/wp core install --path='/usr/src/wordpress' --url='http://wordpress/' --title="Test Installation" --admin_user="admin" --admin_password="password" --admin_email="admin@example.com"
+sleep 30
 vendor/bin/behat --format progress --config ./build/docker/behat.yml
