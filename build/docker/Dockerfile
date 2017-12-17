@@ -1,6 +1,9 @@
 FROM library/wordpress:php7.1
 
-RUN useradd -c 'PHP user' -m -d /home/php -s /bin/sh php
+# change the port to 8080 so we don't have to run as root locally
+RUN sed -i '1 s/\*\:80/\*\:8080/' /etc/apache2/sites-available/000-default.conf
+RUN sed -i 's/Listen 80/Listen 8080/' /etc/apache2/ports.conf
+EXPOSE 8080
 
 RUN apt-get update 
 RUN apt-get install -y netcat mysql-client zip unzip
@@ -12,19 +15,18 @@ RUN yes | pecl install xdebug \
     && echo "zend_extension=$(find /usr/local/lib/php/extensions/ -name xdebug.so)" > /usr/local/etc/php/conf.d/xdebug.ini \
     && echo "xdebug.remote_enable=on" >> /usr/local/etc/php/conf.d/xdebug.ini \
     && echo "xdebug.remote_autostart=off" >> /usr/local/etc/php/conf.d/xdebug.ini \
-    && echo "xdebug.remote_log=/tmp/xdebug.log" >> /usr/local/etc/php/conf.d/xdebug.ini
-
+    && echo "xdebug.remote_log=/tmp/xdebug.log" >> /usr/local/etc/php/conf.d/xdebug.ini \
+    && touch /tmp/xdebug.log && chmod a+rw /tmp/xdebug.log
 
 ADD ./composer.json /wordhat/composer.json
 WORKDIR /wordhat
-RUN chown -R php /wordhat /usr/src/wordpress
+RUN chown -R www-data /wordhat /usr/src/wordpress
 
-USER php
+USER www-data
 RUN composer install --no-interaction --prefer-dist --no-progress
 
 ADD ./ /wordhat
 USER root
-RUN chown -R php /wordhat
-
-USER php
-ENTRYPOINT /wordhat/build/docker/docker-entrypoint.sh
+RUN chown -R www-data /wordhat
+USER www-data
+ENTRYPOINT [ "build/docker/docker-entrypoint.sh" ]
