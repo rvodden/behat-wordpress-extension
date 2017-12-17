@@ -10,7 +10,7 @@
 	<target name="wordhat:test" hidden="true">
 		<phingcall target="docker:up" />
 		<!--  this is nasty - the wordpress container needs a healthcheck -->
-		<sleep seconds="15"/>
+		<sleep seconds="60"/>
 		<phingcall target="docker:exec-tests" />
 	 	<phingcall target="docker:stop" />
 		<phingcall target="docker:cleanup" />
