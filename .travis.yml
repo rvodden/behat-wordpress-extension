@@ -29,10 +29,6 @@ install:
   # Install all of the dependencies you need here.
   - composer install --no-interaction --prefer-dist --no-progress
 
-before_script:
-  # Execute all of the commands which need to be executed before running actual tests.
-  - bin/travis/selenium.sh
-
 script:
   # Execute all of the commands which should make the build pass or fail.
   - find ./src -name "*.php" -print0 | xargs -0 -n1 -P8 php -l
