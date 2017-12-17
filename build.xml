@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model xlink:href="/usr/share/php5/PEAR/data/phing/etc/phing-grammar.rng"
+            type="application/xml"
+            schematypens="http://relaxng.org/ns/structure/1.0" ?>
+
+<project name="wordhat" description="BDD for Wordpress" default="wordhat:test">
+
+	<import file="build/phing/docker.xml" />
+
+	<target name="wordhat:test" hidden="true">
+		<phingcall target="docker:up" />
+		<!--  this is nasty - the wordpress container needs a healthcheck -->
+		<sleep seconds="15"/>
+		<phingcall target="docker:exec-tests" />
+	 	<phingcall target="docker:stop" />
+		<phingcall target="docker:cleanup" />
+	</target>
+
+</project>

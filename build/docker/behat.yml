@@ -39,3 +39,6 @@ default:
           password: password
       wpcli:
         binary: /wordhat/vendor/bin/wp
+      database:
+        restore_after_test: true
+        
