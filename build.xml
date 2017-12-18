@@ -17,7 +17,7 @@
 
     <target name="wordhat:test" depends="wordhat:prepare-config">
         <phingcall target="wordhat:phpcs" />
-        <phingcall target="wordhat:phpstan" />
+        <!-- <phingcall target="wordhat:phpstan" /> -->
 		<if>
 			<equals arg1="${wordhat.runstyle}" arg2="docker" />
 			<then>
