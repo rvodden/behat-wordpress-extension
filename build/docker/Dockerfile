@@ -1,4 +1,4 @@
-FROM library/wordpress:4.9.1-php7.0
+FROM library/wordpress:4.9.1-php7.2
 
 # change the port to 8080 so we don't have to run as root locally
 RUN sed -i '1 s/\*\:80/\*\:8080/' /etc/apache2/sites-available/000-default.conf
@@ -27,6 +27,6 @@ RUN composer --no-ansi install --no-ansi --no-interaction --prefer-dist --no-pro
 
 ADD ./ /wordhat
 USER root
-RUN chown -R www-data /wordhat && chmod u+x build/docker/docker-entrypoint.sh build/docker/run-tests.sh
+RUN chown -R www-data /wordhat && chmod u+x build/docker/docker-entrypoint.sh
 USER www-data
 ENTRYPOINT [ "build/docker/docker-entrypoint.sh" ]

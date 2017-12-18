@@ -6,7 +6,7 @@
 
 	<property name="docker.bin" value="docker" />
 	<property name="docker.user" value="www-data" />
-	<property name="docker.test-entry" value="build/docker/run-tests.sh" />
+	<property name="docker.test-entry" value="vendor/bin/phing behat:exec-tests" />
 	<property name="docker.test-workdir" value="/wordhat" />
 	<property name="docker.test-container" value="docker_wordpress_1" />
 	<property name="docker-compose.bin" value="docker-compose" />

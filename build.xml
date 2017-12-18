@@ -11,8 +11,13 @@
 	<property environment="env" />
 	<property name="wordhat.php-version" value="7.2" />
 	<property name="wordhat.wordpress-version" value="4.9.1" />
+	<property name="wordhat.phpstan-level" value="1" />
+	<property name="wordhat.phpstan-configfile" value="${project.basedir}/phpstan.neon" />
+	<property name="wordhat.phpcs-configfile" value="${project.basedir}/phpcs-ruleset.xml" />
 
-	<target name="wordhat:test" depends="wordhat:prepare-config">
+    <target name="wordhat:test" depends="wordhat:prepare-config">
+        <phingcall target="wordhat:phpcs" />
+        <phingcall target="wordhat:phpstan" />
 		<if>
 			<equals arg1="${wordhat.runstyle}" arg2="docker" />
 			<then>
@@ -127,4 +132,23 @@
 		</copy>
 	</target>
 
+    <target name="wordhat:phpstan">
+        <exec command="vendor/bin/phpstan analyse -c ${wordhat.phpstan-configfile} --level=${wordhat.phpstan-level} src" passthru="true" checkreturn="true"/>
+    </target>
+
+    <target name="wordhat:phpcs">
+        <exec command="vendor/bin/phpcs --standard=${wordhat.phpcs-configfile} -p -s -v -n src --extensions=php" passthru="true" checkreturn="true" />
+    </target>
+
+    <target name="wordhat:check-syntax">
+       <foreach param="file" absparam="wordhat:file" target="wordhat:check-file-syntax">
+           <fileset dir="${project.basedir}/src">
+               <include name="**/*.php" />
+            </fileset>
+        </foreach> 
+    </target>
+
+    <target name="wordhat:check-file-syntax">
+        <exec command="php -l ${wordhat:file}" checkreturn="true"/>
+    </target>
 </project>
