@@ -54,6 +54,7 @@
 			<then>
 				<property name="wordhat.runstyle" value="docker" />
 				<property name="wordhat.ci-engine" value="travis" />
+				<phingcall target="wordhat:prepare-docker-config" />
 			</then>
 			<elseif>
 				<isset property="${env.APPVEYOR}" />
