@@ -82,7 +82,7 @@ test_script:
       }
 
   # Run WordHat.
-  - vendor\bin\phing -verbose -debug
+  - vendor\bin\phing
 on_finish:
   #- ps: Stop-Process -Id $wh_selenium.Id
 
