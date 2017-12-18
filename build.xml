@@ -56,7 +56,7 @@
 				<property name="wordhat.ci-engine" value="travis" />
 			</then>
 			<elseif>
-				<isset property="${env.APPVEYOR}" />
+				<equals arg1="${env.USERDOMAIN}" arg2="APPVYR-WIN"/>
 				<then>
 					<property name="wordhat.runstyle" value="native" />
 					<property name="wordhat.ci-engine" value="appveyor" />
