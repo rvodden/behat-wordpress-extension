@@ -49,3 +49,4 @@ Feature: You can write in visual and text mode
 
   Scenario: I can access the content editing screen
     Then I should see the "Publish" metabox
+    And I should not see the "fake" metabox
