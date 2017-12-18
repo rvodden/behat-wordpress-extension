@@ -21,7 +21,7 @@
 			<elseif>
 				<equals arg1="${wordhat.runstyle}" arg2="native" />
 				<then>
-					<phingcall target="wordhat:docker-test" />
+					<phingcall target="wordhat:native-test" />
 				</then>
 			</elseif>
 		</if>
@@ -56,11 +56,11 @@
 				<property name="wordhat.ci-engine" value="travis" />
 			</then>
 			<elseif>
-				<equals arg1="${env.USERDOMAIN}" arg2="APPVYR-WIN"/>
+				<isset arg1="${env.APPVEYOR}" />
 				<then>
 					<property name="wordhat.runstyle" value="native" />
 					<property name="wordhat.ci-engine" value="appveyor" />
-					<phingcall target="wordhat:prepare-docker-config" />
+					<phingcall target="wordhat:prepare-native-config" />
 				</then>
 			</elseif>
 			<else>
