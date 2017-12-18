@@ -46,3 +46,6 @@ Feature: You can write in visual and text mode
 
   Scenario: I can access the content editing screen
     Then I should be on the edit post screen for "Just my article"
+
+  Scenario: I can access the content editing screen
+    Then I should see the "Publish" metabox
