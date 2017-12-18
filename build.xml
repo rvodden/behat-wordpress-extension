@@ -35,22 +35,25 @@
 		<phingcall target="docker:stop" />
 		<phingcall target="docker:cleanup" />
 	</target>
-	
+
 	<target name="wordhat:native-test">
-		<!--  for the moment assume all the pre-reqs are in place - gradually migrate them in -->
-		
-			<if>
-			<not><equals arg1="${wordhat.behat-tags}" arg2=""></equals></not>
+		<!-- for the moment assume all the pre-reqs are in place - gradually migrate 
+			them in -->
+
+		<if>
+			<not>
+				<equals arg1="${wordhat.behat-tags}" arg2=""></equals>
+			</not>
 			<then>
-				<phingcall target="behat:exec-tests" >
+				<phingcall target="behat:exec-tests">
 					<property name="behat.tags" value="${wordhat.behat-tags}" />
 				</phingcall>
 			</then>
 			<else>
 				<phingcall target="behat:exec-tests" />
 			</else>
-			</if>
-		</phingcall>
+		</if>
+
 	</target>
 
 	<target name="wordhat:prepare-config" hidden="true" unless="wordhat.runstyle">
@@ -79,12 +82,16 @@
 
 	<target name="wordhat:prepare-docker-config" hidden="true">
 		<property file="${project.basedir}/build/properties/docker.yml" />
-		<copy tofile="${project.basedir}/build/docker/Dockerfile" file="${project.basedir}/build/templates/Dockerfile.template" overwrite="true">
+		<copy tofile="${project.basedir}/build/docker/Dockerfile"
+			file="${project.basedir}/build/templates/Dockerfile.template"
+			overwrite="true">
 			<filterchain>
 				<expandproperties />
 			</filterchain>
 		</copy>
-		<copy tofile="${project.basedir}/behat.yml" file="${project.basedir}/build/templates/behat.yml.template" overwrite="true">
+		<copy tofile="${project.basedir}/behat.yml"
+			file="${project.basedir}/build/templates/behat.yml.template"
+			overwrite="true">
 			<filterchain>
 				<expandproperties />
 			</filterchain>
@@ -92,8 +99,11 @@
 	</target>
 
 	<target name="wordhat:prepare-native-config" hidden="true">
-		<property file="${project.basedir}/build/properties/${wordhat.ci-engine}.yml" />
-		<copy tofile="${project.basedir}/behat.yml" file="${project.basedir}/build/templates/Behat.yml.template" overwrite="true">
+		<property
+			file="${project.basedir}/build/properties/${wordhat.ci-engine}.yml" />
+		<copy tofile="${project.basedir}/behat.yml"
+			file="${project.basedir}/build/templates/Behat.yml.template"
+			overwrite="true">
 			<filterchain>
 				<expandproperties />
 			</filterchain>
