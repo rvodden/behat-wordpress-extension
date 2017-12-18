@@ -43,3 +43,6 @@ Feature: You can write in visual and text mode
     Then I should see "Article written in visual mode"
     And I should see "<strong>HTML</strong> tags should be displayed, and not parsed in visual mode."
     And I should not see "HTML tags"
+
+  Scenario: I can access the content editing screen
+    Then I should be on the edit post screen for "Just my article"
