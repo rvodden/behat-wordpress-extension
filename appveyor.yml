@@ -82,7 +82,7 @@ test_script:
       }
 
   # Run WordHat.
-  - vendor\bin\phing -Dwordhat.runstyle=native -Dwordhat.ci-engine=appveyor
+  - vendor\bin\phing -verbose
 
 on_finish:
   #- ps: Stop-Process -Id $wh_selenium.Id
