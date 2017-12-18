@@ -29,9 +29,12 @@
 
 	<target name="wordhat:docker-test">
 		<phingcall target="docker:up" />
-		<!-- this is nasty - the wordpress container needs a healthcheck -->
-		<sleep seconds="60" />
-		<phingcall target="docker:exec-tests" />
+        <!-- this is nasty - the wordpress container needs a healthcheck -->
+        <echo msg="Waiting for WordPress to start" />
+        <waitfor maxwaitunit="second" maxwait="60" checkeveryunit="second" checkevery="5">
+            <http url="http://wordpress:8080" quiet="true" />
+        </waitfor>
+        <phingcall target="docker:exec-tests" />
 		<phingcall target="docker:stop" />
 		<phingcall target="docker:cleanup" />
 	</target>
