@@ -1,4 +1,4 @@
-FROM library/wordpress:4.9.1-php7.0
+FROM library/wordpress:${wordhat.wordpress-version}-php${wordhat.php-version}
 
 # change the port to 8080 so we don't have to run as root locally
 RUN sed -i '1 s/\*\:80/\*\:8080/' /etc/apache2/sites-available/000-default.conf

@@ -6,14 +6,92 @@
 <project name="wordhat" description="BDD for Wordpress" default="wordhat:test">
 
 	<import file="build/phing/docker.xml" />
+	<import file="build/phing/behat.xml" />
 
-	<target name="wordhat:test" hidden="true">
+	<property environment="env" />
+	<property name="wordhat.php-version" value="7.0" />
+	<property name="wordhat.wordpress-version" value="4.9.1" />
+
+	<target name="wordhat:test" depends="wordhat:prepare-config">
+		<if>
+			<equals arg1="${wordhat.runstyle}" arg2="docker" />
+			<then>
+				<phingcall target="wordhat:docker-test" />
+			</then>
+			<elseif>
+				<equals arg1="${wordhat.runstyle}" arg2="native" />
+				<then>
+					<phingcall target="wordhat:docker-test" />
+				</then>
+			</elseif>
+		</if>
+	</target>
+
+	<target name="wordhat:docker-test">
 		<phingcall target="docker:up" />
-		<!--  this is nasty - the wordpress container needs a healthcheck -->
-		<sleep seconds="60"/>
+		<!-- this is nasty - the wordpress container needs a healthcheck -->
+		<sleep seconds="60" />
 		<phingcall target="docker:exec-tests" />
-	 	<phingcall target="docker:stop" />
+		<phingcall target="docker:stop" />
 		<phingcall target="docker:cleanup" />
+	</target>
+	
+	<target name="wordhat:native-test">
+		<!--  for the moment assume all the pre-reqs are in place - gradually migrate them in -->
+		<phingcall target="behat:exec-tests" >
+			<if>
+			<not><equals arg1="${wordhat.behat-tags}" arg2=""></equals></not>
+			<then>
+				<property name="behat.tags" value="${wordhat.behat-tags}" />
+			</then>
+			</if>
+		</phingcall>
+	</target>
+
+	<target name="wordhat:prepare-config" hidden="true" unless="wordhat.runstyle">
+		<if>
+			<equals arg1="${env.TRAVIS}" arg2="true" />
+			<then>
+				<property name="wordhat.runstyle" value="docker" />
+				<property name="wordhat.ci-engine" value="travis" />
+			</then>
+			<elseif>
+				<equals arg1="${env.APPVEYOR}" arg2="true" />
+				<then>
+					<property name="wordhat.runstyle" value="native" />
+					<property name="wordhat.ci-engine" value="appveyor" />
+					<phingcall target="wordhat:prepare-docker-config" />
+				</then>
+			</elseif>
+			<else>
+				<property name="wordhat.runstyle" value="docker" />
+				<property name="wordhat.ci-engine" value="local" />
+				<phingcall target="wordhat:prepare-docker-config" />
+			</else>
+		</if>
+	</target>
+
+	<target name="wordhat:prepare-docker-config" hidden="true">
+		<property file="${project.basedir}/build/properties/docker.yml" />
+		<copy tofile="${project.basedir}/build/docker/Dockerfile" file="${project.basedir}/build/templates/Dockerfile.template" overwrite="true">
+			<filterchain>
+				<expandproperties />
+			</filterchain>
+		</copy>
+		<copy tofile="${project.basedir}/behat.yml" file="${project.basedir}/build/templates/behat.yml.template" overwrite="true">
+			<filterchain>
+				<expandproperties />
+			</filterchain>
+		</copy>
+	</target>
+
+	<target name="wordhat:prepare-native-config" hidden="true">
+		<property file="${project.basedir}/build/properties/${wordhat.ci-engine}.yml" />
+		<copy tofile="${project.basedir}/behat.yml" file="${project.basedir}/build/templates/Behat.yml.template" overwrite="true">
+			<filterchain>
+				<expandproperties />
+			</filterchain>
+		</copy>
 	</target>
 
 </project>

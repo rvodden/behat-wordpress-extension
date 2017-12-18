@@ -1,5 +1,4 @@
 vendor/
-/behat.yml
 /site/
 .vscode/
 /report/
@@ -9,3 +8,7 @@ vendor/
 npm-debug.log
 wp-cli.yml
 /selenium.log
+
+/build/properties/local.yml
+/build/docker/Dockerfile
+/behat.yml

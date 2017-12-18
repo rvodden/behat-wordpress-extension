@@ -2,11 +2,11 @@
 <?xml-model xlink:href="/usr/share/php5/PEAR/data/phing/etc/phing-grammar.rng"
             type="application/xml"
             schematypens="http://relaxng.org/ns/structure/1.0" ?>
-<project name="behat" default="behat:run">
+<project name="behat" default="behat:exec-tests">
 
 	<property name="behat.bin" value="${project.basedir}/vendor/bin/behat" />
 	<property name="behat.tags" value="" />
-	<property name="behat.config.file" value="${project.basedir}/build/docker/behat.yml" />
+	<property name="behat.config.file" value="${project.basedir}/behat.yml" />
 	<property name="behat.report.dir" value="${project.basedir}/report/behat" />
 
 	<target name="behat:init" unless="behat.initialized" hidden="true">
@@ -14,18 +14,18 @@
 		<property name="behat.initialized" value="true" />
 	</target>
 
-	<target name="behat:run-ci"
+	<target name="behat:exec-tests"
 		description="Runs Behat tests and prints human readable output."
 		depends="behat:init">
 		<if>
 			<equals arg1="${behat.tags}" arg2="" />
 			<then>
-				<exec command="${behat.bin} --format junit --out ${behat.report.dir}"
+				<exec command="${behat.bin} --no-colors --out std --format progress --out ${behat.report.dir} --format junit"
 					passthru="true" checkreturn="true" />
 			</then>
 			<else>
 				<exec
-					command="${behat.bin} --tags ${behat.tags} --format junit --out ${behat.report.dir}"
+					command="${behat.bin} --no-colors --tags ${behat.tags} --out std --format progress --out ${behat.report.dir} --format junit"
 					passthru="true" checkreturn="true" />
 			</else>
 		</if>

@@ -1,5 +1,6 @@
 #!/bin/bash
 set -eux pipefail
 cd /wordhat
-vendor/bin/behat --no-colors --config ./build/docker/behat.yml -o std -f progress -o behat-report.html -f pretty
+vendor/bin/phing wordhat:prepare-docker-config
+vendor/bin/phing behat:exec-tests
 

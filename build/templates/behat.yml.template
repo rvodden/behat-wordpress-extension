@@ -2,7 +2,7 @@ default:
   suites:
     default:
       paths:
-        - %paths.base%/../../features
+        - features
       contexts:
         - PaulGibbs\WordpressBehatExtension\Context\WordpressContext
         - Behat\MinkExtension\Context\MinkContext
@@ -16,7 +16,7 @@ default:
 
   extensions:
     Behat\MinkExtension:
-      base_url: http://wordpress.dev:8080
+      base_url: ${wordhat.base-url}
       browser_name: chrome
       default_session: default
       javascript_session: selenium2
@@ -26,13 +26,19 @@ default:
             guzzle_parameters:
               verify: false  # Allow self-signed SSL certificates
         selenium2:
-          selenium2: ~
+          selenium2:
+            wd_host: ${wordhat.wd-host}
+            capabilities: 
+              browser: chrome
 
     PaulGibbs\WordpressBehatExtension:
-      path: www
+      path: ${wordhat.wp-path}
+      default_driver: wpcli
+      wpcli:
+        binary: ${wordhat.wp-cli-binary}
       users:
         admin:
           username: admin
           password: password
       database:
-        restore_after_test: true
+        restore_after_test: ${wordhat.db-restore}
