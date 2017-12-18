@@ -50,13 +50,13 @@
 
 	<target name="wordhat:prepare-config" hidden="true" unless="wordhat.runstyle">
 		<if>
-			<equals arg1="${env.TRAVIS}" arg2="true" />
+			<isset property="${env.TRAVIS}" />
 			<then>
 				<property name="wordhat.runstyle" value="docker" />
 				<property name="wordhat.ci-engine" value="travis" />
 			</then>
 			<elseif>
-				<equals arg1="${env.APPVEYOR}" arg2="true" />
+				<isset property="${env.APPVEYOR}" />
 				<then>
 					<property name="wordhat.runstyle" value="native" />
 					<property name="wordhat.ci-engine" value="appveyor" />
