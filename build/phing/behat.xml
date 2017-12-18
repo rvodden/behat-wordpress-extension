@@ -5,7 +5,6 @@
 <project name="behat" default="behat:exec-tests">
 
 	<property name="behat.bin" value="${project.basedir}/vendor/bin/behat" />
-	<property name="behat.tags" value="" />
 	<property name="behat.config.file" value="${project.basedir}/behat.yml" />
 	<property name="behat.report.dir" value="${project.basedir}/report/behat" />
 
@@ -18,14 +17,15 @@
 		description="Runs Behat tests and prints human readable output."
 		depends="behat:init">
 		<if>
-			<equals arg1="${behat.tags}" arg2="" />
+			<isset property="behat.tags" />
 			<then>
-				<exec command="${behat.bin} --no-colors --out std --format progress --out ${behat.report.dir} --format junit"
+				<exec
+					command="${behat.bin} --no-colors --tags=&quot;${behat.tags}&quot; --out std --format progress --out ${behat.report.dir} --format junit"
 					passthru="true" checkreturn="true" />
 			</then>
 			<else>
 				<exec
-					command="${behat.bin} --no-colors --tags ${behat.tags} --out std --format progress --out ${behat.report.dir} --format junit"
+					command="${behat.bin} --no-colors --out std --format progress --out ${behat.report.dir} --format junit"
 					passthru="true" checkreturn="true" />
 			</else>
 		</if>

@@ -37,13 +37,13 @@
 	</target>
 
 	<target name="wordhat:native-test">
+		<!--  scoping means that this needs to be reloaded here -->
+		<property file="${project.basedir}/build/properties/${wordhat.ci-engine}.yml" />
 		<!-- for the moment assume all the pre-reqs are in place - gradually migrate 
 			them in -->
-
+		<echo message="${wordhat.behat-tags}" />
 		<if>
-			<not>
-				<equals arg1="${wordhat.behat-tags}" arg2=""></equals>
-			</not>
+			<isset property="wordhat.behat-tags" />
 			<then>
 				<phingcall target="behat:exec-tests">
 					<property name="behat.tags" value="${wordhat.behat-tags}" />
@@ -56,27 +56,41 @@
 
 	</target>
 
-	<target name="wordhat:prepare-config" hidden="true" unless="wordhat.runstyle">
+	<target name="wordhat:detect-ci" hidden="true" unless="wordhat.runstyle">
 		<if>
 			<isset property="env.TRAVIS" />
 			<then>
 				<property name="wordhat.runstyle" value="docker" />
 				<property name="wordhat.ci-engine" value="travis" />
-				<phingcall target="wordhat:prepare-docker-config" />
 			</then>
 			<elseif>
 				<isset property="env.APPVEYOR" />
 				<then>
 					<property name="wordhat.runstyle" value="native" />
 					<property name="wordhat.ci-engine" value="appveyor" />
-					<phingcall target="wordhat:prepare-native-config" />
 				</then>
 			</elseif>
 			<else>
 				<property name="wordhat.runstyle" value="docker" />
 				<property name="wordhat.ci-engine" value="local" />
-				<phingcall target="wordhat:prepare-docker-config" />
 			</else>
+		</if>
+	</target>
+
+	<target name="wordhat:prepare-config" hidden="true"
+		depends="wordhat:detect-ci">
+		<if>
+			<equals arg1="${wordhat.runstyle}" arg2="docker" />
+			<then>
+				<phingcall target="wordhat:prepare-docker-config" />
+			</then>
+			<elseif>
+				<equals arg1="${wordhat.runstyle}" arg2="native" />
+				<then>
+					<phingcall target="wordhat:prepare-native-config" />
+				</then>
+			</elseif>
+
 		</if>
 	</target>
 
@@ -102,7 +116,7 @@
 		<property
 			file="${project.basedir}/build/properties/${wordhat.ci-engine}.yml" />
 		<copy tofile="${project.basedir}/behat.yml"
-			file="${project.basedir}/build/templates/Behat.yml.template"
+			file="${project.basedir}/build/templates/behat.yml.template"
 			overwrite="true">
 			<filterchain>
 				<expandproperties />
