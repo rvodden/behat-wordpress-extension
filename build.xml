@@ -38,12 +38,17 @@
 	
 	<target name="wordhat:native-test">
 		<!--  for the moment assume all the pre-reqs are in place - gradually migrate them in -->
-		<phingcall target="behat:exec-tests" >
+		
 			<if>
 			<not><equals arg1="${wordhat.behat-tags}" arg2=""></equals></not>
 			<then>
-				<property name="behat.tags" value="${wordhat.behat-tags}" />
+				<phingcall target="behat:exec-tests" >
+					<property name="behat.tags" value="${wordhat.behat-tags}" />
+				</phingcall>
 			</then>
+			<else>
+				<phingcall target="behat:exec-tests" />
+			</else>
 			</if>
 		</phingcall>
 	</target>
