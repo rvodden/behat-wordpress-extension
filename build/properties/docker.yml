@@ -4,3 +4,4 @@ wordhat:
   wp-path: /usr/src/wordpress
   wp-cli-binary: /wordhat/vendor/bin/wp
   db-restore: true
+  driver: wpcli

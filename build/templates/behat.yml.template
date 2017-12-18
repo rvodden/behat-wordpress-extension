@@ -33,7 +33,7 @@ default:
 
     PaulGibbs\WordpressBehatExtension:
       path: ${wordhat.wp-path}
-      default_driver: wpcli
+      default_driver: ${wordhat.driver}
       wpcli:
         binary: ${wordhat.wp-cli-binary}
       users:

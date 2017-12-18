@@ -5,3 +5,4 @@ wordhat:
   wp-path: c:\inetpub\wwwroot
   db-restore: true
   behat-tags: ~@javascript
+  driver: wpcli

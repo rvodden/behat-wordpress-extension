@@ -2,7 +2,12 @@ sudo: false
 language: php
 
 php:
-  - 7.0.22
+  - 7.0
+  - 7.2
+  
+env:
+  - WORDHAT_DRIVER=wpphp
+  - WORDHAT_DRIVER=wpcli
   
 services:
   - docker
@@ -39,4 +44,4 @@ script:
   # Execute all of the commands which should make the build pass or fail.
   - find ./src -name "*.php" -print0 | xargs -0 -n1 -P8 php -l
   - composer phpcs
-  - vendor/bin/phing
+  - vendor/bin/phing -Dwordhat.php-version=${TRAVIS_PHP_VERSION} -Dwordhat.driver=${WORDHAT_DRIVER}
