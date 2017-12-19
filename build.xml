@@ -111,7 +111,7 @@
 				<expandproperties />
 			</filterchain>
 		</copy>
-		<copy tofile="${project.basedir}/behat.yml"
+		<copy tofile="${project.basedir}/build/behat.yml"
 			file="${project.basedir}/build/templates/behat.yml.template"
 			overwrite="true">
 			<filterchain>
@@ -123,7 +123,7 @@
 	<target name="wordhat:prepare-native-config" hidden="true">
 		<property
 			file="${project.basedir}/build/properties/${wordhat.ci-engine}.yml" />
-		<copy tofile="${project.basedir}/behat.yml"
+		<copy tofile="${project.basedir}/build/behat.yml"
 			file="${project.basedir}/build/templates/behat.yml.template"
 			overwrite="true">
 			<filterchain>

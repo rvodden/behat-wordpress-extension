@@ -11,4 +11,5 @@ wp-cli.yml
 
 /build/properties/local.yml
 /build/docker/Dockerfile
+/build/behat.yml
 /behat.yml
