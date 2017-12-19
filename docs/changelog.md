@@ -3,6 +3,25 @@
 ## Unreleased
 - tbc
 
+## [1.0.0] - 2017-12-??
+### Added
+- xxx new step definitions.
+- Full test coverage for all step definitions, and all internal driver methods.
+- Overhauled the documentation available on the website.
+
+### Changed
+- Now requires PHP 7+.
+134
+- PHPDoc improvements and fixes.
+- Use [PHPStan](https://github.com/phpstan/phpstan) for static analysis instead of Scrutinizer-CI.
+- CI: new Docker environment for running tests; increases build confidence and reliability.
+
+### Fixed
+- CI: fixes for AppVeyor.
+
+### Removed
+???
+
 ## [0.9.2] - 2017-12-18
 ### Fixed
 - Fix (more) invalid YAML.
@@ -131,6 +150,7 @@
 ### Added
 - First working version of basic architecture.
 
+[1.0.0]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v0.9.0...v1.0.0
 [0.9.2]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v0.9.1...v0.9.2
 [0.9.1]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v0.9.0...v0.9.1
 [0.9.0]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v0.8.0...v0.9.0
