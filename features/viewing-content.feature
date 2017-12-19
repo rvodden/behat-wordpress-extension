@@ -7,6 +7,10 @@ Feature: Viewing content
             | Just my article | The content of my article | publish     | admin       |
             | My draft        | This is just a draft      | draft       | admin       |
 
+    Scenario: Deleting an existing post
+        Given I delete the post "Just my article"
+        Then I should not be able to view the post "Just my article"
+        
     Scenario: Viewing a single page
         Given I am viewing a post:
            | post_type | post_title      | post_content    | post_status |
@@ -19,6 +23,4 @@ Feature: Viewing content
         Then I should see "Just my article"
         And I should see "The content of my article"
 
-    Scenario: Deleting an existing post
-        Given I delete the post "Just my article"
-        Then I should not be able to view the post "Just my article"
+
