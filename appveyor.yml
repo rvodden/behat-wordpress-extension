@@ -1,4 +1,5 @@
 build: off
+image: Visual Studio 2015
 clone_folder: c:\projects\wordhat
 platform: x86
 shallow_clone: true
