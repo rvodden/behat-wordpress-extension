@@ -15,9 +15,9 @@
 	<property name="wordhat.phpstan-configfile" value="${project.basedir}/phpstan.neon" />
 	<property name="wordhat.phpcs-configfile" value="${project.basedir}/phpcs-ruleset.xml" />
 
-    <target name="wordhat:test" depends="wordhat:prepare-config">
-        <phingcall target="wordhat:phpcs" />
-        <!-- <phingcall target="wordhat:phpstan" /> -->
+	<target name="wordhat:test" depends="wordhat:prepare-config">
+		<phingcall target="wordhat:phpcs" />
+		<!-- <phingcall target="wordhat:phpstan" /> -->
 		<if>
 			<equals arg1="${wordhat.runstyle}" arg2="docker" />
 			<then>
@@ -34,18 +34,20 @@
 
 	<target name="wordhat:docker-test">
 		<phingcall target="docker:up" />
-        <echo msg="Waiting for WordPress to start" />
-        <waitfor maxwaitunit="second" maxwait="60" checkeveryunit="second" checkevery="5">
-            <http url="http://wordpress:8080" quiet="true" />
-        </waitfor>
-        <phingcall target="docker:exec-tests" />
+		<echo msg="Waiting for WordPress to start" />
+		<waitfor maxwaitunit="second" maxwait="60" checkeveryunit="second"
+			checkevery="5">
+			<http url="http://wordpress:8080" quiet="true" />
+		</waitfor>
+		<phingcall target="docker:exec-tests" />
 		<phingcall target="docker:stop" />
 		<phingcall target="docker:cleanup" />
 	</target>
 
 	<target name="wordhat:native-test">
-		<!--  scoping means that this needs to be reloaded here -->
-		<property file="${project.basedir}/build/properties/${wordhat.ci-engine}.yml" />
+		<!-- scoping means that this needs to be reloaded here -->
+		<property
+			file="${project.basedir}/build/properties/${wordhat.ci-engine}.yml" />
 		<!-- for the moment assume all the pre-reqs are in place - gradually migrate 
 			them in -->
 		<echo message="${wordhat.behat-tags}" />
@@ -84,8 +86,7 @@
 		</if>
 	</target>
 
-	<target name="wordhat:prepare-config" hidden="true"
-		depends="wordhat:detect-ci">
+	<target name="wordhat:prepare-config" hidden="true" depends="wordhat:detect-ci">
 		<if>
 			<equals arg1="${wordhat.runstyle}" arg2="docker" />
 			<then>
@@ -131,38 +132,43 @@
 		</copy>
 	</target>
 
-    <target name="wordhat:phpstan">
-        <exec command="vendor;bin;phpstan analyse -c ${wordhat.phpstan-configfile} --level=${wordhat.phpstan-level} src" passthru="true" checkreturn="true"/>
-    </target>
+	<target name="wordhat:phpstan">
+		<exec
+			command="vendor;bin;phpstan analyse -c ${wordhat.phpstan-configfile} --level=${wordhat.phpstan-level} src"
+			passthru="true" checkreturn="true" />
+	</target>
 
-    <target name="wordhat:phpcs">
-        <property name="wordhat.php-binary" value="vendor/bin/phpcs" />
-        <if>
-            <os family="windows" />
-            <then>
-                <pathconvert targetos="windows" refid="wordhat.php-binary" property="wordhat.php-binary" />
-            </then>
-        </if>
-        <exec executable="${wordhat.php-binary}" passthru="true" checkreturn="true">
-            <arg value="--standard=${wordhat.phpcs-configfile}" />
-            <arg value="-p" />
-            <arg value="-s" />
-            <arg value="-v" />
-            <arg value="-n" />
-            <arg value="src" />
-            <arg value="--extensions=php"/>
-        </exec>
-    </target>
+	<target name="wordhat:phpcs">
+		<property name="wordhat.php-binary" value="vendor/bin/phpcs" />
+		<if>
+			<os family="windows" />
+			<then>
+				<pathconvert targetos="windows" property="wordhat.php-binary">
+					<path path="${wordhat.php-binary}"></path>
+				</pathconvert>
+			</then>
+		</if>
+		<exec executable="${wordhat.php-binary}" passthru="true"
+			checkreturn="true">
+			<arg value="--standard=${wordhat.phpcs-configfile}" />
+			<arg value="-p" />
+			<arg value="-s" />
+			<arg value="-v" />
+			<arg value="-n" />
+			<arg value="src" />
+			<arg value="--extensions=php" />
+		</exec>
+	</target>
 
-    <target name="wordhat:check-syntax">
-       <foreach param="file" absparam="wordhat:file" target="wordhat:check-file-syntax">
-           <fileset dir="${project.basedir}/src">
-               <include name="**/*.php" />
-            </fileset>
-        </foreach> 
-    </target>
+	<target name="wordhat:check-syntax">
+		<foreach param="file" absparam="wordhat:file" target="wordhat:check-file-syntax">
+			<fileset dir="${project.basedir}/src">
+				<include name="**/*.php" />
+			</fileset>
+		</foreach>
+	</target>
 
-    <target name="wordhat:check-file-syntax">
-        <exec command="php -l ${wordhat:file}" checkreturn="true"/>
-    </target>
+	<target name="wordhat:check-file-syntax">
+		<exec command="php -l ${wordhat:file}" checkreturn="true" />
+	</target>
 </project>
