@@ -150,8 +150,6 @@ class EditPostContext extends RawWordpressContext
     /**
      * Press the update/publish button.
      *
-     * Example: When I press the publish button
-     * Example: When I press the update button
      * Example: When I publish the post
      * Example: When I publish the change
      * Example: When I publish the changes
@@ -171,32 +169,14 @@ class EditPostContext extends RawWordpressContext
      * Example: Then I should be on the edit event screen for "Some Event"
      * Example: Then I should be on the edit post screen for "Hello World"
      *
-     * @Then /^I should be on the edit "([a-zA-z_-]+)" screen for "([^"]*)"$/
+     * @Then I should be on the edit :post_type screen for :post_title
      *
-     * @param string $post_type The post type of the referenced 'post' being edited.
-     * @param string $title     The name of the 'post' being edited.
+     * @param string $post_type  The post type of the referenced content being edited.
+     * @param string $post_title The name of the content being edited.
      */
-    public function iAmOnEditScreenForPostType($post_type, $title)
+    public function iAmOnEditScreenForPostType($post_type, $post_title)
     {
-        $post = $this->getContentFromTitle($title, $post_type);
-        $this->edit_post_page->isOpen(array(
-            'id' => $post['id'],
-        ));
-    }
-
-
-    /**
-     * Assert that the edit screen for the given post is displayed
-     *
-     * Example: Then I should be on the edit screen for "Hello World"
-     *
-     * @Then /^I should be on the edit screen for "([^"]*)"$/
-     *
-     * @param string $title The name of the 'post' being edited.
-     */
-    public function iAmOnEditScreenFor($title)
-    {
-        $post = $this->getContentFromTitle($title, null);
+        $post = $this->getContentFromTitle($post_title, $post_type);
         $this->edit_post_page->isOpen(array(
             'id' => $post['id'],
         ));

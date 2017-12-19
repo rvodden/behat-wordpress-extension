@@ -17,25 +17,6 @@ class AdminMenu extends Element
     protected $selector = '#adminmenu';
 
     /**
-     * Obtains a list of the top-level menu items.
-     *
-     * The list contains the 'human readable' strings. e.g. 'Dashboard'.
-     *
-     * @return string[] List of top level menu links. E.g. [ 'Dashboard', 'Posts',...].
-     */
-    public function getTopLevelMenuItems()
-    {
-        $menu_item_nodes = $this->findAll('css', '#adminmenu > li a .wp-menu-name');
-        $menu_item_texts = array();
-
-        foreach ($menu_item_nodes as $element) {
-            $menu_item_texts[] = Util\stripTagsAndContent($element->getHtml());
-        }
-
-        return $menu_item_texts;
-    }
-
-    /**
      * Click a specific item in the admin menu.
      *
      * Top-level items are identified by their link text (e.g. 'Comments').
