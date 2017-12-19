@@ -133,11 +133,26 @@
 	</target>
 
     <target name="wordhat:phpstan">
-        <exec command="vendor/bin/phpstan analyse -c ${wordhat.phpstan-configfile} --level=${wordhat.phpstan-level} src" passthru="true" checkreturn="true"/>
+        <exec command="vendor;bin;phpstan analyse -c ${wordhat.phpstan-configfile} --level=${wordhat.phpstan-level} src" passthru="true" checkreturn="true"/>
     </target>
 
     <target name="wordhat:phpcs">
-        <exec command="vendor/bin/phpcs --standard=${wordhat.phpcs-configfile} -p -s -v -n src --extensions=php" passthru="true" checkreturn="true" />
+        <property name="wordhat.php-binary" value="vendor/bin/phpcs" />
+        <if>
+            <os family="windows" />
+            <then>
+                <pathconvert tagetos="windows" refid="wordhat.php-binary" property="wordhat.php-binary" />
+            </then>
+        </if>
+        <exec executable="${wordhat.php-binary}" passthru="true" checkreturn="true">
+            <arg value="--standard=${wordhat.phpcs-configfile}" />
+            <arg value="-p" />
+            <arg value="-s" />
+            <arg value="-v" />
+            <arg value="-n" />
+            <arg value="src" />
+            <arg value="--extensions=php"/>
+        </exec>
     </target>
 
     <target name="wordhat:check-syntax">
