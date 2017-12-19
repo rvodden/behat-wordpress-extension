@@ -150,8 +150,6 @@ class EditPostContext extends RawWordpressContext
     /**
      * Press the update/publish button.
      *
-     * Example: When I press the publish button
-     * Example: When I press the update button
      * Example: When I publish the post
      * Example: When I publish the change
      * Example: When I publish the changes

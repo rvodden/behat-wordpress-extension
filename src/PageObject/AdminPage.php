@@ -68,8 +68,10 @@ class AdminPage extends Page
      */
     protected function getHeaderElement()
     {
-        // h2s were used prior to 4.3/4 and h1s after
-        // @see https://make.wordpress.org/core/2015/10/28/headings-hierarchy-changes-in-the-admin-screens/
+        /*
+         * h2s were used prior to WP v4.3/4 and h1s after.
+         * See https://make.wordpress.org/core/2015/10/28/headings-hierarchy-changes-in-the-admin-screens/
+         */
         $header2 = $this->find('css', '.wrap > h2');
         $header1 = $this->find('css', '.wrap > h1');
 
@@ -154,7 +156,12 @@ class AdminPage extends Page
     protected function makeSurePathIsAbsolute($path)
     {
         $site_url = rtrim($this->getParameter('site_url'), '/') . '/';
-        return 0 !== strpos($path, 'http') ? $site_url . ltrim($path, '/') : $path;
+
+        if (0 !== strpos($path, 'http')) {
+            return $site_url . ltrim($path, '/');
+        } else {
+            return $path;
+        }
     }
 
     /**
