@@ -5,7 +5,7 @@ RUN sed -i '1 s/\*\:80/\*\:8080/' /etc/apache2/sites-available/000-default.conf
 RUN sed -i 's/Listen 80/Listen 8080/' /etc/apache2/ports.conf
 EXPOSE 8080
 
-RUN apt-key update && apt-get update 
+RUN apt-get install gnupg -y --force-yes && apt-key update && apt-get update 
 RUN apt-get install -y --force-yes netcat mysql-client zip unzip
 
 RUN curl https://raw.githubusercontent.com/composer/getcomposer.org/master/web/installer | php -- && mv composer.phar /usr/local/bin/composer
