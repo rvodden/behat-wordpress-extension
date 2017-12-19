@@ -34,7 +34,6 @@
 
 	<target name="wordhat:docker-test">
 		<phingcall target="docker:up" />
-        <!-- this is nasty - the wordpress container needs a healthcheck -->
         <echo msg="Waiting for WordPress to start" />
         <waitfor maxwaitunit="second" maxwait="60" checkeveryunit="second" checkevery="5">
             <http url="http://wordpress:8080" quiet="true" />
@@ -141,7 +140,7 @@
         <if>
             <os family="windows" />
             <then>
-                <pathconvert tagetos="windows" refid="wordhat.php-binary" property="wordhat.php-binary" />
+                <pathconvert targetos="windows" refid="wordhat.php-binary" property="wordhat.php-binary" />
             </then>
         </if>
         <exec executable="${wordhat.php-binary}" passthru="true" checkreturn="true">
