@@ -17,6 +17,7 @@
 - Many issues discovered by completing our own test coverage.
 - AppVeyor fixes.
 
+
 ## [0.9.2] - 2017-12-18
 ### Fixed
 - Fix (more) invalid YAML.
