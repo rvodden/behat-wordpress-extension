@@ -1,7 +1,21 @@
 # News
 
-## Unreleased
-- tbc
+## [1.0.0] - 2017-12-??
+### Added
+- New step definitions (8 new, 7 changed, and 1 removed).
+- Full test coverage for all step definitions and internal WordPress drivers.
+- Improved documentation.
+
+### Changed
+- Now requires PHP 7+.
+- Internal API adjustments: Contexts now only map step definitions to code, functions used by steps have been moved into traits, and drivers encapsulate <abbr title="Create, Retrieve, Update, Delete">CRUD</abbr> operations).
+- PHPDoc improvements.
+- Use [PHPStan](https://github.com/phpstan/phpstan) for static analysis instead of Scrutinizer-CI.
+- New Docker environment for Travis CI; increases build confidence and reliability.
+
+### Fixed
+- Many issues discovered by completing our own test coverage.
+- AppVeyor fixes.
 
 ## [0.9.2] - 2017-12-18
 ### Fixed
@@ -131,6 +145,7 @@
 ### Added
 - First working version of basic architecture.
 
+[1.0.0]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v0.9.0...v1.0.0
 [0.9.2]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v0.9.1...v0.9.2
 [0.9.1]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v0.9.0...v0.9.1
 [0.9.0]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v0.8.0...v0.9.0
