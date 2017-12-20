@@ -1,26 +1,21 @@
 # News
 
-## Unreleased
-- tbc
-
 ## [1.0.0] - 2017-12-??
 ### Added
-- xxx new step definitions.
-- Full test coverage for all step definitions, and all internal driver methods.
-- Overhauled the documentation available on the website.
+- New step definitions (8 new, 7 changed, and 1 removed).
+- Full test coverage for all step definitions and internal WordPress drivers.
+- Improved documentation.
 
 ### Changed
 - Now requires PHP 7+.
-134
-- PHPDoc improvements and fixes.
+- Internal API adjustments: Contexts now only map step definitions to code, functions used by steps have been moved into traits, and drivers encapsulate <abbr title="Create, Retrieve, Update, Delete">CRUD</abbr> operations).
+- PHPDoc improvements.
 - Use [PHPStan](https://github.com/phpstan/phpstan) for static analysis instead of Scrutinizer-CI.
-- CI: new Docker environment for running tests; increases build confidence and reliability.
+- New Docker environment for Travis CI; increases build confidence and reliability.
 
 ### Fixed
-- CI: fixes for AppVeyor.
-
-### Removed
-???
+- Many issues discovered by completing our own test coverage.
+- AppVeyor fixes.
 
 ## [0.9.2] - 2017-12-18
 ### Fixed
