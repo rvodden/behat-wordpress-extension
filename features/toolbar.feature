@@ -1,5 +1,8 @@
 @javascript
 Feature: Toolbar
+  In order to have confidence that WordHat is reliable for developers
+  As a WordHat maintainer
+  I want to test interacting with the toolbar
 
   Background:
     Given I am logged in as an admin

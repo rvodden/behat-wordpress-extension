@@ -1,4 +1,7 @@
 Feature: Miscellanous/unsorted wp-admin tests.
+  In order to have confidence that WordHat is reliable for developers
+  As a WordHat maintainer
+  I want to test interacting with the dashboard
 
   Scenario: I can navigate to the Add New Users screen in the WordPress dashboard.
     Given I am logged in as an admin

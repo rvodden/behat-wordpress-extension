@@ -1,4 +1,7 @@
 Feature: User authentication
+  In order to have confidence that WordHat is reliable for developers
+  As a WordHat maintainer
+  I want to test user authentication
 
   @javascript
   Scenario: I can log-in and out with javascript

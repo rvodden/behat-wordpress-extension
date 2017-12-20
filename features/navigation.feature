@@ -1,4 +1,7 @@
 Feature: Navigation around types of WordPress front-end screen.
+  In order to have confidence that WordHat is reliable for developers
+  As a WordHat maintainer
+  I want to test navigating around a website
 
   @db @javascript
   Scenario: Access author archive
