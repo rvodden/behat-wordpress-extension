@@ -1,4 +1,7 @@
 Feature: Widgets
+  In order to have confidence that WordHat is reliable for developers
+  As a WordHat maintainer
+  I want to test managing widgets
 
   @db
   Scenario: Viewing a widget

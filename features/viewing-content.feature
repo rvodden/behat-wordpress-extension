@@ -1,5 +1,8 @@
 @db
 Feature: Viewing content
+  In order to have confidence that WordHat is reliable for developers
+  As a WordHat maintainer
+  I want to test viewing content on a website
 
     Background:
         Given there are posts:
@@ -10,7 +13,7 @@ Feature: Viewing content
     Scenario: Deleting an existing post
         Given I delete the post "Just my article"
         Then I should not be able to view the post "Just my article"
-        
+
     Scenario: Viewing a single page
         Given I am viewing a post:
            | post_type | post_title      | post_content    | post_status |

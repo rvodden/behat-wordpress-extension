@@ -1,5 +1,8 @@
 @db
 Feature: Managing plugins
+  In order to have confidence that WordHat is reliable for developers
+  As a WordHat maintainer
+  I want to test managing plugins
 
   Background:
     Given I am logged in as an admin
