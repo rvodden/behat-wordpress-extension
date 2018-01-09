@@ -17,7 +17,7 @@ class DatabaseElement extends BaseElement
      *
      * @return string Path to the database dump.
      */
-    public function get(int $id, array $args = []): string
+    public function get($id, $args = [])
     {
         if (empty($args['path'])) {
             $args['path'] = sys_get_temp_dir();

@@ -14,7 +14,7 @@ class ThemeElement extends BaseElement
      * @param string $id   Theme name to switch to.
      * @param array  $args Not used.
      */
-    public function update(string $id, array $args = [])
+    public function update($id, $args = [])
     {
         $this->drivers->getDriver()->wpcli('theme', 'activate', [$id]);
     }
@@ -32,7 +32,7 @@ class ThemeElement extends BaseElement
      * @param string $id   Theme name to switch to.
      * @param array  $args Not used.
      */
-    public function change(string $id, array $args = [])
+    public function change($id, $args = [])
     {
         $this->update($id, $args);
     }

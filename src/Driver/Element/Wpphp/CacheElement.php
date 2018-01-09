@@ -14,7 +14,7 @@ class CacheElement extends BaseElement
      * @param int   $id   Not used.
      * @param array $args Not used.
      */
-    public function update(int $id, array $args = [])
+    public function update($id, $args = [])
     {
         wp_cache_flush();
     }

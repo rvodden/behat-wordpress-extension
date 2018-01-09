@@ -45,7 +45,7 @@ PHP;
      *
      * @return bool
      */
-    public function supportsSuiteAndClass(Suite $suite, string $context_class): bool
+    public function supportsSuiteAndClass(Suite $suite, $context_class)
     {
         return true;
     }
@@ -58,7 +58,7 @@ PHP;
      *
      * @return string The context class source code.
      */
-    public function generateClass(Suite $suite, string $context_class): string
+    public function generateClass(Suite $suite, $context_class)
     {
         $fqn       = $context_class;
         $namespace = '';

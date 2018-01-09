@@ -17,7 +17,7 @@ class CommentElement extends BaseElement
      *
      * @return mixed The new item.
      */
-    public function create(array $args)
+    public function create($args)
     {
         $wpcli_args = buildCLIArgs(
             array(
@@ -43,7 +43,7 @@ class CommentElement extends BaseElement
      *
      * @return mixed The item.
      */
-    public function get($id, array $args = [])
+    public function get($id, $args = [])
     {
         $wpcli_args = buildCLIArgs(
             array(
@@ -70,7 +70,7 @@ class CommentElement extends BaseElement
      * @param int|string $id   Object ID.
      * @param array      $args Optional data used to delete an object.
      */
-    public function delete($id, array $args = [])
+    public function delete($id, $args = [])
     {
         $wpcli_args = buildCLIArgs(
             ['force'],

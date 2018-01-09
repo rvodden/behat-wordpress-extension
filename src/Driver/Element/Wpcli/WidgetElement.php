@@ -20,7 +20,7 @@ class WidgetElement extends BaseElement
      *
      * @throws UnexpectedValueException If the widget or sidebar does not exist.
      */
-    public function addToSidebar(string $widget_name, string $sidebar_id, array $args)
+    public function addToSidebar($widget_name, $sidebar_id, $args)
     {
         $widget_name = strtolower($widget_name);
 
@@ -41,7 +41,7 @@ class WidgetElement extends BaseElement
      *
      * @return string The sidebar ID
      */
-    public function getSidebar(string $sidebar_name): string
+    public function getSidebar($sidebar_name)
     {
         $registered_sidebars = json_decode($this->drivers->getDriver()->wpcli('sidebar', 'list', [
             '--format=json',

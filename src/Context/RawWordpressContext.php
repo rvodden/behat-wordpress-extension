@@ -44,7 +44,7 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      *
      * @return string
      */
-    public function locatePath(string $path): string
+    public function locatePath($path)
     {
         if (stripos($path, 'http') === 0) {
             return $path;

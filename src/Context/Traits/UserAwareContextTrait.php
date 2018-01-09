@@ -133,9 +133,9 @@ trait UserAwareContextTrait
      *
      * @throws \UnexpectedValueException
      *
-     * @return \WP_User $user
+     * @return object $user
      */
-    private function getExistingMatchingUser(array $args): \WP_User
+    private function getExistingMatchingUser(array $args)
     {
         $user_id = $this->getUserIdFromLogin($args['user_login']);
         $user    = $this->getDriver()->user->get($user_id);
@@ -172,14 +172,14 @@ trait UserAwareContextTrait
     /**
      * Checks to see if the user has an assigned role or not.
      *
-     * @param \WP_User $user
-     * @param string   $role
+     * @param object $user
+     * @param string $role
      *
      * @throws \UnexpectedValueException
      *
      * @return boolean $retval True if the role does apply to the user.
      */
-    private function checkUserHasRole(\WP_User $user, string $role): bool
+    private function checkUserHasRole($user, string $role): bool
     {
         /*
          * $user->roles can either be a string with 1 role in it or an array of roles.

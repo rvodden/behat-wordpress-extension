@@ -57,7 +57,7 @@ abstract class BaseDriver implements DriverInterface
      *
      * @return bool
      */
-    public function isBootstrapped()
+    public function isBootstrapped() : bool
     {
         return $this->is_bootstrapped;
     }

@@ -18,7 +18,7 @@ class TermElement extends BaseElement
      *
      * @return \WP_Term The new item.
      */
-    public function create(array $args): \WP_Term
+    public function create($args)
     {
         $args = wp_slash($args);
         $term = wp_insert_term($args['term'], $args['taxonomy'], $args);
@@ -40,7 +40,7 @@ class TermElement extends BaseElement
      *
      * @return \WP_Term The item.
      */
-    public function get(int $id, array $args = []): \WP_Term
+    public function get($id, $args = [])
     {
         $term = get_term($id, $args['taxonomy']);
 
@@ -63,7 +63,7 @@ class TermElement extends BaseElement
      *
      * @throws \UnexpectedValueException
      */
-    public function delete(int $id, array $args = [])
+    public function delete($id, $args = [])
     {
         $result = wp_delete_term($id, $args['taxonomy']);
 
