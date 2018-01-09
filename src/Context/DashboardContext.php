@@ -54,7 +54,7 @@ class DashboardContext extends RawWordpressContext
      *
      * @param string $link
      */
-    public function iClickOnHeaderLink($link)
+    public function iClickOnHeaderLink(string $link)
     {
         $this->admin_page->clickLinkInHeader($link);
     }
@@ -68,7 +68,7 @@ class DashboardContext extends RawWordpressContext
      *
      * @param string $admin_screen
      */
-    public function iShouldBeOnTheScreen($admin_screen)
+    public function iShouldBeOnTheScreen(string $admin_screen)
     {
         $this->admin_page->assertHasHeader($admin_screen);
     }
@@ -84,7 +84,7 @@ class DashboardContext extends RawWordpressContext
      *
      * @param string $item
      */
-    public function iGoToMenuItem($item)
+    public function iGoToMenuItem(string $item)
     {
         $adminMenu = $this->admin_page->getMenu();
         $adminMenu->clickMenuItem($item);
@@ -102,7 +102,7 @@ class DashboardContext extends RawWordpressContext
      *
      * @throws \Behat\Mink\Exception\ElementTextException
      */
-    public function iShouldSeeMessageThatSays($type, $message)
+    public function iShouldSeeMessageThatSays(string $type, string $message)
     {
         $selector = 'div.notice';
 

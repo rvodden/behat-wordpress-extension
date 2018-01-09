@@ -15,7 +15,7 @@ class PluginElement extends BaseElement
      * @param string $id   Path to plugin.
      * @param array  $args Optional data used to update an object.
      */
-    public function update($id, $args = [])
+    public function update(string $id, array $args = [])
     {
         if ($args['status'] === 'activate') {
             activate_plugin($id, '', false, true);
@@ -39,7 +39,7 @@ class PluginElement extends BaseElement
      *
      * @throws \UnexpectedValueException
      */
-    public function activate($id, $args = [])
+    public function activate(string $id, array $args = [])
     {
         $plugin = $this->drivers->getDriver()->getPlugin($id);
 

@@ -46,7 +46,7 @@ class EditPostContext extends RawWordpressContext
      * @param string $post_type The post type of the referenced 'post' being edited.
      * @param string $title     The name of the 'post' being edited.
      */
-    public function iGoToEditScreenForPostType($post_type, $title)
+    public function iGoToEditScreenForPostType(string $post_type, string $title)
     {
         $post = $this->getContentFromTitle($title, $post_type);
         $this->edit_post_page->open(array(
@@ -66,7 +66,7 @@ class EditPostContext extends RawWordpressContext
      *
      * @param string $title The name of the 'post' being edited.
      */
-    public function iGoToEditScreenFor($title)
+    public function iGoToEditScreenFor(string $title)
     {
         $post = $this->getContentFromTitle($title);
         $this->edit_post_page->open(array(
@@ -85,7 +85,7 @@ class EditPostContext extends RawWordpressContext
      *
      * @throws \Behat\Mink\Exception\ElementNotFoundException
      */
-    public function iChangeTitleTo($title)
+    public function iChangeTitleTo(string $title)
     {
         $this->edit_post_page->setContentTitle($title);
     }
@@ -100,7 +100,7 @@ class EditPostContext extends RawWordpressContext
      *
      * @param string $mode The mode (visual or text) to switch to in the editor.
      */
-    public function iSelectPostContentEditorMode($mode)
+    public function iSelectPostContentEditorMode(string $mode)
     {
         $content_editor = $this->edit_post_page->getContentEditor();
         $content_editor->setMode(strtoupper($mode));
@@ -136,7 +136,7 @@ class EditPostContext extends RawWordpressContext
      *
      * @throws ExpectationException
      */
-    public function postContentEditorIsInMode($mode)
+    public function postContentEditorIsInMode(string $mode)
     {
         $content_editor = $this->edit_post_page->getContentEditor();
         if (strtoupper($mode) !== $content_editor->getMode()) {
@@ -174,7 +174,7 @@ class EditPostContext extends RawWordpressContext
      * @param string $post_type  The post type of the referenced content being edited.
      * @param string $post_title The name of the content being edited.
      */
-    public function iAmOnEditScreenForPostType($post_type, $post_title)
+    public function iAmOnEditScreenForPostType(string $post_type, string $post_title)
     {
         $post = $this->getContentFromTitle($post_title, $post_type);
         $this->edit_post_page->isOpen(array(
@@ -195,7 +195,7 @@ class EditPostContext extends RawWordpressContext
      *
      * @throws \Behat\Mink\Exception\ExpectationException
      */
-    public function iShouldSeeTheMetabox($title)
+    public function iShouldSeeTheMetabox(string $title)
     {
         $this->edit_post_page->getMetaBox($title);
     }
@@ -213,7 +213,7 @@ class EditPostContext extends RawWordpressContext
      *
      * @throws ExpectationException
      */
-    public function iShouldNotSeeTheMetabox($title)
+    public function iShouldNotSeeTheMetabox(string $title)
     {
         try {
             $this->edit_post_page->getMetaBox($title);

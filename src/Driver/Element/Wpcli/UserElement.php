@@ -18,7 +18,7 @@ class UserElement extends BaseElement
      *
      * @return mixed The new item.
      */
-    public function create($args)
+    public function create(array $args)
     {
         $wpcli_args = buildCLIArgs(
             array(
@@ -45,7 +45,7 @@ class UserElement extends BaseElement
      *
      * @return mixed The item.
      */
-    public function get($id, $args = [])
+    public function get($id, array $args = [])
     {
         // Fetch all the user properties by default, for convenience.
         if (! isset($args['field']) && ! isset($args['fields'])) {
@@ -95,7 +95,7 @@ class UserElement extends BaseElement
      *
      * @return boolean True if the username and password are correct.
      */
-    public function validateCredentials(string $username, string $password)
+    public function validateCredentials(string $username, string $password): bool
     {
         throw new UnsupportedDriverActionException("No known way to check $username has password $password.");
     }
@@ -106,7 +106,7 @@ class UserElement extends BaseElement
      * @param int|string $id   Object ID.
      * @param array      $args Optional data used to delete an object.
      */
-    public function delete($id, $args = [])
+    public function delete($id, array $args = [])
     {
         $wpcli_args = buildCLIArgs(
             ['network', 'reassign'],

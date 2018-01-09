@@ -43,7 +43,7 @@ abstract class BaseDriver implements DriverInterface
      *
      * @return null|\PaulGibbs\WordpressBehatExtension\Driver\Element\ElementInterface Return element object.
      */
-    public function __get($name)
+    public function __get(string $name)
     {
         if (isset($this->elements[$name])) {
             return $this->elements[$name];

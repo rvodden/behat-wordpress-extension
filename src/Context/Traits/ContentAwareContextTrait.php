@@ -19,7 +19,7 @@ trait ContentAwareContextTrait
      *             @type string $url  Content permalink.
      *         }
      */
-    public function createContent($args)
+    public function createContent(array $args): array
     {
         $post = $this->getDriver()->content->create($args);
 
@@ -44,7 +44,7 @@ trait ContentAwareContextTrait
      *             @type string $url  Content url.
      *         }
      */
-    public function getContentFromTitle($title, $post_type = '')
+    public function getContentFromTitle(string $title, string $post_type = ''): array
     {
         $post = $this->getDriver()->content->get($title, ['by' => 'title', 'post_type' => $post_type]);
 
@@ -61,7 +61,7 @@ trait ContentAwareContextTrait
      * @param int   $content_id ID of content to delete.
      * @param array $args       Optional. Extra parameters to pass to WordPress.
      */
-    public function deleteContent($content_id, $args = [])
+    public function deleteContent(int $content_id, array $args = [])
     {
         $this->getDriver()->content->delete($content_id, $args);
     }

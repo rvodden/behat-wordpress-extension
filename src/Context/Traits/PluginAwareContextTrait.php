@@ -13,7 +13,7 @@ trait PluginAwareContextTrait
      *
      * @param string $plugin
      */
-    public function activatePlugin($plugin)
+    public function activatePlugin(string $plugin)
     {
         $this->getDriver()->plugin->activate($plugin);
     }
@@ -23,7 +23,7 @@ trait PluginAwareContextTrait
      *
      * @param string $plugin
      */
-    public function deactivatePlugin($plugin)
+    public function deactivatePlugin(string $plugin)
     {
         $this->getDriver()->plugin->deactivate($plugin);
     }

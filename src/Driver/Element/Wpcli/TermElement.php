@@ -17,7 +17,7 @@ class TermElement extends BaseElement
      *
      * @return mixed The new item.
      */
-    public function create($args)
+    public function create(array $args)
     {
         $wpcli_args = buildCLIArgs(
             array(
@@ -44,7 +44,7 @@ class TermElement extends BaseElement
      *
      * @return mixed The item.
      */
-    public function get($id, $args = [])
+    public function get($id, array $args = [])
     {
         $wpcli_args = buildCLIArgs(
             array(
@@ -71,7 +71,7 @@ class TermElement extends BaseElement
      * @param int|string $id   Object ID.
      * @param array      $args Optional data used to delete an object.
      */
-    public function delete($id, $args = [])
+    public function delete($id, array $args = [])
     {
         $wpcli_args = [
             $args['taxonomy'],

@@ -14,7 +14,7 @@ class PluginElement extends BaseElement
      * @param string $id   Plugin name.
      * @param array  $args Optional data used to update an object.
      */
-    public function update($id, $args = [])
+    public function update(string $id, array $args = [])
     {
         $this->drivers->getDriver()->wpcli('plugin', $args['status'], [$id]);
     }
@@ -32,7 +32,7 @@ class PluginElement extends BaseElement
      * @param string $id   Plugin name to activate.
      * @param array  $args Optional data used to update an object.
      */
-    public function activate($id, $args = [])
+    public function activate(string $id, array $args = [])
     {
         $this->update($id, ['status' => 'activate']);
     }
@@ -45,7 +45,7 @@ class PluginElement extends BaseElement
      * @param string $id   Plugin name to deactivate.
      * @param array  $args Optional data used to update an object.
      */
-    public function deactivate($id, $args = [])
+    public function deactivate(string $id, array $args = [])
     {
         $this->update($id, ['status' => 'deactivate']);
     }

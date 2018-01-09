@@ -20,7 +20,7 @@ trait TermAwareContextTrait
      *             @type string $slug Term slug.
      *         }
      */
-    public function createTerm($term, $taxonomy, $args = [])
+    public function createTerm(string $term, string $taxonomy, array $args = []): array
     {
         $args['taxonomy'] = $taxonomy;
         $args['term'] = $term;
@@ -39,7 +39,7 @@ trait TermAwareContextTrait
      * @param int    $term_id
      * @param string $taxonomy
      */
-    public function deleteTerm($term_id, $taxonomy)
+    public function deleteTerm(int $term_id, string $taxonomy)
     {
         $this->getDriver()->term->delete($term_id, compact($taxonomy));
     }

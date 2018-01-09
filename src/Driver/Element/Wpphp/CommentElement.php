@@ -18,7 +18,7 @@ class CommentElement extends BaseElement
      *
      * @return \WP_Comment The new item.
      */
-    public function create($args)
+    public function create(array $args): \WP_Comment
     {
         $comment_id = wp_new_comment($args);
 
@@ -43,7 +43,7 @@ class CommentElement extends BaseElement
      *
      * @return \WP_Comment The item.
      */
-    public function get($id, $args = [])
+    public function get($id, array $args = []): \WP_Comment
     {
         $comment = get_comment($id);
 
@@ -62,7 +62,7 @@ class CommentElement extends BaseElement
      *
      * @throws \UnexpectedValueException
      */
-    public function delete($id, $args = [])
+    public function delete($id, array $args = [])
     {
         $result = wp_delete_comment($id, isset($args['force']));
 

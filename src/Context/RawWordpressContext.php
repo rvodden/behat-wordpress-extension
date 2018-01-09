@@ -44,7 +44,7 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      *
      * @return string
      */
-    public function locatePath($path)
+    public function locatePath(string $path): string
     {
         if (stripos($path, 'http') === 0) {
             return $path;
@@ -74,7 +74,7 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      *
      * @return WordpressDriverManager
      */
-    public function getWordpress()
+    public function getWordpress(): \PaulGibbs\WordpressBehatExtension\WordpressDriverManager
     {
         return $this->wordpress;
     }
@@ -87,7 +87,7 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      *
      * @param array $parameters
      */
-    public function setWordpressParameters($parameters)
+    public function setWordpressParameters(array $parameters)
     {
         $this->wordpress_parameters = $parameters;
     }
@@ -102,7 +102,7 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      *
      * @return mixed
      */
-    public function getWordpressParameter($name)
+    public function getWordpressParameter(string $name)
     {
         return ! empty($this->wordpress_parameters[$name]) ? $this->wordpress_parameters[$name] : null;
     }
@@ -112,7 +112,7 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      *
      * @return array
      */
-    public function getWordpressParameters()
+    public function getWordpressParameters(): array
     {
         return $this->wordpress_parameters;
     }
@@ -124,7 +124,7 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      *
      * @return \PaulGibbs\WordpressBehatExtension\Driver\DriverInterface
      */
-    public function getDriver($name = '')
+    public function getDriver(string $name = ''): \PaulGibbs\WordpressBehatExtension\Driver\DriverInterface
     {
         return $this->getWordpress()->getDriver($name);
     }

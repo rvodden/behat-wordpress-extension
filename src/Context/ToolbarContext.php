@@ -17,7 +17,7 @@ class ToolbarContext extends RawWordpressContext
      *
      * @param string $search
      */
-    public function iSearchUsingTheToolbar($search)
+    public function iSearchUsingTheToolbar(string $search)
     {
         $this->getElement('Toolbar')->search($search);
     }
@@ -33,7 +33,7 @@ class ToolbarContext extends RawWordpressContext
      *
      * @throws ElementTextException
      */
-    public function iShouldSeeTextInToolbar($text)
+    public function iShouldSeeTextInToolbar(string $text)
     {
         $toolbar = $this->getElement('Toolbar');
         $actual  = $toolbar->getText();
@@ -54,7 +54,7 @@ class ToolbarContext extends RawWordpressContext
      *
      * @param string $username
      */
-    public function theUsernameShouldBe($username)
+    public function theUsernameShouldBe(string $username)
     {
         $toolbar = $this->getElement('Toolbar');
         $actual  = $toolbar->getAuthenticatedUserText();
@@ -76,7 +76,7 @@ class ToolbarContext extends RawWordpressContext
      *
      * @param string $link
      */
-    public function iFollowTheToolbarLink($link)
+    public function iFollowTheToolbarLink(string $link)
     {
         $this->getElement('Toolbar')->clickToolbarLink($link);
     }

@@ -27,7 +27,7 @@ class WpphpDriver extends BaseDriver
      *
      * @param string $path Path to WordPress site's files.
      */
-    public function __construct($path)
+    public function __construct(string $path)
     {
         $this->path = realpath($path);
     }

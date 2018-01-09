@@ -18,7 +18,7 @@ class WidgetElement extends BaseElement
      * @param array $args Associative array of widget settings for this widget
      * @throws UnexpectedValueException If the widget is not registered.
      */
-    public function addToSidebar($widget_name, $sidebar_id, $args)
+    public function addToSidebar(string $widget_name, string $sidebar_id, array $args)
     {
         global $wp_widget_factory;
 
@@ -63,7 +63,7 @@ class WidgetElement extends BaseElement
      *
      * @throws UnexpectedValueException If the sidebar is not registered.
      */
-    public function getSidebar($sidebar_name)
+    public function getSidebar(string $sidebar_name): string
     {
         global $wp_registered_sidebars;
 

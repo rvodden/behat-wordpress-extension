@@ -22,7 +22,7 @@ trait UserAwareContextTrait
      *
      * @throws ExpectationException
      */
-    public function logIn($username, $password, $redirect_to = '/')
+    public function logIn(string $username, string $password, string $redirect_to = '/')
     {
         if ($this->loggedIn()) {
             $this->logOut();
@@ -71,7 +71,7 @@ trait UserAwareContextTrait
      *
      * @return bool
      */
-    public function loggedIn()
+    public function loggedIn(): bool
     {
         $page = $this->getSession()->getPage();
 
@@ -104,7 +104,7 @@ trait UserAwareContextTrait
      *             @type string $slug User slug (nicename).
      *         }
      */
-    public function createUser($user_login, $user_email, $args = [])
+    public function createUser(string $user_login, string $user_email, array $args = []): array
     {
         $args['user_email'] = $user_email;
         $args['user_login'] = $user_login;
@@ -135,7 +135,7 @@ trait UserAwareContextTrait
      *
      * @return \WP_User $user
      */
-    private function getExistingMatchingUser($args)
+    private function getExistingMatchingUser(array $args): \WP_User
     {
         $user_id = $this->getUserIdFromLogin($args['user_login']);
         $user    = $this->getDriver()->user->get($user_id);
@@ -179,7 +179,7 @@ trait UserAwareContextTrait
      *
      * @return boolean $retval True if the role does apply to the user.
      */
-    private function checkUserHasRole($user, $role)
+    private function checkUserHasRole(\WP_User $user, string $role): bool
     {
         /*
          * $user->roles can either be a string with 1 role in it or an array of roles.
@@ -207,7 +207,7 @@ trait UserAwareContextTrait
      *
      * @return boolean $retval True if the parameter does apply to a user.
      */
-    private function isValidUserParameter(string $user_parameter)
+    private function isValidUserParameter(string $user_parameter): bool
     {
         $validUserParameters = array(
             'id',
@@ -235,7 +235,7 @@ trait UserAwareContextTrait
      *
      * @return int ID of the user.
      */
-    public function getUserIdFromLogin($username)
+    public function getUserIdFromLogin(string $username): int
     {
         return $this->getDriver()->user->get($username, ['by' => 'login'])->ID;
     }
@@ -246,7 +246,7 @@ trait UserAwareContextTrait
      * @param int $user_id ID of user to delete.
      * @param array $args  Optional. Extra parameters to pass to WordPress.
      */
-    public function deleteUser($user_id, $args = [])
+    public function deleteUser(int $user_id, array $args = [])
     {
         $this->getDriver()->user->delete($user_id, $args);
     }
@@ -261,7 +261,7 @@ trait UserAwareContextTrait
      *
      * @return mixed The specified user data.
      */
-    public function getUserDataFromUsername($data, $username)
+    public function getUserDataFromUsername(string $data, string $username)
     {
         return $this->getDriver()->user->get($username, ['by' => 'login'])->{$data};
     }

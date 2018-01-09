@@ -20,7 +20,7 @@ class PostsEditPage extends AdminPage
      *
      * @throws \Behat\Mink\Exception\ElementNotFoundException
      */
-    public function setContentTitle($title)
+    public function setContentTitle(string $title)
     {
         $this->fillField('title', $title);
     }
@@ -30,7 +30,7 @@ class PostsEditPage extends AdminPage
      *
      * @return \SensioLabs\Behat\PageObjectExtension\PageObject\Element
      */
-    public function getContentEditor()
+    public function getContentEditor(): \SensioLabs\Behat\PageObjectExtension\PageObject\Element
     {
         return $this->getElement('Post Content editor');
     }
@@ -56,7 +56,7 @@ class PostsEditPage extends AdminPage
      *
      * @throws \Behat\Mink\Exception\ExpectationException If the metabox cannot be found
      */
-    public function getMetaBox($title)
+    public function getMetaBox(string $title): \Behat\Mink\Element\NodeElement
     {
         $metaboxes = $this->findAll('css', '.postbox');
         if ($metaboxes) {

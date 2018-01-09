@@ -13,7 +13,7 @@ trait ThemeAwareContextTrait
      *
      * @param string $theme
      */
-    public function switchTheme($theme)
+    public function switchTheme(string $theme)
     {
         $this->getDriver()->theme->change($theme);
     }

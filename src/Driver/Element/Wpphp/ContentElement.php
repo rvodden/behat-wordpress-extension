@@ -19,7 +19,7 @@ class ContentElement extends BaseElement
      *
      * @return \WP_Post The new item.
      */
-    public function create($args)
+    public function create(array $args): \WP_Post
     {
         $args = wp_slash($args);
         $id   = wp_insert_post($args);
@@ -41,7 +41,7 @@ class ContentElement extends BaseElement
      *
      * @return \WP_Post The item.
      */
-    public function get($id, $args = [])
+    public function get($id, array $args = []): \WP_Post
     {
         $post = false;
 

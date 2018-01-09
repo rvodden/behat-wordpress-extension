@@ -43,7 +43,7 @@ class WordpressBehatExtension implements ExtensionInterface
      *
      * @return string
      */
-    public function getConfigKey()
+    public function getConfigKey(): string
     {
         return 'wordpress';
     }
@@ -242,7 +242,7 @@ class WordpressBehatExtension implements ExtensionInterface
      * @throws \RuntimeException
      * @throws \Exception
      */
-    protected function setupWpcliDriver(FileLoader $loader, ContainerBuilder $container, $config)
+    protected function setupWpcliDriver(FileLoader $loader, ContainerBuilder $container, array $config)
     {
         if (! isset($config['wpcli'])) {
             return;
@@ -274,7 +274,7 @@ class WordpressBehatExtension implements ExtensionInterface
      * @throws \RuntimeException
      * @throws \Exception
      */
-    protected function setupWpphpDriver(FileLoader $loader, ContainerBuilder $container, $config)
+    protected function setupWpphpDriver(FileLoader $loader, ContainerBuilder $container, array $config)
     {
         if (! isset($config['wpphp'])) {
             return;
@@ -299,7 +299,7 @@ class WordpressBehatExtension implements ExtensionInterface
      *
      * @throws \Exception
      */
-    protected function setupBlackboxDriver(FileLoader $loader, ContainerBuilder $container, $config)
+    protected function setupBlackboxDriver(FileLoader $loader, ContainerBuilder $container, array $config)
     {
         if (! isset($config['blackbox'])) {
             return;

@@ -17,7 +17,7 @@ trait CommentAwareContextTrait
      *             @type int $id Content ID.
      *         }
      */
-    public function createComment($args)
+    public function createComment(array $args): array
     {
         $comment = $this->getDriver()->comment->create($args);
 
@@ -32,7 +32,7 @@ trait CommentAwareContextTrait
      * @param int   $comment_id ID of comment to delete.
      * @param array $args       Optional. Extra parameters to pass to WordPress.
      */
-    public function deleteComment($comment_id, $args = [])
+    public function deleteComment(int $comment_id, array $args = [])
     {
         $this->getDriver()->comment->delete($comment_id, $args);
     }

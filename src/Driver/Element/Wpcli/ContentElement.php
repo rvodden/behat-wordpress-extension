@@ -17,7 +17,7 @@ class ContentElement extends BaseElement
      *
      * @return mixed The new item.
      */
-    public function create($args)
+    public function create(array $args)
     {
         $meta_args = [];
         $tax_args  = [];
@@ -100,7 +100,7 @@ class ContentElement extends BaseElement
      *
      * @return mixed The item.
      */
-    public function get($id, $args = [])
+    public function get($id, array $args = [])
     {
         $url = '';
 

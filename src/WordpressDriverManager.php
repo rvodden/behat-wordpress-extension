@@ -41,7 +41,7 @@ class WordpressDriverManager
      *
      * @param DriverInterface[] $drivers An array of drivers to register.
      */
-    public function __construct($drivers = [])
+    public function __construct(array $drivers = [])
     {
         foreach ($drivers as $name => $driver) {
             $this->registerDriver($name, $driver);
@@ -54,7 +54,7 @@ class WordpressDriverManager
      * @param string          $name   Driver name.
      * @param DriverInterface $driver An instance of a DriverInterface.
      */
-    public function registerDriver($name, DriverInterface $driver)
+    public function registerDriver(string $name, DriverInterface $driver)
     {
         $name = strtolower($name);
         $this->drivers[$name] = $driver;
@@ -66,7 +66,7 @@ class WordpressDriverManager
      * @param string           $name    Driver name.
      * @param ElementInterface $element An instance of a ElementInterface.
      */
-    public function registerDriverElement($name, ElementInterface $element)
+    public function registerDriverElement(string $name, ElementInterface $element)
     {
         $this->getDriver()->registerElement($name, $element);
     }
@@ -80,7 +80,7 @@ class WordpressDriverManager
      *
      * @throws \InvalidArgumentException
      */
-    public function getDriver($name = '')
+    public function getDriver(string $name = ''): \PaulGibbs\WordpressBehatExtension\Driver\DriverInterface
     {
         $name = strtolower($name) ?: $this->default_driver;
 

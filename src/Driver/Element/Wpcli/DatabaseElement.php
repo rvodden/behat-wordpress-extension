@@ -17,7 +17,7 @@ class DatabaseElement extends BaseElement
      *
      * @return string Path to the database dump.
      */
-    public function get($id, $args = [])
+    public function get(int $id, array $args = []): string
     {
         $wpcli_args = ['--porcelain', '--add-drop-table'];
 
@@ -43,7 +43,7 @@ class DatabaseElement extends BaseElement
      * @param int   $id   Not used.
      * @param array $args
      */
-    public function update($id, $args = [])
+    public function update(int $id, array $args = [])
     {
         $this->drivers->getDriver()->wpcli('db', 'import', [$args['path']]);
 
@@ -72,7 +72,7 @@ class DatabaseElement extends BaseElement
      *
      * @return string Path to the export file.
      */
-    public function export($id, $args = [])
+    public function export(int $id, array $args = []): string
     {
         return $this->get($id, $args);
     }
@@ -85,7 +85,7 @@ class DatabaseElement extends BaseElement
      * @param int   $id   Not used.
      * @param array $args
      */
-    public function import($id, $args = [])
+    public function import(int $id, array $args = [])
     {
         $this->update($id, $args);
     }

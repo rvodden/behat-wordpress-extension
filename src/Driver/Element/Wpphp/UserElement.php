@@ -18,7 +18,7 @@ class UserElement extends BaseElement
      *
      * @return \WP_User The new item.
      */
-    public function create($args)
+    public function create(array $args): \WP_User
     {
         $args = wp_slash($args);
         $user = wp_insert_user($args);
@@ -40,7 +40,7 @@ class UserElement extends BaseElement
      *
      * @return \WP_User The item.
      */
-    public function get($id, $args = [])
+    public function get($id, array $args = []): \WP_User
     {
         if (is_numeric($id) || ! isset($args['by'])) {
             $type = 'ID';
@@ -65,7 +65,7 @@ class UserElement extends BaseElement
      *
      * @return boolean True if the username and password are correct.
      */
-    public function validateCredentials(string $username, string $password)
+    public function validateCredentials(string $username, string $password): bool
     {
         $check = \wp_authenticate_username_password(null, $username, $password);
         return !\is_wp_error($check);
@@ -79,7 +79,7 @@ class UserElement extends BaseElement
      *
      * @throws \UnexpectedValueException
      */
-    public function delete($id, $args = [])
+    public function delete(int $id, array $args = [])
     {
         if (! function_exists('\wp_delete_user')) {
             require_once ABSPATH . 'wp-admin/includes/user.php';

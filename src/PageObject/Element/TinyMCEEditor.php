@@ -29,7 +29,7 @@ class TinyMCEEditor extends Element
      *
      * @param string $mode VISUAL or TEXT.
      */
-    public function setMode($mode)
+    public function setMode(string $mode)
     {
         if (self::VISUAL === $mode) {
             $this->find('css', '#content-tmce')->press();
@@ -43,7 +43,7 @@ class TinyMCEEditor extends Element
      *
      * @return string Either 'VISUAL' or 'TEXT'.
      */
-    public function getMode()
+    public function getMode(): string
     {
         return $this->find('css', '#wp-content-wrap')->hasClass('tmce-active') ? self::VISUAL : self::TEXT;
     }
@@ -57,7 +57,7 @@ class TinyMCEEditor extends Element
      * @throws \Behat\Mink\Exception\DriverException
      * @throws \Behat\Mink\Exception\UnsupportedDriverActionException
      */
-    public function setContent($content)
+    public function setContent(string $content)
     {
         if (self::VISUAL === $this->getMode()) {
             $this->getDriver()->switchToIFrame(self::$wysiwyg_iframe_id);

@@ -13,7 +13,7 @@ interface DriverInterface
      *
      * @return bool
      */
-    public function isBootstrapped();
+    public function isBootstrapped(): bool;
 
     /**
      * Set up anything required for the driver.

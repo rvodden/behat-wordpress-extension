@@ -23,7 +23,7 @@ interface WordpressAwareInterface extends Context
      *
      * @return WordpressDriverManager
      */
-    public function getWordpress();
+    public function getWordpress(): \PaulGibbs\WordpressBehatExtension\WordpressDriverManager;
 
     /**
      * Sets parameters provided for WordPress.
@@ -32,7 +32,7 @@ interface WordpressAwareInterface extends Context
      *
      * @return void
      */
-    public function setWordpressParameters($parameters);
+    public function setWordpressParameters(array $parameters);
 
     /**
      * Get a specific WordPress parameter.
@@ -41,5 +41,5 @@ interface WordpressAwareInterface extends Context
      *
      * @return mixed
      */
-    public function getWordpressParameter($name);
+    public function getWordpressParameter(string $name);
 }
