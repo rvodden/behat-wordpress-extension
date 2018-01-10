@@ -19,7 +19,7 @@ interface ElementInterface
      *
      * @return mixed The new item.
      */
-    public function create(array $args);
+    public function create($args);
 
     /**
      * Retrieve an item for this element.
@@ -29,7 +29,7 @@ interface ElementInterface
      *
      * @return mixed The item.
      */
-    public function get($id, array $args = []);
+    public function get($id, $args = []);
 
     /**
      * Update an item for this element.
@@ -39,7 +39,7 @@ interface ElementInterface
      *
      * @return void
      */
-    public function update($id, array $args = []);
+    public function update($id, $args = []);
 
     /**
      * Delete an item for this element.
@@ -49,5 +49,5 @@ interface ElementInterface
      *
      * @return void
      */
-    public function delete($id, array $args = []);
+    public function delete($id, $args = []);
 }
