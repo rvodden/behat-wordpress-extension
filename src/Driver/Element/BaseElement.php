@@ -37,7 +37,7 @@ abstract class BaseElement implements ElementInterface
      *
      * @throws UnsupportedDriverActionException
      */
-    public function create(array $args)
+    public function create($args)
     {
         throw new UnsupportedDriverActionException(sprintf('use the %s element create method', static::class));
     }
