@@ -1,6 +1,10 @@
 # News
 
-## [1.0.0] - 2017-12-??
+## Master branch
+### Changed
+- Require WP-CLI v1.5+.
+
+## [1.0.0] - 2018-01-18
 ### Added
 - New step definitions (8 new, 7 changed, and 1 removed).
 - Full test coverage for all step definitions and internal WordPress drivers.
@@ -16,7 +20,6 @@
 ### Fixed
 - Many issues discovered by completing our own test coverage.
 - AppVeyor fixes.
-
 
 ## [0.9.2] - 2017-12-18
 ### Fixed

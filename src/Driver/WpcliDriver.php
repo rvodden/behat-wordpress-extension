@@ -77,8 +77,8 @@ class WpcliDriver extends BaseDriver
             $version = array_pop($match);
         }
 
-        if (! version_compare($version, '1.3.0', '>=')) {
-            throw new RuntimeException('Your WP-CLI is too old; version 1.3.0 or newer is required.');
+        if (! version_compare($version, '1.5.0', '>=')) {
+            throw new RuntimeException('Your WP-CLI is too old; version 1.5.0 or newer is required.');
         }
 
         $status = $this->wpcli('core', 'is-installed')['exit_code'];
