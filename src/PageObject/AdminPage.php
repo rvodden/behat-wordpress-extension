@@ -1,6 +1,7 @@
 <?php
 namespace PaulGibbs\WordpressBehatExtension\PageObject;
 
+use SensioLabs\Behat\PageObjectExtension\PageObject\Element;
 use SensioLabs\Behat\PageObjectExtension\PageObject\Page;
 use Behat\Mink\Exception\ExpectationException;
 
@@ -108,7 +109,7 @@ class AdminPage extends Page
      *
      * @return \SensioLabs\Behat\PageObjectExtension\PageObject\Element
      */
-    public function getMenu(): \SensioLabs\Behat\PageObjectExtension\PageObject\Element
+    public function getMenu(): Element
     {
         return $this->getElement('Admin menu');
     }

@@ -15,5 +15,5 @@ trait BaseAwarenessTrait
      *
      * @return DriverInterface
      */
-    public abstract function getDriver(string $name = ''): \PaulGibbs\WordpressBehatExtension\Driver\DriverInterface;
+    public abstract function getDriver(string $name = ''): DriverInterface;
 }

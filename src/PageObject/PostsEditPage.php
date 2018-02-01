@@ -1,7 +1,9 @@
 <?php
 namespace PaulGibbs\WordpressBehatExtension\PageObject;
 
+use Behat\Mink\Element\NodeElement;
 use Behat\Mink\Exception\ExpectationException;
+use SensioLabs\Behat\PageObjectExtension\PageObject\Element;
 
 /**
  * Page object representing the wp-admin "Posts > Edit" screen.
@@ -30,7 +32,7 @@ class PostsEditPage extends AdminPage
      *
      * @return \SensioLabs\Behat\PageObjectExtension\PageObject\Element
      */
-    public function getContentEditor(): \SensioLabs\Behat\PageObjectExtension\PageObject\Element
+    public function getContentEditor(): Element
     {
         return $this->getElement('Post Content editor');
     }
@@ -56,7 +58,7 @@ class PostsEditPage extends AdminPage
      *
      * @throws \Behat\Mink\Exception\ExpectationException If the metabox cannot be found
      */
-    public function getMetaBox(string $title): \Behat\Mink\Element\NodeElement
+    public function getMetaBox(string $title): NodeElement
     {
         $metaboxes = $this->findAll('css', '.postbox');
         if ($metaboxes) {

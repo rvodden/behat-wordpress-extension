@@ -23,7 +23,7 @@ interface WordpressAwareInterface extends Context
      *
      * @return WordpressDriverManager
      */
-    public function getWordpress(): \PaulGibbs\WordpressBehatExtension\WordpressDriverManager;
+    public function getWordpress(): WordpressDriverManager;
 
     /**
      * Sets parameters provided for WordPress.

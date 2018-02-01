@@ -5,6 +5,7 @@ use Behat\Behat\Context\SnippetAcceptingContext;
 use Behat\MinkExtension\Context\RawMinkContext;
 use PaulGibbs\WordpressBehatExtension\WordpressDriverManager;
 use PaulGibbs\WordpressBehatExtension\Context\Traits\PageObjectAwareContextTrait;
+use PaulGibbs\WordpressBehatExtension\Driver\DriverInterface;
 use SensioLabs\Behat\PageObjectExtension\Context\PageObjectAware;
 
 /**
@@ -74,7 +75,7 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      *
      * @return WordpressDriverManager
      */
-    public function getWordpress(): \PaulGibbs\WordpressBehatExtension\WordpressDriverManager
+    public function getWordpress(): WordpressDriverManager
     {
         return $this->wordpress;
     }
@@ -124,7 +125,7 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      *
      * @return \PaulGibbs\WordpressBehatExtension\Driver\DriverInterface
      */
-    public function getDriver(string $name = ''): \PaulGibbs\WordpressBehatExtension\Driver\DriverInterface
+    public function getDriver(string $name = ''): DriverInterface
     {
         return $this->getWordpress()->getDriver($name);
     }

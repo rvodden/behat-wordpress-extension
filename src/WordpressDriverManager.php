@@ -80,7 +80,7 @@ class WordpressDriverManager
      *
      * @throws \InvalidArgumentException
      */
-    public function getDriver(string $name = ''): \PaulGibbs\WordpressBehatExtension\Driver\DriverInterface
+    public function getDriver(string $name = ''): DriverInterface
     {
         $name = strtolower($name) ?: $this->default_driver;
 

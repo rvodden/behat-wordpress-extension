@@ -2,6 +2,7 @@
 namespace PaulGibbs\WordpressBehatExtension\PageObject\Element;
 
 use SensioLabs\Behat\PageObjectExtension\PageObject\Element;
+use Behat\Mink\Element\NodeElement;
 use Behat\Mink\Exception\UnsupportedDriverActionException;
 use Behat\Mink\Exception\ExpectationException;
 use PaulGibbs\WordpressBehatExtension\Util;
@@ -71,7 +72,7 @@ class Toolbar extends Element
      *
      * @return bool True if $link_text refers to $element. False otherwise.
      */
-    protected function elementIsTargetLink(\Behat\Mink\Element\NodeElement $element, string $link_text): bool
+    protected function elementIsTargetLink(NodeElement $element, string $link_text): bool
     {
         $current_item_name = strtolower($element->find('css', '.ab-item')->getText());
 
@@ -101,7 +102,7 @@ class Toolbar extends Element
      *
      * @return \Behat\Mink\Element\NodeElement|null
      */
-    protected function getSubmenuLinkNode(\Behat\Mink\Element\NodeElement $first_level_item, string $link_text)
+    protected function getSubmenuLinkNode(NodeElement $first_level_item, string $link_text)
     {
         $second_level_items = $first_level_item->findAll('css', 'ul li a');
         $submenu_link_node  = null;
