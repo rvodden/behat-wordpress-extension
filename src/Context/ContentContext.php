@@ -77,7 +77,7 @@ class ContentContext extends RawWordpressContext
      *
      * @return array
      */
-    protected function parseArgs($post_data)
+    protected function parseArgs(array $post_data): array
     {
         if (isset($post_data['post_author'])) {
             $user_id = $this->getUserIdFromLogin($post_data['post_author']);

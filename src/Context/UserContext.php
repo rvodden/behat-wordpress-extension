@@ -50,7 +50,7 @@ class UserContext extends RawWordpressContext
      *
      * @param string $user_login
      */
-    public function iDeleteTheUserAccount($user_login)
+    public function iDeleteTheUserAccount(string $user_login)
     {
         $this->deleteUser($this->getUserIdFromLogin($user_login));
     }
@@ -65,7 +65,7 @@ class UserContext extends RawWordpressContext
      *
      * @param string $username
      */
-    public function iAmViewingAuthorArchive($username)
+    public function iAmViewingAuthorArchive(string $username)
     {
         $this->visitPath(sprintf(
             $this->getWordpressParameters()['permalinks']['author_archive'],
@@ -98,7 +98,7 @@ class UserContext extends RawWordpressContext
      *
      * @throws \RuntimeException
      */
-    public function iAmLoggedInAs($role)
+    public function iAmLoggedInAs(string $role)
     {
         $role  = strtolower($role);
         $users = $this->getWordpressParameter('users');

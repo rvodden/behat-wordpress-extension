@@ -15,7 +15,7 @@ trait DatabaseAwareContextTrait
      *
      * @return string Path to the export file.
      */
-    public function exportDatabase($args)
+    public function exportDatabase(array $args): string
     {
         return $this->getDriver()->database->export(0, $args);
     }
@@ -25,7 +25,7 @@ trait DatabaseAwareContextTrait
      *
      * @param array $args
      */
-    public function importDatabase($args)
+    public function importDatabase(array $args)
     {
         $this->getDriver()->database->import(0, $args);
     }

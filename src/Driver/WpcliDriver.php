@@ -47,7 +47,7 @@ class WpcliDriver extends BaseDriver
      * @param string      $url    WordPress site URL.
      * @param string|null $binary Path to the WP-CLI binary.
      */
-    public function __construct($alias, $path, $url, $binary)
+    public function __construct(string $alias, string $path, string $url, string $binary = null)
     {
         $this->alias  = ltrim($alias, '@');
         $this->path   = $path ? realpath($path) : '';
@@ -107,7 +107,7 @@ class WpcliDriver extends BaseDriver
      *     @type int    $exit_code Returned status code of the executed command.
      * }
      */
-    public function wpcli($command, $subcommand, $raw_arguments = [])
+    public function wpcli(string $command, string $subcommand, array $raw_arguments = []): array
     {
         $arguments = implode(' ', $raw_arguments);
         $config    = sprintf('--path=%s --url=%s', escapeshellarg($this->path), escapeshellarg($this->url));

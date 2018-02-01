@@ -27,7 +27,7 @@ class AdminMenu extends Element
      *
      * @throws \RuntimeException If the menu item does not exist
      */
-    public function clickMenuItem($item)
+    public function clickMenuItem(string $item)
     {
         $click_node        = false;
         $first_level_items = $this->findAll('css', 'li.menu-top');

@@ -1,6 +1,7 @@
 <?php
 namespace PaulGibbs\WordpressBehatExtension\PageObject;
 
+use SensioLabs\Behat\PageObjectExtension\PageObject\Element;
 use SensioLabs\Behat\PageObjectExtension\PageObject\Page;
 use Behat\Mink\Exception\ExpectationException;
 
@@ -21,7 +22,7 @@ class AdminPage extends Page
      *
      * @return string The text in the header tag.
      */
-    public function getHeaderText()
+    public function getHeaderText(): string
     {
         $header      = $this->getHeaderElement();
         $header_text = $header->getText();
@@ -42,7 +43,7 @@ class AdminPage extends Page
      *
      * @throws \Behat\Mink\Exception\ExpectationException
      */
-    public function assertHasHeader($expected)
+    public function assertHasHeader(string $expected)
     {
         $actual = $this->getHeaderText();
         if ($expected === $actual) {
@@ -92,7 +93,7 @@ class AdminPage extends Page
      * @throws \Behat\Mink\Exception\ElementNotFoundException
      * @throws \Behat\Mink\Exception\ExpectationException
      */
-    public function clickLinkInHeader($link)
+    public function clickLinkInHeader(string $link)
     {
         $header_link = $this->find('css', '.page-title-action');
 
@@ -108,7 +109,7 @@ class AdminPage extends Page
      *
      * @return \SensioLabs\Behat\PageObjectExtension\PageObject\Element
      */
-    public function getMenu()
+    public function getMenu(): Element
     {
         return $this->getElement('Admin menu');
     }
@@ -116,7 +117,7 @@ class AdminPage extends Page
     /**
      * Modified Page::isOpen() function which throws an exception on failure
      *
-     * @see https://github.com/sensiolabs/BehatPageObjectExtension/issues/57
+     * @link https://github.com/sensiolabs/BehatPageObjectExtension/issues/57
      *
      * @param array $url_parameters
      *
@@ -125,7 +126,7 @@ class AdminPage extends Page
      *
      * @return boolean
      */
-    public function isOpen(array $url_parameters = array())
+    public function isOpen(array $url_parameters = array()): bool
     {
         $this->verify($url_parameters);
         return true;
@@ -140,7 +141,7 @@ class AdminPage extends Page
      *
      * @return string Absolute URL of this page
      */
-    protected function getUrl(array $url_parameters = array())
+    protected function getUrl(array $url_parameters = array()): string
     {
         return $this->makeSurePathIsAbsolute($this->unmaskUrl($url_parameters));
     }
@@ -153,7 +154,7 @@ class AdminPage extends Page
      *
      * @return string Absolute URL
      */
-    protected function makeSurePathIsAbsolute($path)
+    protected function makeSurePathIsAbsolute($path): string
     {
         $site_url = rtrim($this->getParameter('site_url'), '/') . '/';
 
@@ -173,7 +174,7 @@ class AdminPage extends Page
      *
      * @return string
      */
-    protected function unmaskUrl(array $url_parameters)
+    protected function unmaskUrl(array $url_parameters): string
     {
         $url = $this->getPath();
 

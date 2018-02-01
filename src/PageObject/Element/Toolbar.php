@@ -2,6 +2,7 @@
 namespace PaulGibbs\WordpressBehatExtension\PageObject\Element;
 
 use SensioLabs\Behat\PageObjectExtension\PageObject\Element;
+use Behat\Mink\Element\NodeElement;
 use Behat\Mink\Exception\UnsupportedDriverActionException;
 use Behat\Mink\Exception\ExpectationException;
 use PaulGibbs\WordpressBehatExtension\Util;
@@ -27,7 +28,7 @@ class Toolbar extends Element
      *
      * @throws \Behat\Mink\Exception\ExpectationException If the menu item does not exist
      */
-    public function clickToolbarLink($link)
+    public function clickToolbarLink(string $link)
     {
         $link_parts = array_map('trim', preg_split('/(?<!\\\\)>/', $link));
         $click_node = false;
@@ -71,7 +72,7 @@ class Toolbar extends Element
      *
      * @return bool True if $link_text refers to $element. False otherwise.
      */
-    protected function elementIsTargetLink($element, $link_text)
+    protected function elementIsTargetLink(NodeElement $element, string $link_text): bool
     {
         $current_item_name = strtolower($element->find('css', '.ab-item')->getText());
 
@@ -101,7 +102,7 @@ class Toolbar extends Element
      *
      * @return \Behat\Mink\Element\NodeElement|null
      */
-    protected function getSubmenuLinkNode($first_level_item, $link_text)
+    protected function getSubmenuLinkNode(NodeElement $first_level_item, string $link_text)
     {
         $second_level_items = $first_level_item->findAll('css', 'ul li a');
         $submenu_link_node  = null;
@@ -137,7 +138,7 @@ class Toolbar extends Element
      *
      * @throws \Behat\Mink\Exception\ExpectationException
      */
-    public function search($text)
+    public function search(string $text)
     {
         $search = $this->find('css', '#adminbarsearch');
 
@@ -165,7 +166,7 @@ class Toolbar extends Element
      *
      * @return string
      */
-    public function getAuthenticatedUserText()
+    public function getAuthenticatedUserText(): string
     {
         return $this->find('css', 'span.display-name')->getText();
     }

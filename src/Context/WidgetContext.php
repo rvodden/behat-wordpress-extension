@@ -26,7 +26,7 @@ class WidgetContext extends RawWordpressContext
      * @param string    $sidebar_name
      * @param TableNode $widget_settings
      */
-    public function iHaveTheMetaWidgetIn($widget_name, $sidebar_name, TableNode $widget_settings)
+    public function iHaveTheMetaWidgetIn(string $widget_name, string $sidebar_name, TableNode $widget_settings)
     {
         $sidebar = $this->getWidgetSidebar($sidebar_name);
         $keys    = array_map('strtolower', $widget_settings->getRow(0));

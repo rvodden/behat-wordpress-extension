@@ -5,6 +5,7 @@ use Behat\Behat\Context\SnippetAcceptingContext;
 use Behat\MinkExtension\Context\RawMinkContext;
 use PaulGibbs\WordpressBehatExtension\WordpressDriverManager;
 use PaulGibbs\WordpressBehatExtension\Context\Traits\PageObjectAwareContextTrait;
+use PaulGibbs\WordpressBehatExtension\Driver\DriverInterface;
 use SensioLabs\Behat\PageObjectExtension\Context\PageObjectAware;
 
 /**
@@ -74,7 +75,7 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      *
      * @return WordpressDriverManager
      */
-    public function getWordpress()
+    public function getWordpress(): WordpressDriverManager
     {
         return $this->wordpress;
     }
@@ -87,7 +88,7 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      *
      * @param array $parameters
      */
-    public function setWordpressParameters($parameters)
+    public function setWordpressParameters(array $parameters)
     {
         $this->wordpress_parameters = $parameters;
     }
@@ -102,7 +103,7 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      *
      * @return mixed
      */
-    public function getWordpressParameter($name)
+    public function getWordpressParameter(string $name)
     {
         return ! empty($this->wordpress_parameters[$name]) ? $this->wordpress_parameters[$name] : null;
     }
@@ -112,7 +113,7 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      *
      * @return array
      */
-    public function getWordpressParameters()
+    public function getWordpressParameters(): array
     {
         return $this->wordpress_parameters;
     }
@@ -124,7 +125,7 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      *
      * @return \PaulGibbs\WordpressBehatExtension\Driver\DriverInterface
      */
-    public function getDriver($name = '')
+    public function getDriver(string $name = ''): DriverInterface
     {
         return $this->getWordpress()->getDriver($name);
     }

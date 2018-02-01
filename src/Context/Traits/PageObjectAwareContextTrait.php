@@ -23,7 +23,7 @@ trait PageObjectAwareContextTrait
      *
      * @return Page
      */
-    public function getPage($name)
+    public function getPage(string $name): Page
     {
         if ($this->page_object_factory === null) {
             throw new RuntimeException('To create pages you need to pass a factory with setPageObjectFactory()');
@@ -41,7 +41,7 @@ trait PageObjectAwareContextTrait
      *
      * @return Element
      */
-    public function getElement($name)
+    public function getElement(string $name): Element
     {
         if ($this->page_object_factory === null) {
             throw new RuntimeException('To create elements you need to pass a factory with setPageObjectFactory()');
@@ -67,7 +67,7 @@ trait PageObjectAwareContextTrait
      *
      * @return PageObjectFactory
      */
-    public function getPageObjectFactory()
+    public function getPageObjectFactory(): PageObjectFactory
     {
         if ($this->page_object_factory === null) {
             throw new RuntimeException(
