@@ -37,7 +37,9 @@ trait UserAwareContextTrait
         } catch (UnsupportedDriverActionException $e) {
             // This will fail for GoutteDriver but neither is it necessary.
         }
+        // This is to make sure value is set properly.
         $node->setValue('');
+        $node->setValue($username);
         $node->setValue($username);
 
         $node = $page->findField('user_pass');
@@ -46,7 +48,9 @@ trait UserAwareContextTrait
         } catch (UnsupportedDriverActionException $e) {
             // This will fail for GoutteDriver but neither is it necessary.
         }
+        // This is to make sure value is set properly.
         $node->setValue('');
+        $node->setValue($password);
         $node->setValue($password);
 
         $page->findButton('wp-submit')->click();
