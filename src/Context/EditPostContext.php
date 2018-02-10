@@ -122,7 +122,7 @@ class EditPostContext extends RawWordpressContext
     public function iEnterContentIntoPostContentEditor(PyStringNode $content)
     {
         $content_editor = $this->edit_post_page->getContentEditor();
-        $content_editor->setContent($content);
+        $content_editor->setContent($content->getRaw());
     }
 
     /**
