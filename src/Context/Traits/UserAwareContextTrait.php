@@ -238,7 +238,7 @@ trait UserAwareContextTrait
      */
     public function getUserIdFromLogin(string $username): int
     {
-        return $this->getDriver()->user->get($username, ['by' => 'login'])->ID;
+        return (int) $this->getDriver()->user->get($username, ['by' => 'login'])->ID;
     }
 
     /**
