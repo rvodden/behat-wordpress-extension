@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace PaulGibbs\WordpressBehatExtension\Context;
 
 use Behat\Behat\Hook\Scope\AfterScenarioScope;

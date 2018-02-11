@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace PaulGibbs\WordpressBehatExtension\Context\ContextClass;
 
 use Behat\Behat\Context\ContextClass\ClassGenerator as BehatContextGenerator;

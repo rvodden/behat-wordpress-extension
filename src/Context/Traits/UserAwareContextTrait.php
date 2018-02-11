@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace PaulGibbs\WordpressBehatExtension\Context\Traits;
 
 use Behat\Mink\Exception\DriverException;
@@ -237,7 +238,7 @@ trait UserAwareContextTrait
      */
     public function getUserIdFromLogin(string $username): int
     {
-        return $this->getDriver()->user->get($username, ['by' => 'login'])->ID;
+        return (int) $this->getDriver()->user->get($username, ['by' => 'login'])->ID;
     }
 
     /**

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace PaulGibbs\WordpressBehatExtension\Util;
 
 use Exception;
@@ -108,7 +109,7 @@ function buildCLIArgs($whitelist, $raw_args)
         if (is_numeric($option)) {
             $retval[] = escapeshellcmd("--{$value}");
         } else {
-            $retval[] = sprintf('--%s=%s', $option, escapeshellarg($value));
+            $retval[] = sprintf('--%s=%s', $option, escapeshellarg((string) $value));
         }
     }
 

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace PaulGibbs\WordpressBehatExtension\PageObject;
 
 use SensioLabs\Behat\PageObjectExtension\PageObject\Element;

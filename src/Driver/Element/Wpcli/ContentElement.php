@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace PaulGibbs\WordpressBehatExtension\Driver\Element\Wpcli;
 
 use PaulGibbs\WordpressBehatExtension\Driver\Element\BaseElement;
@@ -93,8 +94,8 @@ class ContentElement extends BaseElement
     /**
      * Retrieve an item for this element.
      *
-     * @param int|string $id Object ID.
-     * @param array $args Optional data used to fetch an object.
+     * @param int|string $id   Object ID.
+     * @param array      $args Optional data used to fetch an object.
      *
      * @throws \UnexpectedValueException
      *
