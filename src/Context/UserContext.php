@@ -59,18 +59,25 @@ class UserContext extends RawWordpressContext
     /**
      * Go to a user's author archive page.
      *
-     * Example: Given I am viewing posts published by Admin
-     * Example: When I am viewing posts published by Admin
+     * Example: Given I am viewing posts published by admin
+     * Example: When I am viewing posts published by admin
      *
      * @When I am viewing posts published by :user
      *
-     * @param string $username
+     * @param string $role
      */
-    public function iAmViewingAuthorArchive(string $username)
+    public function iAmViewingAuthorArchive($role)
     {
+        $role  = strtolower($role);
+        $users = $this->getWordpressParameter('users');
+
+        if ($users === null || empty($users[$role])) {
+            throw new RuntimeException("User details for role \"{$role}\" not found.");
+        }
+
         $this->visitPath(sprintf(
             $this->getWordpressParameters()['permalinks']['author_archive'],
-            $this->getUserDataFromUsername('user_nicename', $username)
+            $this->getUserDataFromUsername('user_nicename', $users[$role]['username'])
         ));
     }
 
