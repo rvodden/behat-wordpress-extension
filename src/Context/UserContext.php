@@ -59,10 +59,10 @@ class UserContext extends RawWordpressContext
     /**
      * Go to a user's author archive page.
      *
-     * Example: Given I am viewing posts published by admin
-     * Example: When I am viewing posts published by admin
+     * Example: When I am viewing posts published by an admin
+     * Example: When I am viewing posts published by Paul
      *
-     * @When I am viewing posts published by :user
+     * @When /^(?:I am|they are) viewing posts published by (?:a |an )?(.+)$/
      *
      * @param string $role
      */
