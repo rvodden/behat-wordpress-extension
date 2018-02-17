@@ -251,10 +251,6 @@ class WordpressBehatExtension implements ExtensionInterface
 
         $loader->load('drivers/wpcli.yml');
 
-        if (empty($config['path']) && empty($config['wpcli']['alias'])) {
-            throw new RuntimeException('WP-CLI driver requires an `alias` or root `path` set.');
-        }
-
         $config['wpcli']['alias'] = isset($config['wpcli']['alias']) ? $config['wpcli']['alias'] : '';
         $container->setParameter('wordpress.driver.wpcli.alias', $config['wpcli']['alias']);
 
@@ -282,10 +278,6 @@ class WordpressBehatExtension implements ExtensionInterface
         }
 
         $loader->load('drivers/wpphp.yml');
-
-        if (empty($config['path'])) {
-            throw new RuntimeException('WordPress PHP driver requires a root `path` set.');
-        }
 
         $config['wpphp']['path'] = isset($config['path']) ? $config['path'] : '';
         $container->setParameter('wordpress.driver.wpphp.path', $config['wpphp']['path']);
