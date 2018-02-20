@@ -32,7 +32,7 @@ class EventSubscriberPass implements CompilerPassInterface
 
                 $dispatcher->addMethodCall(
                     'addSubscriber',
-                    array(new Reference($id), $priority)
+                    [new Reference($id), $priority]
                 );
             }
         }
