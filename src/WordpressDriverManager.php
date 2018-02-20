@@ -64,12 +64,15 @@ class WordpressDriverManager
     /**
      * Register a new driver element.
      *
-     * @param string           $name    Driver name.
-     * @param ElementInterface $element An instance of a ElementInterface.
+     * @since 1.1.0 Added $driver_name parameter.
+     *
+     * @param string           $name        Element name.
+     * @param ElementInterface $element     An instance of a ElementInterface.
+     * @param string           $driver_name Driver name.
      */
-    public function registerDriverElement(string $name, ElementInterface $element)
+    public function registerDriverElement(string $name, ElementInterface $element, string $driver_name)
     {
-        $this->getDriver()->registerElement($name, $element);
+        $this->getDriver($driver_name)->registerElement($name, $element);
     }
 
     /**
@@ -83,7 +86,14 @@ class WordpressDriverManager
      */
     public function getDriver(string $name = ''): DriverInterface
     {
-        $name = strtolower($name) ?: $this->default_driver;
+        $skip_bootstrap = false;
+
+        if ($name) {
+            $skip_bootstrap = true;
+            $name           = strtolower($name);
+        } else {
+            $name           = $this->default_driver;
+        }
 
         if (! isset($this->drivers[$name])) {
             throw new InvalidArgumentException("Driver '{$name}' is not registered.");
@@ -92,7 +102,7 @@ class WordpressDriverManager
         $driver = $this->drivers[$name];
 
         // Bootstrap driver if needed.
-        if (! $driver->isBootstrapped()) {
+        if (! $skip_bootstrap && ! $driver->isBootstrapped()) {
             $driver->bootstrap();
         }
 

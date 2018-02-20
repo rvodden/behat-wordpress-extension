@@ -14,3 +14,10 @@ services:
       - "%wordpress.parameters%"
     tags:
       - { name: context.initializer }
+  wordpress.listener.driver:
+    class: 'PaulGibbs\WordpressBehatExtension\Listener\DriverListener'
+    arguments:
+      - "@wordpress.wordpress"
+      - "%wordpress.parameters%"
+    tags:
+      - { name: event_dispatcher.subscriber, priority: 0 }

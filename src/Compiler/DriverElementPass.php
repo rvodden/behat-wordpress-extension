@@ -22,9 +22,7 @@ class DriverElementPass implements CompilerPassInterface
     public function process(ContainerBuilder $container)
     {
         $wordpress = $container->getDefinition('wordpress.wordpress');
-        $driver    = $container->getParameter('wordpress.wordpress.default_driver');
-
-        if (! $wordpress || ! $driver) {
+        if (! $wordpress) {
             return;
         }
 
@@ -34,11 +32,7 @@ class DriverElementPass implements CompilerPassInterface
                     continue;
                 }
 
-                if ($attribute['driver'] !== $driver) {
-                    continue;
-                }
-
-                $wordpress->addMethodCall('registerDriverElement', [$attribute['alias'], new Reference($id)]);
+                $wordpress->addMethodCall('registerDriverElement', [$attribute['alias'], new Reference($id), $attribute['driver']]);
             }
         }
     }
