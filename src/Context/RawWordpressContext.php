@@ -128,7 +128,7 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
      */
     public function getDriver(string $name = ''): DriverInterface
     {
-        return $this->getWordpress()->getDriver($name);
+        return $this->getWordpress()->getDriver($name, 'skip bootstrap');
     }
 
     /**
