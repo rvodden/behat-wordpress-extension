@@ -32,7 +32,10 @@ class DriverElementPass implements CompilerPassInterface
                     continue;
                 }
 
-                $wordpress->addMethodCall('registerDriverElement', [$attribute['alias'], new Reference($id), $attribute['driver']]);
+                $wordpress->addMethodCall(
+                    'registerDriverElement',
+                    [$attribute['alias'], new Reference($id), $attribute['driver']]
+                );
             }
         }
     }
