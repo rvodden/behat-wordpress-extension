@@ -44,21 +44,16 @@ class WpcliDriver extends BaseDriver
      * Constructor.
      *
      * @param string      $alias  WP-CLI alias. This or $path must be not falsey.
-     * @param string      $path   Path to WordPress site's files. This or $alias must be not falsey.
      * @param string      $url    WordPress site URL.
      * @param string|null $binary Path to the WP-CLI binary.
+     * @param string      $path   Optional. Path to WordPress site's files. This or $alias must be not falsey.
      */
-    public function __construct(string $alias, string $path, string $url, string $binary = null)
+    public function __construct(string $alias, string $url, string $binary = null, string $path = '')
     {
         $this->alias  = ltrim($alias, '@');
-        $this->path   = $path ? realpath($path) : '';
+        $this->path   = $path;
         $this->url    = rtrim(filter_var($url, FILTER_SANITIZE_URL), '/');
         $this->binary = $binary;
-
-        // Path can be relative.
-        if (! $this->path) {
-            $this->path = $path;
-        }
     }
 
     /**
@@ -111,7 +106,11 @@ class WpcliDriver extends BaseDriver
     public function wpcli(string $command, string $subcommand, array $raw_arguments = []): array
     {
         $arguments = implode(' ', $raw_arguments);
-        $config    = sprintf('--path=%s --url=%s', escapeshellarg($this->path), escapeshellarg($this->url));
+        $config    = sprintf('--url=%s', escapeshellarg($this->url));
+
+        if ($this->path) {
+            $config .= sprintf(' --path=%s', escapeshellarg($this->path));
+        }
 
         // Support WP-CLI environment aliases.
         if ($this->alias) {
