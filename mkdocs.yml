@@ -66,7 +66,7 @@ pages:
     - Overview: features/overview.md
   - Configuration:
     - Settings: configuration/settings.md
-  - Recipes:
+  - Support:
     - FAQ: recipes/faq.md
     - Database content: recipes/content.md
   - News: changelog.md
