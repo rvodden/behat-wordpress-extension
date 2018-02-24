@@ -16,6 +16,7 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 use PaulGibbs\WordpressBehatExtension\Compiler\DriverPass;
 use PaulGibbs\WordpressBehatExtension\Compiler\DriverElementPass;
+use PaulGibbs\WordpressBehatExtension\Compiler\EventSubscriberPass;
 
 use RuntimeException;
 
@@ -310,7 +311,9 @@ class WordpressBehatExtension implements ExtensionInterface
     {
         $this->processDriverPass($container);
         $this->processDriverElementPass($container);
+        $this->processEventSubscriberPass($container);
         $this->processClassGenerator($container);
+
         $this->setPageObjectNamespaces($container);
         $this->injectSiteUrlIntoPageObjects($container);
     }
@@ -335,6 +338,17 @@ class WordpressBehatExtension implements ExtensionInterface
     {
         $driver = new DriverElementPass();
         $driver->process($container);
+    }
+
+    /**
+     * Process the Event Subscriber Pass.
+     *
+     * @param ContainerBuilder $container
+     */
+    private function processEventSubscriberPass(ContainerBuilder $container)
+    {
+        $event = new EventSubscriberPass();
+        $event->process($container);
     }
 
     /**

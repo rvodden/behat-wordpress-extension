@@ -8,6 +8,7 @@ If you are new to the project or Behat, we recommend that you first [read throug
 ## Drivers
 * If you are using the WP-CLI driver to [connect to a remote WordPress site over SSH](https://make.wordpress.org/cli/handbook/running-commands-remotely/), WordHat assumes the remote server is Linux-like, with a shell that provides [GNU Coreutils](https://www.gnu.org/software/coreutils/coreutils.html).
 * To configure WordHat to use a specific driver, set [`default_driver`](/configuration/settings.md) in your `behat.yml`.
+* As of v1.1.0, it is possible to use multiple drivers at the same time. This should be considered an experimental feature for advanced users only. To enable it, tag a scenario with the name of the driver to use (e.g. `@wpcli` or `@wpphp`).
 
 ## Browsers
 * If you are using [Selenium](http://docs.seleniumhq.org/download/) to run Javascript tests, and you access your WordPress site over HTTPS, *and* it has a self-signed certificate, you will need to manually configure the web browser to accept that certificate.

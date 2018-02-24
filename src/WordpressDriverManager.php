@@ -64,26 +64,33 @@ class WordpressDriverManager
     /**
      * Register a new driver element.
      *
-     * @param string           $name    Driver name.
-     * @param ElementInterface $element An instance of a ElementInterface.
+     * @since 1.1.0 Added $driver_name parameter.
+     *
+     * @param string           $name        Element name.
+     * @param ElementInterface $element     An instance of a ElementInterface.
+     * @param string           $driver_name Driver name.
      */
-    public function registerDriverElement(string $name, ElementInterface $element)
+    public function registerDriverElement(string $name, ElementInterface $element, string $driver_name)
     {
-        $this->getDriver()->registerElement($name, $element);
+        $this->getDriver($driver_name, 'skip bootstrap')->registerElement($name, $element);
     }
 
     /**
      * Return a registered driver by name (defaults to the default driver).
      *
-     * @param string $name Optional. The name of the driver to return. If omitted, the default driver is returned.
+     * @since 1.1.0 Added $bootstrap parameter.
+     *
+     * @param string $name      Optional. The name of the driver to return. If omitted, the default driver is returned.
+     * @param string $bootstrap Optional. If "skip bootstrap", driver bootstrap is skipped. Default: "do bootstrap".
      *
      * @return DriverInterface The requested driver.
      *
      * @throws \InvalidArgumentException
      */
-    public function getDriver(string $name = ''): DriverInterface
+    public function getDriver(string $name = '', string $bootstrap = 'do bootstrap'): DriverInterface
     {
-        $name = strtolower($name) ?: $this->default_driver;
+        $do_bootstrap = ($bootstrap === 'do bootstrap');
+        $name         = $name ? strtolower($name) : $this->default_driver;
 
         if (! isset($this->drivers[$name])) {
             throw new InvalidArgumentException("Driver '{$name}' is not registered.");
@@ -92,7 +99,7 @@ class WordpressDriverManager
         $driver = $this->drivers[$name];
 
         // Bootstrap driver if needed.
-        if (! $driver->isBootstrapped()) {
+        if ($do_bootstrap && ! $driver->isBootstrapped()) {
             $driver->bootstrap();
         }
 
