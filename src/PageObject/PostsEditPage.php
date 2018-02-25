@@ -20,8 +20,6 @@ class PostsEditPage extends AdminPage
      * Enter the title into the title field.
      *
      * @param string $title
-     *
-     * @throws \Behat\Mink\Exception\ElementNotFoundException
      */
     public function setContentTitle(string $title)
     {
@@ -42,8 +40,6 @@ class PostsEditPage extends AdminPage
      * Press the update/publish button.
      *
      * @todo wait if the button is disabled during auto-save
-     *
-     * @throws \Behat\Mink\Exception\ElementNotFoundException
      */
     public function pressUpdate()
     {

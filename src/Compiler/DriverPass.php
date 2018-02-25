@@ -15,9 +15,6 @@ class DriverPass implements CompilerPassInterface
      * Modify the container before Symfony compiles it.
      *
      * @param ContainerBuilder $container
-     *
-     * @throws \Symfony\Component\DependencyInjection\Exception\InvalidArgumentException
-     * @throws \Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException
      */
     public function process(ContainerBuilder $container)
     {

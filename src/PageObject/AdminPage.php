@@ -19,8 +19,6 @@ class AdminPage extends Page
      *
      * The first h1 element is used, or first h2 element if it is not present.
      *
-     * @throws \Behat\Mink\Exception\ExpectationException
-     *
      * @return string The text in the header tag.
      */
     public function getHeaderText(): string
@@ -90,9 +88,6 @@ class AdminPage extends Page
      * Click a link within the page header tag.
      *
      * @param string $link Link text.
-     *
-     * @throws \Behat\Mink\Exception\ElementNotFoundException
-     * @throws \Behat\Mink\Exception\ExpectationException
      */
     public function clickLinkInHeader(string $link)
     {
@@ -121,9 +116,6 @@ class AdminPage extends Page
      * @link https://github.com/sensiolabs/BehatPageObjectExtension/issues/57
      *
      * @param array $url_parameters
-     *
-     * @throws \SensioLabs\Behat\PageObjectExtension\PageObject\Exception\UnexpectedPageException
-     *         If the current page does not match this one.
      *
      * @return boolean
      */
@@ -170,8 +162,6 @@ class AdminPage extends Page
      * Insert values for placeholders in the page's path.
      *
      * @param array $url_parameters
-     *
-     * @throws \SensioLabs\Behat\PageObjectExtension\PageObject\Exception\PathNotProvidedException
      *
      * @return string
      */

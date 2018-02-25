@@ -100,8 +100,6 @@ class DashboardContext extends RawWordpressContext
      *
      * @param string $type    Message type. Either "error" or "status".
      * @param string $message Text to search for.
-     *
-     * @throws \Behat\Mink\Exception\ElementTextException
      */
     public function iShouldSeeMessageThatSays(string $type, string $message)
     {

@@ -53,10 +53,6 @@ class TinyMCEEditor extends Element
      * Enter the given content into the WYSIWYG editor
      *
      * @param string $content The content being entered
-     *
-     * @throws \Behat\Mink\Exception\ElementNotFoundException
-     * @throws \Behat\Mink\Exception\DriverException
-     * @throws \Behat\Mink\Exception\UnsupportedDriverActionException
      */
     public function setContent(string $content)
     {
