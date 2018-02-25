@@ -68,7 +68,10 @@ pages:
     - Settings: configuration/settings.md
   - Support:
     - FAQ: recipes/faq.md
-    - Database content: recipes/content.md
+    - Database Content: recipes/content.md
+    - Error Codes:
+      - W010: recipes/errors/w010.md
+      - W011: recipes/errors/w011.md
   - News: changelog.md
   - Credits: credits.md
   - License: license.md

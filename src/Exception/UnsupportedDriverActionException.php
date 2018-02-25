@@ -19,7 +19,7 @@ class UnsupportedDriverActionException extends Exception
     public function __construct(string $message = '', int $code = 0, \Throwable $previous = null)
     {
         parent::__construct(
-            "No ability to {$message}. Maybe use another driver?",
+            "[W001] No ability to {$message}. Maybe use another driver?",
             $code,
             $previous
         );
