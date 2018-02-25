@@ -11,8 +11,6 @@ trait WidgetAwareContextTrait
      *
      * @param string $sidebar_name The name of the sidebar (e.g. 'Footer', 'Widget Area', 'Right Sidebar').
      *
-     * @throws \UnexpectedValueException If the sidebar is not registered.
-     *
      * @return string The sidebar ID.
      */
     public function getWidgetSidebar(string $sidebar_name): string
@@ -26,8 +24,6 @@ trait WidgetAwareContextTrait
      * @param string $widget_name The ID base of the widget (e.g. 'meta', 'calendar'). Case insensitive.
      * @param string $sidebar_id  The ID of the sidebar to the add the widget to.
      * @param array  $args        Associative array of widget settings for this widget.
-     *
-     * @throws \UnexpectedValueException If the widget or sidebar does not exist.
      */
     public function addWidgetToSidebar(string $widget_name, string $sidebar_id, array $args)
     {

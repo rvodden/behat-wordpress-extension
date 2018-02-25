@@ -83,8 +83,6 @@ class EditPostContext extends RawWordpressContext
      * @When /^I change the title to "(?P<title>[^"]*)"$/
      *
      * @param string $title The title to enter in the title field on the edit post page.
-     *
-     * @throws \Behat\Mink\Exception\ElementNotFoundException
      */
     public function iChangeTitleTo(string $title)
     {
@@ -156,8 +154,6 @@ class EditPostContext extends RawWordpressContext
      * Example: When I publish the changes
      *
      * @When /^I publish the (post|changes?)$/
-     *
-     * @throws \Behat\Mink\Exception\ElementNotFoundException
      */
     public function iPressThePublishButton()
     {
@@ -193,8 +189,6 @@ class EditPostContext extends RawWordpressContext
      * @Then I should see the :title metabox
      *
      * @param string $title The title of the metabox being checked
-     *
-     * @throws \Behat\Mink\Exception\ExpectationException
      */
     public function iShouldSeeTheMetabox(string $title)
     {

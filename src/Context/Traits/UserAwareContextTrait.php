@@ -63,8 +63,6 @@ trait UserAwareContextTrait
 
     /**
      * Log the current user out.
-     *
-     * @throws \RuntimeException
      */
     public function logOut()
     {
@@ -101,8 +99,6 @@ trait UserAwareContextTrait
      * @param string $user_login User login name.
      * @param string $user_email User email address.
      * @param array  $args       Optional. Extra parameters to pass to WordPress.
-     *
-     * @throws \UnexpectedValueException
      *
      * @return array {
      *             @type int $id User ID.
@@ -236,8 +232,6 @@ trait UserAwareContextTrait
      *
      * @param string $username The username of the user to get the ID of.
      *
-     * @throws \UnexpectedValueException If provided data is invalid
-     *
      * @return int ID of the user.
      */
     public function getUserIdFromLogin(string $username): int
@@ -261,8 +255,6 @@ trait UserAwareContextTrait
      *
      * @param string $data     The user data to return (the name of a column from the WP_Users table).
      * @param string $username The username of the user to fetch a property from.
-     *
-     * @throws \UnexpectedValueException If provided data is invalid
      *
      * @return mixed The specified user data.
      */

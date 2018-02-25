@@ -25,8 +25,6 @@ class ContentContext extends RawWordpressContext
      * @Given /^(?:there are|there is a) posts?:/
      *
      * @param TableNode $posts
-     *
-     * @throws \UnexpectedValueException
      */
     public function thereArePosts(TableNode $posts)
     {
@@ -73,8 +71,6 @@ class ContentContext extends RawWordpressContext
      * (such as database IDs).
      *
      * @param array $post_data
-     *
-     * @throws \UnexpectedValueException If provided data is invalid
      *
      * @return array
      */

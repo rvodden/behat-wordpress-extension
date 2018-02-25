@@ -213,7 +213,6 @@ class WordpressBehatExtension implements ExtensionInterface
      *
      * @param ContainerBuilder $container
      * @param array $config
-     * @throws \Exception
      */
     public function load(ContainerBuilder $container, array $config)
     {
@@ -240,9 +239,6 @@ class WordpressBehatExtension implements ExtensionInterface
      * @param FileLoader $loader
      * @param ContainerBuilder $container
      * @param array $config
-     *
-     * @throws \RuntimeException
-     * @throws \Exception
      */
     protected function setupWpcliDriver(FileLoader $loader, ContainerBuilder $container, array $config)
     {
@@ -268,9 +264,6 @@ class WordpressBehatExtension implements ExtensionInterface
      * @param FileLoader $loader
      * @param ContainerBuilder $container
      * @param array $config
-     *
-     * @throws \RuntimeException
-     * @throws \Exception
      */
     protected function setupWpphpDriver(FileLoader $loader, ContainerBuilder $container, array $config)
     {
@@ -290,8 +283,6 @@ class WordpressBehatExtension implements ExtensionInterface
      * @param FileLoader $loader
      * @param ContainerBuilder $container
      * @param array $config
-     *
-     * @throws \Exception
      */
     protected function setupBlackboxDriver(FileLoader $loader, ContainerBuilder $container, array $config)
     {
@@ -368,8 +359,6 @@ class WordpressBehatExtension implements ExtensionInterface
      * Tell Page Object Extension the namespace of our page objects
      *
      * @param ContainerBuilder $container
-     *
-     * @throws \Symfony\Component\DependencyInjection\Exception\InvalidArgumentException
      */
     protected function setPageObjectNamespaces(ContainerBuilder $container)
     {
