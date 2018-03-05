@@ -1,8 +1,22 @@
 # News
 
 ## Master branch
+- tbc
+
+## [1.1.0] - 2018-03-05
+### Added
+- Support for running multiple drivers simultaneously.
+- Minor PHPDoc adjustments.
+- Minor website updates (primary navigation changes, and robots.txt).
+
 ### Changed
 - Require WP-CLI v1.5+.
+- Most of the internals now use strict typehinting.
+- Drivers: the "path" argument is now optional.
+- Composer dependencies updated to more recent versions.
+
+### Fixed
+- Step `iAmViewingAuthorArchive` now correctly accepts a user role as its parameter.
 
 ## [1.0.0] - 2018-01-18
 ### Added
@@ -149,6 +163,7 @@
 ### Added
 - First working version of basic architecture.
 
+[1.1.0]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v0.9.0...v1.0.0
 [0.9.2]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v0.9.1...v0.9.2
 [0.9.1]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v0.9.0...v0.9.1
