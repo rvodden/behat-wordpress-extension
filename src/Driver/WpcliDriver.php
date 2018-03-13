@@ -74,12 +74,12 @@ class WpcliDriver extends BaseDriver
         }
 
         if (! version_compare($version, '1.5.0', '>=')) {
-            throw new RuntimeException('[W051] Your WP-CLI is too old; version 1.5.0 or newer is required.');
+            throw new RuntimeException('[W100] Your WP-CLI is too old; version 1.5.0 or newer is required.');
         }
 
         $status = $this->wpcli('core', 'is-installed')['exit_code'];
         if ($status !== 0) {
-            throw new RuntimeException('[W052] WordPress does not seem to be installed. Please install WordPress. If WordPress is installed, the WP-CLI driver cannot find WordPress. Please check the "path" and/or "alias" settings in behat.yml.');
+            throw new RuntimeException('[W101] WordPress does not seem to be installed. Please install WordPress. If WordPress is installed, the WP-CLI driver cannot find WordPress. Please check the "path" and/or "alias" settings in behat.yml.');
         }
 
         putenv('WP_CLI_STRICT_ARGS_MODE=1');
@@ -139,7 +139,7 @@ class WpcliDriver extends BaseDriver
 
             throw new UnexpectedValueException(
                 sprintf(
-                    "WP-CLI driver failure in method %1\$s():\n%2\$s.\nTried to run: %3\$s\n(%4\$s)",
+                    "[W102] WP-CLI driver failure in method %1\$s():\n%2\$s.\nTried to run: %3\$s\n(%4\$s)",
                     debug_backtrace()[1]['function'],
                     $stdout,
                     $command,

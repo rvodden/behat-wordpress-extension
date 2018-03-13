@@ -82,7 +82,7 @@ class UserElement extends BaseElement
         $user = json_decode($user);
 
         if (! $user) {
-            throw new UnexpectedValueException(sprintf('Could not find user with ID %d', $id));
+            throw new UnexpectedValueException(sprintf('[W504] Could not find user with ID %d', $id));
         }
 
         return $user;
@@ -98,7 +98,7 @@ class UserElement extends BaseElement
      */
     public function validateCredentials(string $username, string $password)
     {
-        throw new UnsupportedDriverActionException("No known way to check $username has password $password.");
+        throw new UnsupportedDriverActionException("[W505] No known way to check $username has password $password.");
     }
 
     /**

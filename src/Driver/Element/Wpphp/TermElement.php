@@ -25,7 +25,7 @@ class TermElement extends BaseElement
         $term = wp_insert_term($args['term'], $args['taxonomy'], $args);
 
         if (is_wordpress_error($term)) {
-            throw new UnexpectedValueException(sprintf('Failed creating a new term: %s', $term->get_error_message()));
+            throw new UnexpectedValueException(sprintf('[W609] Failed creating a new term: %s', $term->get_error_message()));
         }
 
         return $this->get($term['term_id']);
@@ -46,10 +46,10 @@ class TermElement extends BaseElement
         $term = get_term($id, $args['taxonomy']);
 
         if (! $term) {
-            throw new UnexpectedValueException(sprintf('Could not find term with ID %d', $id));
+            throw new UnexpectedValueException(sprintf('[W610] Could not find term with ID %d', $id));
         } elseif (is_wp_error($term)) {
             throw new UnexpectedValueException(
-                sprintf('Could not find term with ID %d: %s', $id, $term->get_error_message())
+                sprintf('[W610] Could not find term with ID %d: %s', $id, $term->get_error_message())
             );
         }
 
@@ -70,7 +70,7 @@ class TermElement extends BaseElement
 
         if (is_wordpress_error($result)) {
             throw new UnexpectedValueException(
-                sprintf('Failed deleting a new term: %s', $result->get_error_message())
+                sprintf('[W611] Failed deleting a new term: %s', $result->get_error_message())
             );
         }
     }

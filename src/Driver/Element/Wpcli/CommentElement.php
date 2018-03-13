@@ -59,7 +59,7 @@ class CommentElement extends BaseElement
         $comment = json_decode($comment);
 
         if (! $comment) {
-            throw new UnexpectedValueException(sprintf('Could not find comment with ID %d', $id));
+            throw new UnexpectedValueException(sprintf('[W500] Could not find comment with ID %d', $id));
         }
 
         return $comment;

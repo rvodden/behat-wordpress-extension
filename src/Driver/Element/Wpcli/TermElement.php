@@ -60,7 +60,7 @@ class TermElement extends BaseElement
         $term = json_decode($term);
 
         if (! $term) {
-            throw new UnexpectedValueException(sprintf('Could not find term with ID %d', $id));
+            throw new UnexpectedValueException(sprintf('[W503] Could not find term with ID %d', $id));
         }
 
         return $term;

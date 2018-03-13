@@ -59,7 +59,7 @@ class DatabaseElement extends BaseElement
         if ($exit_code || strpos($stdout, 'Warning: ') === 0 || strpos($stdout, 'Error: ') === 0) {
             throw new RuntimeException(
                 sprintf(
-                    "WP-PHP driver failure in database export for method %1\$s(): \n%2\$s\n(%3\$s)",
+                    "[W606] WP-PHP driver failure in database export for method %1\$s(): \n%2\$s\n(%3\$s)",
                     debug_backtrace()[1]['function'],
                     $stdout,
                     $exit_code
@@ -115,7 +115,7 @@ class DatabaseElement extends BaseElement
         if ($exit_code || strpos($stdout, 'Warning: ') === 0 || strpos($stdout, 'Error: ') === 0) {
             throw new RuntimeException(
                 sprintf(
-                    "WP-PHP driver failure in database import for method %1\$s(): \n%2\$s\n(%3\$s)",
+                    "[W607] WP-PHP driver failure in database import for method %1\$s(): \n%2\$s\n(%3\$s)",
                     debug_backtrace()[1]['function'],
                     $stdout,
                     $exit_code

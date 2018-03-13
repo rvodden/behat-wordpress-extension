@@ -24,10 +24,10 @@ class CommentElement extends BaseElement
         $comment_id = wp_new_comment($args);
 
         if (! $comment_id) {
-            throw new UnexpectedValueException('Failed creating a new comment');
+            throw new UnexpectedValueException('[W600] Failed creating a new comment');
         } elseif (is_wp_error($comment_id)) {
             throw new UnexpectedValueException(
-                sprintf('Failed creating a new comment: %s', $comment_id->get_error_message())
+                sprintf('[W600] Failed creating a new comment: %s', $comment_id->get_error_message())
             );
         }
 
@@ -49,7 +49,7 @@ class CommentElement extends BaseElement
         $comment = get_comment($id);
 
         if (! $comment) {
-            throw new UnexpectedValueException(sprintf('Could not find comment with ID %d', $id));
+            throw new UnexpectedValueException(sprintf('[W601] Could not find comment with ID %d', $id));
         }
 
         return $comment;
@@ -68,7 +68,7 @@ class CommentElement extends BaseElement
         $result = wp_delete_comment($id, isset($args['force']));
 
         if (! $result) {
-            throw new UnexpectedValueException('Failed deleting a comment.');
+            throw new UnexpectedValueException('[W602] Failed deleting a comment.');
         }
     }
 }

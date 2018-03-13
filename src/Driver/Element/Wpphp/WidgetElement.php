@@ -28,7 +28,7 @@ class WidgetElement extends BaseElement
         $widget = wp_filter_object_list($wp_widget_factory->widgets, array('id_base' => $widget_name));
 
         if (! $widget) {
-            throw new UnexpectedValueException(sprintf('Widget "%s" does not exist', $widget_name));
+            throw new UnexpectedValueException(sprintf('[W613] Widget "%s" does not exist', $widget_name));
         }
 
         $widget         = array_pop($widget);
@@ -79,7 +79,7 @@ class WidgetElement extends BaseElement
         }
 
         if ($sidebar_id === null) {
-            throw new UnexpectedValueException(sprintf('Sidebar "%s" does not exist', $sidebar_name));
+            throw new UnexpectedValueException(sprintf('[W614] Sidebar "%s" does not exist', $sidebar_name));
         }
 
         return $sidebar_id;

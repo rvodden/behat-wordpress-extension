@@ -56,7 +56,7 @@ class WidgetElement extends BaseElement
         }
 
         if ($sidebar_id === null) {
-            throw new UnexpectedValueException(sprintf('Sidebar "%s" does not exist', $sidebar_name));
+            throw new UnexpectedValueException(sprintf('[W506] Sidebar "%s" does not exist', $sidebar_name));
         }
 
         return $sidebar_id;
