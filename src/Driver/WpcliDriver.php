@@ -79,7 +79,7 @@ class WpcliDriver extends BaseDriver
 
         $status = $this->wpcli('core', 'is-installed')['exit_code'];
         if ($status !== 0) {
-            throw new RuntimeException('[W101] WordPress does not seem to be installed. Please install WordPress. If WordPress is installed, the WP-CLI driver cannot find WordPress. Please check the "path" and/or "alias" settings in behat.yml.');
+            throw new RuntimeException('[W101] WordPress does not seem to be installed. Check "path" and/or "alias" settings in behat.yml.');
         }
 
         putenv('WP_CLI_STRICT_ARGS_MODE=1');
