@@ -89,7 +89,7 @@ class UserElement extends BaseElement
         $result = wp_delete_user($id, $args);
 
         if (! $result) {
-            throw new UnexpectedValueException('[W617] Failed deleting user.');
+            throw new UnexpectedValueException('[W617] Failed deleting user');
         }
     }
 }

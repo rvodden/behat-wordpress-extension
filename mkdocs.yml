@@ -70,8 +70,13 @@ pages:
     - FAQ: recipes/faq.md
     - Database Content: recipes/content.md
     - Error Codes:
-      - W010: recipes/errors/w010.md
-      - W011: recipes/errors/w011.md
+      - Overview: recipes/errors/overview.md
+      - Errors W000-099: recipes/errors/w000-099.md
+      - Errors W100-199: recipes/errors/w100-199.md
+      - Errors W200-299: recipes/errors/w200-299.md
+      - Errors W400-499: recipes/errors/w400-499.md
+      - Errors W500-599: recipes/errors/w500-599.md
+      - Errors W600-699: recipes/errors/w600-699.md
   - News: changelog.md
   - Credits: credits.md
   - License: license.md

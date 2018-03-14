@@ -68,7 +68,7 @@ class CommentElement extends BaseElement
         $result = wp_delete_comment($id, isset($args['force']));
 
         if (! $result) {
-            throw new UnexpectedValueException('[W602] Failed deleting a comment.');
+            throw new UnexpectedValueException('[W602] Failed deleting a comment');
         }
     }
 }

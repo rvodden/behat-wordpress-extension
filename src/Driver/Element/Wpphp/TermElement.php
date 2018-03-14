@@ -70,7 +70,7 @@ class TermElement extends BaseElement
 
         if (is_wordpress_error($result)) {
             throw new UnexpectedValueException(
-                sprintf('[W611] Failed deleting a new term: %s', $result->get_error_message())
+                sprintf('[W611] Failed deleting a term: %s', $result->get_error_message())
             );
         }
     }

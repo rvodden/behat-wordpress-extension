@@ -51,7 +51,7 @@ class AdminPage extends Page
 
         throw new ExpectationException(
             sprintf(
-                '[W402] Expected page header "%1$s", found "%2$s".',
+                '[W402] Expected screen header "%1$s", found "%2$s".',
                 $expected,
                 $actual
             ),
