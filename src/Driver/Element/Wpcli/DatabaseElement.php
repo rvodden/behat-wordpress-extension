@@ -32,7 +32,7 @@ class DatabaseElement extends BaseElement
         // Protect against WP-CLI changing the filename.
         $path = $this->drivers->getDriver()->wpcli('db', 'export', $wpcli_args)['stdout'];
         if (! $path) {
-            throw new RuntimeException('Could not export database.');
+            throw new RuntimeException('[W502] Could not export database');
         }
 
         return $path;

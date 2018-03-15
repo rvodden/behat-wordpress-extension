@@ -26,7 +26,7 @@ class ContentElement extends BaseElement
         $id   = wp_insert_post($args);
 
         if (is_wp_error($id)) {
-            throw new UnexpectedValueException(sprintf('Failed creating new content: %s', $id->get_error_message()));
+            throw new UnexpectedValueException(sprintf('[W603] Failed creating new content: %s', $id->get_error_message()));
         }
 
         return $this->get($id);
@@ -66,7 +66,7 @@ class ContentElement extends BaseElement
         }
 
         if (! $post) {
-            throw new UnexpectedValueException(sprintf('Could not find content with ID %d', $id));
+            throw new UnexpectedValueException(sprintf('[W604] Could not find content with ID %d', $id));
         }
 
         $post->url = get_permalink($post);
@@ -87,7 +87,7 @@ class ContentElement extends BaseElement
         $result = wp_delete_post($id, isset($args['force']));
 
         if (! $result) {
-            throw new UnexpectedValueException('Failed deleting content.');
+            throw new UnexpectedValueException('[W605] Failed deleting content.');
         }
     }
 }

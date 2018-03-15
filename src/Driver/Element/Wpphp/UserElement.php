@@ -25,7 +25,7 @@ class UserElement extends BaseElement
         $user = wp_insert_user($args);
 
         if (is_wp_error($user)) {
-            throw new UnexpectedValueException(sprintf('Failed creating new user: %s', $user->get_error_message()));
+            throw new UnexpectedValueException(sprintf('[W615] Failed creating new user: %s', $user->get_error_message()));
         }
 
         return $this->get($user);
@@ -52,7 +52,7 @@ class UserElement extends BaseElement
         $user = get_user_by($type, $id);
 
         if (! $user) {
-            throw new UnexpectedValueException(sprintf('Could not find user with ID %d', $id));
+            throw new UnexpectedValueException(sprintf('[W616] Could not find user with ID %d', $id));
         }
 
         return $user;
@@ -89,7 +89,7 @@ class UserElement extends BaseElement
         $result = wp_delete_user($id, $args);
 
         if (! $result) {
-            throw new UnexpectedValueException('Failed deleting user.');
+            throw new UnexpectedValueException('[W617] Failed deleting user');
         }
     }
 }

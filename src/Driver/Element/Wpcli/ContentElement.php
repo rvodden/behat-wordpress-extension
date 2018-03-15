@@ -111,7 +111,7 @@ class ContentElement extends BaseElement
             $result     = json_decode($this->drivers->getDriver()->wpcli('post', 'list', $wpcli_args)['stdout']);
 
             if (empty($result)) {
-                throw new UnexpectedValueException(sprintf('Could not find post with ID %d', $id));
+                throw new UnexpectedValueException(sprintf('[W501] Could not find post with ID %d', $id));
             }
 
             $id  = (int) $result[0]->ID;
@@ -132,7 +132,7 @@ class ContentElement extends BaseElement
         $post = json_decode($post);
 
         if (! $post) {
-            throw new UnexpectedValueException(sprintf('Could not find post with ID %d', $id));
+            throw new UnexpectedValueException(sprintf('[W501] Could not find post with ID %d', $id));
         }
 
         if (! $url) {

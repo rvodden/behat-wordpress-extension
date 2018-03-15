@@ -53,7 +53,7 @@ class Toolbar extends Element
 
         if (false === $click_node) {
             throw new ExpectationException(
-                sprintf('Toolbar link "%s" could not be found', $link),
+                sprintf('[W403] Toolbar link "%s" could not be found', $link),
                 $this->getDriver()
             );
         }
@@ -145,7 +145,7 @@ class Toolbar extends Element
 
         if (! $search) {
             throw new ExpectationException(
-                'Search field in the toolbar could not be found',
+                '[W404] Search field in the toolbar could not be found',
                 $this->getDriver()
             );
         }

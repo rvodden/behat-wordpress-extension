@@ -68,7 +68,7 @@ class PostsEditPage extends AdminPage
 
         throw new ExpectationException(
             sprintf(
-                'Metabox "%s" not found on the page.',
+                '[W400] Metabox "%s" not found on the screen.',
                 $title
             ),
             $this->getDriver()

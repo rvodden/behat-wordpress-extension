@@ -51,7 +51,7 @@ class AdminPage extends Page
 
         throw new ExpectationException(
             sprintf(
-                'Expected page header "%1$s", found "%2$s".',
+                '[W402] Expected screen header "%1$s", found "%2$s".',
                 $expected,
                 $actual
             ),
@@ -81,7 +81,7 @@ class AdminPage extends Page
             return $header2;
         }
 
-        throw new ExpectationException('Header could not be found', $this->getDriver());
+        throw new ExpectationException('[W402] Header could not be found', $this->getDriver());
     }
 
     /**

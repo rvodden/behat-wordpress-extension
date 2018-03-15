@@ -23,7 +23,7 @@ class ThemeElement extends BaseElement
         $theme = wp_get_theme($id);
 
         if (! $theme->exists()) {
-            throw new UnexpectedValueException(sprintf('Could not find theme %s', $id));
+            throw new UnexpectedValueException(sprintf('[W612] Could not find theme %s', $id));
         }
 
         switch_theme($theme->get_template());

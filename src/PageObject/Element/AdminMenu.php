@@ -75,7 +75,7 @@ class AdminMenu extends Element
         }
 
         if (false === $click_node) {
-            throw new RuntimeException('Menu item could not be found');
+            throw new RuntimeException('[W405] Menu item could not be found');
         }
 
         $click_node->click();

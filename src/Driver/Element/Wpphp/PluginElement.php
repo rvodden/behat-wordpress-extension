@@ -45,7 +45,7 @@ class PluginElement extends BaseElement
         $plugin = $this->drivers->getDriver()->getPlugin($id);
 
         if (! $plugin) {
-            throw new UnexpectedValueException("Cannot find the plugin: {$id}.");
+            throw new UnexpectedValueException("[W608] Cannot find the plugin: {$id}.");
         }
 
         $this->update($plugin, ['status' => 'activate']);
@@ -66,7 +66,7 @@ class PluginElement extends BaseElement
         $plugin = $this->drivers->getDriver()->getPlugin($id);
 
         if (! $plugin) {
-            throw new UnexpectedValueException("Cannot find the plugin: {$id}.");
+            throw new UnexpectedValueException("[W608] Cannot find the plugin: {$id}.");
         }
 
         $this->update($plugin, ['status' => 'deactivate']);

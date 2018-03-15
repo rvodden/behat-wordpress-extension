@@ -29,7 +29,7 @@ class DashboardPage extends AdminPage
 
         throw new ExpectationException(
             sprintf(
-                'Expected page is the wp-admin dashboard, instead on "%1$s".',
+                '[W401] Expected screen is the wp-admin dashboard, instead on "%1$s".',
                 $url
             ),
             $this->getDriver()
