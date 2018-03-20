@@ -12,4 +12,4 @@ The range of valid error codes is `W000` to `W999`:
 * [`W500-599`](/recipes/errors/w500-599.md) represent errors from the WP-CLI driver.
 * [`W600-699`](/recipes/errors/w600-699.md) represent errors from the WP-PHP driver.
 * `W700-799` are reserved for future use.
-* `W800-999` are also reserved for future use.
+* `W800-999` are reserved for future use.
