@@ -47,19 +47,27 @@ class DatabaseElement extends BaseElement
             "{$bin}mysqldump {$command_args}",
             array(
                 1 => ['pipe', 'w'],
+                2 => ['pipe', 'w'],
             ),
             $pipes
         );
 
         $stdout = trim(stream_get_contents($pipes[1]));
+        $stderr = trim(stream_get_contents($pipes[2]));
         fclose($pipes[1]);
+        fclose($pipes[2]);
         $exit_code = proc_close($proc);
         putenv('MYSQL_PWD=' . $old_pwd);
+
+        // Sometimes the error message is in stderr.
+        if (! $stdout && $stderr) {
+            $stdout = $stderr;
+        }
 
         if ($exit_code || strpos($stdout, 'Warning: ') === 0 || strpos($stdout, 'Error: ') === 0) {
             throw new RuntimeException(
                 sprintf(
-                    "[W606] Could not export database in method %1\$s(): \n%2\$s\n(%3\$s)",
+                    "[W606] Could not export database in method %1\$s(): \n\n%2\$s.\n(%3\$s)",
                     debug_backtrace()[1]['function'],
                     $stdout,
                     $exit_code
@@ -103,19 +111,27 @@ class DatabaseElement extends BaseElement
             "{$bin}mysql {$command_args}",
             array(
                 1 => ['pipe', 'w'],
+                2 => ['pipe', 'w'],
             ),
             $pipes
         );
 
         $stdout = trim(stream_get_contents($pipes[1]));
+        $stderr = trim(stream_get_contents($pipes[2]));
         fclose($pipes[1]);
+        fclose($pipes[2]);
         $exit_code = proc_close($proc);
         putenv('MYSQL_PWD=' . $old_pwd);
+
+        // Sometimes the error message is in stderr.
+        if (! $stdout && $stderr) {
+            $stdout = $stderr;
+        }
 
         if ($exit_code || strpos($stdout, 'Warning: ') === 0 || strpos($stdout, 'Error: ') === 0) {
             throw new RuntimeException(
                 sprintf(
-                    "[W607] Could not import database in method %1\$s(): \n%2\$s\n(%3\$s)",
+                    "[W607] Could not import database in method %1\$s(): \n\n%2\$s.\n(%3\$s)",
                     debug_backtrace()[1]['function'],
                     $stdout,
                     $exit_code

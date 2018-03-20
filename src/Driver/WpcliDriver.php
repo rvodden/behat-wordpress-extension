@@ -124,13 +124,21 @@ class WpcliDriver extends BaseDriver
             $command,
             array(
                 1 => ['pipe', 'w'],
+                2 => ['pipe', 'w'],
             ),
             $pipes
         );
 
         $stdout = trim(stream_get_contents($pipes[1]));
+        $stderr = trim(stream_get_contents($pipes[2]));
         fclose($pipes[1]);
+        fclose($pipes[2]);
         $exit_code = proc_close($proc);
+
+        // Sometimes the error message is in stderr.
+        if (! $stdout && $stderr) {
+            $stdout = $stderr;
+        }
 
         if ($exit_code || strpos($stdout, 'Warning: ') === 0 || strpos($stdout, 'Error: ') === 0) {
             if ($exit_code === 255 && ! $stdout) {
@@ -139,7 +147,7 @@ class WpcliDriver extends BaseDriver
 
             throw new UnexpectedValueException(
                 sprintf(
-                    "[W102] WP-CLI driver failure in method %1\$s():\n%2\$s.\nTried to run: %3\$s\n(%4\$s)",
+                    "[W102] WP-CLI driver failure in method %1\$s():\n\n%2\$s.\n\nTried to run: %3\$s\n(%4\$s)",
                     debug_backtrace()[1]['function'],
                     $stdout,
                     $command,
