@@ -65,4 +65,7 @@
 
   <!-- No commented-out code. -->
   <rule ref="Squiz.PHP.CommentedOutCode" />
+
+  <!-- Class doc comments. -->
+  <rule ref="Squiz.Commenting.ClassComment" />
 </ruleset>
