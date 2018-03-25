@@ -1,4 +1,6 @@
-# Contributions are welcome!
+# Contributions are welcomed!
+
+WordHat has [comprehensive contribution documentation](https://wordhat.info/contributing/open-source/index.html), but here at the most important parts:
 
 ## Quick guide
 
@@ -15,7 +17,7 @@ You can do some things to increase the chance that your pull request is accepted
  * If your changes are not up to date -- rebase your branch on the parent branch.
  * Follow the conventions used in the project.
  * Remember about documentation.
- * Don't bump the version.
+ * Do not bump the version number.
 
 ## Project standards
 

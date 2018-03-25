@@ -2,7 +2,7 @@
 
 * [Paul Gibbs](https://github.com/paulgibbs/): Project Lead
 * [Stephen Harris](https://github.com/stephenharris/): Project Lead
-
+* [Richard Vodden](https://github.com/rvodden/)
 
 ## Acknowledgements
 
