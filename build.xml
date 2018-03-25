@@ -20,7 +20,7 @@
 
   <target name="wordhat:test" depends="wordhat:prepare-config">
     <phingcall target="wordhat:phpcs" />
-    <!-- <phingcall target="wordhat:phpstan" /> -->
+    <phingcall target="wordhat:phpstan" />
     <if>
       <equals arg1="${wordhat.runstyle}" arg2="docker" />
       <then>
@@ -144,6 +144,27 @@
       command="vendor;bin;phpstan analyse -c ${wordhat.phpstan-configfile} --level=${wordhat.phpstan-level} src"
       passthru="true" checkreturn="true" />
   </target>
+	<target name="wordhat:phpstan">
+    <property name="wordhat.php-binary" value="vendor/bin/phpstan" />
+    <if>
+      <os family="windows" />
+      <then>
+        <pathconvert targetos="windows" property="wordhat.php-binary">
+          <path path="${wordhat.php-binary}"></path>
+        </pathconvert>
+        <pathconvert targetos="windows" property="wordhat.phpstan-configfile">
+          <path path="${wordhat.phpstan-configfile}"></path>
+        </pathconvert>
+      </then>
+    </if>
+    <exec executable="${wordhat.php-binary}" passthru="true"  checkreturn="true" >
+      <arg value="analyse" /> 
+      <arg value="-c" />
+      <arg value="${wordhat.phpstan-configfile}" />
+      <arg value="--level=${wordhat.phpstan-level}" />
+      <arg value="src" />
+		</exec>
+	</target>
 
   <target name="wordhat:phpcs">
     <property name="wordhat.php-binary"
