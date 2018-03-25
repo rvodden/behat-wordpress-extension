@@ -4,36 +4,87 @@
             schematypens="http://relaxng.org/ns/structure/1.0" ?>
 <project name="docker" default="behat:run">
 
-	<property name="docker.bin" value="docker" />
-	<property name="docker.user" value="www-data" />
-	<property name="docker.test-entry" value="vendor/bin/phing behat:exec-tests" />
-	<property name="docker.test-workdir" value="/wordhat" />
-	<property name="docker.test-container" value="docker_wordpress_1" />
-	<property name="docker-compose.bin" value="docker-compose" />
-	<property name="docker-compose.file" value="${project.basedir}/build/docker/docker-compose.yml" />
-	
-	<target name="docker:up"  
-		description="Brings up the docker infrastructure.">
-		<exec command="${docker-compose.bin} --no-ansi -f ${docker-compose.file} up --build -d"
-					passthru="true" checkreturn="true" />
-	</target>
-	
-	<target name="docker:stop" 
-		description="Tears down the docker infrastructure.">
-		<exec command="${docker-compose.bin} --no-ansi -f ${docker-compose.file} stop"
-					passthru="true" checkreturn="true" />
-	</target>
+  <property name="docker.bin" value="docker" />
+  <property name="docker.user" value="www-data" />
+  <property name="docker.test-entry"
+    value="vendor/bin/phing behat:exec-tests" />
+  <property name="docker.test-workdir" value="/wordhat" />
+  <property name="docker.test-container"
+    value="docker_wordpress_1" />
+  <property name="docker-compose.bin" value="docker-compose" />
+  <property name="docker-compose.file"
+    value="${project.basedir}/build/docker/docker-compose.yml" />
 
-	<target name="docker:exec-tests"
-		description="Executes the integration tests inside the docker image." >
-		<exec command="${docker.bin} exec -u ${docker.user} ${docker.test-container} sh -c &quot;cd ${docker.test-workdir} &amp;&amp; ${docker.test-entry}&quot;"
-					passthru="true" checkreturn="true" />
-	</target>
-	
-	<target name="docker:cleanup"
-		description="Kills the containers and removes the volumes for a clean restart">
-		<exec command="${docker-compose.bin} --no-ansi -f ${docker-compose.file} rm -f &amp;&amp; ${docker.bin} volume prune -f"
-					passthru="true" checkreturn="true" />
-	</target>
+  <target name="docker:up"
+    description="Brings up the docker infrastructure.">
+    <if>
+      <os family="windows" />
+      <then>
+        <pathconvert targetos="windows"
+          property="docker-compose.bin">
+          <path path="${docker-compose.bin}"></path>
+        </pathconvert>
+      </then>
+    </if>
+    <exec
+      command="${docker-compose.bin} --no-ansi -f ${docker-compose.file} up --build -d"
+      passthru="true" checkreturn="true" />
+  </target>
+
+  <target name="docker:stop"
+    description="Tears down the docker infrastructure.">
+    <if>
+      <os family="windows" />
+      <then>
+        <pathconvert targetos="windows"
+          property="docker-compose.bin">
+          <path path="${docker-compose.bin}"></path>
+        </pathconvert>
+        <pathconvert targetos="windows"
+          property="docker-compose.file">
+          <path path="${docker-compose.file}" />
+        </pathconvert>
+      </then>
+    </if>
+    <exec
+      command="${docker-compose.bin} --no-ansi -f ${docker-compose.file} stop"
+      passthru="true" checkreturn="true" />
+  </target>
+
+  <target name="docker:exec-tests"
+    description="Executes the integration tests inside the docker image.">
+    <if>
+      <os family="windows" />
+      <then>
+        <pathconvert targetos="windows"
+          property="docker.bin">
+          <path path="${docker.bin}" />
+        </pathconvert>
+      </then>
+    </if>
+    <exec
+      command="${docker.bin} exec -u ${docker.user} ${docker.test-container} sh -c &quot;cd ${docker.test-workdir} &amp;&amp; ${docker.test-entry}&quot;"
+      passthru="true" checkreturn="true" />
+  </target>
+
+  <target name="docker:cleanup"
+    description="Kills the containers and removes the volumes for a clean restart">
+    <if>
+      <os family="windows" />
+      <then>
+        <pathconvert targetos="windows"
+          property="docker-compose.bin">
+          <path path="${docker-compose.bin}" />
+        </pathconvert>
+        <pathconvert targetos="windows"
+          property="docker-compose.file">
+          <path path="${docker-compose.file}" />
+        </pathconvert>
+      </then>
+    </if>
+    <exec
+      command="${docker-compose.bin} --no-ansi -f ${docker-compose.file} rm -f &amp;&amp; ${docker.bin} volume prune -f"
+      passthru="true" checkreturn="true" />
+  </target>
 
 </project>

@@ -139,11 +139,6 @@
     </copy>
   </target>
 
-  <target name="wordhat:phpstan">
-    <exec
-      command="vendor;bin;phpstan analyse -c ${wordhat.phpstan-configfile} --level=${wordhat.phpstan-level} src"
-      passthru="true" checkreturn="true" />
-  </target>
 	<target name="wordhat:phpstan">
     <property name="wordhat.php-binary" value="vendor/bin/phpstan" />
     <if>
