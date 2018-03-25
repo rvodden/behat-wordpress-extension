@@ -15,7 +15,7 @@ services:
      depends_on:
        - db
        - selenium
-     image: wordhat/automation:4.9.4-php7.2
+     image: ${wordhat.image-name}
      shm_size: 2G
      ports:
        - "8080:8080"
