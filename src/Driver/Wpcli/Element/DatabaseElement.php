@@ -1,15 +1,16 @@
 <?php
 declare(strict_types=1);
-namespace PaulGibbs\WordpressBehatExtension\Driver\Element\Wpcli;
+namespace PaulGibbs\WordpressBehatExtension\Driver\Wpcli\Element;
 
+use PaulGibbs\WordpressBehatExtension\Driver\Element\DatabaseElementInterface;
 use RuntimeException;
-use PaulGibbs\WordpressBehatExtension\Driver\Element\BaseElement;
 
 /**
  * WP-CLI driver element for manipulating the database directly.
  */
-class DatabaseElement extends BaseElement
+class DatabaseElement implements DatabaseElementInterface
 {
+
     /**
      * Export site database.
      *
@@ -18,7 +19,7 @@ class DatabaseElement extends BaseElement
      *
      * @return string Path to the database dump.
      */
-    public function get($id, $args = [])
+    public function export($id, $args = []) : string
     {
         $wpcli_args = ['--porcelain', '--add-drop-table'];
 
@@ -30,7 +31,7 @@ class DatabaseElement extends BaseElement
         };
 
         // Protect against WP-CLI changing the filename.
-        $path = $this->drivers->getDriver()->wpcli('db', 'export', $wpcli_args)['stdout'];
+        $path = $this->getDriver()->wpcli('db', 'export', $wpcli_args)['stdout'];
         if (! $path) {
             throw new RuntimeException('[W502] Could not export database');
         }
@@ -44,9 +45,9 @@ class DatabaseElement extends BaseElement
      * @param int   $id   Not used.
      * @param array $args
      */
-    public function update($id, $args = [])
+    public function import($id, $args = [])
     {
-        $this->drivers->getDriver()->wpcli('db', 'import', [$args['path']]);
+        $this->getDriver()->wpcli('db', 'import', [$args['path']]);
 
         /*
          * The WPPHP driver needs the WP cache flushed at this point. However
@@ -56,38 +57,5 @@ class DatabaseElement extends BaseElement
          *
          * https://github.com/paulgibbs/behat-wordpress-extension/pull/150
          */
-    }
-
-
-    /*
-     * Convenience methods.
-     */
-
-    /**
-     * Alias of get().
-     *
-     * @see get()
-     *
-     * @param int   $id   Not used.
-     * @param array $args
-     *
-     * @return string Path to the export file.
-     */
-    public function export($id, $args = [])
-    {
-        return $this->get($id, $args);
-    }
-
-    /**
-     * Alias of update().
-     *
-     * @see update()
-     *
-     * @param int   $id   Not used.
-     * @param array $args
-     */
-    public function import($id, $args = [])
-    {
-        $this->update($id, $args);
     }
 }

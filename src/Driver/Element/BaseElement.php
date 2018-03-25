@@ -1,9 +1,8 @@
 <?php
-declare(strict_types=1);
+declare(strict_types = 1);
 namespace PaulGibbs\WordpressBehatExtension\Driver\Element;
 
-use PaulGibbs\WordpressBehatExtension\Exception\UnsupportedDriverActionException;
-use PaulGibbs\WordpressBehatExtension\WordpressDriverManager;
+use PaulGibbs\WordpressBehatExtension\Driver\DriverInterface;
 
 /**
  * Common base class for WordPress driver elements.
@@ -12,75 +11,26 @@ use PaulGibbs\WordpressBehatExtension\WordpressDriverManager;
  */
 abstract class BaseElement implements ElementInterface
 {
+
     /**
-     * WordPress driver manager.
+     * WordPress driver.
      *
-     * @var WordpressDriverManager
+     * @var DriverInterface
      */
-    protected $drivers;
+    private $driver;
 
     /**
      * Constructor.
      *
-     * @param WordpressDriverManager $drivers
+     * @param DriverInterface $drivers
      */
-    public function __construct(WordpressDriverManager $drivers)
+    public function __construct(DriverInterface $driver)
     {
-        $this->drivers = $drivers;
+        $this->driver = $driver;
     }
-
-    /**
-     * Create an item for this element.
-     *
-     * @param array $args Data used to create an object.
-     *
-     * @return mixed The new item.
-     *
-     * @throws UnsupportedDriverActionException
-     */
-    public function create($args)
+    
+    protected function getDriver() : DriverInterface
     {
-        throw new UnsupportedDriverActionException(sprintf('use the %s element create method', static::class));
-    }
-
-    /**
-     * Retrieve an item for this element.
-     *
-     * @param int|string $id Object ID.
-     * @param array $args Optional data used to fetch an object.
-     *
-     * @throws UnsupportedDriverActionException
-     *
-     * @return mixed The item.
-     */
-    public function get($id, $args = [])
-    {
-        throw new UnsupportedDriverActionException(sprintf('use the %s element get method', static::class));
-    }
-
-    /**
-     * Update an item for this element.
-     *
-     * @param int|string $id Object ID.
-     * @param array $args Optional data used to update an object.
-     *
-     * @throws UnsupportedDriverActionException
-     */
-    public function update($id, $args = [])
-    {
-        throw new UnsupportedDriverActionException(sprintf('use the %s element update method', static::class));
-    }
-
-    /**
-     * Delete an item for this element.
-     *
-     * @param int|string $id Object ID.
-     * @param array $args Optional data used to delete an object.
-     *
-     * @throws UnsupportedDriverActionException
-     */
-    public function delete($id, $args = [])
-    {
-        throw new UnsupportedDriverActionException(sprintf('use the %s element delete method', static::class));
+        return $this->driver;
     }
 }

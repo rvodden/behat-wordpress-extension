@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
-namespace PaulGibbs\WordpressBehatExtension\Driver;
+namespace PaulGibbs\WordpressBehatExtension\Driver\Blackbox;
+
+use PaulGibbs\WordpressBehatExtension\Driver\BaseDriver;
 
 /**
  * Connect Behat to WordPress using just a web browser.

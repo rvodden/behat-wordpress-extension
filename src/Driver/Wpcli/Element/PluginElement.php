@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace PaulGibbs\WordpressBehatExtension\Driver\Element\Wpcli;
+namespace PaulGibbs\WordpressBehatExtension\Driver\Wpcli\Element;
 
 use PaulGibbs\WordpressBehatExtension\Driver\Element\BaseElement;
 
@@ -17,7 +17,7 @@ class PluginElement extends BaseElement
      */
     public function update($id, $args = [])
     {
-        $this->drivers->getDriver()->wpcli('plugin', $args['status'], [$id]);
+        $this->getDriver()->wpcli('plugin', $args['status'], [$id]);
     }
 
 

@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace PaulGibbs\WordpressBehatExtension\Driver\Element\Wpcli;
+namespace PaulGibbs\WordpressBehatExtension\Driver\Wpcli\Element;
 
 use PaulGibbs\WordpressBehatExtension\Driver\Element\BaseElement;
 use PaulGibbs\WordpressBehatExtension\Exception\UnsupportedDriverActionException;
@@ -116,6 +116,6 @@ class UserElement extends BaseElement
 
         array_unshift($wpcli_args, $id, '--yes');
 
-        $this->drivers->getDriver()->wpcli('user', 'delete', $wpcli_args);
+        $this->getDriver()->wpcli('user', 'delete', $wpcli_args);
     }
 }

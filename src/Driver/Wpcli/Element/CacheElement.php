@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
-namespace PaulGibbs\WordpressBehatExtension\Driver\Element\Wpphp;
+namespace PaulGibbs\WordpressBehatExtension\Driver\Wpcli\Element;
 
 use PaulGibbs\WordpressBehatExtension\Driver\Element\BaseElement;
 
 /**
- * WP-API driver element for site cache.
+ * WP-CLI driver element for site cache.
  */
 class CacheElement extends BaseElement
 {
@@ -17,7 +17,7 @@ class CacheElement extends BaseElement
      */
     public function update($id, $args = [])
     {
-        wp_cache_flush();
+        $this->getDriver()->wpcli('cache', 'flush');
     }
 
 
