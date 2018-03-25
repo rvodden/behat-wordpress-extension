@@ -1,32 +1,23 @@
 <?php
 declare(strict_types=1);
-namespace PaulGibbs\WordpressBehatExtension\Driver\Element\Wpphp;
+namespace PaulGibbs\WordpressBehatExtension\Driver\Wpcli\Element;
 
 use PaulGibbs\WordpressBehatExtension\Driver\Element\BaseElement;
-use UnexpectedValueException;
 
 /**
- * WP-API driver element for themes.
+ * WP-CLI driver element for themes.
  */
 class ThemeElement extends BaseElement
 {
     /**
      * Switch active theme.
      *
-     * @param string $id Theme name to switch to.
-     * @param array $args Not used.
-     *
-     * @throws \UnexpectedValueException
+     * @param string $id   Theme name to switch to.
+     * @param array  $args Not used.
      */
     public function update($id, $args = [])
     {
-        $theme = wp_get_theme($id);
-
-        if (! $theme->exists()) {
-            throw new UnexpectedValueException(sprintf('[W612] Could not find theme %s', $id));
-        }
-
-        switch_theme($theme->get_template());
+        $this->getDriver()->wpcli('theme', 'activate', [$id]);
     }
 
 

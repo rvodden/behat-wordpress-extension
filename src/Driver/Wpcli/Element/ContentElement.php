@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
-namespace PaulGibbs\WordpressBehatExtension\Driver\Element\Wpcli;
+namespace PaulGibbs\WordpressBehatExtension\Driver\Wpcli\Element;
 
 use PaulGibbs\WordpressBehatExtension\Driver\Element\BaseElement;
-use UnexpectedValueException;
 use function PaulGibbs\WordpressBehatExtension\Util\buildCLIArgs;
+use UnexpectedValueException;
 
 /**
  * WP-CLI driver element for content (i.e. blog posts).
@@ -56,7 +56,7 @@ class ContentElement extends BaseElement
         );
 
         array_unshift($wpcli_args, '--porcelain');
-        $post_id = (int) $this->drivers->getDriver()->wpcli('post', 'create', $wpcli_args)['stdout'];
+        $post_id = (int) $this->getDriver()->wpcli('post', 'create', $wpcli_args)['stdout'];
 
         // Apply taxonomy values.
         if ($tax_args) {
@@ -70,7 +70,7 @@ class ContentElement extends BaseElement
                         escapeshellarg($split_term),
                     ];
 
-                    $this->drivers->getDriver()->wpcli('post', 'term add', $args);
+                    $this->getDriver()->wpcli('post', 'term add', $args);
                 }
             }
         }
@@ -84,7 +84,7 @@ class ContentElement extends BaseElement
                     escapeshellarg($meta_value),
                 ];
 
-                $this->drivers->getDriver()->wpcli('post', 'meta update', $args)['stdout'];
+                $this->getDriver()->wpcli('post', 'meta update', $args)['stdout'];
             }
         }
 
@@ -108,7 +108,7 @@ class ContentElement extends BaseElement
         // Support fetching via arbitrary field.
         if (! is_numeric($id)) {
             $wpcli_args = ['--fields=ID,url', "--{$args['by']}=" . escapeshellarg($id), '--post_type=any', '--format=json'];
-            $result     = json_decode($this->drivers->getDriver()->wpcli('post', 'list', $wpcli_args)['stdout']);
+            $result     = json_decode($this->getDriver()->wpcli('post', 'list', $wpcli_args)['stdout']);
 
             if (empty($result)) {
                 throw new UnexpectedValueException(sprintf('[W501] Could not find post with ID %d', $id));
@@ -128,7 +128,7 @@ class ContentElement extends BaseElement
         );
 
         array_unshift($wpcli_args, $id, '--format=json');
-        $post = $this->drivers->getDriver()->wpcli('post', 'get', $wpcli_args)['stdout'];
+        $post = $this->getDriver()->wpcli('post', 'get', $wpcli_args)['stdout'];
         $post = json_decode($post);
 
         if (! $post) {
@@ -137,7 +137,7 @@ class ContentElement extends BaseElement
 
         if (! $url) {
             $wpcli_args = ['--post__in=' . $post->ID, '--fields=url', '--post_type=any', '--format=json'];
-            $result     = json_decode($this->drivers->getDriver()->wpcli('post', 'list', $wpcli_args)['stdout']);
+            $result     = json_decode($this->getDriver()->wpcli('post', 'list', $wpcli_args)['stdout']);
             $url        = $result[0]->url;
         }
 
@@ -161,6 +161,6 @@ class ContentElement extends BaseElement
 
         array_unshift($wpcli_args, $id);
 
-        $this->drivers->getDriver()->wpcli('post', 'delete', $wpcli_args);
+        $this->getDriver()->wpcli('post', 'delete', $wpcli_args);
     }
 }

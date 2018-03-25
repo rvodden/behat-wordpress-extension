@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace PaulGibbs\WordpressBehatExtension\Driver\Element\Wpcli;
+namespace PaulGibbs\WordpressBehatExtension\Driver\Wpcli\Element;
 
 use PaulGibbs\WordpressBehatExtension\Driver\Element\BaseElement;
 use UnexpectedValueException;
@@ -28,7 +28,7 @@ class WidgetElement extends BaseElement
                 $sidebar_id
             ], buildCLIArgs(array_keys($args), $args));
 
-        $this->drivers->getDriver()->wpcli('widget', 'add', $wpcli_args);
+        $this->getDriver()->wpcli('widget', 'add', $wpcli_args);
     }
 
     /**

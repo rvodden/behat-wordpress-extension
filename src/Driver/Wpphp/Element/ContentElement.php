@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace PaulGibbs\WordpressBehatExtension\Driver\Element\Wpphp;
+namespace PaulGibbs\WordpressBehatExtension\Driver\Wpphp\Element;
 
 use WP_Query;
 use UnexpectedValueException;
