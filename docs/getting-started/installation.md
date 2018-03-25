@@ -1,3 +1,4 @@
+description: How to get install Behat, WordPress, and WordHat
 # Installing WordHat
 
 ## Requirements

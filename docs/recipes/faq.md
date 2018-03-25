@@ -1,3 +1,4 @@
+description: WordHat frequently asked questions and answers
 # FAQs
 
 If you are new to the project or Behat, we recommend that you first [read through our documentation](https://wordhat.info/). For any questions, feedback, or to contribute, you can get in contact with us via Github or our [Slack](https://wordhat.herokuapp.com).

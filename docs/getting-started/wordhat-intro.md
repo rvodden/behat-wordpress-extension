@@ -1,3 +1,4 @@
+description: How to get started with WordHat
 # WordHat
 
 When you start a new project with Behat, perhaps the first things to think about -- after integrating <abbr title="Behavior Driven Development">BDD</abbr> into your workflow -- will be getting browser automation working, and writing your first tests.

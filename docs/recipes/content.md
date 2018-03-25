@@ -1,3 +1,4 @@
+description: Questions and answers about managing database content
 # Database content
 
 Your tests will probably create WordPress content during their execution, and you need to remove that content from the database after each test. It is important to distinguish between persistent and non-persistent database content:

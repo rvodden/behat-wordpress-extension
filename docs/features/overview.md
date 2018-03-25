@@ -1,3 +1,4 @@
+description: Behat Feature files for WordPress
 # Overview
 
 WordHat provides WordPress-specific functionality for common testing scenarios that are specific to WordPress sites. We do this by providing a range of [Behat contexts](/getting-started/behat-intro.md#contexts) that provide useful step definitions.

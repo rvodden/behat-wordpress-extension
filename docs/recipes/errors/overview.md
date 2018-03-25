@@ -1,3 +1,4 @@
+description: WordHat internal error codes documentation
 # Exception error codes
 
 When WordHat is forced to throw a user-facing PHP exception, an error code beginning with "W" will be included at the start of the message. This documentation is provided to help you better understand the error, and in some cases, provide extra information to help you resolve the problem.

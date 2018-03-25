@@ -1,3 +1,4 @@
+description: WordHat is available under the GPL General Public License, version 3 or later.
 # License
 
 Copyright (C) 2016-present, Paul Gibbs.
