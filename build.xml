@@ -215,4 +215,5 @@
   <target name="wordhat:check-file-syntax">
     <exec command="php -l ${wordhat:file}" checkreturn="true" />
   </target>
+
 </project>
