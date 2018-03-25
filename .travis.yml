@@ -6,8 +6,12 @@ php:
   - 7.2
 
 env:
-  - WORDHAT_DRIVER=wpphp
-  - WORDHAT_DRIVER=wpcli
+  global:
+    - REPOSITORY_USER=wordhatautomation
+    secure: "Y3OPzFhnNfiVfAc/r1gS554QwdFGEhNIqMfXnzwpgf6P7dOGf4nehpJwMfne4SMj6qhqgCuFHDkYr1DDeYf46Tn9DjQR7RyPB3ZkD7FhMhhcLVbezaXgbsZurfWsaeOrZge4N5lS/VH6xdyH1nwSUrCAdfUj7KqQNnVguMacBSzQ3WqDrmG9idZnJsiuQukfbiZ7bWT0WKVaKQxXKFjQl27g6o+9KpbVKxc5q2s8IM23OK6jc/T6pwc8jd7nJwTUMpig+il5oHfwlxywuVLCh34boRrVtcnZ2EBdiIDFn0hST/2dx2voOuo4DXOr8uyfkdGJisMdKmWrEv2vuM85tvnDiNnDrIy8o5mFIWT+9yON+FOF0ssqx8o0iMVyaElG1mZLNih6EQOxVpWi2p2XimVaB7VGds66X1bGSlPnpl/+4UC7iTg3nOojRUDvoCbexnZYsd3sDd51qQC2/UiYnLA8CLodLuh5CIRYSBqGuS5F7wIXMnoLjLGPMRGEyeeYMwMrnM0eGazLw4OUKhQyw/XAeT0v3yQ8LnpaD0B6a56uFF2j2ReEm2v/KLQEF30fooaZptWiP2+gXTLuQ//I2iLm0Wk1O8lpBqFzsGNdlQw5iqNQPzoO+NfadJTXjl+7h6gNmrK2+RJPA3qpvyGbvJlkFBHTOIgRSiRfOtPvMXI="
+  matrix:
+    - WORDHAT_DRIVER=wpphp
+    - WORDHAT_DRIVER=wpcli
 
 services:
   - docker

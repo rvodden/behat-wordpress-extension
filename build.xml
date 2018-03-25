@@ -17,6 +17,7 @@
     value="${project.basedir}/phpstan.neon" />
   <property name="wordhat.phpcs-configfile"
     value="${project.basedir}/phpcs-ruleset.xml" />
+  <property name="wordhat.push-image" value="false" />
 
   <target name="wordhat:test" depends="wordhat:prepare-config">
     <phingcall target="wordhat:phpcs" />
@@ -35,6 +36,7 @@
   </target>
 
   <target name="wordhat:docker-test">
+    <phingcall target="docker:build" />
     <phingcall target="docker:up" />
     <echo msg="Waiting for WordPress to start" />
     <waitfor maxwaitunit="second" maxwait="60"
@@ -42,6 +44,12 @@
       <http url="http://wordpress:8080" quiet="true" />
     </waitfor>
     <phingcall target="docker:exec-tests" />
+    <if>
+      <equals arg1="${wordhat.ci-engine}" arg2="travis" />
+      <then>
+        <phingcall target="docker:push" />
+      </then>
+    </if>
     <phingcall target="docker:stop" />
     <phingcall target="docker:cleanup" />
   </target>
@@ -50,7 +58,7 @@
     <!-- scoping means that this needs to be reloaded here -->
     <property
       file="${project.basedir}/build/properties/${wordhat.ci-engine}.yml" />
-    <!-- for the moment assume all the pre-reqs are in place - gradually 
+    <!-- for the moment assume all the pre-reqs are in place - gradually
       migrate them in -->
     <echo message="${wordhat.behat-tags}" />
     <if>
@@ -119,6 +127,13 @@
     </copy>
     <copy tofile="${project.basedir}/build/behat.yml"
       file="${project.basedir}/build/templates/behat.yml.template"
+      overwrite="true">
+      <filterchain>
+        <expandproperties />
+      </filterchain>
+    </copy>
+    <copy tofile="${project.basedir}/build/docker/docker-compose.yml"
+      file="${project.basedir}/build/templates/docker-compose.yml.template"
       overwrite="true">
       <filterchain>
         <expandproperties />
