@@ -3,6 +3,8 @@ set -eux
 
 WH_WORDPRESS_DIR=/usr/src/wordpress
 
+build/docker/install-composer.sh
+./composer --no-ansi install --no-ansi --no-interaction --prefer-dist --no-progress
 # wait for mysql to come up
 
 while ! mysqladmin ping -h "db" --silent; do
@@ -25,8 +27,8 @@ vendor/bin/wp theme activate --path="${WH_WORDPRESS_DIR}" twentyseventeen
 vendor/bin/wp rewrite structure --path="${WH_WORDPRESS_DIR}" '/%year%/%monthnum%/%postname%/'
 
 for sidebar in $(vendor/bin/wp sidebar list --path="${WH_WORDPRESS_DIR}" --format=ids); do
-  for widget in $(vendor/bin/wp widget list $sidebar --path="${WH_WORDPRESS_DIR}" --format=ids); do
-    vendor/bin/wp widget delete --path="${WH_WORDPRESS_DIR}" $widget
+  for widget in $(vendor/bin/wp widget list "${sidebar}" --path="${WH_WORDPRESS_DIR}" --format=ids); do
+    vendor/bin/wp widget delete --path="${WH_WORDPRESS_DIR}" "${widget}"
   done;
 done;
 

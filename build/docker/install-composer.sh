@@ -17,4 +17,5 @@ fi
 php composer-setup.php
 RESULT=${?}
 rm composer-setup.php
+mv composer.phar composer
 exit $RESULT
