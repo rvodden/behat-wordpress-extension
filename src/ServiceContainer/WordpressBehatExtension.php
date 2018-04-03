@@ -249,13 +249,13 @@ class WordpressBehatExtension implements ExtensionInterface
         $loader->load('drivers/wpcli.yml');
 
         $config['wpcli']['alias'] = isset($config['wpcli']['alias']) ? $config['wpcli']['alias'] : '';
-        $container->setParameter('wordpress.driver.wpcli.alias', $config['wpcli']['alias']);
+        $container->setParameter('wordpress.driver.alias', $config['wpcli']['alias']);
 
         $config['wpcli']['path'] = isset($config['path']) ? $config['path'] : '';
-        $container->setParameter('wordpress.driver.wpcli.path', $config['path']);
+        $container->setParameter('wordpress.driver.path', $config['path']);
 
         $config['wpcli']['binary'] = isset($config['wpcli']['binary']) ? $config['wpcli']['binary'] : null;
-        $container->setParameter('wordpress.driver.wpcli.binary', $config['wpcli']['binary']);
+        $container->setParameter('wordpress.driver.binary', $config['wpcli']['binary']);
     }
 
     /**
@@ -274,7 +274,7 @@ class WordpressBehatExtension implements ExtensionInterface
         $loader->load('drivers/wpphp.yml');
 
         $config['wpphp']['path'] = isset($config['path']) ? $config['path'] : '';
-        $container->setParameter('wordpress.driver.wpphp.path', $config['wpphp']['path']);
+        $container->setParameter('wordpress.driver.path', $config['wpphp']['path']);
     }
 
     /**

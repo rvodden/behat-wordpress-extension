@@ -34,7 +34,7 @@ abstract class BaseDriver implements DriverInterface
      * @var \PaulGibbs\WordpressBehatExtension\Driver\Element\ElementInterface[]
      */
     protected $elements = [];
-    
+
     /**
      * Expose $elements as public properties.
      *

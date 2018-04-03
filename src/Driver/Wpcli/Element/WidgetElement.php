@@ -42,7 +42,7 @@ class WidgetElement extends BaseElement
      */
     public function getSidebar($sidebar_name)
     {
-        $registered_sidebars = json_decode($this->drivers->getDriver()->wpcli('sidebar', 'list', [
+        $registered_sidebars = json_decode($this->getDriver()->wpcli('sidebar', 'list', [
             '--format=json',
         ])['stdout']);
 

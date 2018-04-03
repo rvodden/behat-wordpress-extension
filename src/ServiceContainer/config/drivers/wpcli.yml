@@ -11,7 +11,7 @@ parameters:
   wordpress.element.widget.class: PaulGibbs\WordpressBehatExtension\Driver\Wpcli\Element\WidgetElement
 
 services:
-  wordpress.driver.wpcli:
+  wordpress.driver:
     class: "%wordpress.driver.class%"
     arguments:
       - "%wordpress.driver.alias%"

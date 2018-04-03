@@ -2,13 +2,12 @@
 declare(strict_types=1);
 namespace PaulGibbs\WordpressBehatExtension\Driver\Wpcli\Element;
 
-use PaulGibbs\WordpressBehatExtension\Driver\Element\DatabaseElementInterface;
 use RuntimeException;
 
 /**
  * WP-CLI driver element for manipulating the database directly.
  */
-class DatabaseElement implements DatabaseElementInterface
+class DatabaseElement extends WpcliBaseElement
 {
 
     /**

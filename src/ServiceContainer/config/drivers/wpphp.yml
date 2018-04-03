@@ -17,7 +17,7 @@ services:
     public: false
 
   wordpress.driver:
-    class: "%wordpress.driver.wpphp.class%"
+    class: "%wordpress.driver.class%"
     arguments:
       - "%wordpress.path%"
     tags:
