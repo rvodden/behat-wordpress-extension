@@ -29,5 +29,4 @@ RUN chown -R www-data /var/www /usr/src/wordpress
 # USER root
 RUN mkdir -p /wordhat && chown -R www-data /wordhat
 WORKDIR /wordhat
-USER www-data
 ENTRYPOINT [ "build/docker/docker-entrypoint.sh" ]
