@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
-namespace PaulGibbs\WordpressBehatExtension\Driver\Element;
+namespace PaulGibbs\WordpressBehatExtension\Driver\Element\Interfaces;
+
 
 interface DatabaseElementInterface extends ElementInterface
 {
@@ -13,7 +14,7 @@ interface DatabaseElementInterface extends ElementInterface
      * @return string Path to the database dump.
      */
     public function export($id, $args = []) : string;
-    
+
     /**
      * Import site database.
      *

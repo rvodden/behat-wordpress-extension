@@ -2,8 +2,8 @@
 declare(strict_types=1);
 namespace PaulGibbs\WordpressBehatExtension\Compiler;
 
+use PaulGibbs\WordpressBehatExtension\Driver\Element\Interfaces\PluginElementInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 
 /**
@@ -18,22 +18,7 @@ class DriverElementPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        $wordpress = $container->getDefinition('wordpress.wordpress');
-        if (! $wordpress) {
-            return;
-        }
-
-        foreach ($container->findTaggedServiceIds('wordpress.element') as $id => $attributes) {
-            foreach ($attributes as $attribute) {
-                if (! isset($attribute['alias'], $attribute['driver'])) {
-                    continue;
-                }
-
-                $wordpress->addMethodCall(
-                    'registerDriverElement',
-                    [$attribute['alias'], new Reference($id), $attribute['driver']]
-                );
-            }
-        }
+        $container->registerForAutoconfiguration(PluginElementInterface::class)
+            ->addTag('wordpress.driver.element.plugin');
     }
 }

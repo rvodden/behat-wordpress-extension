@@ -2,12 +2,11 @@
 declare(strict_types=1);
 namespace PaulGibbs\WordpressBehatExtension\Driver\Wpcli\Element;
 
-use PaulGibbs\WordpressBehatExtension\Driver\Element\BaseElement;
 
 /**
  * WP-CLI driver element for site cache.
  */
-class CacheElement extends BaseElement
+class CacheElement
 {
     /**
      * Clear object cache.

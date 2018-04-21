@@ -4,11 +4,12 @@ namespace PaulGibbs\WordpressBehatExtension\Driver\Wpphp\Element;
 
 use UnexpectedValueException;
 use PaulGibbs\WordpressBehatExtension\Driver\Element\BaseElement;
+use PaulGibbs\WordpressBehatExtension\Driver\Element\Interfaces\PluginElementInterface;
 
 /**
  * WP-API driver element for plugins.
  */
-class PluginElement extends BaseElement
+class PluginElement extends BaseElement implements PluginElementInterface
 {
     /**
      * Activate or deactivate specified plugin.

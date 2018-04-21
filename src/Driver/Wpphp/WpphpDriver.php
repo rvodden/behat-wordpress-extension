@@ -2,14 +2,16 @@
 declare(strict_types=1);
 namespace PaulGibbs\WordpressBehatExtension\Driver\Wpphp;
 
-use PaulGibbs\WordpressBehatExtension\Driver\BaseDriver;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use RuntimeException;
 
 /**
  * Connect Behat to WordPress by loading WordPress directly into the global scope.
  */
-class WpphpDriver extends BaseDriver
+class WpphpDriver
 {
+    protected const SHORTNAME = 'wpphp';
+
     /**
      * Path to WordPress' files.
      *
@@ -93,4 +95,16 @@ class WpphpDriver extends BaseDriver
 
         return '';
     }
+
+    public static function setParameters(ContainerBuilder $container, array $config)
+    {
+        // TODO: implement this method
+    }
+
+    public static function getShortName(): string
+    {
+        $class = get_called_class();
+        return $class::SHORTNAME;
+    }
+
 }

@@ -3,17 +3,25 @@ parameters:
   wordpress.parameters: {}
 
 services:
+  # default configuration for services in *this* file
+  _defaults:
+      autowire: true
+      autoconfigure: true
+      public: false
+  PaulGibbs\WordpressBehatExtension\Driver\:
+      resource: '../../Driver/*'
+      public: true
   wordpress.wordpress:
-    class: 'PaulGibbs\WordpressBehatExtension\WordpressDriverManager'
-    arguments:
-      - {}
+      class: 'PaulGibbs\WordpressBehatExtension\WordpressDriverManager'
+      arguments:
+        - {}
   wordpress.context.initializer:
-    class: 'PaulGibbs\WordpressBehatExtension\Context\Initialiser\WordpressAwareInitialiser'
-    arguments:
-      - "@wordpress.wordpress"
-      - "%wordpress.parameters%"
-    tags:
-      - { name: context.initializer }
+      class: 'PaulGibbs\WordpressBehatExtension\Context\Initialiser\WordpressAwareInitialiser'
+      arguments:
+          - "@wordpress.wordpress"
+          - "%wordpress.parameters%"
+      tags:
+          - { name: context.initializer }
   wordpress.listener.driver:
     class: 'PaulGibbs\WordpressBehatExtension\Listener\DriverListener'
     arguments:

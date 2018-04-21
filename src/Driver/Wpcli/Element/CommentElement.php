@@ -2,14 +2,14 @@
 declare(strict_types=1);
 namespace PaulGibbs\WordpressBehatExtension\Driver\Wpcli\Element;
 
-use PaulGibbs\WordpressBehatExtension\Driver\Element\BaseElement;
-use UnexpectedValueException;
+use PaulGibbs\WordpressBehatExtension\Driver\Element\Interfaces\CommentElementInterface;
 use function PaulGibbs\WordpressBehatExtension\Util\buildCLIArgs;
+use UnexpectedValueException;
 
 /**
  * WP-CLI driver element for post comments.
  */
-class CommentElement extends BaseElement
+class CommentElement implements CommentElementInterface
 {
     /**
      * Create an item for this element.

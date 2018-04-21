@@ -2,45 +2,15 @@
 declare(strict_types=1);
 namespace PaulGibbs\WordpressBehatExtension\Driver\Wpcli;
 
-use PaulGibbs\WordpressBehatExtension\Driver\BaseDriver;
-use RuntimeException;
 use UnexpectedValueException;
+
+
 
 /**
  * Connect Behat to WordPress using WP-CLI.
  */
-class WpcliDriver extends BaseDriver
+class WpcliDriver implements WpcliDriverInterface
 {
-    /**
-     * The name of a WP-CLI alias for tests requiring shell access.
-     *
-     * @var string
-     */
-    protected $alias = '';
-
-    /**
-     * Path to WordPress' files.
-     *
-     * @var string
-     */
-    protected $path = '';
-
-    /**
-     * WordPress site URL.
-     *
-     * @var string
-     */
-    protected $url = '';
-
-    /**
-     * Binary for WP-CLI.
-     *
-     * Defaults to "wp".
-     *
-     * @var string
-     */
-    protected $binary = 'wp';
-
     /**
      * Constructor.
      *
@@ -57,53 +27,7 @@ class WpcliDriver extends BaseDriver
         $this->binary = $binary;
     }
 
-    /**
-     * Set up anything required for the driver.
-     *
-     * Called when the driver is used for the first time.
-     * Checks `core is-installed`, and the version number.
-     *
-     * @throws \RuntimeException
-     */
-    public function bootstrap()
-    {
-        $version = '';
 
-        preg_match('#^WP-CLI (.*)$#', $this->wpcli('cli', 'version')['stdout'], $match);
-        if (! empty($match)) {
-            $version = array_pop($match);
-        }
-
-        if (! version_compare($version, '1.5.0', '>=')) {
-            throw new RuntimeException('[W100] Your WP-CLI is too old; version 1.5.0 or newer is required.');
-        }
-
-        $status = $this->wpcli('core', 'is-installed')['exit_code'];
-        if ($status !== 0) {
-            throw new RuntimeException('[W101] WordPress does not seem to be installed. Check "path" and/or "alias" settings in behat.yml.');
-        }
-
-        putenv('WP_CLI_STRICT_ARGS_MODE=1');
-
-        $this->is_bootstrapped = true;
-    }
-
-    /**
-     * Execute a WP-CLI command.
-     *
-     * @param string   $command       Command name.
-     * @param string   $subcommand    Subcommand name.
-     * @param string[] $raw_arguments Optional. Associative array of arguments for the command.
-     *
-     * @throws \UnexpectedValueException
-     *
-     * @return array {
-     *     WP-CLI command results.
-     *
-     *     @type string $stdout    Response text from WP-CLI.
-     *     @type int    $exit_code Returned status code of the executed command.
-     * }
-     */
     public function wpcli(string $command, string $subcommand, array $raw_arguments = []): array
     {
         $arguments = implode(' ', $raw_arguments);
@@ -128,7 +52,7 @@ class WpcliDriver extends BaseDriver
                 2 => ['pipe', 'w'],
             ),
             $pipes
-        );
+            );
 
         $stdout = trim(stream_get_contents($pipes[1]));
         $stderr = trim(stream_get_contents($pipes[2]));
@@ -153,8 +77,8 @@ class WpcliDriver extends BaseDriver
                     $stdout,
                     $command,
                     $exit_code
-                )
-            );
+                    )
+                );
         }
 
         return compact('stdout', 'exit_code');

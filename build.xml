@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
 <?xml-model xlink:href="/usr/share/php5/PEAR/data/phing/etc/phing-grammar.rng"
             type="application/xml"
             schematypens="http://relaxng.org/ns/structure/1.0" ?>
 
-<project name="wordhat" description="BDD for Wordpress"
-  default="wordhat:test">
+<project name="wordhat" default="wordhat:test">
 
   <import file="build/phing/docker.xml" />
   <import file="build/phing/behat.xml" />
@@ -76,8 +76,7 @@
 
   </target>
 
-  <target name="wordhat:detect-ci" hidden="true"
-    unless="wordhat.runstyle">
+  <target name="wordhat:detect-ci" unless="wordhat.runstyle">
     <if>
       <isset property="env.TRAVIS" />
       <then>
@@ -98,8 +97,7 @@
     </if>
   </target>
 
-  <target name="wordhat:prepare-config" hidden="true"
-    depends="wordhat:detect-ci">
+  <target name="wordhat:prepare-config" depends="wordhat:detect-ci">
     <if>
       <equals arg1="${wordhat.runstyle}" arg2="docker" />
       <then>
@@ -115,7 +113,7 @@
     </if>
   </target>
 
-  <target name="wordhat:prepare-docker-config" hidden="true">
+  <target name="wordhat:prepare-docker-config">
     <property
       file="${project.basedir}/build/properties/docker.yml" />
     <copy tofile="${project.basedir}/build/docker/Dockerfile"
@@ -141,7 +139,7 @@
     </copy>
   </target>
 
-  <target name="wordhat:prepare-native-config" hidden="true">
+  <target name="wordhat:prepare-native-config">
     <property
       file="${project.basedir}/build/properties/${wordhat.ci-engine}.yml" />
     <copy tofile="${project.basedir}/build/behat.yml"

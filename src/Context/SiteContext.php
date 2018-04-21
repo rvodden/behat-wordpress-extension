@@ -2,12 +2,21 @@
 declare(strict_types=1);
 namespace PaulGibbs\WordpressBehatExtension\Context;
 
+use PaulGibbs\WordpressBehatExtension\Context\Interfaces\PluginAwareContextInterface;
+use PaulGibbs\WordpressBehatExtension\Driver\Element\Interfaces\PluginElementInterface;
+
 /**
  * Provides step definitions for managing plugins and themes.
  */
-class SiteContext extends RawWordpressContext
+class SiteContext extends RawWordpressContext implements PluginAwareContextInterface
 {
     use Traits\CacheAwareContextTrait, Traits\PluginAwareContextTrait, Traits\ThemeAwareContextTrait;
+
+    public function __construct(PluginElementInterface $pluginElement)
+    {
+        parent::__construct();
+        $this->setPluginElement($pluginElement);
+    }
 
     /**
      * Clear object cache.

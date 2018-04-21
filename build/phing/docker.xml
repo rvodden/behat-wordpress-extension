@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
 <?xml-model xlink:href="/usr/share/php5/PEAR/data/phing/etc/phing-grammar.rng"
             type="application/xml"
             schematypens="http://relaxng.org/ns/structure/1.0" ?>
-<project name="docker" default="behat:run">
+<project name="docker" >
   <property name="docker.bin" value="docker"/>
   <property name="docker.user" value="www-data"/>
   <property name="docker.test-entry" value="vendor/bin/phing behat:exec-tests"/>

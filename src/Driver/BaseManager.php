@@ -2,8 +2,8 @@
 declare(strict_types=1);
 namespace PaulGibbs\WordpressBehatExtension\Driver;
 
+use PaulGibbs\WordpressBehatExtension\Driver\Element\Interfaces\ElementInterface;
 use PaulGibbs\WordpressBehatExtension\Exception\UnsupportedDriverActionException;
-use PaulGibbs\WordpressBehatExtension\Driver\Element\ElementInterface;
 
 /**
  * Common base class for WordPress drivers.
@@ -19,7 +19,7 @@ use PaulGibbs\WordpressBehatExtension\Driver\Element\ElementInterface;
  * @property \PaulGibbs\WordpressBehatExtension\Driver\ElementInterface $theme
  * @property \PaulGibbs\WordpressBehatExtension\Driver\ElementInterface $user
  */
-abstract class BaseDriver implements DriverInterface
+abstract class BaseManager implements DriverManagerInterface
 {
     /**
      * Track driver bootstrapping.
@@ -31,7 +31,7 @@ abstract class BaseDriver implements DriverInterface
     /**
      * Registered driver elements.
      *
-     * @var \PaulGibbs\WordpressBehatExtension\Driver\Element\ElementInterface[]
+     * @var ElementInterface[]
      */
     protected $elements = [];
 
@@ -42,7 +42,7 @@ abstract class BaseDriver implements DriverInterface
      *
      * @throws UnsupportedDriverActionException
      *
-     * @return null|\PaulGibbs\WordpressBehatExtension\Driver\Element\ElementInterface Return element object.
+     * @return null|ElementInterface Return element object.
      */
     public function __get(string $name)
     {

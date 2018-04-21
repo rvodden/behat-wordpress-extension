@@ -5,7 +5,6 @@ namespace PaulGibbs\WordpressBehatExtension\PageObject\Element;
 use RuntimeException;
 use SensioLabs\Behat\PageObjectExtension\PageObject\Element;
 use Behat\Mink\Exception\UnsupportedDriverActionException;
-use PaulGibbs\WordpressBehatExtension\Util;
 
 /**
  * An Element representing the admin menu.

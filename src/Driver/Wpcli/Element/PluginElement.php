@@ -3,11 +3,12 @@ declare(strict_types=1);
 namespace PaulGibbs\WordpressBehatExtension\Driver\Wpcli\Element;
 
 use PaulGibbs\WordpressBehatExtension\Driver\Element\BaseElement;
+use PaulGibbs\WordpressBehatExtension\Driver\Element\Interfaces\PluginElementInterface;
 
 /**
  * WP-CLI driver element for plugins.
  */
-class PluginElement extends BaseElement
+class PluginElement extends BaseElement implements PluginElementInterface
 {
     /**
      * Activate or deactivate specified plugin.
@@ -19,7 +20,6 @@ class PluginElement extends BaseElement
     {
         $this->getDriver()->wpcli('plugin', $args['status'], [$id]);
     }
-
 
     /*
      * Convenience methods.

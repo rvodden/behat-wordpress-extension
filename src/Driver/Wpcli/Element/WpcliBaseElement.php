@@ -2,19 +2,26 @@
 declare(strict_types=1);
 namespace PaulGibbs\WordpressBehatExtension\Driver\Wpcli\Element;
 
-use PaulGibbs\WordpressBehatExtension\Driver\Element\BaseElement;
 use PaulGibbs\WordpressBehatExtension\Driver\Wpcli\WpcliDriver;
 
 /**
  * Super element for all WpCLI elements so that its possible
  * to refer to them all in a type safe way.
  */
-abstract class WpcliBaseElement extends BaseElement
+abstract class WpcliBaseElement
 {
-    /* TODO: This class may well not be necessary */
+    /*
+     * @var WpcliExecutor
+     */
+    protected $driver;
 
     public function __construct(WpcliDriver $driver)
     {
         parent::__construct($driver);
+    }
+
+    protected function getDriver() : WpcliDriver
+    {
+        return $driver;
     }
 }
