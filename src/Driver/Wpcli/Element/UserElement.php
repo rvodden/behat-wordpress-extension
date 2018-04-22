@@ -17,7 +17,7 @@ class UserElement implements UserElementInterface
      *
      * @var WpcliDriverInterface $driver
      */
-    var $driver;
+    protected $driver;
 
     public function __construct(WpcliDriverInterface $driver)
     {

@@ -15,7 +15,7 @@ class ContentElement implements ContentElementInterface
     /**
      * @var WpcliDriverInterface $driver;
      */
-    var $driver;
+    protected $driver;
 
     public function __construct(WpcliDriverInterface $driver)
     {

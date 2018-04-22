@@ -12,7 +12,7 @@ trait WidgetAwareContextTrait
      *
      * @var WidgetElementInterface $widgetElement;
      */
-    var $widgetElement;
+    protected $widgetElement;
 
     /**
      * Gets a sidebar ID from its human-readable name.

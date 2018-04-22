@@ -19,7 +19,7 @@ trait UserAwareContextTrait
      *
      * @var UserElementInterface $userElement
      */
-    var $userElement;
+    protected $userElement;
 
     /**
      * Log in the user.

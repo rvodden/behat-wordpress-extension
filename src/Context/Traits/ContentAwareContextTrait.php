@@ -15,7 +15,7 @@ trait ContentAwareContextTrait
      *
      * @var ContentElementInterface $contentElement;
      */
-    var $contentElement;
+    protected $contentElement;
 
     /**
      * Create content.

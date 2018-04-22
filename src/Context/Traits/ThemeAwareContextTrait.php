@@ -14,7 +14,7 @@ trait ThemeAwareContextTrait
     /**
      * @var ThemeElementInterface $themeElement;
      */
-    var $themeElement;
+    protected $themeElement;
 
     /**
      * Switch active theme.

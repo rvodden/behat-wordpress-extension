@@ -37,12 +37,12 @@ class WpcliManager implements DriverManagerInterface
     /**
      * @var bool
      */
-    var $is_bootstrapped = false;
+    protected $is_bootstrapped = false;
 
     /**
      * @var WpcliDriverInterface $driver
      */
-    var $driver;
+    protected $driver;
 
     /**
      * Constructor

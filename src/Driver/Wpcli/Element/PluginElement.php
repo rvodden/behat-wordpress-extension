@@ -14,7 +14,7 @@ class PluginElement extends BaseElement implements PluginElementInterface
     /**
      * @var WpcliDriverInterface $driver
      */
-    var $driver;
+    protected $driver;
 
     /**
      * @var WpcliDriverInterface $driver

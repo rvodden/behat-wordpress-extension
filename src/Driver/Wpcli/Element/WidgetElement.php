@@ -18,7 +18,7 @@ class WidgetElement extends BaseElement implements WidgetElementInterface
      *
      * @var WpcliDriverInterface $driver
      */
-    var $driver;
+    protected $driver;
 
     public function __construct(WpcliDriverInterface $driver)
     {

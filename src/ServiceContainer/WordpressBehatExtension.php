@@ -339,7 +339,8 @@ class WordpressBehatExtension implements ExtensionInterface
                 $definition = $container->getDefinition($serviceId);
                 $class = $definition->getClass();
                 echo 'Class: ' . $class , ',';
-                if ($tags = $definition->getTags()) {
+                $tags = $definition->getTags();
+                if ($tags) {
                     $tagInformation = array();
                     foreach ($tags as $tagName => $tagData) {
                         echo  "[$tagName";

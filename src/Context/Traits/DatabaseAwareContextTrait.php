@@ -14,7 +14,7 @@ trait DatabaseAwareContextTrait
     /**
      * @var DatabaseElementInterface $database
      */
-    var $databaseElement;
+    protected $databaseElement;
 
     public function exportDatabase(array $args): string
     {

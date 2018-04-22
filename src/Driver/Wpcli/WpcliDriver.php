@@ -14,25 +14,25 @@ class WpcliDriver implements WpcliDriverInterface
      *
      * @var string $alias;
      */
-    var $alias;
+    protected $alias;
 
     /**
      *
      * @var string $path;
      */
-    var $path;
+    protected $path;
 
     /**
      *
      * @var string $url;
      */
-    var $url;
+    protected $url;
 
     /**
      *
      * @var string $binary;
      */
-    var $binary;
+    protected $binary;
 
     /**
      * Constructor.

@@ -12,7 +12,7 @@ trait CacheAwareContextTrait
     /**
      * var CacheElementInterface $cacheElement
      */
-    var $cacheElement;
+    protected $cacheElement;
 
     /**
      * Clear object cache.
