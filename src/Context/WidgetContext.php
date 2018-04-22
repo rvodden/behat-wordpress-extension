@@ -4,11 +4,12 @@ namespace PaulGibbs\WordpressBehatExtension\Context;
 
 use Behat\Gherkin\Node\TableNode;
 use PaulGibbs\WordpressBehatExtension\Context\Traits\WidgetAwareContextTrait;
+use PaulGibbs\WordpressBehatExtension\Context\Interfaces\WidgetAwareContextInterface;
 
 /**
  * Provides step definitions relating to widgets.
  */
-class WidgetContext extends RawWordpressContext
+class WidgetContext extends RawWordpressContext implements WidgetAwareContextInterface
 {
     use WidgetAwareContextTrait;
 

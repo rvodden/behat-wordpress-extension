@@ -4,14 +4,25 @@ namespace PaulGibbs\WordpressBehatExtension\Driver\Wpcli;
 
 use PaulGibbs\WordpressBehatExtension\Driver\DriverManagerInterface;
 use PaulGibbs\WordpressBehatExtension\Driver\Element\Interfaces\CacheElementInterface;
+use PaulGibbs\WordpressBehatExtension\Driver\Element\Interfaces\CommentElementInterface;
+use PaulGibbs\WordpressBehatExtension\Driver\Element\Interfaces\ContentElementInterface;
 use PaulGibbs\WordpressBehatExtension\Driver\Element\Interfaces\DatabaseElementInterface;
 use PaulGibbs\WordpressBehatExtension\Driver\Element\Interfaces\PluginElementInterface;
+use PaulGibbs\WordpressBehatExtension\Driver\Element\Interfaces\TermElementInterface;
+use PaulGibbs\WordpressBehatExtension\Driver\Element\Interfaces\ThemeElementInterface;
 use PaulGibbs\WordpressBehatExtension\Driver\Element\Interfaces\UserElementInterface;
+use PaulGibbs\WordpressBehatExtension\Driver\Element\Interfaces\WidgetElementInterface;
 use PaulGibbs\WordpressBehatExtension\Driver\Wpcli\Element\CacheElement;
+use PaulGibbs\WordpressBehatExtension\Driver\Wpcli\Element\CommentElement;
+use PaulGibbs\WordpressBehatExtension\Driver\Wpcli\Element\ContentElement;
 use PaulGibbs\WordpressBehatExtension\Driver\Wpcli\Element\DatabaseElement;
 use PaulGibbs\WordpressBehatExtension\Driver\Wpcli\Element\PluginElement;
+use PaulGibbs\WordpressBehatExtension\Driver\Wpcli\Element\TermElement;
+use PaulGibbs\WordpressBehatExtension\Driver\Wpcli\Element\ThemeElement;
 use PaulGibbs\WordpressBehatExtension\Driver\Wpcli\Element\UserElement;
+use PaulGibbs\WordpressBehatExtension\Driver\Wpcli\Element\WidgetElement;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use RuntimeException;
 
 /**
  * Connect WordHat to WordPress using WP-CLI.
@@ -21,7 +32,7 @@ class WpcliManager implements DriverManagerInterface
     /**
      * @var string
      */
-    const SHORTNAME = "wpcli";
+    const SHORTNAME = 'wpcli';
 
     /**
      * @var bool
@@ -36,7 +47,8 @@ class WpcliManager implements DriverManagerInterface
     /**
      * Constructor
      */
-    public function __construct(WpcliDriverInterface $driver) {
+    public function __construct(WpcliDriverInterface $driver)
+    {
         $this->driver = $driver;
     }
 
@@ -45,19 +57,24 @@ class WpcliManager implements DriverManagerInterface
      *
      * @param ContainerBuilder $container
      * @param array $config
-     * @param WpcliDriverInterface $driver
      */
     public static function setParameters(ContainerBuilder $container, array $config)
     {
         if (! isset($config['wpcli'])) {
-            throw RuntimeException("Cannot find wpcli configuration in behat.yml\n");
+            throw new RuntimeException("Cannot find wpcli configuration in behat.yml\n");
         }
 
-        $container->setAlias(WpcliDriverInterface::class, WpcliDriver::class);
-        $container->setAlias(PluginElementInterface::class, PluginElement::class);
-        $container->setAlias(DatabaseElementInterface::class, DatabaseElement::class);
         $container->setAlias(CacheElementInterface::class, CacheElement::class);
+        $container->setAlias(CommentElementInterface::class, CommentElement::class);
+        $container->setAlias(ContentElementInterface::class, ContentElement::class);
+        $container->setAlias(DatabaseElementInterface::class, DatabaseElement::class);
+        $container->setAlias(PluginElementInterface::class, PluginElement::class);
+        $container->setAlias(TermElementInterface::class, TermElement::class);
+        $container->setAlias(ThemeElementInterface::class, ThemeElement::class);
         $container->setAlias(UserElementInterface::class, UserElement::class);
+        $container->setAlias(WidgetElementInterface::class, WidgetElement::class);
+
+        $container->setAlias(WpcliDriverInterface::class, WpcliDriver::class);
 
         $definition = $container->getDefinition(WpcliDriver::class);
 
@@ -68,10 +85,9 @@ class WpcliManager implements DriverManagerInterface
         $container->setParameter('wordpress.driver.wpcli.binary', $config['wpcli']['binary']);
 
         $definition->addArgument('%wordpress.driver.wpcli.alias%'); // $alias
-        $definition->addArgument("%mink.base_url%"); // $url
+        $definition->addArgument('%mink.base_url%'); // $url
         $definition->addArgument('%wordpress.driver.wpcli.binary%'); // $binary
         $definition->addArgument('%wordpress.path%'); // $path
-
     }
 
     public static function getShortName(): string
@@ -89,5 +105,4 @@ class WpcliManager implements DriverManagerInterface
         $this->driver->bootstrap();
         $this->is_bootstrapped = true;
     }
-
 }

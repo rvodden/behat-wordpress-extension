@@ -82,5 +82,4 @@ interface UserAwareContextInterface
      * @param UserElementInterface $userElement
      */
     public function setUserElement(UserElementInterface $userElement);
-
 }

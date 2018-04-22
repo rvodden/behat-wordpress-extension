@@ -34,7 +34,7 @@ class WordpressBehatExtension implements ExtensionInterface
      *
      * @var string
      */
-    const CONFIG_KEY = "wordpress";
+    const CONFIG_KEY = 'wordpress';
 
     /**
      * Constructor.
@@ -334,17 +334,16 @@ class WordpressBehatExtension implements ExtensionInterface
         $serviceIds = $container->getServiceIds();
 
         foreach ($serviceIds as $serviceId) {
-            echo "\tServiceId: " .  $serviceId , ",";
+            echo "\tServiceId: " . $serviceId , ',';
             try {
                 $definition = $container->getDefinition($serviceId);
                 $class = $definition->getClass();
-                echo "Class: " .  $class , ",";
+                echo 'Class: ' . $class , ',';
                 if ($tags = $definition->getTags()) {
                     $tagInformation = array();
                     foreach ($tags as $tagName => $tagData) {
                         echo  "[$tagName";
                         foreach ($tagData as $tagParameters) {
-
                             $parameters = array_map(function ($key, $value) {
                                 return sprintf('%s: %s', $key, $value);
                             }, array_keys($tagParameters), array_values($tagParameters));
@@ -354,11 +353,11 @@ class WordpressBehatExtension implements ExtensionInterface
                                 $tagInformation[] = sprintf('(%s)', $parameters);
                             }
                         }
-                        echo implode(",", $tagInformation) . "]";
+                        echo implode(',', $tagInformation) . ']';
                     }
                 }
                 echo "\n";
-            } catch  ( ServiceNotFoundException $e ) {
+            } catch (ServiceNotFoundException $e) {
                 echo "\n";
                 continue;
             }

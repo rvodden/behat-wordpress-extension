@@ -5,12 +5,23 @@ namespace PaulGibbs\WordpressBehatExtension\Driver\Wpcli\Element;
 use PaulGibbs\WordpressBehatExtension\Driver\Element\Interfaces\CommentElementInterface;
 use function PaulGibbs\WordpressBehatExtension\Util\buildCLIArgs;
 use UnexpectedValueException;
+use PaulGibbs\WordpressBehatExtension\Driver\Wpcli\WpcliDriverInterface;
 
 /**
  * WP-CLI driver element for post comments.
  */
 class CommentElement implements CommentElementInterface
 {
+    /**
+     * @var WpcliDriverInterface $driver;
+     */
+    var $driver;
+
+    public function __construct(WpcliDriverInterface $driver)
+    {
+        $this->driver = $driver;
+    }
+
     /**
      * Create an item for this element.
      *
@@ -29,7 +40,7 @@ class CommentElement implements CommentElementInterface
         );
 
         array_unshift($wpcli_args, '--porcelain');
-        $comment_id = (int) $this->getDriver()->wpcli('comment', 'create', $wpcli_args)['stdout'];
+        $comment_id = (int) $this->driver->wpcli('comment', 'create', $wpcli_args)['stdout'];
 
         return $this->get($comment_id);
     }
@@ -55,7 +66,7 @@ class CommentElement implements CommentElementInterface
         );
 
         array_unshift($wpcli_args, $id, '--format=json');
-        $comment = $this->getDriver()->wpcli('comment', 'get', $wpcli_args)['stdout'];
+        $comment = $this->driver->wpcli('comment', 'get', $wpcli_args)['stdout'];
         $comment = json_decode($comment);
 
         if (! $comment) {
@@ -80,6 +91,6 @@ class CommentElement implements CommentElementInterface
 
         array_unshift($wpcli_args, $id);
 
-        $this->getDriver()->wpcli('comment', 'delete', $wpcli_args);
+        $this->driver->wpcli('comment', 'delete', $wpcli_args);
     }
 }

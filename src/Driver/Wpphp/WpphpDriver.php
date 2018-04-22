@@ -106,5 +106,4 @@ class WpphpDriver
         $class = get_called_class();
         return $class::SHORTNAME;
     }
-
 }

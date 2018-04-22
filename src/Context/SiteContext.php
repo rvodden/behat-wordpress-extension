@@ -3,14 +3,18 @@ declare(strict_types=1);
 namespace PaulGibbs\WordpressBehatExtension\Context;
 
 use PaulGibbs\WordpressBehatExtension\Context\Interfaces\PluginAwareContextInterface;
-use PaulGibbs\WordpressBehatExtension\Driver\Element\Interfaces\PluginElementInterface;
+use PaulGibbs\WordpressBehatExtension\Context\Traits\CacheAwareContextTrait;
+use PaulGibbs\WordpressBehatExtension\Context\Traits\PluginAwareContextTrait;
+use PaulGibbs\WordpressBehatExtension\Context\Traits\ThemeAwareContextTrait;
+use PaulGibbs\WordpressBehatExtension\Context\Interfaces\CacheAwareContextInterface;
+use PaulGibbs\WordpressBehatExtension\Context\Interfaces\ThemeAwareContextInterface;
 
 /**
  * Provides step definitions for managing plugins and themes.
  */
-class SiteContext extends RawWordpressContext implements PluginAwareContextInterface
+class SiteContext extends RawWordpressContext implements CacheAwareContextInterface, PluginAwareContextInterface, ThemeAwareContextInterface
 {
-    use Traits\CacheAwareContextTrait, Traits\PluginAwareContextTrait, Traits\ThemeAwareContextTrait;
+    use CacheAwareContextTrait, PluginAwareContextTrait, ThemeAwareContextTrait;
 
     public function __construct()
     {

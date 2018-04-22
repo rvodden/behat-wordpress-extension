@@ -5,12 +5,25 @@ namespace PaulGibbs\WordpressBehatExtension\Driver\Wpcli\Element;
 use PaulGibbs\WordpressBehatExtension\Driver\Element\BaseElement;
 use UnexpectedValueException;
 use function PaulGibbs\WordpressBehatExtension\Util\buildCLIArgs;
+use PaulGibbs\WordpressBehatExtension\Driver\Element\Interfaces\WidgetElementInterface;
+use PaulGibbs\WordpressBehatExtension\Driver\Wpcli\WpcliDriverInterface;
 
 /**
  * WP-API driver element for managing user accounts.
  */
-class WidgetElement extends BaseElement
+class WidgetElement extends BaseElement implements WidgetElementInterface
 {
+
+    /**
+     *
+     * @var WpcliDriverInterface $driver
+     */
+    var $driver;
+
+    public function __construct(WpcliDriverInterface $driver)
+    {
+        $this->driver = $driver;
+    }
 
     /**
      * Adds a widget to the sidebar with the specified arguments
@@ -28,7 +41,7 @@ class WidgetElement extends BaseElement
                 $sidebar_id
             ], buildCLIArgs(array_keys($args), $args));
 
-        $this->getDriver()->wpcli('widget', 'add', $wpcli_args);
+        $this->driver->wpcli('widget', 'add', $wpcli_args);
     }
 
     /**
@@ -42,7 +55,7 @@ class WidgetElement extends BaseElement
      */
     public function getSidebar($sidebar_name)
     {
-        $registered_sidebars = json_decode($this->getDriver()->wpcli('sidebar', 'list', [
+        $registered_sidebars = json_decode($this->driver->wpcli('sidebar', 'list', [
             '--format=json',
         ])['stdout']);
 

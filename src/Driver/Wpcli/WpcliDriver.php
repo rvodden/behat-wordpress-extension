@@ -5,8 +5,6 @@ namespace PaulGibbs\WordpressBehatExtension\Driver\Wpcli;
 use RuntimeException;
 use UnexpectedValueException;
 
-
-
 /**
  * Connect Behat to WordPress using WP-CLI.
  */
@@ -76,7 +74,7 @@ class WpcliDriver implements WpcliDriverInterface
                 2 => ['pipe', 'w'],
             ),
             $pipes
-            );
+        );
 
         $stdout = trim(stream_get_contents($pipes[1]));
         $stderr = trim(stream_get_contents($pipes[2]));
@@ -101,8 +99,8 @@ class WpcliDriver implements WpcliDriverInterface
                     $stdout,
                     $command,
                     $exit_code
-                    )
-                );
+                )
+            );
         }
 
         return compact('stdout', 'exit_code');

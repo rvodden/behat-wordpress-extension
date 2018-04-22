@@ -1,10 +1,11 @@
 <?php
+declare(strict_types=1);
 namespace PaulGibbs\WordpressBehatExtension\Driver\Element\Interfaces;
 
-interface UserElementInterface
+interface ContentElementInterface
 {
     /**
-     * Create a user.
+     * Create an item for this element.
      *
      * @param array $args Data used to create an object.
      *
@@ -13,7 +14,7 @@ interface UserElementInterface
     public function create($args);
 
     /**
-     * Retrieve a user.
+     * Retrieve an item for this element.
      *
      * @param int|string $id   Object ID.
      * @param array      $args Optional data used to fetch an object.
@@ -25,19 +26,9 @@ interface UserElementInterface
     public function get($id, $args = []);
 
     /**
-     * Checks that the username and password are correct.
+     * Delete an item for this element.
      *
-     * @param string $username
-     * @param string $password
-     *
-     * @return boolean True if the username and password are correct.
-     */
-    public function validateCredentials(string $username, string $password);
-
-    /**
-     * Delete a user.
-     *
-     * @param int|string $id   User ID.
+     * @param int|string $id   Object ID.
      * @param array      $args Optional data used to delete an object.
      */
     public function delete($id, $args = []);

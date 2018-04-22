@@ -2,12 +2,20 @@
 declare(strict_types=1);
 namespace PaulGibbs\WordpressBehatExtension\Context\Traits;
 
+use PaulGibbs\WordpressBehatExtension\Driver\Element\Interfaces\ContentElementInterface;
+
 /**
  * Provides driver agnostic logic (helper methods) relating to posts and content.
  */
 trait ContentAwareContextTrait
 {
     use BaseAwarenessTrait;
+
+    /**
+     *
+     * @var ContentElementInterface $contentElement;
+     */
+    var $contentElement;
 
     /**
      * Create content.
@@ -22,7 +30,7 @@ trait ContentAwareContextTrait
      */
     public function createContent(array $args): array
     {
-        $post = $this->getDriver()->content->create($args);
+        $post = $this->contentElement->create($args);
 
         return array(
             'id'   => (int) $post->ID,
@@ -45,7 +53,7 @@ trait ContentAwareContextTrait
      */
     public function getContentFromTitle(string $title, string $post_type = ''): array
     {
-        $post = $this->getDriver()->content->get($title, ['by' => 'title', 'post_type' => $post_type]);
+        $post = $this->contentElement->get($title, ['by' => 'title', 'post_type' => $post_type]);
 
         return array(
             'id'   => (int) $post->ID,
@@ -62,6 +70,14 @@ trait ContentAwareContextTrait
      */
     public function deleteContent(int $content_id, array $args = [])
     {
-        $this->getDriver()->content->delete($content_id, $args);
+        $this->contentElement->delete($content_id, $args);
+    }
+
+    /**
+     * Set content element
+     */
+    public function setContentElement(ContentElementInterface $contentElement)
+    {
+        $this->contentElement = $contentElement;
     }
 }

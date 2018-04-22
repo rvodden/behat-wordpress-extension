@@ -8,7 +8,8 @@ use PaulGibbs\WordpressBehatExtension\Driver\Element\Interfaces\CacheElementInte
  * @author voddenr
  *
  */
-interface CacheAwareContextInterface {
+interface CacheAwareContextInterface
+{
     public function clearCache();
 
     public function setCacheElement(CacheElementInterface $cacheElement);

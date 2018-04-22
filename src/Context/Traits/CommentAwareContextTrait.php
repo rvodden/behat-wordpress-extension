@@ -2,7 +2,7 @@
 declare(strict_types=1);
 namespace PaulGibbs\WordpressBehatExtension\Context\Traits;
 
-use PaulGibbs\WordpressBehatExtension\Driver\Element\CommentElementInterface;
+use PaulGibbs\WordpressBehatExtension\Driver\Element\Interfaces\CommentElementInterface;
 
 /**
  * Provides driver agnostic logic (helper methods) relating to comments.
@@ -10,7 +10,7 @@ use PaulGibbs\WordpressBehatExtension\Driver\Element\CommentElementInterface;
 trait CommentAwareContextTrait
 {
     use BaseAwarenessTrait;
-    
+
     /**
      * The the Comment Element, injected in by the CommentAwareContextInitializer
      *
@@ -45,5 +45,13 @@ trait CommentAwareContextTrait
     public function deleteComment(int $comment_id, array $args = [])
     {
         $this->commentElement->delete($comment_id, $args);
+    }
+
+    /**
+     * Set the comment element
+     */
+    public function setCommentElement(CommentElementInterface $commentElement)
+    {
+        $this->commentElement = $commentElement;
     }
 }

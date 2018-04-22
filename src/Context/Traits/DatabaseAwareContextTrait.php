@@ -26,7 +26,8 @@ trait DatabaseAwareContextTrait
         $this->databaseElement->import(0, $args);
     }
 
-    public function setDatabaseElement(DatabaseElementInterface $databaseElement) {
+    public function setDatabaseElement(DatabaseElementInterface $databaseElement)
+    {
         $this->databaseElement = $databaseElement;
     }
 }

@@ -5,12 +5,24 @@ namespace PaulGibbs\WordpressBehatExtension\Driver\Wpcli\Element;
 use UnexpectedValueException;
 use PaulGibbs\WordpressBehatExtension\Driver\Element\BaseElement;
 use function PaulGibbs\WordpressBehatExtension\Util\buildCLIArgs;
+use PaulGibbs\WordpressBehatExtension\Driver\Element\Interfaces\TermElementInterface;
+use PaulGibbs\WordpressBehatExtension\Driver\Wpcli\WpcliDriverInterface;
 
 /**
  * WP-CLI driver element for taxonomy terms.
  */
-class TermElement extends BaseElement
+class TermElement extends BaseElement implements TermElementInterface
 {
+    /**
+     * @var WpcliDriverInterface $driver
+     */
+    var $driver;
+
+    public function __construct(WpcliDriverInterface $driver)
+    {
+        $this->driver = $driver;
+    }
+
     /**
      * Create an item for this element.
      *
@@ -30,7 +42,7 @@ class TermElement extends BaseElement
         );
 
         array_unshift($wpcli_args, $args['taxonomy'], $args['term'], '--porcelain');
-        $term_id = (int) $this->getDriver()->wpcli('term', 'create', $wpcli_args)['stdout'];
+        $term_id = (int) $this->driver->wpcli('term', 'create', $wpcli_args)['stdout'];
 
         return $this->get($term_id);
     }
@@ -56,7 +68,7 @@ class TermElement extends BaseElement
         );
 
         array_unshift($wpcli_args, $args['taxonomy'], $id, '--format=json');
-        $term = $this->getDriver()->wpcli('term', 'get', $wpcli_args)['stdout'];
+        $term = $this->driver->wpcli('term', 'get', $wpcli_args)['stdout'];
         $term = json_decode($term);
 
         if (! $term) {
@@ -79,6 +91,6 @@ class TermElement extends BaseElement
             $id,
         ];
 
-        $this->getDriver()->wpcli('term', 'delete', $wpcli_args);
+        $this->driver->wpcli('term', 'delete', $wpcli_args);
     }
 }

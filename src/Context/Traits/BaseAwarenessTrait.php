@@ -2,7 +2,6 @@
 declare(strict_types=1);
 namespace PaulGibbs\WordpressBehatExtension\Context\Traits;
 
-
 /**
  * Parent class for all awareness traits providing common code.
  */

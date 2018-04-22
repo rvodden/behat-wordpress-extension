@@ -6,11 +6,12 @@ use PaulGibbs\WordpressBehatExtension\PageObject\PostsEditPage;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Mink\Exception\ExpectationException;
 use PaulGibbs\WordpressBehatExtension\Context\Traits\ContentAwareContextTrait;
+use PaulGibbs\WordpressBehatExtension\Context\Interfaces\ContentAwareContextInterface;
 
 /**
  * Provides step definitions relating to editing content in wp-admin.
  */
-class EditPostContext extends RawWordpressContext
+class EditPostContext extends RawWordpressContext implements ContentAwareContextInterface
 {
     use ContentAwareContextTrait;
     /**
