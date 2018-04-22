@@ -23,7 +23,7 @@ trait WidgetAwareContextTrait
      */
     public function getWidgetSidebar(string $sidebar_name): string
     {
-        return $this->getDriver()->widget->getSidebar($sidebar_name);
+        return $this->widgetElement->widget->getSidebar($sidebar_name);
     }
 
     /**
@@ -35,7 +35,7 @@ trait WidgetAwareContextTrait
      */
     public function addWidgetToSidebar(string $widget_name, string $sidebar_id, array $args)
     {
-        $this->getDriver()->widget->addToSidebar($widget_name, $sidebar_id, $args);
+        $this->widgetElement->widget->addToSidebar($widget_name, $sidebar_id, $args);
     }
 
     public function setWidgetElement(WidgetElementInterface $widgetElement)
