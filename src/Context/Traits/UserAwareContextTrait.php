@@ -6,6 +6,7 @@ use Behat\Mink\Exception\DriverException;
 use Behat\Mink\Exception\ExpectationException;
 use Behat\Mink\Exception\UnsupportedDriverActionException;
 use UnexpectedValueException;
+use PaulGibbs\WordpressBehatExtension\Driver\Element\Interfaces\UserElementInterface;
 
 /**
  * Provides driver agnostic logic (helper methods) relating to users.
@@ -13,6 +14,12 @@ use UnexpectedValueException;
 trait UserAwareContextTrait
 {
     use BaseAwarenessTrait;
+
+    /**
+     *
+     * @var UserElementInterface $userElement
+     */
+    var $userElement;
 
     /**
      * Log in the user.
@@ -111,7 +118,7 @@ trait UserAwareContextTrait
         $args['user_login'] = $user_login;
 
         try {
-            $user = $this->getDriver()->user->create($args);
+            $user = $this->userElement->create($args);
         } catch (UnexpectedValueException $exception) {
             $user = $this->getExistingMatchingUser($args);
         }
@@ -139,7 +146,7 @@ trait UserAwareContextTrait
     private function getExistingMatchingUser(array $args)
     {
         $user_id = $this->getUserIdFromLogin($args['user_login']);
-        $user    = $this->getDriver()->user->get($user_id);
+        $user    = $this->userElement->get($user_id);
 
         /* users can have more than one role so needs to be a special case */
         if (array_key_exists('role', $args)) {
@@ -154,7 +161,7 @@ trait UserAwareContextTrait
         foreach ($args as $parameter => $value) {
             if ($parameter === 'password') {
                 try {
-                    if (! $this->getDriver()->user->validateCredentials($args['user_login'], $value)) {
+                    if (! $this->userElement->validateCredentials($args['user_login'], $value)) {
                         throw new UnexpectedValueException('User with login : ' . $user->user_login . ' exists but password is incorrect');
                     }
                 } catch (UnsupportedDriverActionException $exception) {
@@ -236,7 +243,7 @@ trait UserAwareContextTrait
      */
     public function getUserIdFromLogin(string $username): int
     {
-        return (int) $this->getDriver()->user->get($username, ['by' => 'login'])->ID;
+        return (int) $this->userElement->get($username, ['by' => 'login'])->ID;
     }
 
     /**
@@ -247,7 +254,7 @@ trait UserAwareContextTrait
      */
     public function deleteUser(int $user_id, array $args = [])
     {
-        $this->getDriver()->user->delete($user_id, $args);
+        $this->userElement->delete($user_id, $args);
     }
 
     /**
@@ -260,6 +267,11 @@ trait UserAwareContextTrait
      */
     public function getUserDataFromUsername(string $data, string $username)
     {
-        return $this->getDriver()->user->get($username, ['by' => 'login'])->{$data};
+        return $this->userElement->get($username, ['by' => 'login'])->{$data};
+    }
+
+    public function setUserElement($userElement)
+    {
+        $this->userElement = $userElement;
     }
 }

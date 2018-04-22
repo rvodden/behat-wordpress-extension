@@ -3,34 +3,29 @@ declare(strict_types=1);
 namespace PaulGibbs\WordpressBehatExtension\Driver\Wpcli\Element;
 
 
+use PaulGibbs\WordpressBehatExtension\Driver\Element\Interfaces\CacheElementInterface;
+use PaulGibbs\WordpressBehatExtension\Driver\Wpcli\WpcliDriverInterface;
+
 /**
  * WP-CLI driver element for site cache.
  */
-class CacheElement
+class CacheElement implements CacheElementInterface
 {
     /**
-     * Clear object cache.
      *
-     * @param int   $id   Not used.
-     * @param array $args Not used.
+     * @var WpcliDriverInterface $driver
      */
-    public function update($id, $args = [])
-    {
-        $this->getDriver()->wpcli('cache', 'flush');
+    var $driver;
+
+    public function __construct(WpcliDriverInterface $driver) {
+        $this->driver = $driver;
     }
 
-
-    /*
-     * Convenience methods.
-     */
-
     /**
-     * Alias of update().
-     *
-     * @see update()
+     * Clear object cache.
      */
     public function clear()
     {
-        $this->update(0);
+        $this->driver->wpcli('cache', 'flush');
     }
 }

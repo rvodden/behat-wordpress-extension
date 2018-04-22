@@ -8,11 +8,12 @@ use Behat\Mink\Driver\Selenium2Driver;
 use PaulGibbs\WordpressBehatExtension\Context\Traits\CacheAwareContextTrait;
 use PaulGibbs\WordpressBehatExtension\Context\Traits\DatabaseAwareContextTrait;
 use PaulGibbs\WordpressBehatExtension\Context\Traits\PageObjectAwareContextTrait;
+use PaulGibbs\WordpressBehatExtension\Context\Interfaces\DatabaseAwareContextInterface;
 
 /**
  * Provides step definitions for a range of common tasks. Recommended for all test suites.
  */
-class WordpressContext extends RawWordpressContext
+class WordpressContext extends RawWordpressContext implements DatabaseAwareContextInterface
 {
     use PageObjectAwareContextTrait, CacheAwareContextTrait, DatabaseAwareContextTrait;
 

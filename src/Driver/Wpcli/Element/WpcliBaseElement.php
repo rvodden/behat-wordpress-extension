@@ -2,7 +2,7 @@
 declare(strict_types=1);
 namespace PaulGibbs\WordpressBehatExtension\Driver\Wpcli\Element;
 
-use PaulGibbs\WordpressBehatExtension\Driver\Wpcli\WpcliDriver;
+use PaulGibbs\WordpressBehatExtension\Driver\Wpcli\WpcliDriverInterface;
 
 /**
  * Super element for all WpCLI elements so that its possible
@@ -15,13 +15,13 @@ abstract class WpcliBaseElement
      */
     protected $driver;
 
-    public function __construct(WpcliDriver $driver)
+    public function __construct(WpcliDriverInterface $driver)
     {
-        parent::__construct($driver);
+        $this->driver = $driver;
     }
 
-    protected function getDriver() : WpcliDriver
+    protected function getDriver() : WpcliDriverInterface
     {
-        return $driver;
+        return $this->driver;
     }
 }

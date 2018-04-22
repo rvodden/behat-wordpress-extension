@@ -10,10 +10,20 @@ trait CacheAwareContextTrait
     use BaseAwarenessTrait;
 
     /**
+     * var CacheElementInterface $cacheElement
+     */
+    var $cacheElement;
+
+    /**
      * Clear object cache.
      */
     public function clearCache()
     {
-        $this->getDriver()->cache->clear();
+        $this->cacheElement->clear();
+    }
+
+    public function setCacheElement($cacheElement)
+    {
+        $this->cacheElement = $cacheElement;
     }
 }

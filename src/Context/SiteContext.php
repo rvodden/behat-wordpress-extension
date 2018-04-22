@@ -12,10 +12,9 @@ class SiteContext extends RawWordpressContext implements PluginAwareContextInter
 {
     use Traits\CacheAwareContextTrait, Traits\PluginAwareContextTrait, Traits\ThemeAwareContextTrait;
 
-    public function __construct(PluginElementInterface $pluginElement)
+    public function __construct()
     {
         parent::__construct();
-        $this->setPluginElement($pluginElement);
     }
 
     /**

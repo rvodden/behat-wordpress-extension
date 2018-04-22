@@ -4,14 +4,17 @@ namespace PaulGibbs\WordpressBehatExtension\Context;
 
 use Behat\Gherkin\Node\TableNode;
 use Behat\Mink\Exception\ExpectationException;
+use PaulGibbs\WordpressBehatExtension\Context\Interfaces\UserAwareContextInterface;
+use PaulGibbs\WordpressBehatExtension\Context\Traits\CacheAwareContextTrait;
+use PaulGibbs\WordpressBehatExtension\Context\Traits\UserAwareContextTrait;
 use RuntimeException;
 
 /**
  * Provides step definitions for all things relating to users.
  */
-class UserContext extends RawWordpressContext
+class UserContext extends RawWordpressContext implements UserAwareContextInterface
 {
-    use Traits\UserAwareContextTrait, Traits\CacheAwareContextTrait;
+    use UserAwareContextTrait, CacheAwareContextTrait;
 
     /**
      * Add specified user accounts.

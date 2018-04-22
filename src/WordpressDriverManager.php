@@ -84,11 +84,9 @@ class WordpressDriverManager
      * @param string $name      Optional. The name of the driver to return. If omitted, the default driver is returned.
      * @param string $bootstrap Optional. If "skip bootstrap", driver bootstrap is skipped. Default: "do bootstrap".
      *
-     * @return DriverInterface The requested driver.
-     *
      * @throws \InvalidArgumentException
      */
-    public function getDriver(string $name = '', string $bootstrap = 'do bootstrap'): DriverInterface
+    public function getDriver(string $name = '', string $bootstrap = 'do bootstrap')
     {
         $do_bootstrap = ($bootstrap === 'do bootstrap');
         $name         = $name ? strtolower($name) : $this->default_driver;

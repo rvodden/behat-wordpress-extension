@@ -5,6 +5,7 @@ namespace PaulGibbs\WordpressBehatExtension\PageObject\Element;
 use RuntimeException;
 use SensioLabs\Behat\PageObjectExtension\PageObject\Element;
 use Behat\Mink\Exception\UnsupportedDriverActionException;
+use function PaulGibbs\WordpressBehatExtension\Util\stripTagsAndContent;
 
 /**
  * An Element representing the admin menu.
@@ -40,7 +41,7 @@ class AdminMenu extends Element
              *
              * See https://github.com/stephenharris/WordPressBehatExtension/issues/2
              */
-            $item_name = Util\stripTagsAndContent($first_level_item->find('css', '.wp-menu-name')->getHtml());
+            $item_name = stripTagsAndContent($first_level_item->find('css', '.wp-menu-name')->getHtml());
 
             if (strtolower($items[0]) !== strtolower($item_name)) {
                 continue;
@@ -50,7 +51,7 @@ class AdminMenu extends Element
                 $second_level_items = $first_level_item->findAll('css', 'ul li a');
 
                 foreach ($second_level_items as $second_level_item) {
-                    $item_name = Util\stripTagsAndContent($second_level_item->getHtml());
+                    $item_name = stripTagsAndContent($second_level_item->getHtml());
                     if (strtolower($items[1]) !== strtolower($item_name)) {
                         continue;
                     }

@@ -4,6 +4,7 @@ namespace PaulGibbs\WordpressBehatExtension\Driver\Wpcli\Element;
 
 use PaulGibbs\WordpressBehatExtension\Driver\Element\BaseElement;
 use PaulGibbs\WordpressBehatExtension\Driver\Element\Interfaces\PluginElementInterface;
+use PaulGibbs\WordpressBehatExtension\Driver\Wpcli\WpcliDriverInterface;
 
 /**
  * WP-CLI driver element for plugins.
@@ -11,14 +12,27 @@ use PaulGibbs\WordpressBehatExtension\Driver\Element\Interfaces\PluginElementInt
 class PluginElement extends BaseElement implements PluginElementInterface
 {
     /**
+     * @var WpcliDriverInterface $driver
+     */
+    var $driver;
+
+    /**
+     * @var WpcliDriverInterface $driver
+     */
+    public function __construct(WpcliDriverInterface $driver)
+    {
+        $this->driver = $driver;
+    }
+
+    /**
      * Activate or deactivate specified plugin.
      *
      * @param string $id   Plugin name.
      * @param array  $args Optional data used to update an object.
      */
-    public function update($id, $args = [])
+    protected function update($id, $args = [])
     {
-        $this->getDriver()->wpcli('plugin', $args['status'], [$id]);
+        $this->driver->wpcli('plugin', $args['status'], [$id]);
     }
 
     /*

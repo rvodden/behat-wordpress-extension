@@ -2,13 +2,27 @@
 declare(strict_types=1);
 namespace PaulGibbs\WordpressBehatExtension\Driver\Wpcli\Element;
 
+use PaulGibbs\WordpressBehatExtension\Driver\Element\BaseElement;
+use PaulGibbs\WordpressBehatExtension\Driver\Element\Interfaces\DatabaseElementInterface;
 use RuntimeException;
+use PaulGibbs\WordpressBehatExtension\Driver\Wpcli\WpcliDriverInterface;
 
 /**
  * WP-CLI driver element for manipulating the database directly.
  */
-class DatabaseElement extends WpcliBaseElement
+class DatabaseElement extends BaseElement implements DatabaseElementInterface
 {
+
+    /**
+     *
+     * @var WpcliDriverInterface $driver
+     */
+    var $driver;
+
+    public function __construct(WpcliDriverInterface $driver)
+    {
+        $this->driver = $driver;
+    }
 
     /**
      * Export site database.
@@ -30,7 +44,7 @@ class DatabaseElement extends WpcliBaseElement
         };
 
         // Protect against WP-CLI changing the filename.
-        $path = $this->getDriver()->wpcli('db', 'export', $wpcli_args)['stdout'];
+        $path = $this->driver->wpcli('db', 'export', $wpcli_args)['stdout'];
         if (! $path) {
             throw new RuntimeException('[W502] Could not export database');
         }
@@ -46,7 +60,7 @@ class DatabaseElement extends WpcliBaseElement
      */
     public function import($id, $args = [])
     {
-        $this->getDriver()->wpcli('db', 'import', [$args['path']]);
+        $this->driver->wpcli('db', 'import', [$args['path']]);
 
         /*
          * The WPPHP driver needs the WP cache flushed at this point. However

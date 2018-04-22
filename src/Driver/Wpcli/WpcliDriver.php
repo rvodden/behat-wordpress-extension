@@ -2,6 +2,7 @@
 declare(strict_types=1);
 namespace PaulGibbs\WordpressBehatExtension\Driver\Wpcli;
 
+use RuntimeException;
 use UnexpectedValueException;
 
 
@@ -11,6 +12,30 @@ use UnexpectedValueException;
  */
 class WpcliDriver implements WpcliDriverInterface
 {
+    /**
+     *
+     * @var string $alias;
+     */
+    var $alias;
+
+    /**
+     *
+     * @var string $path;
+     */
+    var $path;
+
+    /**
+     *
+     * @var string $url;
+     */
+    var $url;
+
+    /**
+     *
+     * @var string $binary;
+     */
+    var $binary;
+
     /**
      * Constructor.
      *
@@ -26,7 +51,6 @@ class WpcliDriver implements WpcliDriverInterface
         $this->url    = rtrim(filter_var($url, FILTER_SANITIZE_URL), '/');
         $this->binary = $binary;
     }
-
 
     public function wpcli(string $command, string $subcommand, array $raw_arguments = []): array
     {
@@ -82,5 +106,22 @@ class WpcliDriver implements WpcliDriverInterface
         }
 
         return compact('stdout', 'exit_code');
+    }
+
+    public function bootstrap()
+    {
+        $version = '';
+        preg_match('#^WP-CLI (.*)$#', $this->wpcli('cli', 'version')['stdout'], $match);
+        if (! empty($match)) {
+            $version = array_pop($match);
+        }
+        if (! version_compare($version, '1.5.0', '>=')) {
+            throw new RuntimeException('[W100] Your WP-CLI is too old; version 1.5.0 or newer is required.');
+        }
+        $status = $this->wpcli('core', 'is-installed')['exit_code'];
+        if ($status !== 0) {
+            throw new RuntimeException('[W101] WordPress does not seem to be installed. Check "path" and/or "alias" settings in behat.yml.');
+        }
+        putenv('WP_CLI_STRICT_ARGS_MODE=1');
     }
 }

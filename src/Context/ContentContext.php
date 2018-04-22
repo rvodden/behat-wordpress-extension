@@ -2,16 +2,17 @@
 declare(strict_types=1);
 namespace PaulGibbs\WordpressBehatExtension\Context;
 
-use UnexpectedValueException;
-use RuntimeException;
 use Behat\Gherkin\Node\TableNode;
+use PaulGibbs\WordpressBehatExtension\Context\Interfaces\UserAwareContextInterface;
 use PaulGibbs\WordpressBehatExtension\Context\Traits\ContentAwareContextTrait;
 use PaulGibbs\WordpressBehatExtension\Context\Traits\UserAwareContextTrait;
+use RuntimeException;
+use UnexpectedValueException;
 
 /**
  * Provides step definitions for creating content: post types, comments, and terms.
  */
-class ContentContext extends RawWordpressContext
+class ContentContext extends RawWordpressContext implements UserAwareContextInterface
 {
     use ContentAwareContextTrait, UserAwareContextTrait;
 

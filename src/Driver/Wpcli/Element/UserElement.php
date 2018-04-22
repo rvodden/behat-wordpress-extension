@@ -2,16 +2,28 @@
 declare(strict_types=1);
 namespace PaulGibbs\WordpressBehatExtension\Driver\Wpcli\Element;
 
-use PaulGibbs\WordpressBehatExtension\Driver\Element\BaseElement;
+use PaulGibbs\WordpressBehatExtension\Driver\Element\Interfaces\UserElementInterface;
 use PaulGibbs\WordpressBehatExtension\Exception\UnsupportedDriverActionException;
 use function PaulGibbs\WordpressBehatExtension\Util\buildCLIArgs;
 use UnexpectedValueException;
+use PaulGibbs\WordpressBehatExtension\Driver\Wpcli\WpcliDriverInterface;
 
 /**
  * WP-CLI driver element for managing user accounts.
  */
-class UserElement extends BaseElement
+class UserElement implements UserElementInterface
 {
+    /**
+     *
+     * @var WpcliDriverInterface $driver
+     */
+    var $driver;
+
+    public function __construct(WpcliDriverInterface $driver)
+    {
+        $this->driver = $driver;
+    }
+
     /**
      * Create an item for this element.
      *
@@ -31,7 +43,7 @@ class UserElement extends BaseElement
         );
 
         array_unshift($wpcli_args, $args['user_login'], $args['user_email'], '--porcelain');
-        $user_id = (int) $this->getDriver()->wpcli('user', 'create', $wpcli_args)['stdout'];
+        $user_id = (int) $this->driver->wpcli('user', 'create', $wpcli_args)['stdout'];
 
         return $this->get($user_id);
     }
@@ -78,7 +90,7 @@ class UserElement extends BaseElement
         );
 
         array_unshift($wpcli_args, $id, '--format=json');
-        $user = $this->getDriver()->wpcli('user', 'get', $wpcli_args)['stdout'];
+        $user = $this->driver->wpcli('user', 'get', $wpcli_args)['stdout'];
         $user = json_decode($user);
 
         if (! $user) {
@@ -116,6 +128,6 @@ class UserElement extends BaseElement
 
         array_unshift($wpcli_args, $id, '--yes');
 
-        $this->getDriver()->wpcli('user', 'delete', $wpcli_args);
+        $this->driver->wpcli('user', 'delete', $wpcli_args);
     }
 }

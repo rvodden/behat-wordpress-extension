@@ -18,8 +18,10 @@ services:
   wordpress.context.initializer:
       class: 'PaulGibbs\WordpressBehatExtension\Context\Initialiser\WordpressAwareInitialiser'
       arguments:
-          - "@wordpress.wordpress"
-          - "%wordpress.parameters%"
+          $wordpress: "@wordpress.wordpress"
+          $parameters: "%wordpress.parameters%"
+          $pluginElement: '@PaulGibbs\WordpressBehatExtension\Driver\Element\Interfaces\PluginElementInterface'
+          $databaseElement: '@PaulGibbs\WordpressBehatExtension\Driver\Element\Interfaces\DatabaseElementInterface'
       tags:
           - { name: context.initializer }
   wordpress.listener.driver:
