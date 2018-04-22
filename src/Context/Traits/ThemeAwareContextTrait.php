@@ -28,7 +28,6 @@ trait ThemeAwareContextTrait
 
     public function setThemeElement(ThemeElementInterface $themeElement)
     {
-        echo "Setting the theme element\n";
         $this->themeElement = $themeElement;
     }
 }
