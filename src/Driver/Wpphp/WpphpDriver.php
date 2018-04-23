@@ -10,7 +10,7 @@ use RuntimeException;
  */
 class WpphpDriver
 {
-    protected const SHORTNAME = 'wpphp';
+    const SHORTNAME = 'wpphp';
 
     /**
      * Path to WordPress' files.
