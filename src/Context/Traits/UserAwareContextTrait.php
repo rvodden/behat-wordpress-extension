@@ -270,7 +270,12 @@ trait UserAwareContextTrait
         return $this->userElement->get($username, ['by' => 'login'])->{$data};
     }
 
-    public function setUserElement($userElement)
+    /**
+     * Set the userElement
+     *
+     * @param UserElementInterface $userElement
+     */
+    public function setUserElement(UserElementInterface $userElement)
     {
         $this->userElement = $userElement;
     }
