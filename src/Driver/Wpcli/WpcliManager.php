@@ -85,7 +85,7 @@ class WpcliManager implements DriverManagerInterface
         $container->setParameter('wordpress.driver.wpcli.binary', $config['wpcli']['binary']);
 
         $definition->addArgument('%wordpress.driver.wpcli.alias%'); // $alias
-        $definition->addArgument('%mink.base_url%'); // $url
+        $definition->addArgument('%wordpress.site_url%'); // $url
         $definition->addArgument('%wordpress.driver.wpcli.binary%'); // $binary
         $definition->addArgument('%wordpress.path%'); // $path
     }

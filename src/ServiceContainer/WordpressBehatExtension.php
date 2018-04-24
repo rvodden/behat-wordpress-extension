@@ -12,11 +12,13 @@ use PaulGibbs\WordpressBehatExtension\Compiler\EventSubscriberPass;
 use PaulGibbs\WordpressBehatExtension\Driver\DriverManagerInterface;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
+use Symfony\Component\Config\Definition\Builder\NodeBuilder;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
 use Symfony\Component\DependencyInjection\Loader\FileLoader;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
+use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 
 /**
  * Main part of the Behat extension.
@@ -81,92 +83,19 @@ class WordpressBehatExtension implements ExtensionInterface
      */
     public function configure(ArrayNodeDefinition $builder)
     {
-        $builder->children()
-            ->
+        $childNodeBuilder = $builder->children();
+
         // Common settings.
-        enumNode('default_driver')
-            ->
-        // "wpapi" is for backwards compatibility; means "wpphp".
-        values([
-            'wpcli',
-            'wpapi',
-            'wpphp',
-            'blackbox'
-        ])
-            ->defaultValue('wpcli')
-            ->end()
-            ->scalarNode('path')
-            ->defaultValue('')
-            ->end()
-            ->
-        // WordPress' "siteurl" option.
-        scalarNode('site_url')
-            ->defaultValue('%mink.base_url%')
-            ->end()
-            ->
+        $this->addCommonSetting($childNodeBuilder);
+
         // Account roles -> username/password.
-        // TODO: fix formatting and stop using autoindent on eclipse
-        arrayNode('users')
-            ->addDefaultsIfNotSet()
-            ->children()
-            ->arrayNode('admin')
-            ->addDefaultsIfNotSet()
-            ->children()
-            ->scalarNode('username')
-            ->defaultValue('admin')
-            ->end()
-            ->scalarNode('password')
-            ->defaultValue('admin')
-            ->end()
-            ->end()
-            ->end()
-            ->arrayNode('editor')
-            ->addDefaultsIfNotSet()
-            ->children()
-            ->scalarNode('username')
-            ->defaultValue('editor')
-            ->end()
-            ->scalarNode('password')
-            ->defaultValue('editor')
-            ->end()
-            ->end()
-            ->end()
-            ->arrayNode('author')
-            ->addDefaultsIfNotSet()
-            ->children()
-            ->scalarNode('username')
-            ->defaultValue('author')
-            ->end()
-            ->scalarNode('password')
-            ->defaultValue('author')
-            ->end()
-            ->end()
-            ->end()
-            ->arrayNode('contributor')
-            ->addDefaultsIfNotSet()
-            ->children()
-            ->scalarNode('username')
-            ->defaultValue('contributor')
-            ->end()
-            ->scalarNode('password')
-            ->defaultValue('contributor')
-            ->end()
-            ->end()
-            ->end()
-            ->arrayNode('subscriber')
-            ->addDefaultsIfNotSet()
-            ->children()
-            ->scalarNode('username')
-            ->defaultValue('subscriber')
-            ->end()
-            ->scalarNode('password')
-            ->defaultValue('subscriber')
-            ->end()
-            ->end()
-            ->end()
-            ->end()
-            ->end()
-            ->
+        $usersArrayNode = arrayNode('users');
+        $this->addUserNode($usersArrayNode, 'admin');
+        $this->addUserNode($usersArrayNode, 'editor');
+        $this->addUserNode($usersArrayNode, 'author');
+        $this->addUserNode($usersArrayNode, 'contributor');
+        $this->addUserNode($usersArrayNode, 'subscriber');
+
         // WP-CLI driver.
         arrayNode('wpcli')
             ->addDefaultsIfNotSet()
@@ -224,6 +153,61 @@ class WordpressBehatExtension implements ExtensionInterface
     }
 
     /**
+     * Add a user configuration section to the provided configuration TreeBuilder.
+     *
+     * @param TreeBuilder $treeBuilder
+     * @param string $role
+     * @return boolean
+     */
+    protected function addUserNode(NodeBuilder $treeBuilder, string $role)
+    {
+        return $treeBuilder
+            ->addDefaultsIfNotSet()
+            ->children()
+                ->arrayNode($role)
+                    ->addDefaultsIfNotSet()
+                        ->children()
+                            ->scalarNode('username')
+                                ->defaultValue($role)
+                            ->end()
+                            ->scalarNode('password')
+                                ->defaultValue($role)
+                            ->end()
+                        ->end()
+                    ->end()
+                ->end()
+            ->end();
+    }
+
+    /**
+     * Adds configuration which is common to all the drivers to the provided NodeBuilder.
+     *
+     * @param NodeBuilder $nodeBuilder
+     * @param string $role
+     * @return boolean
+     */
+    protected function addCommonSettings(NodeBuilder $nodeBuilder)
+    {
+        $nodeBuilder->enumNode('default_driver')
+            ->values([
+                'wpcli',
+                'wpapi',
+                'wpphp',
+                'blackbox'
+            ])
+        ->defaultValue('wpcli')
+        ->end();
+
+        $nodeBuilder->scalarNode('path')
+        ->defaultValue('')
+        ->end();
+
+        scalarNode('site_url')
+        ->defaultValue('%mink.base_url%')
+        ->end();
+    }
+
+    /**
      * Load extension services into ServiceContainer.
      *
      * @param ContainerBuilder $container
@@ -256,7 +240,7 @@ class WordpressBehatExtension implements ExtensionInterface
             $config['default_driver'] = 'wpphp';
         }
 
-        $container->setParameter('wordpress.wordpress.default_driver', $config['default_driver']);
+        $container->setParameter('wordpress.default_driver', $config['default_driver']);
         $container->setParameter('wordpress.path', $config['path']);
         $container->setParameter('wordpress.parameters', $config);
     }
@@ -322,6 +306,7 @@ class WordpressBehatExtension implements ExtensionInterface
     {
         $this->setPageObjectNamespaces($container);
         $this->injectSiteUrlIntoPageObjects($container);
+        $this->listServicesAndTags($container);
     }
 
     /**
