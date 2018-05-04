@@ -2,7 +2,7 @@ version: '3'
 
 services:
    db:
-     image: healthcheck/mysql:latest
+     image: mysql:8.0.11
      ports:
        - "3306:3306"
      environment:
@@ -30,6 +30,6 @@ services:
        - seccomp:unconfined
 
    selenium:
-      image: selenium/standalone-chrome-debug:latest
+      image: selenium/standalone-chrome-debug:3.11.0
       ports:
       - "4444:4444"

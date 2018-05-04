@@ -5,7 +5,7 @@ WH_WORDPRESS_DIR=/usr/src/wordpress
 
 # wait for mysql to come up
 
-while ! mysqladmin ping -h "db" --silent; do
+while ! mysqladmin ping -h "db"; do
     echo "Waiting for mysql..."
     sleep 5
 done
