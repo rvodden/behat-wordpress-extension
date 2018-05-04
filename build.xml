@@ -45,7 +45,7 @@
     </waitfor>
     <phingcall target="docker:exec-tests" />
     <if>
-      <equals arg1="${wordhat.ci-engine}" arg2="travis" />
+      <isset arg1="${wordhat.pauls-build}" />
       <then>
         <phingcall target="docker:push" />
       </then>
@@ -78,11 +78,18 @@
 
   <target name="wordhat:detect-ci" hidden="true"
     unless="wordhat.runstyle">
+  	
     <if>
       <isset property="env.TRAVIS" />
       <then>
         <property name="wordhat.runstyle" value="docker" />
         <property name="wordhat.ci-engine" value="travis" />
+      	<if>
+      		<equals arg1="paulgibbs/behat-wordpress-extension" arg2="${env.TRAVIS_REPO_SLUG}" />
+      		<then>
+      			<property name="wordhat.pauls-build" value="true"/>
+      		</then>
+      	</if>
       </then>
       <elseif>
         <isset property="env.APPVEYOR" />
