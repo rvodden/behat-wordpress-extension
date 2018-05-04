@@ -11,7 +11,7 @@
 
     <property environment="env" />
     <property name="wordhat.php-version" value="7.2" />
-    <property name="wordhat.wordpress-version" value="4.9.4" />
+    <property name="wordhat.wordpress-version" value="4.9.5" />
     <property name="wordhat.phpstan-level" value="1" />
     <property name="wordhat.phpstan-configfile"
         value="${project.basedir}/phpstan.neon" />
