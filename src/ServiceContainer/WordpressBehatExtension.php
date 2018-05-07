@@ -13,12 +13,12 @@ use PaulGibbs\WordpressBehatExtension\Driver\DriverManagerInterface;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\NodeBuilder;
+use function Symfony\Component\Config\Definition\Builder\NodeBuilder\scalarNode;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
 use Symfony\Component\DependencyInjection\Loader\FileLoader;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
-use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 
 /**
  * Main part of the Behat extension.
@@ -83,100 +83,137 @@ class WordpressBehatExtension implements ExtensionInterface
      */
     public function configure(ArrayNodeDefinition $builder)
     {
-        $childNodeBuilder = $builder->children();
+        $builder
+            ->children()
+            // Common settings.
+            ->enumNode('default_driver')
+                // "wpapi" is for backwards compatibility; means "wpphp".
+                ->values(['wpcli','wpapi','wpphp','blackbox'])
+                ->defaultValue('wpcli')
+            ->end()
+            ->scalarNode('path')
+                ->defaultValue('')
+            ->end()
 
-        // Common settings.
-        $this->addCommonSetting($childNodeBuilder);
+        // WordPress' "siteurl" option.
+            ->scalarNode('site_url')->defaultValue('%mink.base_url%')->end()
 
-        // Account roles -> username/password.
-        $usersArrayNode = arrayNode('users');
-        $this->addUserNode($usersArrayNode, 'admin');
-        $this->addUserNode($usersArrayNode, 'editor');
-        $this->addUserNode($usersArrayNode, 'author');
-        $this->addUserNode($usersArrayNode, 'contributor');
-        $this->addUserNode($usersArrayNode, 'subscriber');
-
-        // WP-CLI driver.
-        arrayNode('wpcli')
-            ->addDefaultsIfNotSet()
-            ->children()
-            ->scalarNode('alias')
-            ->end()
-            ->scalarNode('binary')
-            ->defaultValue('wp')
-            ->end()
-            ->end()
-            ->end()
-            ->
-        // WordPress PHP driver.
-        arrayNode('wpphp')
-            ->addDefaultsIfNotSet()
-            ->children()
-            ->end()
-            ->end()
-            ->
-        // Blackbox driver.
-        arrayNode('blackbox')
-            ->addDefaultsIfNotSet()
-            ->children()
-            ->end()
-            ->end()
-            ->
-        // Database management.
-        arrayNode('database')
-            ->addDefaultsIfNotSet()
-            ->children()
-            ->booleanNode('restore_after_test')
-            ->defaultFalse()
-            ->end()
-            ->scalarNode('backup_path')
-            ->end()
-            ->end()
-            ->end()
-            ->
-        // Permalink patterns.
-        arrayNode('permalinks')
-            ->addDefaultsIfNotSet()
-            ->children()
-            ->scalarNode('author_archive')
-            ->defaultValue('author/%s/')
-            ->end()
-            ->end()
-            ->end()
-            ->
-        // Internal use only. Don't use it. Or else.
-        arrayNode('internal')
-            ->addDefaultsIfNotSet()
-            ->end()
-            ->end()
-            ->end();
-    }
-
-    /**
-     * Add a user configuration section to the provided configuration TreeBuilder.
-     *
-     * @param TreeBuilder $treeBuilder
-     * @param string $role
-     * @return boolean
-     */
-    protected function addUserNode(NodeBuilder $treeBuilder, string $role)
-    {
-        return $treeBuilder
-            ->addDefaultsIfNotSet()
-            ->children()
-                ->arrayNode($role)
-                    ->addDefaultsIfNotSet()
+            // Account roles -> username/password.
+            ->arrayNode('users')
+                ->addDefaultsIfNotSet()
+                ->children()
+                    ->arrayNode('admin')
+                        ->addDefaultsIfNotSet()
                         ->children()
                             ->scalarNode('username')
-                                ->defaultValue($role)
+                                ->defaultValue('admin')
                             ->end()
                             ->scalarNode('password')
-                                ->defaultValue($role)
+                                ->defaultValue('admin')
+                            ->end()
+                        ->end()
+                    ->end()
+                    ->arrayNode('editor')
+                        ->addDefaultsIfNotSet()
+                        ->children()
+                            ->scalarNode('username')
+                                ->defaultValue('editor')
+                            ->end()
+                            ->scalarNode('password')
+                                ->defaultValue('editor')
+                            ->end()
+                        ->end()
+                    ->end()
+                    ->arrayNode('author')
+                        ->addDefaultsIfNotSet()
+                        ->children()
+                            ->scalarNode('username')
+                                ->defaultValue('author')
+                            ->end()
+                            ->scalarNode('password')
+                                ->defaultValue('author')
+                            ->end()
+                        ->end()
+                    ->end()
+                    ->arrayNode('contributor')
+                        ->addDefaultsIfNotSet()
+                        ->children()
+                            ->scalarNode('username')
+                                ->defaultValue('contributor')
+                            ->end()
+                            ->scalarNode('password')
+                                ->defaultValue('contributor')
+                            ->end()
+                        ->end()
+                    ->end()
+                    ->arrayNode('subscriber')
+                        ->addDefaultsIfNotSet()
+                        ->children()
+                            ->scalarNode('username')
+                                ->defaultValue('subscriber')
+                            ->end()
+                            ->scalarNode('password')
+                                ->defaultValue('subscriber')
                             ->end()
                         ->end()
                     ->end()
                 ->end()
-            ->end();
+            ->end()
+
+            // WP-CLI driver.
+            ->arrayNode('wpcli')
+                ->addDefaultsIfNotSet()
+                    ->children()
+                        ->scalarNode('alias')
+                        ->end()
+                        ->scalarNode('binary')
+                            ->defaultValue('wp')
+                        ->end()
+                    ->end()
+                ->end()
+
+            // WordPress PHP driver.
+            ->arrayNode('wpphp')
+                ->addDefaultsIfNotSet()
+                    ->children()
+                    ->end()
+                ->end()
+
+            // Blackbox driver.
+            ->arrayNode('blackbox')
+                ->addDefaultsIfNotSet()
+                    ->children()
+                    ->end()
+                ->end()
+
+            // Database management.
+            ->arrayNode('database')
+                ->addDefaultsIfNotSet()
+                ->children()
+                    ->booleanNode('restore_after_test')
+                        ->defaultFalse()
+                    ->end()
+                    ->scalarNode('backup_path')
+                    ->end()
+                ->end()
+            ->end()
+
+            // Permalink patterns.
+            ->arrayNode('permalinks')
+                ->addDefaultsIfNotSet()
+                ->children()
+                    ->scalarNode('author_archive')
+                        ->defaultValue('author/%s/')
+                    ->end()
+                ->end()
+            ->end()
+
+            // Internal use only. Don't use it. Or else.
+            ->arrayNode('internal')
+                ->addDefaultsIfNotSet()
+                ->end()
+            ->end()
+        ->end();
     }
 
     /**
@@ -190,21 +227,19 @@ class WordpressBehatExtension implements ExtensionInterface
     {
         $nodeBuilder->enumNode('default_driver')
             ->values([
-                'wpcli',
-                'wpapi',
-                'wpphp',
-                'blackbox'
-            ])
-        ->defaultValue('wpcli')
-        ->end();
+            'wpcli',
+            'wpapi',
+            'wpphp',
+            'blackbox'
+        ])
+            ->defaultValue('wpcli')
+            ->end();
 
         $nodeBuilder->scalarNode('path')
-        ->defaultValue('')
-        ->end();
+            ->defaultValue('')
+            ->end();
 
-        scalarNode('site_url')
-        ->defaultValue('%mink.base_url%')
-        ->end();
+        scalarNode('site_url')->defaultValue('%mink.base_url%')->end();
     }
 
     /**
@@ -222,9 +257,9 @@ class WordpressBehatExtension implements ExtensionInterface
 
         $this->setParameters($container, $config);
 
-        $container->addCompilerPass(new DriverPass);
-        $container->addCompilerPass(new DriverElementPass);
-        $container->addCompilerPass(new EventSubscriberPass);
+        $container->addCompilerPass(new DriverPass());
+        $container->addCompilerPass(new DriverElementPass());
+        $container->addCompilerPass(new EventSubscriberPass());
     }
 
     /**
@@ -319,16 +354,16 @@ class WordpressBehatExtension implements ExtensionInterface
         $serviceIds = $container->getServiceIds();
 
         foreach ($serviceIds as $serviceId) {
-            echo "\tServiceId: " . $serviceId , ',';
+            echo "\tServiceId: " . $serviceId, ',';
             try {
                 $definition = $container->getDefinition($serviceId);
                 $class = $definition->getClass();
-                echo 'Class: ' . $class , ',';
+                echo 'Class: ' . $class, ',';
                 $tags = $definition->getTags();
                 if ($tags) {
                     $tagInformation = array();
                     foreach ($tags as $tagName => $tagData) {
-                        echo  "[$tagName";
+                        echo "[$tagName";
                         foreach ($tagData as $tagParameters) {
                             $parameters = array_map(function ($key, $value) {
                                 return sprintf('%s: %s', $key, $value);
@@ -347,7 +382,7 @@ class WordpressBehatExtension implements ExtensionInterface
                 echo "\n";
                 continue;
             }
-            //print_r(array_merge( class_parents("$class"), class_implements("$class")));
+            // print_r(array_merge( class_parents("$class"), class_implements("$class")));
         }
     }
 
