@@ -250,6 +250,7 @@ class WordpressBehatExtension implements ExtensionInterface
             $config['default_driver'] = 'wpphp';
         }
 
+        $container->setParameter('wordpress.site_url', $config['site_url']);
         $container->setParameter('wordpress.default_driver', $config['default_driver']);
         $container->setParameter('wordpress.path', $config['path']);
         $container->setParameter('wordpress.parameters', $config);
