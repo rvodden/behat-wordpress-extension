@@ -11,7 +11,7 @@
 
     <property environment="env" />
     <property name="wordhat.php-version" value="7.2" />
-    <property name="wordhat.wordpress-version" value="4.9.4" />
+    <property name="wordhat.wordpress-version" value="4.9.5" />
     <property name="wordhat.phpstan-level" value="1" />
     <property name="wordhat.phpstan-configfile"
         value="${project.basedir}/phpstan.neon" />
@@ -58,7 +58,7 @@
         <!-- scoping means that this needs to be reloaded here -->
         <property
             file="${project.basedir}/build/properties/${wordhat.ci-engine}.yml" />
-        <!-- for the moment assume all the pre-reqs are in place - gradually 
+        <!-- for the moment assume all the pre-reqs are in place - gradually
             migrate them in -->
         <echo message="${wordhat.behat-tags}" />
         <if>
