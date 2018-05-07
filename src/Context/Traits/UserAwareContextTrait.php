@@ -83,7 +83,12 @@ trait UserAwareContextTrait
      */
     public function loggedIn(): bool
     {
-        $page = $this->getSession()->getPage();
+        $session = $this->getSession();
+        if (! $session->isStarted()) {
+            $session->start();
+        }
+
+        $page = $session->getPage();
 
         // Look for a selector to determine if the user is logged in.
         try {

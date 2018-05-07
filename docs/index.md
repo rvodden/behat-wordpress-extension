@@ -1,3 +1,4 @@
+description: WordHat is a Behat extension for WordPress. It provides WordPress-specific functionality for common testing scenarios specific to WordPress sites.
 <img src="/img/logo.svg" class="index-logo" alt="">
 
 Welcome! WordHat is an integration layer between [Behat](http://behat.org) and [WordPress](https://wordpress.org). It provides WordPress-specific functionality for common testing scenarios specific to WordPress sites.

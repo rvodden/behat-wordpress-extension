@@ -1,3 +1,4 @@
+description: WordHat is built by a team of contributors, and descends from historical Behat extensions for WordPress.
 ## Team
 
 * [Paul Gibbs](https://github.com/paulgibbs/): Project Lead

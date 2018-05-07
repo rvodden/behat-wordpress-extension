@@ -29,7 +29,7 @@ init:
 install:
   # Install PHP via WebPI.
   - cInst webpicommandline -y
-  - WebPICMD /Install /Products:"PHP70" /AcceptEULA
+  - WebPICMD /Install /Products:"PHP71" /AcceptEULA
 
   # Install Composer and Selenium.
   - ps: mkdir c:\projects\wordhat-tools -Force

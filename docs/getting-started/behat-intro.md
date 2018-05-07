@@ -1,3 +1,4 @@
+description: Introduction to Behaviour-Driven Development
 # Behat
 
 [Behat](http://behat.org) is a test framework for Behavior Driven Development (BDD) in [PHP](https://secure.php.net). <abbr title="Behavior Driven Development">BDD</abbr> is a methodology for developing software through continuous example-based communication between developers and a business.

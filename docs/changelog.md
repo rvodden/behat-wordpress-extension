@@ -1,3 +1,4 @@
+description: WordHat project news and changelog
 # News
 
 ## Master branch

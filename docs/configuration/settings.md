@@ -1,3 +1,4 @@
+description: WordHat configuration settings
 # Settings
 
 This documentaton refers to settings provided by the WordHat extension.

@@ -1,3 +1,4 @@
+description: Information about making contributions to WordHat
 # Contributing to WordHat
 
 ## Communication standards
