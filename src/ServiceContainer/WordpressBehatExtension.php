@@ -13,7 +13,6 @@ use PaulGibbs\WordpressBehatExtension\Driver\DriverManagerInterface;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\NodeBuilder;
-use function Symfony\Component\Config\Definition\Builder\NodeBuilder\scalarNode;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
@@ -214,32 +213,6 @@ class WordpressBehatExtension implements ExtensionInterface
                 ->end()
             ->end()
         ->end();
-    }
-
-    /**
-     * Adds configuration which is common to all the drivers to the provided NodeBuilder.
-     *
-     * @param NodeBuilder $nodeBuilder
-     * @param string $role
-     * @return boolean
-     */
-    protected function addCommonSettings(NodeBuilder $nodeBuilder)
-    {
-        $nodeBuilder->enumNode('default_driver')
-            ->values([
-            'wpcli',
-            'wpapi',
-            'wpphp',
-            'blackbox'
-            ])
-            ->defaultValue('wpcli')
-            ->end();
-
-        $nodeBuilder->scalarNode('path')
-            ->defaultValue('')
-            ->end();
-
-        scalarNode('site_url')->defaultValue('%mink.base_url%')->end();
     }
 
     /**
