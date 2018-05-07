@@ -231,7 +231,7 @@ class WordpressBehatExtension implements ExtensionInterface
             'wpapi',
             'wpphp',
             'blackbox'
-        ])
+            ])
             ->defaultValue('wpcli')
             ->end();
 

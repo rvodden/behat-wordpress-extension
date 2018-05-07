@@ -40,7 +40,7 @@ class EventSubscriberPass implements CompilerPassInterface
     public function process(ContainerBuilder $container)
     {
         if (! $container->hasDefinition('event_dispatcher')) {
-            throw new RuntimeException("Event dispatcher cannot be found");
+            throw new RuntimeException('Event dispatcher cannot be found');
         }
 
         $dispatcher = $container->getDefinition('event_dispatcher');
