@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE xml>
 <?xml-model xlink:href="/usr/share/php5/PEAR/data/phing/etc/phing-grammar.rng"
             type="application/xml"
             schematypens="http://relaxng.org/ns/structure/1.0" ?>
@@ -9,7 +8,7 @@
 	<property name="behat.config.file" value="${project.basedir}/build/behat.yml" />
 	<property name="behat.report.dir" value="${project.basedir}/report/behat" />
 
-	<target name="behat:init" unless="behat.initialized">
+	<target name="behat:init" unless="behat.initialized" hidden="true">
 		<mkdir dir="${behat.report.dir}" />
 		<property name="behat.initialized" value="true" />
 	</target>

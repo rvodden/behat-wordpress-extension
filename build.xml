@@ -58,7 +58,7 @@
         <!-- scoping means that this needs to be reloaded here -->
         <property
             file="${project.basedir}/build/properties/${wordhat.ci-engine}.yml" />
-        <!-- for the moment assume all the pre-reqs are in place - gradually
+        <!-- for the moment assume all the pre-reqs are in place - gradually 
             migrate them in -->
         <echo message="${wordhat.behat-tags}" />
         <if>
